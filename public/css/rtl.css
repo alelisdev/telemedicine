@@ -1,0 +1,774 @@
+[dir="rtl"] {
+  /*
+    Responsive CSS
+    ============================*/
+}
+
+[dir="rtl"] .owl-carousel {
+  direction: ltr;
+}
+
+[dir="rtl"] .owl-carousel .owl-item {
+  direction: rtl;
+}
+
+[dir="rtl"] .slider-item .slider-shape img {
+  left: -90px;
+  right: auto;
+}
+
+[dir="rtl"] .slider-item .slider-shape-two img {
+  left: -60px;
+  right: auto;
+}
+
+[dir="rtl"] .common-btn a {
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+[dir="rtl"] .about-right {
+  padding-right: 40px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .section-title h2:before {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .header-top-item .header-top-right {
+  text-align: left;
+}
+
+[dir="rtl"] .header-top-item .header-top-right .lang-list {
+  margin-right: 0;
+  margin-left: 30px;
+}
+
+[dir="rtl"] .nav-srh form .icon-search {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .about-item ul li i {
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+[dir="rtl"] .header-top-item .header-top-right ul li {
+  margin-left: 5px;
+  margin-right: 0;
+}
+
+[dir="rtl"] .header-top-item .header-top-right ul li:last-child {
+  margin-left: 0;
+}
+
+[dir="rtl"] .nav-srh .search-area {
+  left: 8px;
+  right: auto;
+}
+
+[dir="rtl"] .nav-srh .search-area .src-input {
+  padding-right: 20px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .nav-srh .search-area .search-icon {
+  left: 30px;
+  right: auto;
+}
+
+[dir="rtl"] .navbar-brand {
+  margin-right: 0;
+}
+
+[dir="rtl"] .header-top-item .header-top-left ul li {
+  margin-left: 25px;
+  margin-right: 0;
+}
+
+[dir="rtl"] .header-top-item .header-top-left ul li:last-child {
+  margin-left: 0;
+}
+
+[dir="rtl"] .dropdown-toggle::after {
+  margin-right: .255em;
+  margin-left: 0;
+}
+
+[dir="rtl"] .main-nav nav .navbar-nav {
+  padding-right: 0;
+  padding-left: 15px;
+}
+
+[dir="rtl"] .main-nav nav .navbar-nav .nav-item .dropdown-menu {
+  right: 0;
+  left: auto;
+  text-align: right;
+}
+
+[dir="rtl"] .slider-item .slider-shape-three img {
+  left: 0;
+  right: auto;
+}
+
+[dir="rtl"] .expertise-item .expertise-right {
+  padding-right: 80px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .expertise-item .expertise-right:before {
+  right: 65px;
+  left: auto;
+}
+
+[dir="rtl"] .expertise-item .expertise-right:after {
+  left: 0;
+  right: auto;
+}
+
+[dir="rtl"] .nav {
+  padding-right: 0;
+}
+
+[dir="rtl"] .video-item .video-content {
+  text-align: right;
+  padding-right: 30px;
+  margin-right: 0;
+}
+
+[dir="rtl"] .video-item .video-content:before {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .blog-item .blog-bottom ul li:last-child {
+  float: left;
+}
+
+[dir="rtl"] .newsletter-item .newsletter-form .form-control {
+  padding-right: 25px;
+  padding-left: 0;
+  text-align: right;
+}
+
+[dir="rtl"] .newsletter-item .newsletter-form .newsletter-btn {
+  left: 7px;
+  right: auto;
+}
+
+[dir="rtl"] .text-left {
+  text-align: right !important;
+}
+
+[dir="rtl"] .footer-item .footer-contact ul li {
+  padding-right: 60px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .footer-item .footer-contact ul li i {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] #toTop {
+  left: 0;
+  right: auto;
+}
+
+[dir="rtl"] .back-to-top-btn i {
+  margin-left: 28px;
+  margin-right: 0;
+}
+
+[dir="rtl"] .emergency-item .emergency-inner {
+  padding-right: 75px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .emergency-item i {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .emergency-bg {
+  padding: 45px 110px 15px 0;
+}
+
+[dir="rtl"] .welcome-right {
+  padding-right: 70px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .welcome-item ul li .welcome-inner {
+  padding-right: 110px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .welcome-item ul li i {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .speciality-right .speciality-emergency {
+  right: -70px;
+  left: auto;
+}
+
+[dir="rtl"] .pr-0, [dir="rtl"] .px-0 {
+  padding-left: 0 !important;
+}
+
+[dir="rtl"] .speciality-left {
+  padding-right: 55px;
+  padding-left: 120px;
+}
+
+[dir="rtl"] .appointment-item .appointment-form .form-group {
+  padding-right: 70px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .appointment-item .appointment-form .form-group i {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .appointment-item .appointment-form .form-group .form-control {
+  font-size: 15px;
+}
+
+[dir="rtl"] .home-slider-two .slider-item .slider-shape img {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .banner-item .banner-right img:nth-child(1) {
+  left: 10px;
+  right: auto;
+}
+
+[dir="rtl"] .banner-item .banner-right img:nth-child(2) {
+  left: 20px;
+  right: auto;
+}
+
+[dir="rtl"] .banner-item .banner-right img:nth-child(3) {
+  left: 0px;
+  right: auto;
+}
+
+[dir="rtl"] .banner-item .common-btn-two a {
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+[dir="rtl"] .banner-area .heart-shape img {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .banner-item .banner-right img:nth-child(4) {
+  right: 50px;
+  left: auto;
+}
+
+[dir="rtl"] .main-nav nav .navbar-nav .nav-item .dropdown-menu {
+  border-right: 3px solid #0046c0;
+  border-left: none;
+}
+
+[dir="rtl"] .hospital-right {
+  margin-right: 85px;
+  margin-left: 0;
+}
+
+[dir="rtl"] .hospital-item .hospital-left-two {
+  margin-right: 15px;
+  margin-left: 0;
+}
+
+[dir="rtl"] .hospital-item .hospital-left-two:before {
+  right: -17px;
+  left: auto;
+}
+
+[dir="rtl"] .hospital-item .hospital-left-one:before {
+  left: -17px;
+  right: auto;
+}
+
+[dir="rtl"] .speciality-right-two:before {
+  left: 0;
+  right: auto;
+}
+
+[dir="rtl"] .appointment-item-two-right .appointment-item-content .content-two {
+  margin-right: 70px;
+  margin-left: 0;
+}
+
+[dir="rtl"] .appointment-item-two-right .appointment-item-content .content-one ul li:before {
+  right: 95px;
+  left: auto;
+}
+
+[dir="rtl"] .appointment-item .appointment-form .form-group .form-control {
+  padding-right: 0;
+}
+
+[dir="rtl"] .signup-item .signup-head h2:before {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .accordion li .faq-head {
+  padding: 15px 18px 15px 35px;
+}
+
+[dir="rtl"] .accordion li .faq-head:after {
+  right: unset;
+  left: 20px;
+}
+
+[dir="rtl"] .doctor-search-item .form-group {
+  padding-right: 60px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .doctor-search-item .form-group .form-control {
+  padding-right: 0;
+}
+
+[dir="rtl"] .doctor-search-item .form-group i {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .doctor-details-item .doctor-details-contact {
+  padding-right: 65px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .doctor-details-item .doctor-details-contact ul li i {
+  margin-left: 8px;
+  margin-right: 0;
+}
+
+[dir="rtl"] .doctor-details-item .doctor-details-work {
+  padding-right: 65px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .page-title-item-two {
+  text-align: right;
+  margin-right: auto;
+  margin-left: 0;
+}
+
+[dir="rtl"] .appointment-area-three .appointment-item {
+  margin-right: auto;
+  margin-left: 80px;
+  margin-top: 50px;
+}
+
+[dir="rtl"] .appointment-area-three .appointment-item .appointment-shape {
+  right: -74px;
+  left: auto;
+}
+
+[dir="rtl"] .services-details-img blockquote i {
+  right: 38px;
+  left: auto;
+}
+
+[dir="rtl"] .blog-details-item .blog-details-search .blog-details-btn {
+  left: 0;
+  right: auto;
+}
+
+[dir="rtl"] .blog-details-item .blog-details-recent ul li {
+  padding-right: 120px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .blog-details-item .blog-details-recent ul li img {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .blog-details-item .blog-details-recent ul li ul li {
+  padding-right: 0;
+  margin-left: 25px;
+  margin-right: 0;
+}
+
+[dir="rtl"] .blog-details-item .blog-details-recent ul li ul li:last-child {
+  margin-left: 0;
+}
+
+[dir="rtl"] .blog-details-item .blog-details-recent ul li ul li i {
+  margin-left: 2px;
+  margin-right: 0;
+}
+
+[dir="rtl"] .blog-details-item .blog-details-category ul li {
+  padding-right: 20px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .blog-details-item .blog-details-category ul li:before {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .blog-details-item .blog-details-previous .prev-next ul li:last-child {
+  float: left;
+}
+
+[dir="rtl"] .location-wrap {
+  padding-right: 170px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .drop-item .drop-left h2 {
+  padding-right: 0;
+  padding-left: 50px;
+}
+
+[dir="rtl"] .blog-details-item .blog-details-img ul li {
+  margin-left: 50px;
+  margin-right: 0;
+}
+
+[dir="rtl"] .blog-details-item .blog-details-img ul li:last-child {
+  margin-left: 0;
+}
+
+[dir="rtl"] .slider-item-two .slider-shape img {
+  left: 0;
+}
+
+[dir="rtl"] .symptoms-content ul li span i {
+  left: unset;
+  right: 10px;
+}
+
+[dir="rtl"] .symptoms-content ul li span {
+  padding: 12px 40px 14px 10px;
+}
+
+[dir="rtl"] .slider-item-three .slider-shape img {
+  left: 0;
+}
+
+[dir="rtl"] .slider-item-three .slider-text ul li {
+  padding-left: 0;
+  padding-right: 20px;
+}
+
+[dir="rtl"] .slider-item-three .slider-text ul {
+  text-align: right;
+}
+
+[dir="rtl"] .slider-item-three .slider-text ul li span {
+  right: unset;
+  left: 0;
+}
+
+[dir="rtl"] .slider-item-three .slider-text ul li:before {
+  left: unset;
+  right: 0;
+}
+
+[dir="rtl"] .spread-area .spread-content ul li img {
+  left: unset;
+  right: 0;
+}
+
+[dir="rtl"] .spread-area .spread-content ul li {
+  padding-left: 0;
+  padding-right: 105px;
+}
+
+[dir="rtl"] .faq-area-two .accordion .faq-head:after {
+  right: unset;
+  left: 15px;
+}
+
+[dir="rtl"] .slider-item-three .slider-text span {
+  padding-left: 0;
+  padding-right: 25px;
+}
+
+[dir="rtl"] .slider-item-three .slider-text span:before {
+  left: unset;
+  right: 0;
+}
+
+[dir="rtl"] .go-top {
+  right: auto;
+  left: 15px;
+}
+
+[dir="rtl"] .accordion__button {
+  text-align: right;
+}
+
+[dir="rtl"] .page-title-item ul li {
+  margin-right: 0;
+  margin-left: 25px;
+}
+
+[dir="rtl"] .page-title-item ul li:last-child {
+  margin-left: 0;
+}
+
+[dir="rtl"] .page-title-item ul li::before {
+  right: auto;
+  left: -17px;
+}
+
+@media only screen and (max-width: 767px) {
+  [dir="rtl"] .header-top-item .header-top-left ul li {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+  [dir="rtl"] .header-top-item .header-top-right {
+    text-align: center;
+  }
+  [dir="rtl"] .mobile-nav .logo {
+    right: 15px !important;
+    left: auto !important;
+  }
+  [dir="rtl"] .slider-item .slider-shape img {
+    left: auto;
+    right: auto;
+  }
+  [dir="rtl"] .slider-item .slider-shape-two img {
+    left: auto;
+    right: auto;
+  }
+  [dir="rtl"] .about-right {
+    padding-right: 0 !important;
+  }
+  [dir="rtl"] .expertise-item .expertise-right {
+    padding-right: 0 !important;
+  }
+  [dir="rtl"] .emergency-item .emergency-inner {
+    padding-right: 70px !important;
+    padding-left: 0 !important;
+  }
+  [dir="rtl"] .welcome-right {
+    padding-right: 20px !important;
+    padding-left: 0 !important;
+  }
+  [dir="rtl"] .welcome-item ul li .welcome-inner {
+    padding-right: 75px !important;
+    padding-left: 0 !important;
+  }
+  [dir="rtl"] .speciality-right .speciality-emergency {
+    right: 15px !important;
+    left: auto !important;
+  }
+  [dir="rtl"] .banner-item .common-btn-two a:last-child {
+    margin-left: 0 !important;
+  }
+  [dir="rtl"] .hospital-right {
+    margin-right: 0 !important;
+  }
+  [dir="rtl"] .appointment-item-two .appointment-shape {
+    right: -74px;
+    left: auto;
+  }
+  [dir="rtl"] .appointment-item-two-right .appointment-item-content .content-two {
+    margin-right: 10px !important;
+    margin-left: 0 !important;
+  }
+  [dir="rtl"] .services-details-img blockquote {
+    padding: 25px 45px 25px 15px !important;
+  }
+  [dir="rtl"] .services-details-img blockquote i {
+    right: 14px !important;
+    left: auto !important;
+  }
+  [dir="rtl"] .doctor-details-item .doctor-details-contact {
+    padding-right: 15px !important;
+    padding-left: 0 !important;
+  }
+  [dir="rtl"] .doctor-details-item .doctor-details-work {
+    padding-right: 15px !important;
+    padding-left: 0 !important;
+  }
+  [dir="rtl"] .appointment-area-three .appointment-item {
+    margin-left: 0 !important;
+  }
+  [dir="rtl"] .location-wrap {
+    padding-right: 0 !important;
+  }
+  [dir="rtl"] .blog-details-item .blog-details-img ul li {
+    margin-left: 25px !important;
+    margin-right: 0 !important;
+  }
+  [dir="rtl"] .blog-details-item .blog-details-recent ul li {
+    padding-right: 110px !important;
+    padding-left: 0 !important;
+  }
+  [dir="rtl"] .common-btn a {
+    margin-left: 6px;
+    margin-right: 0;
+  }
+  [dir="rtl"] .slider-item-two .slider-shape img {
+    max-width: 100%;
+    left: 0;
+  }
+  [dir="rtl"] .slider-item-three .slider-shape img {
+    left: 0;
+  }
+  [dir="rtl"] .emergency-bg {
+    padding: 45px 0 15px 0;
+  }
+  [dir="rtl"] .speciality-left {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  [dir="rtl"] .header-top-item .header-top-left ul li {
+    margin-left: 0 !important;
+  }
+  [dir="rtl"] .mobile-nav .logo {
+    right: 15px !important;
+    left: auto !important;
+  }
+  [dir="rtl"] .mean-container a.meanmenu-reveal {
+    left: 15px !important;
+    right: auto !important;
+  }
+  [dir="rtl"] .mean-container .mean-nav ul li a.mean-expand {
+    width: 90%;
+  }
+  [dir="rtl"] .mean-container .mean-nav ul li a {
+    text-align: right;
+  }
+  [dir="rtl"] .mean-container .mean-nav ul li a.mean-expand {
+    text-align: left;
+    left: 0;
+    right: auto;
+  }
+  [dir="rtl"] .about-right {
+    padding-right: 0 !important;
+  }
+  [dir="rtl"] .expertise-item .expertise-right {
+    padding-right: 0 !important;
+  }
+  [dir="rtl"] .speciality-right .speciality-emergency {
+    right: 15px !important;
+    left: auto !important;
+  }
+  [dir="rtl"] .expertise-item .expertise-right {
+    padding-right: 0 !important;
+  }
+  [dir="rtl"] .emergency-item .emergency-inner {
+    padding-right: 70px !important;
+    padding-left: 0 !important;
+  }
+  [dir="rtl"] .emergency-bg {
+    padding: 40px 50px 10px 50px !important;
+  }
+  [dir="rtl"] .welcome-right {
+    padding-right: 25px !important;
+  }
+  [dir="rtl"] .welcome-item ul li .welcome-inner {
+    padding-right: 90px !important;
+    padding-left: 0 !important;
+  }
+  [dir="rtl"] .welcome-item ul li .welcome-inner p {
+    padding-left: 50px !important;
+    padding-right: 0 !important;
+  }
+  [dir="rtl"] .hospital-right {
+    margin-right: 0 !important;
+  }
+  [dir="rtl"] .appointment-item-two .appointment-shape {
+    right: -74px;
+    left: auto;
+  }
+  [dir="rtl"] .services-details-img blockquote {
+    padding: 25px 45px 25px 15px !important;
+  }
+  [dir="rtl"] .services-details-img blockquote i {
+    right: 14px !important;
+    left: auto !important;
+  }
+  [dir="rtl"] .doctor-details-item .doctor-details-contact {
+    padding-right: 15px !important;
+    padding-left: 0 !important;
+  }
+  [dir="rtl"] .doctor-details-item .doctor-details-work {
+    padding-right: 15px !important;
+    padding-left: 0 !important;
+  }
+  [dir="rtl"] .appointment-area-three .appointment-item {
+    margin-left: 0 !important;
+  }
+  [dir="rtl"] .location-wrap {
+    padding-right: 0 !important;
+  }
+  [dir="rtl"] .slider-item-two .slider-shape img {
+    left: 0;
+  }
+  [dir="rtl"] .slider-item-three .slider-shape img {
+    left: 0;
+  }
+  [dir="rtl"] .slider-item .slider-shape-two img {
+    left: auto;
+    right: auto;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  [dir="rtl"] .slider-item .slider-shape img {
+    left: 0 !important;
+    right: auto !important;
+  }
+  [dir="rtl"] .slider-item .slider-shape-two img {
+    left: 0 !important;
+    right: auto !important;
+  }
+  [dir="rtl"] .slider-item .slider-shape-three img {
+    left: 0 !important;
+    right: auto !important;
+  }
+  [dir="rtl"] .speciality-left {
+    padding-right: 30px !important;
+    padding-left: 65px !important;
+  }
+  [dir="rtl"] .banner-item .banner-right img:nth-child(1) {
+    left: -20px !important;
+    right: auto !important;
+  }
+  [dir="rtl"] .banner-item .banner-right img:nth-child(2) {
+    left: -9px !important;
+    right: auto !important;
+  }
+  [dir="rtl"] .banner-item .banner-right img:nth-child(3) {
+    left: -19px !important;
+    right: auto !important;
+  }
+  [dir="rtl"] .blog-details-item .blog-details-recent ul li {
+    padding-left: 0 !important;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  [dir="rtl"] .speciality-left {
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+/*# sourceMappingURL=rtl.css.map */

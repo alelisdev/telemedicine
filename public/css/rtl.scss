@@ -1,0 +1,703 @@
+[dir="rtl"] {
+    .owl-carousel {
+        direction: ltr;
+        .owl-item {
+            direction: rtl;
+        }
+    }
+    .slider-item .slider-shape img {
+        left: -90px;
+        right: auto;
+    }
+    .slider-item .slider-shape-two img {
+        left: -60px;
+        right: auto;
+    }
+    .common-btn a {
+        margin-left: 20px;
+        margin-right: 0;
+    }
+    .about-right {
+        padding-right: 40px;
+        padding-left: 0;
+    }
+    .section-title h2:before {
+        right: 0;
+        left: auto;
+    }
+    .header-top-item {
+        .header-top-right {
+            text-align: left;
+            .lang-list {
+                margin-right: 0;
+                margin-left: 30px;
+            }
+        }
+    }
+    .nav-srh {
+        form {
+            .icon-search {
+                right: auto;
+                left: 0;
+            }
+        }
+    }
+    .about-item {
+        ul {
+            li {
+                i {
+                    margin-right: 0;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+    .header-top-item .header-top-right ul li {
+        margin-left: 5px;
+        margin-right: 0;
+    }
+    .header-top-item .header-top-right ul li:last-child {
+        margin-left: 0;
+    }
+    .nav-srh .search-area {
+        left: 8px;
+        right: auto;
+    }
+    .nav-srh .search-area .src-input {
+        padding-right: 20px;
+        padding-left: 0;
+    }
+    .nav-srh .search-area .search-icon {
+        left: 30px;
+        right: auto;
+    }
+    .navbar-brand {
+        margin-right: 0;
+    }
+    .header-top-item .header-top-left ul li {
+        margin-left: 25px;
+        margin-right: 0;
+    }
+    .header-top-item .header-top-left ul li:last-child {
+        margin-left: 0;
+    }
+    .dropdown-toggle::after {
+        margin-right: .255em;
+        margin-left: 0;
+    }
+    .main-nav {
+        nav {
+            .navbar-nav {
+                padding-right: 0;
+                padding-left: 15px;
+                .nav-item {
+                    .dropdown-menu {
+                        right: 0;
+                        left: auto;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+    .slider-item .slider-shape-three img {
+        left: 0;
+        right: auto;
+    }
+    .expertise-item .expertise-right {
+        padding-right: 80px;
+        padding-left: 0;
+    }
+    .expertise-item .expertise-right:before {
+        right: 65px;
+        left: auto;
+    }
+    .expertise-item .expertise-right:after {
+        left: 0;
+        right: auto;
+    }
+    .nav {
+        padding-right: 0;
+    }
+    .video-item .video-content {
+        text-align: right;
+        padding-right: 30px;
+        margin-right: 0;
+    }
+    .video-item .video-content:before {
+        right: 0;
+        left: auto;
+    }
+    .blog-item .blog-bottom ul li:last-child {
+        float: left;
+    }
+    .newsletter-item .newsletter-form .form-control {
+        padding-right: 25px;
+        padding-left: 0;
+        text-align: right;
+    }
+    .newsletter-item .newsletter-form .newsletter-btn {
+        left: 7px;
+        right: auto;
+    }
+    .text-left {
+        text-align: right !important;
+    }
+    .footer-item .footer-contact ul li {
+        padding-right: 60px;
+        padding-left: 0;
+    }
+    .footer-item .footer-contact ul li i {
+        right: 0;
+        left: auto;
+    }
+    #toTop {
+        left: 0;
+        right: auto;
+    }
+    .back-to-top-btn i {
+        margin-left: 28px;
+        margin-right: 0;
+    }
+    .emergency-item .emergency-inner {
+        padding-right: 75px;
+        padding-left: 0;
+    }
+    .emergency-item i {
+        right: 0;
+        left: auto;
+    }
+    .emergency-bg {
+        padding: 45px 110px 15px 0;
+    }
+    .welcome-right {
+        padding-right: 70px;
+        padding-left: 0;
+    }
+    .welcome-item ul li .welcome-inner {
+        padding-right: 110px;
+        padding-left: 0;
+    }
+    .welcome-item ul li i {
+        right: 0;
+        left: auto;
+    }
+    .speciality-right .speciality-emergency {
+        right: -70px;
+        left: auto;
+    }
+    .pr-0, .px-0 {
+        padding-left: 0 !important;
+    }
+    .speciality-left {
+        padding-right: 55px;
+        padding-left: 120px;
+    }
+    .appointment-item .appointment-form .form-group {
+        padding-right: 70px;
+        padding-left: 0;
+    }
+    .appointment-item .appointment-form .form-group i {
+        right: 0;
+        left: auto;
+    }
+    .appointment-item .appointment-form .form-group .form-control {
+        font-size: 15px;
+    }
+    .home-slider-two .slider-item .slider-shape img {
+        right: 0;
+        left: auto;
+    }
+    .banner-item .banner-right img:nth-child(1) {
+        left: 10px;
+        right: auto;
+    }
+    .banner-item .banner-right img:nth-child(2) {
+        left: 20px;
+        right: auto;
+    }
+    .banner-item .banner-right img:nth-child(3) {
+        left: 0px;
+        right: auto;
+    }
+    .banner-item .common-btn-two a {
+        margin-left: 20px;
+        margin-right: 0;
+    }
+    .banner-area .heart-shape img {
+        right: 0;
+        left: auto;
+    }
+    .banner-item .banner-right img:nth-child(4) {
+        right: 50px;
+        left: auto;
+    }
+    .main-nav nav .navbar-nav .nav-item .dropdown-menu {
+        border-right: 3px solid #0046c0;
+        border-left: none;
+    }
+    .hospital-right {
+        margin-right: 85px;
+        margin-left: 0;
+    }
+    .hospital-item .hospital-left-two {
+        margin-right: 15px;
+        margin-left: 0;
+    }
+    .hospital-item .hospital-left-two:before {
+        right: -17px;
+        left: auto;
+    }
+    .hospital-item .hospital-left-one:before {
+        left: -17px;
+        right: auto;
+    }
+    .speciality-right-two:before {
+        left: 0;
+        right: auto;
+    }
+    .appointment-item-two-right .appointment-item-content .content-two {
+        margin-right: 70px;
+        margin-left: 0;
+    }
+    .appointment-item-two-right .appointment-item-content .content-one ul li:before {
+        right: 95px;
+        left: auto;
+    }
+    .appointment-item .appointment-form .form-group .form-control {
+        padding-right: 0;
+    }
+    .signup-item .signup-head h2:before {
+        right: 0;
+        left: auto;
+    }
+    .accordion li .faq-head {
+        padding: 15px 18px 15px 35px;
+    }
+    .accordion li .faq-head:after {
+        right: unset;
+        left: 20px;
+    }
+    .doctor-search-item .form-group {
+        padding-right: 60px;
+        padding-left: 0;
+    }
+    .doctor-search-item .form-group .form-control {
+        padding-right: 0;
+    }
+    .doctor-search-item .form-group i {
+        right: 0;
+        left: auto;
+    }
+    .doctor-details-item .doctor-details-contact {
+        padding-right: 65px;
+        padding-left: 0;
+    }
+    .doctor-details-item .doctor-details-contact ul li i {
+        margin-left: 8px;
+        margin-right: 0;
+    }
+    .doctor-details-item .doctor-details-work {
+        padding-right: 65px;
+        padding-left: 0;
+    }
+    .page-title-item-two {
+        text-align: right;
+        margin-right: auto;
+        margin-left: 0;
+    }
+    .appointment-area-three .appointment-item {
+        margin-right: auto;
+        margin-left: 80px;
+        margin-top: 50px;
+    }
+    .appointment-area-three .appointment-item .appointment-shape {
+        right: -74px;
+        left: auto;
+    }
+    .services-details-img blockquote i {
+        right: 38px;
+        left: auto;
+    }
+    .blog-details-item .blog-details-search .blog-details-btn {
+        left: 0;
+        right: auto;
+    }
+    .blog-details-item .blog-details-recent ul li {
+        padding-right: 120px;
+        padding-left: 0;
+    }
+    .blog-details-item .blog-details-recent ul li img {
+        right: 0;
+        left: auto;
+    }
+    .blog-details-item .blog-details-recent ul li ul li {
+        padding-right: 0;
+        margin-left: 25px;
+        margin-right: 0;
+    }
+    .blog-details-item .blog-details-recent ul li ul li:last-child {
+        margin-left: 0;
+    }
+    .blog-details-item .blog-details-recent ul li ul li i {
+        margin-left: 2px;
+        margin-right: 0;
+    }
+    .blog-details-item .blog-details-category ul li {
+        padding-right: 20px;
+        padding-left: 0;
+    }
+    .blog-details-item .blog-details-category ul li:before {
+        right: 0;
+        left: auto;
+    }
+    .blog-details-item .blog-details-previous .prev-next ul li:last-child {
+        float: left;
+    }
+    .location-wrap {
+        padding-right: 170px;
+        padding-left: 0;
+    }
+    .drop-item .drop-left h2 {
+        padding-right: 0;
+        padding-left: 50px;
+    }
+    .blog-details-item .blog-details-img ul li {
+        margin-left: 50px;
+        margin-right: 0;
+    }
+    .blog-details-item .blog-details-img ul li:last-child {
+        margin-left: 0;
+    }
+    .slider-item-two .slider-shape img {
+        left: 0;
+    }
+    .symptoms-content ul li span i {
+        left: unset;
+        right: 10px;
+    }
+    .symptoms-content ul li span {
+        padding: 12px 40px 14px 10px;
+    }
+    .slider-item-three .slider-shape img {
+        left: 0;
+    }
+    .slider-item-three .slider-text ul li {
+        padding-left: 0;
+        padding-right: 20px;
+    }
+    .slider-item-three .slider-text ul  {
+        text-align: right;
+    }
+    .slider-item-three .slider-text ul li span {
+        right: unset;
+        left: 0;
+    }
+    .slider-item-three .slider-text ul li:before {
+        left: unset;
+        right: 0;
+    }
+    .spread-area .spread-content ul li img {
+        left: unset;
+        right: 0;
+    }
+    .spread-area .spread-content ul li {
+        padding-left: 0;
+        padding-right: 105px;
+    }
+    .faq-area-two .accordion .faq-head:after {
+        right: unset;
+        left: 15px;
+    }
+    .slider-item-three .slider-text span {
+        padding-left: 0;
+        padding-right: 25px;
+    }
+    .slider-item-three .slider-text span:before {
+        left: unset;
+        right: 0;
+    }
+    .go-top {
+        right: auto;
+        left: 15px;
+    }
+    .accordion__button {
+        text-align: right;
+    }
+    .page-title-item {
+        ul {
+            li {
+                margin-right: 0;
+                margin-left: 25px;
+
+                &:last-child {
+                    margin-left: 0;
+                }
+            
+                &::before {
+                    right: auto;
+                    left: -17px;
+                }
+            }
+        }
+    }
+    
+    /*
+    Responsive CSS
+    ============================*/
+    @media only screen and (max-width: 767px) {
+        .header-top-item {
+            .header-top-left {
+                ul {
+                    li {
+                        margin-left: 10px !important;
+                        margin-right: 10px !important;
+                    } 
+                }
+            }
+        }
+        .header-top-item {
+            .header-top-right {
+                text-align: center;
+            }
+        }
+        .mobile-nav .logo {
+            right: 15px !important;
+            left: auto !important;
+        }
+        .slider-item .slider-shape img {
+            left: auto;
+            right: auto;
+        }
+        .slider-item .slider-shape-two img {
+            left: auto;
+            right: auto;
+        }
+        .about-right {
+            padding-right: 0 !important;
+        }
+        .expertise-item .expertise-right {
+            padding-right: 0 !important;
+        }
+        .emergency-item .emergency-inner {
+            padding-right: 70px !important;
+            padding-left: 0 !important;
+        }
+        .welcome-right {
+            padding-right: 20px !important;
+            padding-left: 0 !important;
+        }
+        .welcome-item ul li .welcome-inner {
+            padding-right: 75px !important;
+            padding-left: 0 !important;
+        }
+        .speciality-right .speciality-emergency {
+            right: 15px !important;
+            left: auto !important;
+        }
+        .banner-item .common-btn-two a:last-child {
+            margin-left: 0 !important;
+        }
+        .hospital-right {
+            margin-right: 0 !important;
+        }
+        .appointment-item-two .appointment-shape {
+            right: -74px;
+            left: auto;
+        }
+        .appointment-item-two-right .appointment-item-content .content-two {
+            margin-right: 10px !important;
+            margin-left: 0 !important;
+        }
+        .services-details-img blockquote {
+            padding: 25px 45px 25px 15px !important;
+        }
+        .services-details-img blockquote i {
+            right: 14px !important;
+            left: auto !important;
+        }
+        .doctor-details-item .doctor-details-contact {
+            padding-right: 15px !important;
+            padding-left: 0 !important;
+        }
+        .doctor-details-item .doctor-details-work {
+            padding-right: 15px !important;
+            padding-left: 0 !important;
+        }
+        .appointment-area-three .appointment-item {
+            margin-left: 0 !important;
+        }
+        .location-wrap {
+            padding-right: 0 !important;
+        }
+        .blog-details-item .blog-details-img ul li {
+            margin-left: 25px !important;
+            margin-right: 0 !important;
+        }
+        .blog-details-item .blog-details-recent ul li {
+            padding-right: 110px !important;
+            padding-left: 0 !important;
+        }
+        .common-btn a {
+            margin-left: 6px;
+            margin-right: 0;
+        }
+        .slider-item-two .slider-shape img {
+            max-width: 100%;
+            left: 0;
+        }
+        .slider-item-three .slider-shape img {
+            left: 0;
+        }
+        .emergency-bg {
+            padding: 45px 0 15px 0;
+        }
+        .speciality-left {
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+    
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+        
+    }
+    
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .header-top-item .header-top-left ul li {
+            margin-left: 0 !important;
+        } 
+        .mobile-nav .logo {
+            right: 15px !important;
+            left: auto !important;
+        }
+        .mean-container a.meanmenu-reveal {
+            left: 15px !important;
+            right: auto !important;
+        }
+        .mean-container .mean-nav ul li a.mean-expand {
+            width: 90%;
+        }
+        .mean-container .mean-nav ul li a {
+            text-align: right;
+        }
+        .mean-container .mean-nav ul li a.mean-expand {
+            text-align: left;
+            left: 0;
+            right: auto;
+        }
+        .about-right {
+            padding-right: 0 !important;
+        }
+        .expertise-item .expertise-right {
+            padding-right: 0 !important;
+        }
+        .speciality-right .speciality-emergency {
+            right: 15px !important;
+            left: auto !important;
+        }
+        .expertise-item .expertise-right {
+            padding-right: 0 !important;
+        }
+        .emergency-item .emergency-inner {
+            padding-right: 70px !important;
+            padding-left: 0 !important;
+        }
+        .emergency-bg {
+            padding: 40px 50px 10px 50px !important;
+        }
+        .welcome-right {
+            padding-right: 25px !important;
+        }
+        .welcome-item ul li .welcome-inner {
+            padding-right: 90px !important;
+            padding-left: 0 !important;
+        }
+        .welcome-item ul li .welcome-inner p {
+            padding-left: 50px !important;
+            padding-right: 0 !important;
+        }
+        .hospital-right {
+            margin-right: 0 !important;
+        }
+        .appointment-item-two .appointment-shape {
+            right: -74px;
+            left: auto;
+        }
+        .services-details-img blockquote {
+            padding: 25px 45px 25px 15px !important;
+        }
+        .services-details-img blockquote i {
+            right: 14px !important;
+            left: auto !important;
+        }
+        .doctor-details-item .doctor-details-contact {
+            padding-right: 15px !important;
+            padding-left: 0 !important;
+        }
+        .doctor-details-item .doctor-details-work {
+            padding-right: 15px !important;
+            padding-left: 0 !important;
+        }
+        .appointment-area-three .appointment-item {
+            margin-left: 0 !important;
+        }
+        .location-wrap {
+            padding-right: 0 !important;
+        }
+        .slider-item-two .slider-shape img {
+            left: 0;
+        }
+        .slider-item-three .slider-shape img {
+            left: 0;
+        }
+        .slider-item .slider-shape-two img {
+            left: auto;
+            right: auto;
+        }
+    }
+    
+    @media only screen and (min-width : 992px) and (max-width : 1199px) {
+        .slider-item .slider-shape img {
+            left: 0 !important;
+            right: auto !important;
+        }
+        .slider-item .slider-shape-two img {
+            left: 0 !important;
+            right: auto !important;
+        }
+        .slider-item .slider-shape-three img {
+            left: 0 !important;
+            right: auto !important;
+        }
+        .speciality-left {
+            padding-right: 30px !important;
+            padding-left: 65px !important;
+        }
+        .banner-item .banner-right img:nth-child(1) {
+            left: -20px !important;
+            right: auto !important;
+        }
+        .banner-item .banner-right img:nth-child(2) {
+            left: -9px !important;
+            right: auto !important;
+        }
+        .banner-item .banner-right img:nth-child(3) {
+            left: -19px !important;
+            right: auto !important;
+        }
+        .blog-details-item .blog-details-recent ul li {
+            padding-left: 0 !important;
+        }
+    }
+    
+    @media only screen and (min-width: 1824px) {
+        
+    }
+    @media only screen and (min-width: 1800px) {
+        .speciality-left {
+            padding-right: 0;
+            margin-left: 0;
+            margin-right: auto;
+        }
+    }
+}
