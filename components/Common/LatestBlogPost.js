@@ -25,7 +25,7 @@ const LatestBlogPost = () => {
                                         <a>In this hospital there are special surgeon</a>
                                     </Link>
                                 </h3>
-                                <p>Lorem ipsum is  dolor sit amet, csectetur adipiscing elit, dolore smod tempor incididunt ut labore et..</p>
+                                <p>Our products are designed to be simple and intuitive. Leveraging a single meeting place for virtual care..</p>
                                 <ul>
                                     <li>
                                         <Link href="/blog-details">
@@ -58,7 +58,7 @@ const LatestBlogPost = () => {
                                         <a>World AIDS Day, designated on 1 December</a>
                                     </Link>
                                 </h3>
-                                <p>Lorem ipsum is  dolor sit amet, csectetur adipiscing elit, dolore smod tempor incididunt ut labore et..</p>
+                                <p>Our products are designed to be simple and intuitive. Leveraging a single meeting place for virtual care..</p>
                                 <ul>
                                     <li>
                                         <Link href="/blog-details">
@@ -91,7 +91,7 @@ const LatestBlogPost = () => {
                                         <a>More than 80 clinical trials launch to test coronavirus</a>
                                     </Link>
                                 </h3>
-                                <p>Lorem ipsum is  dolor sit amet, csectetur adipiscing elit, dolore smod tempor incididunt ut labore et..</p>
+                                <p>Our products are designed to be simple and intuitive. Leveraging a single meeting place for virtual careOur products are designed to be simple and intuitive. Leveraging a single meeting place for virtual care..</p>
                                 <ul>
                                     <li>
                                         <Link href="/blog-details">

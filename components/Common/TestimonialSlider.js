@@ -34,7 +34,7 @@ const TestimonialSlider = () => {
                             <img src="/images/clients/client1.png" alt="Feedback" />
                             <h3>Adision Smith</h3>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                        <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
                     </div>
 
                     <div className="feedback-item">
@@ -42,7 +42,7 @@ const TestimonialSlider = () => {
                             <img src="/images/clients/client2.png" alt="Feedback" />
                             <h3>John Cena</h3>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                        <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
                     </div>
 
                     <div className="feedback-item">
@@ -50,7 +50,7 @@ const TestimonialSlider = () => {
                             <img src="/images/clients/client3.png" alt="Feedback" />
                             <h3>Mac Smith</h3>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                        <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
                     </div>
 
                     <div className="feedback-item">
@@ -58,7 +58,7 @@ const TestimonialSlider = () => {
                             <img src="/images/clients/client4.png" alt="Feedback" />
                             <h3>Shane Watson</h3>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                        <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
                     </div>
                 </OwlCarousel> : ''}
             </div>

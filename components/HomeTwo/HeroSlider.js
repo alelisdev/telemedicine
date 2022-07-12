@@ -40,7 +40,7 @@ const HeroSlider = () => {
                                         <img src="/images/about-shape1.png" alt="Shape" />
                                     </div>
                                     <h1>We have Fantastic Doctors and Dentist</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                                    <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
 
                                     <div className="common-btn">
                                         <Link href="/appointment">
@@ -65,7 +65,7 @@ const HeroSlider = () => {
                                         <img src="/images/about-shape1.png" alt="Shape" />
                                     </div>
                                     <h1>We Always Provide Best Services</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                                    <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
                                     
                                     <div className="common-btn">
                                         <Link href="/appointment">
@@ -90,7 +90,7 @@ const HeroSlider = () => {
                                         <img src="/images/about-shape1.png" alt="Shape" />
                                     </div>
                                     <h1>Hign Quality Medicines at Lowest Rates</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                                    <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
                                     
                                     <div className="common-btn">
                                         <Link href="/appointment">

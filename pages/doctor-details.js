@@ -72,12 +72,12 @@ const DoctorDetails = () => {
                                     <div className="doctor-details-biography">
                                         <h3>Biography</h3>
 
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-
-                                        <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.</p>
-
+                                        <p>To help physician practices provide convenient health care access to their patients through secure video visits – To help physician practices provide convenient health care access to their patients through secure video visits</p>
+                                        
+                                        <p>To help physician practices provide convenient health care access to their patients through secure video visits – To help physician practices provide convenient health care access to their patients through secure video visits</p>
+                                        
+                                        <p>To help physician practices provide convenient health care access to their patients through secure video visits – To help physician practices provide convenient health care access to their patients through secure video visits</p>
+                                        
                                         <p></p>
                                     </div>
 
@@ -91,7 +91,7 @@ const DoctorDetails = () => {
 
                                     <div className="doctor-details-biography">
                                         <h3>Experience</h3>
-                                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa.</p>
+                                        <p>In practice, what this means is that we will schedule a video visit. You’ll open an application that has been designed specifically for this purpose, on your smartphone, tablet or computer that has high-speed internet access and a camera. I’ll open the application on my end.</p>
                                     </div>
                                 </div>
                             </div>

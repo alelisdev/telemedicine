@@ -70,7 +70,7 @@ const HeroSlider = () => {
                                         <img src="/images/home-one/home-slider2.png" alt="Shape" />
                                     </div>
                                     <h1>Caring Health is Important Than All</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                                    <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
                                     
                                     <div className="common-btn">
                                         <Link href="/appointment">
@@ -95,7 +95,7 @@ const HeroSlider = () => {
                                         <img src="/images/home-one/home-slider3.png" alt="Shape" />
                                     </div>
                                     <h1>We Offer Highly Treatments</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                                    <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
                                     
                                     <div className="common-btn">
                                         <Link href="/appointment">

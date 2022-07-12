@@ -13,7 +13,7 @@ const MainBanner = () => {
                             </div>
 
                             <h1>Stay Home And Be Aware About Covid-19</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                            <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
                             
                             <div className="common-btn">
                                 <Link href="/appointment">

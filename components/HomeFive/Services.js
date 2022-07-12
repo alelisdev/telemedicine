@@ -21,7 +21,7 @@ const Services = () => {
                             <div className="service-end">
                                 <i className="icofont-doctor"></i>
                                 <h3>Expert Doctors</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
+                                <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement</p>
 
                                 <Link href="/service-details">
                                     <a>Read More</a>
@@ -35,12 +35,12 @@ const Services = () => {
                             <div className="service-front">
                                 <i className="icofont-helicopter"></i>
                                 <h3>Emergency Helicopter</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
+                                <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement</p>
                             </div>
                             <div className="service-end">
                                 <i className="icofont-helicopter"></i>
                                 <h3>Emergency Helicopter</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
+                                <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement</p>
                                 
                                 <Link href="/service-details">
                                     <a>Read More</a>
@@ -54,12 +54,12 @@ const Services = () => {
                             <div className="service-front">
                                 <i className="icofont-architecture"></i>
                                 <h3>Leading Technology</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
+                                <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement</p>
                             </div>
                             <div className="service-end">
                                 <i className="icofont-architecture"></i>
                                 <h3>Leading Technology</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
+                                <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement</p>
                                 
                                 <Link href="/service-details">
                                     <a>Read More</a>
@@ -73,12 +73,12 @@ const Services = () => {
                             <div className="service-front">
                                 <i className="icofont-user-male"></i>
                                 <h3>24 Hours Open</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
+                                <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement</p>
                             </div>
                             <div className="service-end">
                                 <i className="icofont-user-male"></i>
                                 <h3>24/7 Open</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
+                                <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement</p>
                                 
                                 <Link href="/service-details">
                                     <a>Read More</a>
@@ -92,12 +92,12 @@ const Services = () => {
                             <div className="service-front">
                                 <i className="icofont-ambulance-cross"></i>
                                 <h3>Free Ambulance</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
+                                <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement</p>
                             </div>
                             <div className="service-end">
                                 <i className="icofont-ambulance-cross"></i>
                                 <h3>Free Ambulance</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
+                                <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement</p>
                                 
                                 <Link href="/service-details">
                                     <a>Read More</a>
@@ -111,12 +111,12 @@ const Services = () => {
                             <div className="service-front">
                                 <i className="icofont-home"></i>
                                 <h3>Home Advise</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
+                                <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement</p>
                             </div>
                             <div className="service-end">
                                 <i className="icofont-home"></i>
                                 <h3>Home Advise</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
+                                <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement</p>
                                 
                                 <Link href="/service-details">
                                     <a>Read More</a>

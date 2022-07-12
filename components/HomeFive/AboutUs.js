@@ -23,21 +23,21 @@ const AboutUs = () => {
                                     <i className="icofont-doctor-alt"></i>
                                     <div className="welcome-inner">
                                         <h3>Certified Doctors</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit.</p>
+                                        <p>To help physician practices provide convenient health care access.consectetur adipiscing elit.</p>
                                     </div>
                                 </li>
                                 <li>
                                     <i className="icofont-stretcher"></i>
                                     <div className="welcome-inner">
                                         <h3>Emergency 24 hours</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit.</p>
+                                        <p>To help physician practices provide convenient health care access.consectetur adipiscing elit.</p>
                                     </div>
                                 </li>
                                 <li>
                                     <i className="icofont-network"></i>
                                     <div className="welcome-inner">
                                         <h3>Modern Technologey</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit.</p>
+                                        <p>To help physician practices provide convenient health care access.consectetur adipiscing elit.</p>
                                     </div>
                                 </li>
                             </ul>

@@ -27,7 +27,7 @@ const LatestBlogPost = () => {
                                         </a>
                                     </Link>
                                 </h3>
-                                <p>Lorem ipsum is  dolor sit amet, csectetur adipiscing elit, dolore smod tempor incididunt ut labore et....</p>
+                                <p>Our products are designed to be simple and intuitive. Leveraging a single meeting place for virtual care, providers and patients easily....</p>
                                 <ul>
                                     <li>
                                         <Link href="/blog-details">
@@ -62,7 +62,7 @@ const LatestBlogPost = () => {
                                         </a>
                                     </Link>
                                 </h3>
-                                <p>Lorem ipsum is  dolor sit amet, csectetur adipiscing elit, dolore smod tempor incididunt ut labore et....</p>
+                                <p>Our products are designed to be simple and intuitive. Leveraging a single meeting place for virtual care, providers and patients easily....</p>
                                 <ul>
                                     <li>
                                         <Link href="/blog-details">
@@ -97,7 +97,7 @@ const LatestBlogPost = () => {
                                         </a>
                                     </Link>
                                 </h3>
-                                <p>Lorem ipsum is  dolor sit amet, csectetur adipiscing elit, dolore smod tempor incididunt ut labore et....</p>
+                                <p>Our products are designed to be simple and intuitive. Leveraging a single meeting place for virtual care, providers and patients easily....</p>
                                 <ul>
                                     <li>
                                         <Link href="/blog-details">

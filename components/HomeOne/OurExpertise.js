@@ -21,7 +21,7 @@ const OurExpertise = () => {
                                                 <a>Certified Doctors</a>
                                             </Link>
                                         </h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <p>To help physician practices provide convenient health care access.</p>
                                     </div>
                                 </div>
                                 <div className="col-sm-6 col-lg-6">
@@ -32,7 +32,7 @@ const OurExpertise = () => {
                                                 <a>Emergency</a>
                                             </Link>
                                         </h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <p>To help physician practices provide convenient health care access.</p>
                                     </div>
                                 </div>
                                 <div className="col-sm-6 col-lg-6">
@@ -43,7 +43,7 @@ const OurExpertise = () => {
                                                 <a>Teachnology</a>
                                             </Link>
                                         </h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <p>To help physician practices provide convenient health care access.</p>
                                     </div>
                                 </div>
                                 <div className="col-sm-6 col-lg-6">
@@ -54,7 +54,7 @@ const OurExpertise = () => {
                                                 <a>Ambulance</a>
                                             </Link>
                                         </h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <p>To help physician practices provide convenient health care access.</p>
                                     </div>
                                 </div>
                             </div>
