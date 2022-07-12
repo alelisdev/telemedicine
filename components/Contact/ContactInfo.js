@@ -9,7 +9,7 @@ const ContactInfo = () => {
                         <div className="location-item">
                             <i className="icofont-location-pin"></i>
                             <h3>Location</h3>
-                            <p>2108-267 Road Quadra, Toronto, <br /> Victiria Canada</p>
+                            <p>California US</p>
                         </div>
                     </div>
 
@@ -26,8 +26,8 @@ const ContactInfo = () => {
                         <div className="location-item">
                             <i className="icofont-ui-call"></i>
                             <h3>Phone</h3>
-                            <p>+07 5554 3332 322</p>
-                            <p>+07 5554 3332 322</p>
+                            <p>+1 234 567 8901</p>
+                            <p>+1 234 567 8901</p>
                         </div>
                     </div>
                 </div>

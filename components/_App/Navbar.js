@@ -113,7 +113,7 @@ const Navbar = () => {
                                             </Link>
                                         </li>
 
-                                        <li className="nav-item">
+                                        {/* <li className="nav-item">
                                             <Link href="/departments" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">Departments</a>
                                             </Link>
@@ -123,7 +123,7 @@ const Navbar = () => {
                                             <Link href="/testimonials" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">Testimonials</a>
                                             </Link>
-                                        </li>
+                                        </li> */}
 
                                         <li className="nav-item">
                                             <Link href="/sign-up" activeClassName="active">
@@ -137,7 +137,7 @@ const Navbar = () => {
                                             </Link>
                                         </li>
  
-                                        <li className="nav-item">
+                                        {/* <li className="nav-item">
                                             <Link href="/faq" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">FAQ's</a>
                                             </Link>
@@ -165,7 +165,7 @@ const Navbar = () => {
                                             <Link href="/terms-condition" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">Terms & Conditions</a>
                                             </Link>
-                                        </li>
+                                        </li> */}
                                     </ul>
                                 </li>
 
@@ -176,7 +176,7 @@ const Navbar = () => {
                                         </a>
                                     </Link>
 
-                                    <ul className="dropdown-menu">
+                                    {/* <ul className="dropdown-menu">
                                         <li className="nav-item">
                                             <Link href="/services" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">Services</a>
@@ -188,7 +188,7 @@ const Navbar = () => {
                                                 <a onClick={toggleNavbar} className="nav-link">Service Details</a>
                                             </Link>
                                         </li>
-                                    </ul>
+                                    </ul> */}
                                 </li>
 
                                 <li className="nav-item">
@@ -220,7 +220,7 @@ const Navbar = () => {
                                         </a>
                                     </Link>
 
-                                    <ul className="dropdown-menu">
+                                    {/* <ul className="dropdown-menu">
                                         <li className="nav-item">
                                             <Link href="/blog" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">Blog</a>
@@ -232,7 +232,7 @@ const Navbar = () => {
                                                 <a onClick={toggleNavbar} className="nav-link">Blog Details</a>
                                             </Link>
                                         </li>
-                                    </ul>
+                                    </ul> */}
                                 </li>
 
                                 <li className="nav-item">

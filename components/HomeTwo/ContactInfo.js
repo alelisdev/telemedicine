@@ -10,8 +10,8 @@ const ContactInfo = () => {
                             <i className="icofont-ui-call"></i>
                             <div className="emergency-inner">
                                 <h3>Emergency Call</h3>
-                                <p>+07 5554 3332 322</p>
-                                <p>+07 5554 3332 322</p>
+                                <p>+1 234 567 8901</p>
+                                <p>+1 234 567 8901</p>
                             </div>
                         </div>
                     </div>
@@ -21,7 +21,7 @@ const ContactInfo = () => {
                             <i className="icofont-location-pin"></i>
                             <div className="emergency-inner">
                                 <h3>Location</h3>
-                                <p>2108-267 Road Quadra, Toronto, Canada Victiria Canada</p>
+                                <p>California US</p>
                             </div>
                         </div>
                     </div>
@@ -31,8 +31,8 @@ const ContactInfo = () => {
                             <i className="icofont-ambulance-crescent"></i>
                             <div className="emergency-inner">
                                 <h3>Ambulance</h3>
-                                <p>+07 5554 3332 322</p>
-                                <p>+07 5554 3332 322</p>
+                                <p>+1 234 567 8901</p>
+                                <p>+1 234 567 8901</p>
                             </div>
                         </div>
                     </div>
