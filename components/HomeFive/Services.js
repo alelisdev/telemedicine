@@ -16,7 +16,7 @@ const Services = () => {
                             <div className="service-front">
                                 <i className="icofont-doctor"></i>
                                 <h3>Expert Doctors</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
+                                <p>Our Doctors are full of timely insights and information on internal medicine, American health care, and medical education.</p>
                             </div>
                             <div className="service-end">
                                 <i className="icofont-doctor"></i>

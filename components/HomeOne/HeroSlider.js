@@ -40,8 +40,12 @@ const HeroSlider = () => {
                                         <img src="/images/home-one/home-slider1.png" alt="Shape" />
                                     </div>
 
-                                    <h1>Exceptional Health Care for Telemedicine</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                                    <h1>
+                                      A modern telemedicine company focused on convenient care.
+                                    </h1>
+                                    <p>
+                                    To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement.
+                                    </p>
 
                                     <div className="common-btn">
                                         <Link href="/appointment">

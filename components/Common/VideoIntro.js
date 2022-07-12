@@ -31,7 +31,7 @@ const VideoIntro = () => {
                                           
                                             <div className="video-content">
                                                 <h3>Telemedicine Introduction</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+                                                <p>Our products are designed to be simple and intuitive. Leveraging a single meeting place for virtual care, providers and patients easily connect and clients can quickly design and scale their telehealth programs.</p>
                                             </div>
                                         </div>
                                     </div>

@@ -67,7 +67,7 @@ const OurExpertise = () => {
                     <div className="col-lg-6">
                         <div className="expertise-item">
                             <div className="expertise-right">
-                                <img src="/images/about4.jpg" alt="Expertise" />
+                                <img src="/images/about4.png" alt="Expertise" />
                             </div>
                         </div>
                     </div>
