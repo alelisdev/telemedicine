@@ -15,7 +15,7 @@ const AboutUs = () => {
                         <div className="welcome-item welcome-right">
                             <div className="section-title-two">
                                 <span>About Us</span>
-                                <h2>Welcome to Disin Hospital We have...</h2>
+                                <h2>Welcome to Telecarelife Website We have...</h2>
                             </div>
                             <ul>
                                 <li>

@@ -30,7 +30,7 @@ const VideoIntro = () => {
                                             </div>
                                           
                                             <div className="video-content">
-                                                <h3>Hospital Introduction</h3>
+                                                <h3>Telemedicine Introduction</h3>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
                                             </div>
                                         </div>
@@ -134,7 +134,7 @@ const VideoIntro = () => {
                     </TabPanel>
 
                     <TabList>
-                        <Tab>Hospital Introduction</Tab>
+                        <Tab>Telemedicine Introduction</Tab>
                         <Tab>Pharmacy</Tab>
                         <Tab>Reasearch & Lab</Tab>
                         <Tab>CCU & ICU</Tab>

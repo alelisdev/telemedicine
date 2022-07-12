@@ -40,7 +40,7 @@ const HeroSlider = () => {
                                         <img src="/images/home-one/home-slider1.png" alt="Shape" />
                                     </div>
 
-                                    <h1>Exceptional Health Care for Woman</h1>
+                                    <h1>Exceptional Health Care for Telemedicine</h1>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
 
                                     <div className="common-btn">

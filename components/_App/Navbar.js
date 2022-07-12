@@ -29,7 +29,7 @@ const Navbar = () => {
                     <nav className="navbar navbar-expand-md navbar-light">
                         <Link href="/">
                             <a onClick={toggleNavbar} className="navbar-brand">
-                                <img src="/images/logo.png" alt="logo" />
+                                <img src="" alt="logo" />
                             </a>
                         </Link>
 
@@ -50,13 +50,17 @@ const Navbar = () => {
                         <div className={classOne} id="navbarSupportedContent">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <Link href="#" activeClassName="active">
-                                        <a onClick={e => e.preventDefault()} className="nav-link dropdown-toggle">
+                                    <Link href="/" activeClassName="active">
+                                        <a onClick={toggleNavbar} className="nav-link">
                                             Home
                                         </a>
                                     </Link>
-
-                                    <ul className="dropdown-menu">
+                                    {/* <Link href="#" activeClassName="active">
+                                        <a onClick={e => e.preventDefault()} className="nav-link dropdown-toggle">
+                                            Home
+                                        </a>
+                                    </Link> */}
+                                    {/* <ul className="dropdown-menu">
                                         <li className="nav-item">
                                             <Link href="/" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">Home Demo - 1</a>
@@ -86,7 +90,7 @@ const Navbar = () => {
                                                 <a onClick={toggleNavbar} className="nav-link">Home Demo - 5</a>
                                             </Link>
                                         </li>
-                                    </ul>
+                                    </ul> */}
                                 </li>
 
                                 <li className="nav-item">

@@ -17,7 +17,7 @@ const AboutSection = () => {
                     <div className="col-lg-6">
                         <div className="about-item about-right">
                             <img src="/images/about-shape1.png" alt="About" />
-                            <h2>About Our Hospital</h2>
+                            <h2>About Our Telemedicine</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
                             
                             <ul>

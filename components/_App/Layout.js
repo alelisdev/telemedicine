@@ -6,12 +6,12 @@ const Layout = ({ children }) => {
     return(
         <>
             <Head>
-                <title>Disin - React Next Medical Health & Doctors Template</title>
+                <title>Telemedicine - Medical Health & Doctors</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-                <meta name="description" content="Disin - React Next Medical Health & Doctors Template" />
-                <meta name="og:title" property="og:title" content="Disin - React Next Medical Health & Doctors Template"></meta>
-                <meta name="twitter:card" content="Disin - React Next Medical Health & Doctors Template"></meta>
-                <link rel="canonical" href="https://disin-react.envytheme.com/"></link>
+                <meta name="description" content="Telecarelife - React Next Medical Health & Doctors" />
+                <meta name="og:title" property="og:title" content="Telecarelife - React Next Medical Health & Doctors"></meta>
+                <meta name="twitter:card" content="Telecarelife - React Next Medical Health & Doctors"></meta>
+                <link rel="canonical" href="http://localhost:3000/"></link>
             </Head>
 
             {children}

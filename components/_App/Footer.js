@@ -15,17 +15,17 @@ const Footer = () => {
                                     <ul>
                                         <li>
                                             <i className="icofont-ui-message"></i>
-                                            <a href="mailto:info@disin.com">info@disin.com</a>
-                                            <a href="mailto:hello@disin.com">hello@disin.com</a>
+                                            <a href="mailto:ben@bkginvestments.com">helloben@bkginvestments.com</a>
+                                            <a href="mailto:ben@bkginvestments.com">infoben@bkginvestments.com</a>
                                         </li>
                                         <li>
                                             <i className="icofont-stock-mobile"></i>
-                                            <a href="tel:+07554332322">Call: +07 554 332 322</a>
-                                            <a href="tel:+236256256365">Call: +236 256 256 365</a>
+                                            <a href="tel:+07554332322">Call: +1 234 567 8901</a>
+                                            <a href="tel:+236256256365">Call: +1 952 232 2334</a>
                                         </li>
                                         <li>
                                             <i className="icofont-location-pin"></i>
-                                            210-27 Quadra, Market Street, Victoria Canada
+                                            California US
                                         </li>
                                     </ul>
                                 </div>
@@ -140,7 +140,7 @@ const Footer = () => {
             <div className="copyright-area">
                 <div className="container">
                     <div className="copyright-item">
-                        <p>Copyright &copy; {currentYear} Design & Developed by <a href="https://hibootstrap.com/" target="_blank">HiBootstrap</a></p>
+                        <p>Copyright &copy; {currentYear} Design & Developed by <a href="/" target="_blank">topcoder728@gmail.com</a></p>
                     </div>
                 </div>
             </div>
