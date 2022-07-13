@@ -10,6 +10,7 @@ const ContactInfo = () => {
                             <i className="icofont-location-pin"></i>
                             <h3>Location</h3>
                             <p>California US</p>
+                            <p>California US</p>
                         </div>
                     </div>
 

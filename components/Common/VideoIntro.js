@@ -30,8 +30,8 @@ const VideoIntro = () => {
                                             </div>
                                           
                                             <div className="video-content">
-                                                <h3>Telemedicine Introduction</h3>
-                                                <p>Our products are designed to be simple and intuitive. Leveraging a single meeting place for virtual care, providers and patients easily connect and clients can quickly design and scale their telehealth programs.</p>
+                                                <h3>Who’s it for?</h3>
+                                                <p>If you have a medical issue or query and you’re in a place where it’s difficult or impossible to reach good medical support, then it’s for you.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -54,8 +54,8 @@ const VideoIntro = () => {
                                             </div>
 
                                             <div className="video-content">
-                                                <h3>About Our Pharmacy</h3>
-                                                <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth.</p>
+                                                <h3>Is it similar to a GP consultation?</h3>
+                                                <p>Similar, yes. You can book either a 15 or 30 minute consultation with us, and we can make sure it’s with the right professional: most of the time this will be a doctor, but it could be a travel health nurse, an occupational health specialist or psychosocial specialist.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -77,8 +77,8 @@ const VideoIntro = () => {
                                                 <i className="icofont-ui-play"></i>
                                             </div>
                                             <div className="video-content">
-                                                <h3>Our reasearch center and lab</h3>
-                                                <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master</p>
+                                                <h3>Is telemedicine for any kind of medical problem?</h3>
+                                                <p> It’s not for emergency treatment, but we’re on hand to discuss any other kind of issue. It might be a medical problem, general advice, education or a second opinion.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -100,8 +100,8 @@ const VideoIntro = () => {
                                                 <i className="icofont-ui-play"></i>
                                             </div>
                                             <div className="video-content">
-                                                <h3>CCU & ICU</h3>
-                                                <p>In practice, what this means is that we will schedule a video visit. You’ll open an application that has been designed specifically for this purpose, on your smartphone, tablet or computer that has high-speed internet access.</p>
+                                                <h3>Limitation</h3>
+                                                <p>It’s obviously not as good as an in-person consultation, but as medical professionals we can make a really good effort for people who are isolated with no option for good medical support. We can often make a diagnosis, suggest treatment, prescribe medication, give an opinion or make a referral.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -123,8 +123,8 @@ const VideoIntro = () => {
                                                 <i className="icofont-ui-play"></i>
                                             </div>
                                             <div className="video-content">
-                                                <h3>Our Doctors</h3>
-                                                <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+                                                <h3>How do I book an appointment?</h3>
+                                                <p>Most people will first go to the organisation they work for, who will contact us to make an appointment. We can normally get you an appointment within 24-48 hours.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -134,11 +134,11 @@ const VideoIntro = () => {
                     </TabPanel>
 
                     <TabList>
-                        <Tab>Telemedicine Introduction</Tab>
-                        <Tab>Pharmacy</Tab>
-                        <Tab>Reasearch & Lab</Tab>
-                        <Tab>CCU & ICU</Tab>
-                        <Tab>Doctors</Tab>
+                        <Tab>Who's it for?</Tab>
+                        <Tab>Consultation</Tab>
+                        <Tab>Medical problem</Tab>
+                        <Tab>Limitation</Tab>
+                        <Tab>Appointment</Tab>
                     </TabList>
                 </Tabs>
             </div>
