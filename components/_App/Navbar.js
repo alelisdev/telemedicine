@@ -220,19 +220,19 @@ const Navbar = () => {
                                         </a>
                                     </Link>
 
-                                    {/* <ul className="dropdown-menu">
+                                    <ul className="dropdown-menu">
                                         <li className="nav-item">
                                             <Link href="/blog" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">Blog</a>
                                             </Link>
                                         </li>
 
-                                        <li className="nav-item">
+                                        {/* <li className="nav-item">
                                             <Link href="/blog-details" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">Blog Details</a>
                                             </Link>
-                                        </li>
-                                    </ul> */}
+                                        </li> */}
+                                    </ul>
                                 </li>
 
                                 <li className="nav-item">
