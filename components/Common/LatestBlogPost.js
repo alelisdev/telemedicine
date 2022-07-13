@@ -22,10 +22,10 @@ const LatestBlogPost = () => {
                             <div className="blog-bottom">
                                 <h3>
                                     <Link href="/blog-details">
-                                        <a>In this hospital there are special surgeon</a>
+                                        <a>How can I start a telemedicine program, and what does it cost?</a>
                                     </Link>
                                 </h3>
-                                <p>Our products are designed to be simple and intuitive. Leveraging a single meeting place for virtual care..</p>
+                                <p>This article was originally published in July 2015 but was updated in June 2022. I want to 'do telemedicine': What is involved ...</p>
                                 <ul>
                                     <li>
                                         <Link href="/blog-details">
@@ -36,7 +36,7 @@ const LatestBlogPost = () => {
                                     </li>
                                     <li>
                                         <i className="icofont-calendar"></i>
-                                        Jan 03, 2020
+                                        Jul 12, 2022
                                     </li>
                                 </ul>
                             </div>
@@ -48,17 +48,17 @@ const LatestBlogPost = () => {
                             <div className="blog-top">
                                 <Link href="/blog-details">
                                     <a>
-                                        <img src="/images/blog/blog2.jpg" alt="Blog" />
+                                        <img src="/images/blog/blog2.webp" alt="Blog" />
                                     </a>
                                 </Link>
                             </div>
                             <div className="blog-bottom">
                                 <h3>
                                     <Link href="/blog-details">
-                                        <a>World AIDS Day, designated on 1 December</a>
+                                        <a>How school-based telemedicine can ease healthcare’s COVID burden</a>
                                     </Link>
                                 </h3>
-                                <p>Our products are designed to be simple and intuitive. Leveraging a single meeting place for virtual care..</p>
+                                <p>Telemedicine can be a significant approach to assisting those in need who can’t receive proper care in hospitals at the moment..</p>
                                 <ul>
                                     <li>
                                         <Link href="/blog-details">
@@ -69,7 +69,7 @@ const LatestBlogPost = () => {
                                     </li>
                                     <li>
                                         <i className="icofont-calendar"></i>
-                                        Jan 03, 2020
+                                        Jul 7, 2022
                                     </li>
                                 </ul>
                             </div>
@@ -81,17 +81,17 @@ const LatestBlogPost = () => {
                             <div className="blog-top">
                                 <Link href="/blog-details">
                                     <a>
-                                        <img src="/images/blog/blog3.jpg" alt="Blog" />
+                                        <img src="/images/blog/blog3.webp" alt="Blog" />
                                     </a>
                                 </Link>
                             </div>
                             <div className="blog-bottom">
                                 <h3>
                                     <Link href="/blog-details">
-                                        <a>More than 80 clinical trials launch to test coronavirus</a>
+                                        <a>Telemedicine for Beginners: How to Introduce Staff to Telehealth</a>
                                     </Link>
                                 </h3>
-                                <p>Our products are designed to be simple and intuitive. Leveraging a single meeting place for virtual careOur products are designed to be simple and intuitive. Leveraging a single meeting place for virtual care..</p>
+                                <p>This article was originally published in March 2019 but was updated in June 2022. While telemedicine is a relatively known technology in the medical...</p>
                                 <ul>
                                     <li>
                                         <Link href="/blog-details">
@@ -102,7 +102,7 @@ const LatestBlogPost = () => {
                                     </li>
                                     <li>
                                         <i className="icofont-calendar"></i>
-                                        Jan 03, 2020
+                                        Jul 5, 2022
                                     </li>
                                 </ul>
                             </div>

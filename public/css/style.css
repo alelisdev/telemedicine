@@ -4939,3 +4939,7 @@ footer {
   color: #344c5d;
 }
 /*# sourceMappingURL=style.css.map */
+
+.text-justify {
+  text-align: justify;
+}
