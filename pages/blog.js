@@ -63,7 +63,7 @@ const Blog = () => {
                                 <div className="blog-top">
                                     <Link href="/blog-details">
                                         <a>
-                                            <img src="/images/blog/blog2.webp" alt="Blog" />
+                                            <img src="/images/blog/blog2.jpg" alt="Blog" />
                                         </a>
                                     </Link>
                                 </div>
@@ -98,7 +98,7 @@ const Blog = () => {
                                 <div className="blog-top">
                                     <Link href="/blog-details">
                                         <a>
-                                            <img src="/images/blog/blog3.webp" alt="Blog" />
+                                            <img src="/images/blog/blog3.jpg" alt="Blog" />
                                         </a>
                                     </Link>
                                 </div>

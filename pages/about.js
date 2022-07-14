@@ -1,12 +1,12 @@
 import React from 'react';
-import TopHeader from '../components/_App/TopHeader';
-import Navbar from '../components/_App/Navbar';;
-import PageBanner from '../components/Common/PageBanner';
-import Footer from '../components/_App/Footer';
-import OurExpertise from '../components/HomeTwo/OurExpertise';
-import Services from '../components/HomeOne/Services';
-import TestimonialSlider from '../components/Common/TestimonialSlider';
-import LatestBlogPost from '../components/Common/LatestBlogPost';
+import TopHeader from '../../components/_App/TopHeader';
+import Navbar from '../../components/_App/Navbar';
+import PageBanner from '../../components/Common/PageBanner';
+import Footer from '../../components/_App/Footer';
+import OurExpertise from '../../components/HomeTwo/OurExpertise';
+import Services from '../../components/HomeOne/Services';
+import TestimonialSlider from '../../components/Common/TestimonialSlider';
+import LatestBlogPost from '../../components/Common/LatestBlogPost';
 
 const About = () => {
     return (
@@ -38,7 +38,7 @@ const About = () => {
                             <div className="about-item about-right">
                                 <img src="/images/about-shape1.png" alt="About" />
                                 <h2>About Our Telemedicine</h2>
-                                <p>Our products are designed to be simple and intuitive. Leveraging a single meeting place for virtual care. </p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
                                 <ul>
                                     <li>
                                         <i className="icofont-check-circled"></i>
