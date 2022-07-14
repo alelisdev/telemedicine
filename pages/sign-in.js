@@ -32,7 +32,7 @@ const SignIn = () => {
                         <div className="col-lg-6 ptb-100">
                             <div className="signup-item">
                                 <div className="signup-head">
-                                    <h2>Login Here</h2>
+                                    <h2>Sign In Here</h2>
                                     <p>Didn't you account yet? <Link href="/sign-up"><a>Sign Up Here</a></Link></p>
                                 </div>
                                 <div className="signup-form">

@@ -231,6 +231,13 @@ button:focus {
   border: 1px solid #0046c0;
 }
 
+.top-login {
+    text-align: center;
+}
+
+
+
+
 /*-- End Header Top --*/
 /*-- Navbar --*/
 .main-nav {

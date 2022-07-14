@@ -1,11 +1,12 @@
 import React from 'react';
+import Link from 'next/link';
 
 const TopHeader = () => {
     return (
         <div className="header-top">
             <div className="container">
                 <div className="row align-items-center">
-                    <div className="col-sm-8 col-lg-9">
+                    <div className="col-sm-6 col-lg-6">
                         <div className="header-top-item">
                             <div className="header-top-left">
                                 <ul>
@@ -30,7 +31,7 @@ const TopHeader = () => {
                         </div>
                     </div>
 
-                    <div className="col-sm-4 col-lg-3">
+                    <div className="col-sm-6 col-lg-3">
                         <div className="header-top-item">
                             <div className="header-top-right">
                                 <ul className="lang-list">
@@ -60,6 +61,19 @@ const TopHeader = () => {
                                         </a>
                                     </li>
                                 </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-sm-6 col-lg-3">
+                        <div className="header-top-item">
+                            <div className="header-top-left top-login">
+                                <ul>
+                                    <li>
+                                        <Link href="/sign-in">
+                                        <a  className="nav-link"><i className="icofont-login"></i>Sign In</a>
+                                        </Link>
+                                    </li>
+                               </ul>
                             </div>
                         </div>
                     </div>

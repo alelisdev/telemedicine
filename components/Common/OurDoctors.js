@@ -69,7 +69,7 @@ const OurDoctors = () => {
                 </div>
 
                 <div className="doctor-btn">
-                    <Link href="/doctor-details">
+                    <Link href="/doctors">
                         <a>See All</a>
                     </Link>
                 </div>

@@ -79,32 +79,72 @@ const Footer = () => {
                                     <ul>
                                         <li>
                                             <Link href="/service-details">
-                                                <a>Dental Care</a>
+                                                <a>Besides anxiety & Depression</a>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link href="/service-details">
-                                                <a>Cardiology</a>
+                                                <a>Hypertension</a>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link href="/service-details">
-                                                <a>Hijama Therapy</a>
+                                                <a>Prescription refills</a>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link href="/service-details">
-                                                <a>Massage Therapy</a>
+                                                <a>Antidepressants</a>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link href="/service-details">
-                                                <a>Ambluance Sevices</a>
+                                                <a>Sleeping pills</a>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link href="/service-details">
-                                                <a>Medicine</a>
+                                                <a>Insomnia</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="/service-details">
+                                                <a>Erectile dysfunction</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="/service-details">
+                                                <a>Relationship conflict</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="/service-details">
+                                                <a>Marriage counseling</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="/service-details">
+                                                <a>Diabetes</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="/service-details">
+                                                <a>Allergy pills</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="/service-details">
+                                                <a>Covid testing</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="/service-details">
+                                                <a>Covid treatment</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="/service-details">
+                                                <a>Doctor’s Note for work</a>
                                             </Link>
                                         </li>
                                     </ul>
