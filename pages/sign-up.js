@@ -16,7 +16,7 @@ const INITIAL_STATE = {
     number: "",
     password: "",
     confirmPassword: "",
-    kind : "",
+    kind : "client",
     gridCheck: false
 };
 
@@ -33,6 +33,7 @@ const SignUp = () => {
 
     const handleChange = e => {
         const { name, value } = e.target;
+        console.log(name, value)
         setReginfo(prevState => ({ ...prevState, [name]: value }));
     }
 
@@ -45,7 +46,6 @@ const SignUp = () => {
             const { firstname, lastname, email, number, password, kind } = reginfo;
             const payload = { firstname, lastname, email, number, password, kind };
             await axios.post(url, payload);
-            console.log(url);
             setReginfo(INITIAL_STATE);
         } catch (error) {
             console.log(error)
@@ -198,22 +198,6 @@ const SignUp = () => {
                                                     </select>
                                                 </div>
                                             </div>
-
-                                            <div className="col-lg-12 d-flex">
-                                                <div className='col-lg-6'>
-                                                <input
-                                                    type="radio"
-                                                    name="site_name"
-                                                />
-                                                </div>
-                                                <div className='col-lg-6'>
-                                                    <input
-                                                        type="radio"
-                                                        name="site_name"
-                                                    />
-                                                </div>
-                                            </div>
-
                                             <div className="col-lg-12">
                                                 <div className="form-group">
                                                     <div className="form-check">
