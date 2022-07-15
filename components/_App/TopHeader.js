@@ -70,7 +70,7 @@ const TopHeader = () => {
                                 <ul>
                                     <li>
                                         <Link href="/sign-in">
-                                        <a  className="nav-link"><i className="icofont-login"></i>Sign In</a>
+                                        <a  className="nav-link"><i className="icofont-login"></i></a>
                                         </Link>
                                     </li>
                                </ul>
