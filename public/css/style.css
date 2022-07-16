@@ -4947,6 +4947,210 @@ footer {
 }
 /*# sourceMappingURL=style.css.map */
 
+
+/******************** custome css ******************/
 .text-justify {
   text-align: justify;
+}
+
+
+/*-- Profile --*/
+.profile-area {
+    /* background-image: url("/images/appointment-bg.jpg"); */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+  
+.profile-item {
+    border: 1px solid #9fa8df;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    padding: 30px 50px 30px;
+    border-radius: 10px;
+    /* background-image: url("/images/home-two/home-2-hart-shape.jpg"); */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+  
+.profile-item h2 {
+    color: #0046c0;
+    font-weight: 600;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+  
+.profile-item span {
+    display: block;
+    color: #344c5d;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+  
+.profile-item .profile-form .form-group {
+    padding-left: 70px;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+/* .profile-item .profile-form .university {
+    padding-left: 0px !important;
+    position: relative;
+    margin-bottom: 60px;
+} */
+  
+.profile-item .profile-form .form-group i {
+    display: inline-block;
+    color: #0046c0;
+    position: absolute;
+    top: 11px;
+    left: 0;
+    font-size: 50px;
+} 
+  
+.profile-item .profile-form .form-group label {
+    margin-bottom: 10px;
+    color: #344c5d;
+    font-size: 15px;
+    font-weight: 500;
+}
+  
+.profile-item .profile-form .form-group .form-control {
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid #0046c09e;
+    font-size: 15px;
+    padding-left: 0;
+    padding-bottom: 8px;
+    height: 40px;
+    background-color: transparent;
+}
+  
+.profile-item .profile-form .form-group .form-control:focus {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border-bottom: 1px solid #0046c09e;
+}
+  
+.profile-item .profile-form .form-group ::-webkit-input-placeholder {
+    color: #344c5d;
+}
+  
+.profile-item .profile-form .form-group :-ms-input-placeholder {
+    color: #344c5d;
+}
+  
+.profile-item .profile-form .form-group ::-ms-input-placeholder {
+    color: #344c5d;
+}
+  
+.profile-item .profile-form .form-group ::placeholder {
+    color: #344c5d;
+}
+
+.profile-item .profile-form .form-group textarea {
+    height: 200px !important;
+}
+  
+  
+.profile-item .profile-form .profile-btn {
+    color: #ffffff;
+    background-color: #0046c0;
+    font-weight: 500;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 18px 45px;
+    -webkit-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+}
+  
+.profile-item .profile-form .profile-btn:hover {
+    color: #ffffff;
+    background-color: #111111;
+}
+  
+  /*-- End Appointment --*/
+
+
+.stepper-footer-btn {
+    color: #ffffff !important;
+    background-color: #0046c0 !important;
+    font-weight: 500 !important;
+    font-size: 18px !important;
+    border-radius: 5px !important;
+    padding: 18px 45px !important;
+    -webkit-transition: 0.5s all ease !important;
+    transition: 0.5s all ease !important;
+}
+.stepper-footer-btn:hover {
+    color: #ffffff !important;
+    background-color: #111111 !important;
+}
+
+.btn-add {
+    float: right;
+}
+
+.present {
+    padding: 30px 50px !important;
+    font-size: 20px;
+}
+
+h3 {
+    margin-left: 15px;
+}
+
+
+.fileInput {
+    border-bottom: 4px solid lightgray;
+    border-right: 4px solid lightgray;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    padding: 10px;
+    margin: 15px;
+    cursor: pointer;
+}
+  
+  
+.imgPreview {
+  text-align: center;
+  margin: 5px 15px;
+  height: 200px;
+  width: 100%;
+  max-width: 500px;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-top: 5px solid gray;
+  border-bottom: 5px solid gray;
+}
+
+.imgPreview .img {
+    width: 100%;
+    height: 100%;
+}
+  
+.previewText {
+    width: 100%;
+    margin-top: 20px;
+}
+
+  
+.submitButton {
+    padding: 12px;
+    margin-left: 10px;
+    background: white;
+    border: 4px solid lightgray;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 10pt;
+    cursor: pointer;
+}
+
+.centerText {
+    text-align: center;
+    width: 500px;
 }
