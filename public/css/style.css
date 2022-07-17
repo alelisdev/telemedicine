@@ -5076,21 +5076,6 @@ footer {
   /*-- End Appointment --*/
 
 
-/* .stepper-footer-btn {
-    color: #ffffff !important;
-    background-color: #0046c0 !important;
-    font-weight: 500 !important;
-    font-size: 18px !important;
-    border-radius: 5px !important;
-    padding: 18px 45px !important;
-    -webkit-transition: 0.5s all ease !important;
-    transition: 0.5s all ease !important;
-}
-.stepper-footer-btn:hover {
-    color: #ffffff !important;
-    background-color: #111111 !important;
-} */
-
 .btn-add {
     float: right;
     margin-top: 10px;
@@ -5171,7 +5156,7 @@ h3 {
     position: relative;
     padding: 6px;
     cursor: pointer;
-    background: linear-gradient(270deg, #172ca1, #3f20ec);
+    background: linear-gradient(270deg, #0046c0, #024dcf);
     margin-bottom: 25px;
 }
 .field {
@@ -5180,7 +5165,7 @@ h3 {
     flex-direction: column;
 }
 .img-upload:before{
-    content: "\f093";
+    content: url('/images/icon-uploader.jpg');
     font-size: 90px;
     position: absolute;
     padding-top: 80px;
@@ -5188,7 +5173,7 @@ h3 {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: #453ad6;
+    color: #0046c0;
     width: 200px;
     height: 200px;
     border-radius: 50%;

@@ -151,7 +151,7 @@ const StaffProfile = () => {
         }
     );
     const [file, setFile] = useState('');
-    const [imagePreviewUrl, setImagePreviewUrl] = useState('https://github.com/OlgaKoplik/CodePen/blob/master/profile.jpg?raw=true');
+    const [imagePreviewUrl, setImagePreviewUrl] = useState('/images/user-img.png');
     const [active, setActive] = useState('edit');
   
     const photoUpload = e => {
@@ -469,15 +469,15 @@ const StaffProfile = () => {
                                         type="checkbox"
                                         checked={acceptThirdTerms.checked}
                                         onChange={thirdTermsHandler}
-                                    />&nbsp; Accept Third Terms
+                                    />&nbsp; Nothing to Add? Check the box and submit
                                 </label>                  
                             </div>
                         </div>
                     </div>
                 </div>
             ),
-            isError: !acceptThirdTerms.checked && imagePreviewUrl == 'https://github.com/OlgaKoplik/CodePen/blob/master/profile.jpg?raw=true' && acceptThirdTerms.touched,
-            isComplete: acceptThirdTerms.checked || ( lastFields.bio !== '' && imagePreviewUrl !== 'https://github.com/OlgaKoplik/CodePen/blob/master/profile.jpg?raw=true'),
+            isError: !acceptThirdTerms.checked && imagePreviewUrl == '/images/user-img.png' && acceptThirdTerms.touched,
+            isComplete: acceptThirdTerms.checked || ( lastFields.bio !== '' && imagePreviewUrl !== '/images/user-img.png'),
         },
     ];
 
