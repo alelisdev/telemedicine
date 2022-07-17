@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
     return(
         <>
             <Head>
-                <title>Telemedicine - Medical Health & Doctors</title>
+                <title>Telecarelife - Medical Health & Doctors</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                 <meta name="description" content="Telecarelife - Telemedicine with  anxiety & depression, hypertension, prescription refills, antidepressants, sleeping pills, insomnia, PTSD, erectile dysfunction, relationship conflict , marriage counseling, diabetes, allergy pills, Covid testing, Covid treatment, doctor’s note for work" />
                 <meta name="og:title" property="og:title" content="Telecarelife - Medical Health & Doctors"></meta>

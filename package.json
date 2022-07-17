@@ -1,7 +1,7 @@
 {
     "name": "Telecarelife",
     "version": "1.3.0",
-    "description": "Telemedicine - Medical Health & Doctors",
+    "description": "Telecarelife - Medical Health & Doctors",
     "main": "index.js",
     "scripts": {
         "dev": "next dev",
