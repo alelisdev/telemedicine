@@ -134,7 +134,7 @@ const Navbar = () => {
                                             </Link>
                                         </li>
 
-                                        <li className="nav-item">
+                                        {/* <li className="nav-item">
                                             <Link href="/testimonials" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">Testimonials</a>
                                             </Link>
@@ -168,7 +168,7 @@ const Navbar = () => {
                                             <Link href="/terms-condition" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">Terms & Conditions</a>
                                             </Link>
-                                        </li>
+                                        </li> */}
                                     </ul>
                                 </li>
 
