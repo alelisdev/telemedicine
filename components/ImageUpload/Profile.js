@@ -2,9 +2,7 @@ import React from "react";
 
 const Profile =({
     onSubmit,
-    src,
-    name,
-    status,
+    src
   })=> { 
     return (
     <div className="card">
@@ -15,9 +13,6 @@ const Profile =({
             <img for="photo-upload" src={src}/>
           </div>
         </label>
-        <div className="name">{name}</div>
-        <div className="status">{status}</div>
-        <button type="submit" className="edit">Edit Profile </button>
       </form>
     </div>
     )

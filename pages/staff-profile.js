@@ -51,8 +51,7 @@ const StaffProfile = () => {
         console.log('second step clicked');
     };
 
-    /**** Experiences ****/
-
+    /**** First Step ****/
     const [expFields, setExpFields] = useState([
         {
             title: '',
@@ -106,7 +105,7 @@ const StaffProfile = () => {
         setYears(Array.from(new Array(50),(val, index) => year - index ));
     }, [])
 
-    /**** Educations ****/
+    /**** Second Step ****/
     const [eduFields, setEduFields] = useState([
         {
             school: '',
@@ -142,16 +141,20 @@ const StaffProfile = () => {
         data.splice(index, 1)
         setEduFields(data);
     }
-
     
-    /**** ****/
+    /**** Third Step ****/
+    const [lastFields, setLastFields] = useState(
+        {
+            email: '',
+            number: '',
+            bio: ''
+        }
+    );
     const [file, setFile] = useState('');
     const [imagePreviewUrl, setImagePreviewUrl] = useState('https://github.com/OlgaKoplik/CodePen/blob/master/profile.jpg?raw=true');
-    const [name, setName] = useState('');
-    const [status, setStatus] = useState('');
     const [active, setActive] = useState('edit');
   
-    const photoUpload = e =>{
+    const photoUpload = e => {
       e.preventDefault();
       const reader = new FileReader();
       const file = e.target.files[0];
@@ -161,15 +164,6 @@ const StaffProfile = () => {
       }
       reader.readAsDataURL(file);
     }
-    const editName = e =>{
-      const name = e.target.value;
-      setName(name);
-    }
-    
-    const editStatus = e => {
-      const status = e.target.value;
-      setStatus(status);
-    }
     
     const handleSubmit= e =>{
       e.preventDefault();
@@ -177,19 +171,14 @@ const StaffProfile = () => {
       setActive(activeP);
     }
 
-    const [imagePreview, setImagePreview] = useState(null);
-
-    useEffect(() => {
-        if (imagePreviewUrl) {
-            setImagePreview((<img src={imagePreviewUrl} />));
-        } else {
-            setImagePreview((<div className="previewText">Please select an Image for Preview</div>));
-        }
-    }, [imagePreviewUrl])
+    const handleLastChange = (event) => {
+        const {name, value} = event.target;
+        setLastFields(prevState => ({ ...prevState, [name]: value }));
+    }
 
     const stepperContent = [
         {
-            label: 'Step 1',
+            label: 'Experiences',
             content: (
                 <div className="profile-area ptb-100 plr-15">
                     <div className="container-fluid p-0">
@@ -213,7 +202,7 @@ const StaffProfile = () => {
                                                 <div className="col-lg-6">
                                                     <div className="form-group">
                                                         <i className="icofont-edit-alt"></i>
-                                                        <label>Title</label>
+                                                        <label>Title (required *)</label>
                                                         <input type="text" name="title" value={item.title} onChange={event => handleExpChange(index, event)} className="form-control" placeholder="Ex: CTO" />
                                                     </div>
                                                 </div>
@@ -285,7 +274,7 @@ const StaffProfile = () => {
                                                 <div className="col-lg-12">
                                                     <div className="form-group">
                                                         <i className="icofont-clip-board"></i>
-                                                        <label>Description</label>
+                                                        <label>Description (required *)</label>
                                                         <textarea type="text" name="description" value={item.description} onChange={event => handleExpChange(index, event)} className="form-control" placeholder="Enter Some notes" />
                                                     </div>
                                                 </div>
@@ -315,11 +304,11 @@ const StaffProfile = () => {
                     </div>
                 </div>
             ),
-            isError: (!acceptFirstTerms.checked && acceptFirstTerms.touched ) || expFields[0].title == '' ,
-            isComplete: acceptFirstTerms.checked || expFields[0].title !== '',
+            isError: !acceptFirstTerms.checked && expFields[0].title == '' && acceptFirstTerms.touched,
+            isComplete: acceptFirstTerms.checked || ( expFields[0].title !== '' && expFields[0].description !== ''),
         },
         {
-            label: 'Step 2',
+            label: 'Educations',
             content: (
                 <div className="profile-area ptb-100 plr-15">
                     <div className="container-fluid p-0">
@@ -343,7 +332,7 @@ const StaffProfile = () => {
                                                 <div className="col-lg-6">
                                                     <div className="form-group">
                                                         <i className="icofont-university"></i>
-                                                        <label>School</label>
+                                                        <label>School (required *)</label>
                                                         <input type="text" name="school" value={item.school} onChange={event => handleEduChange(index, event)} className="form-control" placeholder="Ex: Boston University" />
                                                     </div>
                                                 </div>
@@ -394,7 +383,7 @@ const StaffProfile = () => {
                                                 <div className="col-lg-12">
                                                     <div className="form-group">
                                                         <i className="icofont-clip-board"></i>
-                                                        <label>Description</label>
+                                                        <label>Description (required *)</label>
                                                         <textarea type="text" name="description" value={item.description} onChange={event => handleEduChange(index, event)} className="form-control" placeholder="Describes your studies, awards, etc." />
                                                     </div>
                                                 </div>
@@ -426,8 +415,8 @@ const StaffProfile = () => {
             ),
             clicked: () => secondStepAsyncFunc(),
             isLoading: isSecondStepLoading,
-            isError: (!acceptSecondTerms.checked && acceptSecondTerms.touched) || eduFields[0].school == '' ,
-            isComplete: acceptSecondTerms.checked || eduFields[0].school !== '' ,
+            isError: !acceptSecondTerms.checked && eduFields[0].school == '' && acceptSecondTerms.touched,
+            isComplete: acceptSecondTerms.checked || ( eduFields[0].school !== '' && eduFields[0].description !== ''),
         },
         {
             label: 'Step 3',
@@ -446,31 +435,29 @@ const StaffProfile = () => {
                                         ):(
                                             <Profile 
                                             onSubmit={handleSubmit} 
-                                            src={imagePreviewUrl} 
-                                            name={name} 
-                                            status={status}/>)}
+                                            src={imagePreviewUrl} />)}
                                     </div>
                                     <div className='col-lg-6'>
                                         <div className="col-lg-12">
                                             <div className="form-group">
                                                 <i className="icofont-email"></i>
                                                 <label>Email</label>
-                                                <input type="email" name="email" className="form-control" placeholder="Ex: topcoder728@gmail.com" />
+                                                <input type="email" name="email" value={lastFields.email} onChange={handleLastChange} className="form-control" placeholder="Ex: topcoder728@gmail.com" />
                                             </div>
                                         </div>
                                         <div className="col-lg-12">
                                             <div className="form-group">
                                                 <i className="icofont-phone"></i>
                                                 <label>Phone Number</label>
-                                                <input type="text" name="number" className="form-control" placeholder="Ex: +1 234 567 8901" />
+                                                <input type="text" name="number" value={lastFields.number} onChange={handleLastChange} className="form-control" placeholder="Ex: +1 234 567 8901" />
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-lg-12">
                                         <div className="form-group">
                                             <i className="icofont-clip-board"></i>
-                                            <label>Biography</label>
-                                            <textarea type="text" name="description" className="form-control" placeholder="Enter Some notes" />
+                                            <label>Biography (required *)</label>
+                                            <textarea type="text" value={lastFields.bio} name="bio" onChange={handleLastChange} className="form-control" placeholder="Enter Some notes" />
                                         </div>
                                     </div>
                                 </div>
@@ -489,8 +476,8 @@ const StaffProfile = () => {
                     </div>
                 </div>
             ),
-            isError: (!acceptThirdTerms.checked && acceptThirdTerms.touched) || imagePreviewUrl == null,
-            isComplete: acceptThirdTerms.checked || imagePreviewUrl !== null,
+            isError: !acceptThirdTerms.checked && imagePreviewUrl == 'https://github.com/OlgaKoplik/CodePen/blob/master/profile.jpg?raw=true' && acceptThirdTerms.touched,
+            isComplete: acceptThirdTerms.checked || ( lastFields.bio !== '' && imagePreviewUrl !== 'https://github.com/OlgaKoplik/CodePen/blob/master/profile.jpg?raw=true'),
         },
     ];
 
@@ -502,7 +489,7 @@ const StaffProfile = () => {
         <>
             <TopHeader />
 
-            {/* <Navbar /> */}
+            <Navbar />
             
             <PageBanner 
                 pageTitle="Staff Profile" 
@@ -517,7 +504,6 @@ const StaffProfile = () => {
                     <Stepper stepperContent={stepperContent} submitStepper={submitStepper} />
                 </div>
             </div>
-        
             <Footer />
         </>
     )
