@@ -7,6 +7,8 @@ import Navbar from '../components/_App/Navbar';
 import PageBanner from '../components/Common/PageBanner';
 import Footer from '../components/_App/Footer';
 import Stepper from '../components/Stepper/Stepper';
+import ImgUpload from "../components/ImageUpload/ImgUpload";
+import Profile from "../components/ImageUpload/Profile";
 
 const StaffProfile = () => {
 
@@ -143,35 +145,41 @@ const StaffProfile = () => {
 
     
     /**** ****/
-
-    const [file, setFile] = useState(null);
-
-    const [imagePreviewUrl, setImagePreviewUrl] = useState(null);
-
-    const handleImageChange = (e) => {
-        e.preventDefault();
-    
-        let reader = new FileReader();
-        let file = e.target.files[0];
-    
-        reader.onloadend = () => {
-            setFile(file);
-            setImagePreviewUrl(reader.result);
-        }
-    
-        reader.readAsDataURL(file)
+    const [file, setFile] = useState('');
+    const [imagePreviewUrl, setImagePreviewUrl] = useState('https://github.com/OlgaKoplik/CodePen/blob/master/profile.jpg?raw=true');
+    const [name, setName] = useState('');
+    const [status, setStatus] = useState('');
+    const [active, setActive] = useState('edit');
+  
+    const photoUpload = e =>{
+      e.preventDefault();
+      const reader = new FileReader();
+      const file = e.target.files[0];
+      reader.onloadend = () => {
+        setFile(file);
+        setImagePreviewUrl(reader.result);
+      }
+      reader.readAsDataURL(file);
     }
-
-    const handleImageSubmit = (e) => {
-        e.preventDefault();
-        // TODO: do something with -> this.state.file
-        console.log('handle uploading-', file);
+    const editName = e =>{
+      const name = e.target.value;
+      setName(name);
+    }
+    
+    const editStatus = e => {
+      const status = e.target.value;
+      setStatus(status);
+    }
+    
+    const handleSubmit= e =>{
+      e.preventDefault();
+      let activeP = active === 'edit' ? 'profile' : 'edit';
+      setActive(activeP);
     }
 
     const [imagePreview, setImagePreview] = useState(null);
 
     useEffect(() => {
-        console.log('imagePreviewUrl', imagePreviewUrl)
         if (imagePreviewUrl) {
             setImagePreview((<img src={imagePreviewUrl} />));
         } else {
@@ -197,7 +205,7 @@ const StaffProfile = () => {
                                             {
                                                 expFields.length > 1 ?
                                                 <button className="btn btn-warning" style={{float: 'right'}} onClick={() => removeExpFields(index)}>
-                                                    <i class="icofont-ui-delete"></i>
+                                                    <i className="icofont-ui-delete"></i>
                                                 </button> 
                                                 : null
                                             }
@@ -289,7 +297,7 @@ const StaffProfile = () => {
                                 
                             </div>
                             
-                            <div className='mt-5'>
+                            <div className='mt-5 mb-5'>
                                 {expFields.length == 1 ? (
                                 <label>
                                     <input
@@ -327,7 +335,7 @@ const StaffProfile = () => {
                                             {
                                                 eduFields.length > 1 ?
                                                 <button className="btn btn-warning" style={{float: 'right'}} onClick={() => removeEduFields(index)}>
-                                                    <i class="icofont-ui-delete"></i>
+                                                    <i className="icofont-ui-delete"></i>
                                                 </button> 
                                                 : null
                                             }
@@ -398,7 +406,7 @@ const StaffProfile = () => {
                                 
                             </div>
                             
-                            <div className='mt-5'>
+                            <div className='mt-5 mb-5'>
                                 {eduFields.length == 1 ? (
                                 <label>
                                     <input
@@ -432,19 +440,37 @@ const StaffProfile = () => {
 
                             <div className="profile-form">
                                 <div className="row">
-                                    <div className="col-lg-6">
-                                        <div className="previewComponent">
-                                            <form onSubmit={(e)=>this._handleImageSubmit(e)}>
-                                                <input className="fileInput" 
-                                                    type="file" 
-                                                    onChange={handleImageChange} />
-                                                <button className="submitButton" 
-                                                    type="submit" 
-                                                    onClick={handleImageSubmit}>Upload Image</button>
-                                            </form>
-                                            <div className="imgPreview">
-                                                {imagePreview}
+                                    <div className="col-lg-6 text-center">
+                                        {(active === 'edit')?(
+                                            <ImgUpload onChange={photoUpload} src={imagePreviewUrl}/>
+                                        ):(
+                                            <Profile 
+                                            onSubmit={handleSubmit} 
+                                            src={imagePreviewUrl} 
+                                            name={name} 
+                                            status={status}/>)}
+                                    </div>
+                                    <div className='col-lg-6'>
+                                        <div className="col-lg-12">
+                                            <div className="form-group">
+                                                <i className="icofont-email"></i>
+                                                <label>Email</label>
+                                                <input type="email" name="email" className="form-control" placeholder="Ex: topcoder728@gmail.com" />
                                             </div>
+                                        </div>
+                                        <div className="col-lg-12">
+                                            <div className="form-group">
+                                                <i className="icofont-phone"></i>
+                                                <label>Phone Number</label>
+                                                <input type="text" name="number" className="form-control" placeholder="Ex: +1 234 567 8901" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-12">
+                                        <div className="form-group">
+                                            <i className="icofont-clip-board"></i>
+                                            <label>Biography</label>
+                                            <textarea type="text" name="description" className="form-control" placeholder="Enter Some notes" />
                                         </div>
                                     </div>
                                 </div>
@@ -476,7 +502,7 @@ const StaffProfile = () => {
         <>
             <TopHeader />
 
-            <Navbar />
+            {/* <Navbar /> */}
             
             <PageBanner 
                 pageTitle="Staff Profile" 

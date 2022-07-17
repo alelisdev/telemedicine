@@ -5076,7 +5076,7 @@ footer {
   /*-- End Appointment --*/
 
 
-.stepper-footer-btn {
+/* .stepper-footer-btn {
     color: #ffffff !important;
     background-color: #0046c0 !important;
     font-weight: 500 !important;
@@ -5089,10 +5089,11 @@ footer {
 .stepper-footer-btn:hover {
     color: #ffffff !important;
     background-color: #111111 !important;
-}
+} */
 
 .btn-add {
     float: right;
+    margin-top: 10px;
 }
 
 .present {
@@ -5153,4 +5154,60 @@ h3 {
 .centerText {
     text-align: center;
     width: 500px;
+}
+
+  
+.img-wrap {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.custom-file-upload {
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    padding: 6px;
+    cursor: pointer;
+    background: linear-gradient(270deg, #172ca1, #3f20ec);
+    margin-bottom: 25px;
+}
+.field {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.img-upload:before{
+    content: "\f093";
+    font-size: 90px;
+    position: absolute;
+    padding-top: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #453ad6;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #fff;
+}
+.img-upload:hover:before{
+   opacity: 1;
+}
+input[type="file"] {
+    display: none;
+}
+
+@keyframes open {
+    0%  {background-position: 166% -25%, 220% -69%;}
+    100%{background-position: 120% -5%, 200% -40%;}
+}
+
+.img-upload img {
+    height: 100%;
 }

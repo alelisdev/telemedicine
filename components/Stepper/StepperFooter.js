@@ -22,12 +22,13 @@ const StepperFooter = ({
                 style={{ justifyContent: isPrevBtn ? 'space-between' : 'flex-end' }}
             >
                 {isPrevBtn && (
-                    <button className="stepper-footer-btn" onClick={previousStepHandler}>
-                        Back to {stepperContent[currentTabIndex - 1].label}
+                    <button className="btn btn-primary" onClick={previousStepHandler}>
+                        {/* Back to {stepperContent[currentTabIndex - 1].label} */}
+                        Back
                     </button>
                 )}
                 <button
-                    className="stepper-footer-btn"
+                    className="btn btn-primary"
                     onClick={
                         isLastStep
                             ? submitHandler
@@ -42,8 +43,8 @@ const StepperFooter = ({
                         stepperContent[currentTabIndex].isLoading
                     }
                 >
-                    {isLastStep ? 'Submit' : `Continue to ${stepperContent[currentTabIndex + 1].label}`}
-                    {/* {isLastStep ? 'Submit' : 'Next'} */}
+                    {/* {isLastStep ? 'Submit' : `Continue to ${stepperContent[currentTabIndex + 1].label}`} */}
+                    {isLastStep ? 'Submit' : 'Continue'}
                 </button>
             </div>
         </div>
