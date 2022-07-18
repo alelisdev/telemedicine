@@ -190,7 +190,7 @@ const StaffProfile = () => {
                                 <div>
                                     { expFields.map((item, index) => {
                                         return(
-                                            <>
+                                        <div key={index}>
                                             {
                                                 expFields.length > 1 ?
                                                 <button className="btn btn-warning" style={{float: 'right'}} onClick={() => removeExpFields(index)}>
@@ -279,7 +279,7 @@ const StaffProfile = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            </>
+                                        </div>
                                         )
                                     })}
                                 </div>
@@ -320,7 +320,7 @@ const StaffProfile = () => {
                                 <div>
                                     { eduFields.map((item, index) => {
                                         return(
-                                            <>
+                                        <div key={index}>
                                             {
                                                 eduFields.length > 1 ?
                                                 <button className="btn btn-warning" style={{float: 'right'}} onClick={() => removeEduFields(index)}>
@@ -388,7 +388,7 @@ const StaffProfile = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            </>
+                                        </div>
                                         )
                                     })}
                                 </div>

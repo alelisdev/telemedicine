@@ -1,12 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
+import { useRouter } from 'next/router'
 import TopHeader from '../components/_App/TopHeader';
 import Navbar from '../components/_App/Navbar';
 import PageBanner from '../components/Common/PageBanner';
 import Footer from '../components/_App/Footer';
 import Link from 'next/link';
-import baseUrl from '../utils/baseUrl';
+import { userService } from '../services';
 
 // Form initial state
 const INITIAL_STATE = {
@@ -21,6 +21,8 @@ const INITIAL_STATE = {
 };
 
 const SignUp = () => {  
+
+    const router = useRouter();
 
     const [reginfo, setReginfo] = useState(INITIAL_STATE);
 
@@ -37,16 +39,43 @@ const SignUp = () => {
         setReginfo(prevState => ({ ...prevState, [name]: value }));
     }
 
+    useEffect(() => {
+        if (userService.userValue) {
+            console.log(userService.userValue)
+            router.push('/');
+        }
+    }, [])
+
 
     const onSubmit = async e => {
         // e.preventDefault();
         try {
-            const url = `${baseUrl}/api/register`;
-            console.log(reginfo);
+            // const url = `${baseUrl}/auth/register`;
             const { firstname, lastname, email, number, password, role } = reginfo;
+            setReginfo(reginfo);
             const payload = { firstname, lastname, email, number, password, role };
-            await axios.post(url, payload);
-            setReginfo(INITIAL_STATE);
+            const user = await userService.register(payload);
+            if(user) {
+                console.log(user)
+                router.push('/staff-profile');
+            }
+            // await axios.post(url, payload)
+            // .then((res) => {
+            //     const { token } = res.data;
+            //     localStorage.setItem("jwtToken", token);
+            //     // Set token to Auth header
+            //     setAuthToken(token);
+            //     // Decode token to get user data
+            //     const decoded = jwt_decode(token);
+                
+            //     // Set current user
+            //     // dispatch(setCurrentUser(decoded));
+
+            //     router.push('/staff-profile');
+            // })
+            // .catch((err) => {
+            //     console.log(err);
+            // });
         } catch (error) {
             console.log(error)
         }

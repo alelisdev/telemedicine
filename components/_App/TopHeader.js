@@ -1,7 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { userService } from '../../services';
+import { useRouter } from 'next/router'
+import jwtDecode from 'jwt-decode';
 
 const TopHeader = () => {
+    const router = useRouter();
+
+    const [account, setAccount] = useState(null);
+
+    const logout = () => {
+        userService.logout();
+        setAccount(null);
+    }
+
+    const editProfile = () => {
+        if(account.user.role == 'staff') {
+            router.push('/staff-profile');
+        } else {
+            router.push('/staff-profile');
+            console.log('client')
+        }
+
+    }
+
+    useEffect(() => {
+        if (userService.userValue) {
+            setAccount(jwtDecode(userService.userValue));
+            console.log(account)
+        }
+    }, [])
+
     return (
         <div className="header-top">
             <div className="container">
@@ -68,11 +97,25 @@ const TopHeader = () => {
                         <div className="header-top-item">
                             <div className="header-top-left top-login">
                                 <ul>
-                                    <li>
-                                        <Link href="/sign-in">
-                                        <a  className="nav-link"><i className="icofont-login"></i></a>
-                                        </Link>
-                                    </li>
+                                    {
+                                        account ? (
+                                        <li className='nav-item dropdown'>
+                                            <a  className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className="icofont-user-alt-5"></i></a>
+                                            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style={{zIndex: '1000000'}}>
+                                                <a className="dropdown-item" href="#">{`${account.user.firstname} ${account.user.lastname}`}</a>
+                                                <a className="dropdown-item" href="#">Dashboard</a>
+                                                <a className="dropdown-item" onClick={editProfile}>Edit Profile</a>
+                                                <a className="dropdown-item" onClick={logout} >Log Out</a>
+                                            </div>
+                                        </li>
+                                        ) : (
+                                        <li>
+                                            <Link href="/sign-in">
+                                                <a  className="nav-link"><i className="icofont-login"></i> </a>
+                                            </Link>
+                                        </li>
+                                        )
+                                    }
                                </ul>
                             </div>
                         </div>

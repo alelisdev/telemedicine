@@ -10,6 +10,7 @@ import '../public/css/style.scss'
 import '../public/css/responsive.css'
 import '../public/css/rtl.css'
 
+
 import Layout from '../components/_App/Layout';
 
 const MyApp =  ({ Component, pageProps }) => {

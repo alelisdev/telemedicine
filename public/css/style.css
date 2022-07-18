@@ -5196,3 +5196,7 @@ input[type="file"] {
 .img-upload img {
     height: 100%;
 }
+
+.dropdown-item {
+    cursor: pointer;
+}

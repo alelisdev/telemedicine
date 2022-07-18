@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from '../../utils/ActiveLink';
 
 const Navbar = () => {
@@ -8,7 +8,7 @@ const Navbar = () => {
         setMenu(!menu)
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         let elementId = document.getElementById("navbar");
         document.addEventListener("scroll", () => {
             if (window.scrollY > 170) {
@@ -17,7 +17,9 @@ const Navbar = () => {
                 elementId.classList.remove("is-sticky");
             }
         });
+
     })
+
  
     const classOne = menu ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
     const classTwo = menu ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
