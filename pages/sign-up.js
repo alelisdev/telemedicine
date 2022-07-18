@@ -16,7 +16,7 @@ const INITIAL_STATE = {
     number: "",
     password: "",
     confirmPassword: "",
-    kind : "client",
+    role : "client",
     gridCheck: false
 };
 
@@ -43,8 +43,8 @@ const SignUp = () => {
         try {
             const url = `${baseUrl}/api/register`;
             console.log(reginfo);
-            const { firstname, lastname, email, number, password, kind } = reginfo;
-            const payload = { firstname, lastname, email, number, password, kind };
+            const { firstname, lastname, email, number, password, role } = reginfo;
+            const payload = { firstname, lastname, email, number, password, role };
             await axios.post(url, payload);
             setReginfo(INITIAL_STATE);
         } catch (error) {
@@ -192,7 +192,7 @@ const SignUp = () => {
                                             </div>
                                             <div className="col-lg-12">
                                                 <div className="form-group">
-                                                    <select className="form-control" value={reginfo.kind} onChange={handleChange} name="kind">
+                                                    <select className="form-control" value={reginfo.role} onChange={handleChange} name="role">
                                                         <option value="client">Client</option>
                                                         <option value="staff">Staff</option>
                                                     </select>
