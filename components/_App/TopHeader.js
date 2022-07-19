@@ -18,7 +18,6 @@ const TopHeader = () => {
         if(account.user.role == 'staff') {
             router.push('/staff-profile');
         } else {
-            router.push('/staff-profile');
             console.log('client')
         }
 
