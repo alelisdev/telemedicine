@@ -35,7 +35,6 @@ const SignUp = () => {
 
     const handleChange = e => {
         const { name, value } = e.target;
-        console.log(name, value)
         setReginfo(prevState => ({ ...prevState, [name]: value }));
     }
 
@@ -50,32 +49,13 @@ const SignUp = () => {
     const onSubmit = async e => {
         // e.preventDefault();
         try {
-            // const url = `${baseUrl}/auth/register`;
             const { firstname, lastname, email, number, password, role } = reginfo;
             setReginfo(reginfo);
             const payload = { firstname, lastname, email, number, password, role };
             const user = await userService.register(payload);
             if(user) {
-                console.log(user)
                 router.push('/staff-profile');
             }
-            // await axios.post(url, payload)
-            // .then((res) => {
-            //     const { token } = res.data;
-            //     localStorage.setItem("jwtToken", token);
-            //     // Set token to Auth header
-            //     setAuthToken(token);
-            //     // Decode token to get user data
-            //     const decoded = jwt_decode(token);
-                
-            //     // Set current user
-            //     // dispatch(setCurrentUser(decoded));
-
-            //     router.push('/staff-profile');
-            // })
-            // .catch((err) => {
-            //     console.log(err);
-            // });
         } catch (error) {
             console.log(error)
         }

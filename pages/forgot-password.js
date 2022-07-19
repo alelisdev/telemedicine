@@ -8,34 +8,22 @@ import Footer from '../components/_App/Footer';
 import Link from 'next/link';
 import baseUrl from '../utils/baseUrl';
 
-// Form initial state
-const INITIAL_STATE = {
-    email: "",
-    password: "",
-};
-
-const SignIn = () => {
+const ForgotPassword = () => {
 
     const { register, handleSubmit, errors } = useForm();
 
-    const [logininfo, setLogininfo] = useState(INITIAL_STATE);
+    const [email, setEmail] = useState('');
 
     const handleChange = e => {
-        const { name, value } = e.target;
-        setLogininfo(prevState => ({ ...prevState, [name]: value }));
+        setEmail(e.target.value);
     }
 
 
     const onSubmit = async e => {
         // e.preventDefault();
         try {
-            const url = `${baseUrl}/api/login`;
-            console.log(logininfo);
-            const { email, password } = logininfo;
-            const payload = { email, password };
-            await axios.post(url, payload);
-            console.log(url);
-            setLogininfo(INITIAL_STATE);
+            const url = `${baseUrl}/api/forgot-password`;
+            await axios.post(url, email);
         } catch (error) {
             console.log(error)
         }
@@ -67,8 +55,8 @@ const SignIn = () => {
                         <div className="col-lg-6 ptb-100">
                             <div className="signup-item">
                                 <div className="signup-head">
-                                    <h2>Sign In Here</h2>
-                                    <p>Didn't you account yet? <Link href="/sign-up"><a>Sign Up Here</a></Link></p>
+                                    <h2>Forgot Password</h2>
+                                    <p>Did you forget Passowrd? If you remember the password, <Link href="/sign-in"><a>Sign In Here</a></Link></p>
                                 </div>
                                 <div className="signup-form" onSubmit={handleSubmit(onSubmit)}>
                                     <form>
@@ -77,7 +65,7 @@ const SignIn = () => {
                                                 <div className="form-group">
                                                     <input 
                                                         name="email"
-                                                        value={logininfo.email}
+                                                        value={email}
                                                         onChange={handleChange}
                                                         ref={register({ required: true, pattern: /^\S+@\S+$/i })}
                                                         type="email" 
@@ -90,34 +78,8 @@ const SignIn = () => {
                                                 </div>
                                             </div>
                                             <div className="col-lg-12">
-                                                <div className="form-group">
-                                                    <input 
-                                                        name="password"
-                                                        value={logininfo.password}
-                                                        onChange={handleChange}
-                                                        ref={register({ required: true })} 
-                                                        type="password" 
-                                                        className="form-control" 
-                                                        placeholder="Password" 
-                                                    />
-                                                    <div className='invalid-feedback' style={{display: 'block'}}>
-                                                        {errors.password && 'Password is required.'}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-lg-12">
-                                                <div className="form-group">
-                                                    <div className="forgot-password">
-                                                        <Link href="/forgot-password">
-                                                        <a>Forgot Password?</a>
-                                                        </Link>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div className="col-lg-12">
                                                 <div className="text-center">
-                                                    <button type="submit" className="btn signup-btn">Login</button>
+                                                    <button type="submit" className="btn signup-btn">Send Email</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -134,4 +96,4 @@ const SignIn = () => {
     )
 }
 
-export default SignIn;
+export default ForgotPassword;

@@ -1,41 +1,43 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router'
 import TopHeader from '../components/_App/TopHeader';
 import Navbar from '../components/_App/Navbar';
 import PageBanner from '../components/Common/PageBanner';
 import Footer from '../components/_App/Footer';
 import Link from 'next/link';
-import baseUrl from '../utils/baseUrl';
+import { userService } from '../services';
 
 // Form initial state
 const INITIAL_STATE = {
-    email: "",
     password: "",
+    confirmPassword: "",
 };
 
-const SignIn = () => {
+const ResetPassword = () => {  
 
-    const { register, handleSubmit, errors } = useForm();
+    const router = useRouter();
 
-    const [logininfo, setLogininfo] = useState(INITIAL_STATE);
+    const [resetInfo, setResetInfo] = useState(INITIAL_STATE);
+
+    const { register, handleSubmit, errors, watch } = useForm();
+
+    const password = useRef({});
+
+    password.current = watch("password", "");
+
 
     const handleChange = e => {
         const { name, value } = e.target;
-        setLogininfo(prevState => ({ ...prevState, [name]: value }));
+        setResetInfo(prevState => ({ ...prevState, [name]: value }));
     }
 
 
     const onSubmit = async e => {
         // e.preventDefault();
         try {
-            const url = `${baseUrl}/api/login`;
-            console.log(logininfo);
-            const { email, password } = logininfo;
-            const payload = { email, password };
-            await axios.post(url, payload);
-            console.log(url);
-            setLogininfo(INITIAL_STATE);
+            const { password, confirmPassword } = resetInfo;
+            setResetInfo(resetInfo);
         } catch (error) {
             console.log(error)
         }
@@ -48,76 +50,76 @@ const SignIn = () => {
             <Navbar />
             
             <PageBanner 
-                pageTitle="Sign In" 
+                pageTitle="Sign Up" 
                 homePageUrl="/" 
                 homePageText="Home" 
-                activePageText="Sign In" 
+                activePageText="Sign Up" 
                 bgImage="page-title-one" 
-            />
-
+            /> 
+ 
             <div className="signup-area ptb-100">
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-lg-6 pl-0">
-                            <div className="login-left">
-                                <img src="/images/login-bg.jpg" alt="Login" />
+                            <div className="signup-left">
+                                <img src="/images/signup-bg.jpg" alt="SignUp" />
                             </div>
                         </div>
 
                         <div className="col-lg-6 ptb-100">
                             <div className="signup-item">
                                 <div className="signup-head">
-                                    <h2>Sign In Here</h2>
-                                    <p>Didn't you account yet? <Link href="/sign-up"><a>Sign Up Here</a></Link></p>
+                                    <h2>Reset Password Here</h2>
                                 </div>
-                                <div className="signup-form" onSubmit={handleSubmit(onSubmit)}>
-                                    <form>
+
+                                <div className="signup-form">
+                                    <form id="registerForm" onSubmit={handleSubmit(onSubmit)}>
                                         <div className="row">
                                             <div className="col-lg-12">
                                                 <div className="form-group">
                                                     <input 
-                                                        name="email"
-                                                        value={logininfo.email}
-                                                        onChange={handleChange}
-                                                        ref={register({ required: true, pattern: /^\S+@\S+$/i })}
-                                                        type="email" 
+                                                        type="password"
+                                                        name="password"
                                                         className="form-control" 
-                                                        placeholder="Your Email" 
+                                                        placeholder="Password" 
+                                                        // value={resetInfo.password}
+                                                        onChange={handleChange}
+                                                        ref={register({
+                                                            required: "You must specify a password",
+                                                            minLength: {
+                                                                value: 8,
+                                                                message: "Password must have at least 8 characters"
+                                                            }
+                                                        })}
                                                     />
                                                     <div className='invalid-feedback' style={{display: 'block'}}>
-                                                        {errors.email && 'Email is required.'}
+                                                        {errors.password && <p>{errors.password.message}</p>}
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className="col-lg-12">
                                                 <div className="form-group">
                                                     <input 
-                                                        name="password"
-                                                        value={logininfo.password}
-                                                        onChange={handleChange}
-                                                        ref={register({ required: true })} 
                                                         type="password" 
+                                                        name="confirmPassword"
                                                         className="form-control" 
-                                                        placeholder="Password" 
+                                                        placeholder="Confirm Password" 
+                                                        value={resetInfo.confirmPassword}
+                                                        onChange={handleChange}
+                                                        ref={register({
+                                                            validate: value =>
+                                                              value === password.current || "The passwords do not match"
+                                                        })}
                                                     />
                                                     <div className='invalid-feedback' style={{display: 'block'}}>
-                                                        {errors.password && 'Password is required.'}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-lg-12">
-                                                <div className="form-group">
-                                                    <div className="forgot-password">
-                                                        <Link href="/forgot-password">
-                                                        <a>Forgot Password?</a>
-                                                        </Link>
+                                                        { errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div className="col-lg-12">
                                                 <div className="text-center">
-                                                    <button type="submit" className="btn signup-btn">Login</button>
+                                                    <button type="submit" className="btn signup-btn">Reset Passowrd</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -128,10 +130,10 @@ const SignIn = () => {
                     </div>
                 </div>
             </div>
- 
+
             <Footer />
         </>
     )
 }
 
-export default SignIn;
+export default ResetPassword;
