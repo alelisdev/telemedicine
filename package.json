@@ -22,6 +22,7 @@
         "jwt-decode": "^3.1.2",
         "multiselect-react-dropdown": "^2.0.25",
         "next": "^12.0.4",
+        "next-themes": "^0.2.0",
         "nodemailer": "^6.7.2",
         "nodemailer-sendgrid-transport": "^0.2.0",
         "react": "^17.0.2",
@@ -37,6 +38,7 @@
         "services": "0.0.3",
         "sweetalert2": "^10.16.9",
         "sweetalert2-react-content": "^3.3.3",
+        "usehooks-ts": "^2.6.0",
         "yup": "^0.32.11"
     }
 }
