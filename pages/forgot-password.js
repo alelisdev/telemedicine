@@ -36,10 +36,10 @@ const ForgotPassword = () => {
             <Navbar />
             
             <PageBanner 
-                pageTitle="Sign In" 
+                pageTitle="Forgot Password" 
                 homePageUrl="/" 
                 homePageText="Home" 
-                activePageText="Sign In" 
+                activePageText="Forgot Password" 
                 bgImage="page-title-one" 
             />
 

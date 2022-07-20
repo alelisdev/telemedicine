@@ -50,10 +50,10 @@ const ResetPassword = () => {
             <Navbar />
             
             <PageBanner 
-                pageTitle="Sign Up" 
+                pageTitle="Reest Password" 
                 homePageUrl="/" 
                 homePageText="Home" 
-                activePageText="Sign Up" 
+                activePageText="Reest Password" 
                 bgImage="page-title-one" 
             /> 
  
