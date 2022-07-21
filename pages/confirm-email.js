@@ -22,7 +22,7 @@ const ConfirmMailContent = () => (
                     width={100}
                 />
                 <p>
-                An email has been sent to <strong></strong>. Please click on the
+                An email has been sent to <strong>{ localStorage.getItem('emailstring') }</strong>. Please click on the
                 included link to reset your password.
                 </p> 
                 <div className='text-center mt-5'>
