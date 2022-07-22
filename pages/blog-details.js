@@ -29,7 +29,7 @@ const BlogDetails = () => {
                             <div className="blog-details-item">
                                 <div className="blog-details-img">
                                     <img src="/images/blog/blog-details.jpg" alt="Blog" />
-                                    <h2>More Than 80 Clinical Trials Launch to Test  of The Coronavirus</h2>
+                                    <h2>About ANXIETY</h2>
 
                                     <ul>
                                         <li>
@@ -39,18 +39,20 @@ const BlogDetails = () => {
                                         </li>
                                         <li>
                                             <i className="icofont-calendar"></i>
-                                            Jan 03, 2020
+                                            Jul 23, 2022
                                         </li>
                                     </ul>
 
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
-
-                                    <p>Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel.</p>
+                                    <p>Anxiety is the feeling of unease, worry, or impending doom, and this may be accompanied by physical symptoms such as racing heart, sweating, difficulty sleeping, among others. On the extreme end, severe anxiety can evolve into a full blown “Panic Attack.” </p>
+                                    <p>Nearly all adults experience anxiety at one time or another, and this is no cause for great alarm. However if you are experiencing panic attacks, or if your anxiety is interfering with school, work, social relationships, or family life, then it may be time to seek professional advice and treatment, which may include counseling, medications, or both. </p>
+                                    <p>Here is a simple Anxiety Self-screen Questionnaire, called the GAD-7, which can be completed in less than 5 minutes:</p>
+                                    <a href='https://www.bruntsfieldmedicalpractice.co.uk/'>Microsoft Word - GAD-7 Word.doc (bruntsfieldmedicalpractice.co.uk) </a>
+                                    <p>If your SCORE is 7 to 8 or higher, it is advisable that you speak to a physician or mental health professional for a more detailed assessment.</p>
+                                    <p>The GOOD news is that there are many forms of treatment that are available to get your anxiety under better control, so that your work, school, and personal life doesn’t have to suffer. </p>
                                 </div>
 
                                 <div className="blog-details-previous">
-                                    <h3>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</h3>
+                                    {/* <h3>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</h3>
                                     <ul>
                                         <li>1. Donec a purus at tellus rhoncus semper non sed tortor.</li>
                                         <li>2. Etiam ut est laoreet, accumsan erat sed, ullamcorper magna.</li>
@@ -58,7 +60,7 @@ const BlogDetails = () => {
                                         <li>4. Aenean vitae tortor pretium, sollicitudin urna at, sollicitudin dui.</li>
                                         <li>5. Phasellus tempor velit sed leo viverra lacinia.</li>
                                         <li>6. Suspendisse quis sapien dapibus, sagittis ligula a, rhoncus justo.</li>
-                                    </ul>
+                                    </ul> */}
 
                                     <div className="prev-next">
                                         <ul>

@@ -1,10 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useForm } from 'react-hook-form';
 import TopHeader from '../components/_App/TopHeader';
 import Navbar from '../components/_App/Navbar';
 import PageBanner from '../components/Common/PageBanner';
 import Footer from '../components/_App/Footer';
+import baseUrl from '../utils/baseUrl';
+
+const INITIAL_STATE = {
+    name: "",
+    email: "",
+    phone: "",
+    services: "",
+    sDrName: "",
+    age: "",
+};
 
 const Appointment = () => {
+
+    const [apt, setApt] = useState(INITIAL_STATE);
+
+    const { register, handleSubmit, errors } = useForm();
+
+    const handleChange = e => {
+        const { name, value } = e.target;
+        setApt(prevState => ({ ...prevState, [name]: value }));
+    }
+
+
+    const onSubmit = async e => {
+        // e.preventDefault();
+        try {
+            const url = `${baseUrl}/api/appointment`;
+            console.log(apt);
+            const { name, email, phone, services, sDrName, age } = apt;
+            const payload = { name, email, phone, services, sDrName, age };
+            await axios.post(url, payload);
+            setApt(INITIAL_STATE);
+        } catch (error) {
+            console.log(error)
+        }
+    };
     return (
         <>
             <TopHeader />
@@ -32,13 +68,24 @@ const Appointment = () => {
                                 <span>We will confirm your appointment within 2 hours</span>
 
                                 <div className="appointment-form">
-                                    <form>
+                                    <form id="appointmentForm" onSubmit={handleSubmit(onSubmit)}>
                                         <div className="row">
                                             <div className="col-lg-6">
                                                 <div className="form-group">
                                                     <i className="icofont-business-man-alt-1"></i>
                                                     <label>Name</label>
-                                                    <input type="text" className="form-control" placeholder="Enter Your Name" />
+                                                    <input 
+                                                        name='name' 
+                                                        onChange={handleChange} 
+                                                        type="text" 
+                                                        ref={register({ required: true })} 
+                                                        value={apt.name}
+                                                        className="form-control" 
+                                                        placeholder="Enter Your Name" 
+                                                    />
+                                                    <div className='invalid-feedback' style={{display: 'block'}}>
+                                                        {errors.name && 'Name is required.'}
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -46,7 +93,17 @@ const Appointment = () => {
                                                 <div className="form-group">
                                                     <i className="icofont-ui-message"></i>
                                                     <label>Email</label>
-                                                    <input type="email" className="form-control" placeholder="Enter Your Email" />
+                                                    <input 
+                                                        name='email' 
+                                                        onChange={handleChange} 
+                                                        ref={register({ required: true, pattern: /^\S+@\S+$/i })} 
+                                                        value={apt.email}
+                                                        type="email" className="form-control" 
+                                                        placeholder="Enter Your Email" 
+                                                    />
+                                                    <div className='invalid-feedback' style={{display: 'block'}}>
+                                                        {errors.email && 'Email is required.'}
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -54,7 +111,18 @@ const Appointment = () => {
                                                 <div className="form-group">
                                                     <i className="icofont-ui-call"></i>
                                                     <label>Phone</label>
-                                                    <input type="text" className="form-control" placeholder="Enter Your Number" />
+                                                    <input 
+                                                        name='phone' 
+                                                        onChange={handleChange} 
+                                                        ref={register({ required: true })} 
+                                                        value={apt.phone}
+                                                        type="text" 
+                                                        className="form-control" 
+                                                        placeholder="Enter Your Number" 
+                                                    />
+                                                    <div className='invalid-feedback' style={{display: 'block'}}>
+                                                        {errors.phone && 'Phone Number is required.'}
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -62,7 +130,7 @@ const Appointment = () => {
                                                 <div className="form-group">
                                                     <i className="icofont-hospital"></i>
                                                     <label>Services</label>
-                                                    <select className="form-control" id="exampleFormControlSelect1">
+                                                    <select name='services' onChange={handleChange} className="form-control" id="exampleFormControlSelect1">
                                                         <option>Dental Care</option>
                                                         <option>2</option>
                                                         <option>3</option>
@@ -76,7 +144,7 @@ const Appointment = () => {
                                                 <div className="form-group">
                                                     <i className="icofont-doctor"></i>
                                                     <label>Doctor</label>
-                                                    <select className="form-control" id="exampleFormControlSelect2">
+                                                    <select name='sDrName' onChange={handleChange} className="form-control" id="exampleFormControlSelect2">
                                                         <option>Choose Your Doctor</option>
                                                         <option>John Smith</option>
                                                         <option>Sarah Taylor</option>
@@ -89,7 +157,18 @@ const Appointment = () => {
                                                 <div className="form-group">
                                                     <i className="icofont-business-man"></i>
                                                     <label>Age</label>
-                                                    <input type="text" className="form-control" placeholder="Your Age" />
+                                                    <input 
+                                                        name='age' 
+                                                        onChange={handleChange} 
+                                                        ref={register({ required: true })} 
+                                                        value={apt.phone}
+                                                        type="text" 
+                                                        className="form-control" 
+                                                        placeholder="Your Age" 
+                                                    />
+                                                    <div className='invalid-feedback' style={{display: 'block'}}>
+                                                        {errors.age && 'Age is required.'}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

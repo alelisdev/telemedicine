@@ -17,7 +17,7 @@ const BlogSidebar = () => {
                 <ul>
                     <li>
                         <img src="/images/blog/blog1.jpg" alt="Recent" />
-                        <a href="/blog-details">World AIDS Day, designated on 1 December.</a>
+                        <a href="/blog-details">About ANXIETY</a>
                         <ul>
                             <li>
                                 <a href="/blog">
@@ -25,13 +25,13 @@ const BlogSidebar = () => {
                                 </a>
                             </li>
                             <li>
-                                <i className="icofont-calendar"></i> Jan 03, 2020
+                                <i className="icofont-calendar"></i> Jul 23, 2022
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <img src="/images/blog/blog2.webp" alt="Recent" />
-                        <a href="/blog-details">World AIDS Day, designated on 1 December.</a>
+                        <img src="/images/blog/blog1.jpg" alt="Recent" />
+                        <a href="/blog-details">About ANXIETY</a>
                         <ul>
                             <li>
                                 <a href="/blog">
@@ -39,13 +39,13 @@ const BlogSidebar = () => {
                                 </a>
                             </li>
                             <li>
-                                <i className="icofont-calendar"></i> Jan 03, 2020
+                                <i className="icofont-calendar"></i> Jul 23, 2022
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <img src="/images/blog/blog3.webp" alt="Recent" />
-                        <a href="/blog-details">World AIDS Day, designated on 1 December.</a>
+                        <img src="/images/blog/blog1.jpg" alt="Recent" />
+                        <a href="/blog-details">About ANXIETY</a>
                         <ul>
                             <li>
                                 <a href="/blog">
@@ -53,10 +53,11 @@ const BlogSidebar = () => {
                                 </a>
                             </li>
                             <li>
-                                <i className="icofont-calendar"></i> Jan 03, 2020
+                                <i className="icofont-calendar"></i> Jul 23, 2022
                             </li>
                         </ul>
                     </li>
+                    
                 </ul>
             </div>
 
