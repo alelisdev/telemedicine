@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form';
 import TopHeader from '../components/_App/TopHeader';
 import Navbar from '../components/_App/Navbar';
@@ -7,6 +7,7 @@ import PageBanner from '../components/Common/PageBanner';
 import Footer from '../components/_App/Footer';
 import Link from 'next/link';
 import baseUrl from '../utils/baseUrl';
+import { userService } from '../services';
 
 // Form initial state
 const INITIAL_STATE = {
@@ -15,7 +16,8 @@ const INITIAL_STATE = {
 };
 
 const SignIn = () => {
-
+    const router = useRouter();
+    
     const { register, handleSubmit, errors } = useForm();
 
     const [logininfo, setLogininfo] = useState(INITIAL_STATE);
@@ -25,16 +27,23 @@ const SignIn = () => {
         setLogininfo(prevState => ({ ...prevState, [name]: value }));
     }
 
+    useEffect(() => {
+        if (userService.userValue) {
+            router.push('/');
+        }
+    }, [])
+
 
     const onSubmit = async e => {
         // e.preventDefault();
         try {
-            const url = `${baseUrl}/api/login`;
-            console.log(logininfo);
             const { email, password } = logininfo;
+            setLogininfo(logininfo);
             const payload = { email, password };
-            await axios.post(url, payload);
-            console.log(url);
+            const user = await userService.login(payload);
+            if(user) {
+                router.push('/');
+            }
             setLogininfo(INITIAL_STATE);
         } catch (error) {
             console.log(error)

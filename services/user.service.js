@@ -14,8 +14,8 @@ export const userService = {
     logout
 };
 
-function login(email, password) {
-    return axios.post(`${baseUrl}/auth/login`, { email, password })
+function login(payload) {
+    return axios.post(`${baseUrl}/api/auth/login`, payload)
         .then(res => {
             // publish user to subscribers and store in local storage to stay logged in between page refreshes
             const { token } = res.data;
@@ -27,7 +27,7 @@ function login(email, password) {
 }
 
 function register(payload) {
-    return axios.post(`${baseUrl}/auth/register`, payload)
+    return axios.post(`${baseUrl}/api/auth/register`, payload)
         .then(res => {
             // publish user to subscribers and store in local storage to stay logged in between page refreshes
             const { token } = res.data;

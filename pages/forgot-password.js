@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router'
 import TopHeader from '../components/_App/TopHeader';
 import Navbar from '../components/_App/Navbar';
 import PageBanner from '../components/Common/PageBanner';
@@ -9,7 +10,8 @@ import Link from 'next/link';
 import baseUrl from '../utils/baseUrl';
 
 const ForgotPassword = () => {
-
+    const router = useRouter();
+    
     const { register, handleSubmit, errors } = useForm();
 
     const [email, setEmail] = useState('');
@@ -22,11 +24,16 @@ const ForgotPassword = () => {
     const onSubmit = async () => {
         // e.preventDefault();
         try {
-            localStorage.setItem('emailstring', email);
-            const url = `${baseUrl}/api/forgot-password`;
-            await axios.post(url, email);
+            const url = `${baseUrl}/api/auth/forgot-password`;
+            axios.post(url, { email })
+            .then((res) => {
+                router.push('/confirm-email');
+            })
+            .catch((err) => {
+
+            });
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     };
 

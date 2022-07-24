@@ -12,7 +12,7 @@ const INITIAL_STATE = {
     email: "",
     phone: "",
     services: "",
-    sDrName: "",
+    sdrname: "",
     age: "",
 };
 
@@ -33,8 +33,8 @@ const Appointment = () => {
         try {
             const url = `${baseUrl}/api/appointment`;
             console.log(apt);
-            const { name, email, phone, services, sDrName, age } = apt;
-            const payload = { name, email, phone, services, sDrName, age };
+            const { name, email, phone, services, sdrname, age } = apt;
+            const payload = { name, email, phone, services, sdrname, age };
             await axios.post(url, payload);
             setApt(INITIAL_STATE);
         } catch (error) {
@@ -130,13 +130,16 @@ const Appointment = () => {
                                                 <div className="form-group">
                                                     <i className="icofont-hospital"></i>
                                                     <label>Services</label>
-                                                    <select name='services' onChange={handleChange} className="form-control" id="exampleFormControlSelect1">
+                                                    <select name='services' value={apt.services} onChange={handleChange} ref={register({ required: true })} className="form-control" id="services">
                                                         <option>Dental Care</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
+                                                        <option value={2}>2</option>
+                                                        <option value={3}>3</option>
+                                                        <option value={4}>4</option>
+                                                        <option value={5}>5</option>
                                                     </select>
+                                                    <div className='invalid-feedback' style={{display: 'block'}}>
+                                                        {errors.services && 'Services is required.'}
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -144,12 +147,15 @@ const Appointment = () => {
                                                 <div className="form-group">
                                                     <i className="icofont-doctor"></i>
                                                     <label>Doctor</label>
-                                                    <select name='sDrName' onChange={handleChange} className="form-control" id="exampleFormControlSelect2">
-                                                        <option>Choose Your Doctor</option>
-                                                        <option>John Smith</option>
-                                                        <option>Sarah Taylor</option>
-                                                        <option>Stevn King</option>
+                                                    <select name='sdrname' value={apt.sdrname} ref={register({ required: true })} onChange={handleChange} className="form-control" id="sdrname">
+                                                        <option value={2}>Choose Your Doctor</option>
+                                                        <option value={3}>John Smith</option>
+                                                        <option value={4}>Sarah Taylor</option>
+                                                        <option value={5}>Stevn King</option>
                                                     </select>
+                                                    <div className='invalid-feedback' style={{display: 'block'}}>
+                                                        {errors.sdrname && 'Doctor Name is required.'}
+                                                    </div>
                                                 </div>
                                             </div>
 

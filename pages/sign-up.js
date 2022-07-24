@@ -56,6 +56,7 @@ const SignUp = () => {
             if(user) {
                 router.push('/staff-profile');
             }
+            setReginfo(INITIAL_STATE);
         } catch (error) {
             console.log(error)
         }
