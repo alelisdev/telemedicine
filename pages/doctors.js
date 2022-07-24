@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TopHeader from '../components/_App/TopHeader';
 import Navbar from '../components/_App/Navbar';
 import PageBanner from '../components/Common/PageBanner';
 import Footer from '../components/_App/Footer';
 import Link from 'next/link';
+import baseUrl from '../utils/baseUrl';
+import axios from 'axios';
+
 
 const Doctors = () => {
+
+    const [search, setSearch] = useState('');
+
+    const handleSearch = async (e) => {
+        const { name, value } = e.target;
+        console.log(name)
+        setSearch(value);
+    }
+
+    const handleSearchClick = async () => {
+        const url = `${baseUrl}/api/doctors/search`;
+        const payload = { search };
+        await axios.post(url, payload);
+    }
+ 
     return (
         <>
             <TopHeader />
@@ -22,16 +40,16 @@ const Doctors = () => {
 
             <div className="doctor-search-area">
                 <div className="container">
-                    <form>
+                    {/* <form> */}
                         <div className="row doctor-search-wrap">
                             <div className="col-sm-6 col-lg-6">
                                 <div className="doctor-search-item">
                                     <div className="form-group">
                                         <i className="icofont-doctor-alt"></i>
                                         <label>Search</label>
-                                        <input type="text" className="form-control" placeholder="Doctor Name" />
+                                        <input type="text" name="search" value={search} onChange={handleSearch} className="form-control" placeholder="Doctor Name" />
                                     </div>
-                                    <button type="submit" className="btn doctor-search-btn">
+                                    <button className="btn doctor-search-btn" onClick={handleSearchClick}>
                                         <i className="icofont-search-1"></i>
                                     </button>
                                 </div>
@@ -52,7 +70,7 @@ const Doctors = () => {
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    {/* </form> */}
                 </div>
             </div>
 

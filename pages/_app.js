@@ -9,13 +9,15 @@ import '../public/css/style.css'
 import '../public/css/style.scss'
 import '../public/css/responsive.css'
 import '../public/css/rtl.css'
-
+import '../node_modules/react-notifications/lib/notifications.css';
+import { NotificationContainer } from 'react-notifications';
 import Layout from '../components/_App/Layout';
 
 const MyApp =  ({ Component, pageProps }) => {
     return (
         <Layout>
             <Component {...pageProps} />
+            <NotificationContainer />
         </Layout>
     )
 }

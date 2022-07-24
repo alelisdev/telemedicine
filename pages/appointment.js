@@ -6,6 +6,7 @@ import Navbar from '../components/_App/Navbar';
 import PageBanner from '../components/Common/PageBanner';
 import Footer from '../components/_App/Footer';
 import baseUrl from '../utils/baseUrl';
+import { NotificationManager } from 'react-notifications';
 
 const INITIAL_STATE = {
     name: "",
@@ -35,8 +36,16 @@ const Appointment = () => {
             console.log(apt);
             const { name, email, phone, services, sdrname, age } = apt;
             const payload = { name, email, phone, services, sdrname, age };
-            await axios.post(url, payload);
-            setApt(INITIAL_STATE);
+            axios.post(url, payload)
+            .then((res) => {
+                NotificationManager.success('Success message', 'Appointment Successfully Submitted!');
+                setApt(INITIAL_STATE);
+            })
+            .catch((err) => {
+                NotificationManager.error('Error message', 'Something Went Wrong!');
+            });
+            
+            
         } catch (error) {
             console.log(error)
         }
@@ -167,7 +176,7 @@ const Appointment = () => {
                                                         name='age' 
                                                         onChange={handleChange} 
                                                         ref={register({ required: true })} 
-                                                        value={apt.phone}
+                                                        value={apt.age}
                                                         type="text" 
                                                         className="form-control" 
                                                         placeholder="Your Age" 

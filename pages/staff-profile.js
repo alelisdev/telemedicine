@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useForm } from 'react-hook-form';
-import Link from 'next/link';
 import TopHeader from '../components/_App/TopHeader';
 import Navbar from '../components/_App/Navbar';
 import PageBanner from '../components/Common/PageBanner';
@@ -9,6 +7,8 @@ import Footer from '../components/_App/Footer';
 import Stepper from '../components/Stepper/Stepper';
 import ImgUpload from "../components/ImageUpload/ImgUpload";
 import Profile from "../components/ImageUpload/Profile";
+import baseUrl from '../utils/baseUrl';
+import { NotificationManager } from 'react-notifications';
 
 const StaffProfile = () => {
 
@@ -46,9 +46,8 @@ const StaffProfile = () => {
     const secondStepAsyncFunc = async () => {
         //it can be an API call
         setIsSecondStepLoading(true);
-        await timeout(3000);
+        // await timeout(3000);
         setIsSecondStepLoading(false);
-        console.log('second step clicked');
     };
 
     /**** First Step ****/
@@ -66,7 +65,6 @@ const StaffProfile = () => {
 
     const handleExpChange = (idx, event) => {
         const {name, value} = event.target;
-        console.log(name, value);
         let data = [...expFields];
         data[idx][name] = value;
         setExpFields(data);
@@ -147,22 +145,32 @@ const StaffProfile = () => {
         {
             email: '',
             number: '',
-            bio: ''
+            bio: '',
+            photo: ''
         }
     );
     const [file, setFile] = useState('');
+    const [profileImage, setProfileImage] = useState(null);
     const [imagePreviewUrl, setImagePreviewUrl] = useState('/images/user-img.png');
     const [active, setActive] = useState('edit');
   
     const photoUpload = e => {
-      e.preventDefault();
-      const reader = new FileReader();
-      const file = e.target.files[0];
-      reader.onloadend = () => {
-        setFile(file);
-        setImagePreviewUrl(reader.result);
-      }
-      reader.readAsDataURL(file);
+        e.preventDefault();
+
+        const formData = new FormData(); 
+        const reader = new FileReader();
+
+        const tempFile = e.target.files[0];
+
+        reader.onloadend = () => {
+            setFile(tempFile);
+            setImagePreviewUrl(reader.result);
+        }
+
+        reader.readAsDataURL(tempFile);
+        formData.append('profileImage', tempFile, e.target.files[0].name);
+        setProfileImage(formData);
+        console.log('formData', formData);
     }
     
     const handleSubmit= e =>{
@@ -481,8 +489,21 @@ const StaffProfile = () => {
         },
     ];
 
-    const submitStepper = () => {
-        console.log('submitted');
+    const submitStepper = async () => {
+        console.log('expFields', expFields);
+        console.log('eduFields', expFields);
+        console.log('lastFields', lastFields);
+        console.log('file', profileImage);
+
+        const url = `${baseUrl}/api/doctors/profile`;
+        const payload = { expFields, eduFields, lastFields, profileImage };
+        axios.post(url, payload)
+        .then((res) => {
+            console.log(res.data.message);
+            NotificationManager.success('Success message', 'Profile Successfully Submitted!');
+        }).catch((err) => {
+            console.log(err);
+        });
     };
 
     return (

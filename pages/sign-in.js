@@ -6,8 +6,8 @@ import Navbar from '../components/_App/Navbar';
 import PageBanner from '../components/Common/PageBanner';
 import Footer from '../components/_App/Footer';
 import Link from 'next/link';
-import baseUrl from '../utils/baseUrl';
 import { userService } from '../services';
+import { NotificationManager } from 'react-notifications';
 
 // Form initial state
 const INITIAL_STATE = {
@@ -44,6 +44,7 @@ const SignIn = () => {
             if(user) {
                 router.push('/');
             }
+            NotificationManager.success('Success message', 'Sign In Successed!');
             setLogininfo(INITIAL_STATE);
         } catch (error) {
             console.log(error)

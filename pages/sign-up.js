@@ -56,6 +56,7 @@ const SignUp = () => {
             if(user) {
                 router.push('/staff-profile');
             }
+            NotificationManager.success('Success message', 'Sign Up Successed!');
             setReginfo(INITIAL_STATE);
         } catch (error) {
             console.log(error)
