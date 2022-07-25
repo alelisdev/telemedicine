@@ -23,6 +23,14 @@ const TopHeader = () => {
 
     }
 
+    const openDashboard = () => {
+        if(account.user.role == 'staff') {
+            router.push('/dashst');
+        } else {
+            router.push('/dashct');
+        }
+    }
+
     useEffect(() => {
         if (userService.userValue) {
             setAccount(jwtDecode(userService.userValue));
@@ -102,7 +110,7 @@ const TopHeader = () => {
                                             <a  className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className="icofont-user-alt-5"></i></a>
                                             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style={{zIndex: '1000000'}}>
                                                 <a className="dropdown-item" href="#">{`${account.user.firstname} ${account.user.lastname}`}</a>
-                                                <a className="dropdown-item" href="#">Dashboard</a>
+                                                <a className="dropdown-item" onClick={openDashboard}>Dashboard</a>
                                                 <a className="dropdown-item" onClick={editProfile}>Edit Profile</a>
                                                 <a className="dropdown-item" onClick={logout} >Log Out</a>
                                             </div>

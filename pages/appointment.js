@@ -24,6 +24,9 @@ const Appointment = () => {
     const { register, handleSubmit, errors } = useForm();
 
     const handleChange = e => {
+
+        console.log(errors);
+
         const { name, value } = e.target;
         setApt(prevState => ({ ...prevState, [name]: value }));
     }
@@ -138,9 +141,9 @@ const Appointment = () => {
                                             <div className="col-lg-6">
                                                 <div className="form-group">
                                                     <i className="icofont-hospital"></i>
-                                                    <label>Services</label>
+                                                    <label htmlFor='services'>Services</label>
                                                     <select name='services' value={apt.services} onChange={handleChange} ref={register({ required: true })} className="form-control" id="services">
-                                                        <option>Dental Care</option>
+                                                        <option value="" hidden>Choose a Service</option>
                                                         <option value={2}>2</option>
                                                         <option value={3}>3</option>
                                                         <option value={4}>4</option>
@@ -157,13 +160,13 @@ const Appointment = () => {
                                                     <i className="icofont-doctor"></i>
                                                     <label>Doctor</label>
                                                     <select name='sdrname' value={apt.sdrname} ref={register({ required: true })} onChange={handleChange} className="form-control" id="sdrname">
-                                                        <option value={2}>Choose Your Doctor</option>
+                                                        <option value="" hidden>Choose Your Doctor</option>
                                                         <option value={3}>John Smith</option>
                                                         <option value={4}>Sarah Taylor</option>
                                                         <option value={5}>Stevn King</option>
                                                     </select>
                                                     <div className='invalid-feedback' style={{display: 'block'}}>
-                                                        {errors.sdrname && 'Doctor Name is required.'}
+                                                        {errors.sdrname && 'Select a doctor.'}
                                                     </div>
                                                 </div>
                                             </div>

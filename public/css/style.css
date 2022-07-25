@@ -5200,3 +5200,34 @@ input[type="file"] {
 .dropdown-item {
     cursor: pointer;
 }
+
+.pagination {
+    /* flex-direction: row-reverse !important; */
+}
+
+.btn-group button {
+    height: 40px !important;
+    width: 60px !important;
+}
+
+.filter-label {
+    margin-left: 10px;
+}
+
+.btn-default {
+    background-color: #484d52;
+    color: #fff !important;
+}
+
+.ml-2 {
+    margin-left: 10px;
+}
+
+.mr-2 {
+    margin-right: 10px;
+}
+
+.ml-4 {
+    margin-left: 20px;
+}
+/*** Admin ***/
