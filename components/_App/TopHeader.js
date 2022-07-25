@@ -17,10 +17,7 @@ const TopHeader = () => {
     const editProfile = () => {
         if(account.user.role == 'staff') {
             router.push('/staff-profile');
-        } else {
-            console.log('client')
-        }
-
+        } 
     }
 
     const openDashboard = () => {
@@ -34,7 +31,6 @@ const TopHeader = () => {
     useEffect(() => {
         if (userService.userValue) {
             setAccount(jwtDecode(userService.userValue));
-            console.log(account)
         }
     }, [])
 

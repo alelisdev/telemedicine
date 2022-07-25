@@ -40,7 +40,6 @@ const SignUp = () => {
 
     useEffect(() => {
         if (userService.userValue) {
-            console.log(userService.userValue)
             router.push('/');
         }
     }, [])
@@ -59,7 +58,7 @@ const SignUp = () => {
             NotificationManager.success('Success message', 'Sign Up Successed!');
             setReginfo(INITIAL_STATE);
         } catch (error) {
-            console.log(error)
+            NotificationManager.error('Error message', 'Something went wrong');
         }
     };
 

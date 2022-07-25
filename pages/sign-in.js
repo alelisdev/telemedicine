@@ -47,7 +47,7 @@ const SignIn = () => {
             NotificationManager.success('Success message', 'Sign In Successed!');
             setLogininfo(INITIAL_STATE);
         } catch (error) {
-            console.log(error)
+            NotificationManager.error('Error message', 'Something went wrong');
         }
     };
 

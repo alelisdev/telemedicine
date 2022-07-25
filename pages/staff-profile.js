@@ -9,8 +9,12 @@ import ImgUpload from "../components/ImageUpload/ImgUpload";
 import Profile from "../components/ImageUpload/Profile";
 import baseUrl from '../utils/baseUrl';
 import { NotificationManager } from 'react-notifications';
+import decodeToken from '../utils/decodeToken';
+import { userService } from '../services';
 
 const StaffProfile = () => {
+
+    const [userdata, setUserdata] = useState({});
 
     const [acceptFirstTerms, setAcceptFirstTerms] = useState({
         checked: false,
@@ -98,11 +102,6 @@ const StaffProfile = () => {
     const [year, setYear] = useState('2022');
     const [years, setYears] = useState([]);
 
-    useEffect(() => {
-        setYear((new Date()).getFullYear());
-        setYears(Array.from(new Array(50),(val, index) => year - index ));
-    }, [])
-
     /**** Second Step ****/
     const [eduFields, setEduFields] = useState([
         {
@@ -143,7 +142,6 @@ const StaffProfile = () => {
     /**** Third Step ****/
     const [lastFields, setLastFields] = useState(
         {
-            email: '',
             number: '',
             bio: '',
             photo: ''
@@ -170,7 +168,6 @@ const StaffProfile = () => {
         reader.readAsDataURL(tempFile);
         formData.append('profileImage', tempFile, e.target.files[0].name);
         setProfileImage(formData);
-        console.log('formData', formData);
     }
     
     const handleSubmit= e =>{
@@ -183,6 +180,30 @@ const StaffProfile = () => {
         const {name, value} = event.target;
         setLastFields(prevState => ({ ...prevState, [name]: value }));
     }
+
+    useEffect(() => {
+        setYear((new Date()).getFullYear());
+        setYears(Array.from(new Array(50),(val, index) => year - index ));
+        
+        if (userService.userValue) {
+            const { user } = decodeToken(userService.userValue);
+            setUserdata(user);
+            const url = `${baseUrl}/api/doctors/profile/${user.email}`;
+            axios.get(url)
+            .then((res) => {
+                const { experiences, educations, biography, imagePath } = res.data[0];
+                console.log(experiences)
+                console.log(educations)
+                setExpFields(experiences);
+                setEduFields(educations);
+                setLastFields({
+                    number: '',
+                    bio: biography,
+                    photo: imagePath
+                });
+            })
+        }
+    }, [])
 
     const stepperContent = [
         {
@@ -200,7 +221,7 @@ const StaffProfile = () => {
                                         return(
                                         <div key={index}>
                                             {
-                                                expFields.length > 1 ?
+                                                expFields?.length > 1 ?
                                                 <button className="btn btn-warning" style={{float: 'right'}} onClick={() => removeExpFields(index)}>
                                                     <i className="icofont-ui-delete"></i>
                                                 </button> 
@@ -249,6 +270,7 @@ const StaffProfile = () => {
                                                         <i className="icofont-calendar"></i>
                                                         <label>Start Date *</label>
                                                         <select className="form-control" name="startDate" value={item.startDate} onChange={event => handleExpChange(index, event)} id="startDate">
+                                                            <option value="" hidden>Select Start Year</option>
                                                             {
                                                                 years.map((year, index) => {
                                                                     return(
@@ -267,7 +289,9 @@ const StaffProfile = () => {
                                                             <i className="icofont-calendar"></i>
                                                             <label>End Date *</label>
                                                             <select className="form-control" name="endDate" value={item.endDate} onChange={event => handleExpChange(index, event)} id="endDate">
+                                                                <option value="" hidden>Select End Year</option>
                                                             {
+                                                                
                                                                 years.map((year, index) => {
                                                                     return(
                                                                         <option key={`year${index}`} value={year}>{year}</option>
@@ -363,6 +387,7 @@ const StaffProfile = () => {
                                                         <i className="icofont-calendar"></i>
                                                         <label>Start Date *</label>
                                                         <select className="form-control" name="startDate" value={item.startDate} onChange={event => handleEduChange(index, event)} id="startDate">
+                                                            <option value="" hidden>Select Start Year</option>  
                                                             {
                                                                 years.map((year, index) => {
                                                                     return(
@@ -378,6 +403,7 @@ const StaffProfile = () => {
                                                         <i className="icofont-calendar"></i>
                                                         <label>End Date *</label>
                                                         <select className="form-control" name="endDate" value={item.endDate} onChange={event => handleEduChange(index, event)} id="endDate">
+                                                            <option value="" hidden>Select End Year</option>
                                                         {
                                                             years.map((year, index) => {
                                                                 return(
@@ -448,13 +474,6 @@ const StaffProfile = () => {
                                     <div className='col-lg-6'>
                                         <div className="col-lg-12">
                                             <div className="form-group">
-                                                <i className="icofont-email"></i>
-                                                <label>Email</label>
-                                                <input type="email" name="email" value={lastFields.email} onChange={handleLastChange} className="form-control" placeholder="Ex: topcoder728@gmail.com" />
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-12">
-                                            <div className="form-group">
                                                 <i className="icofont-phone"></i>
                                                 <label>Phone Number</label>
                                                 <input type="text" name="number" value={lastFields.number} onChange={handleLastChange} className="form-control" placeholder="Ex: +1 234 567 8901" />
@@ -490,19 +509,14 @@ const StaffProfile = () => {
     ];
 
     const submitStepper = async () => {
-        console.log('expFields', expFields);
-        console.log('eduFields', expFields);
-        console.log('lastFields', lastFields);
-        console.log('file', profileImage);
-
         const url = `${baseUrl}/api/doctors/profile`;
-        const payload = { expFields, eduFields, lastFields, profileImage };
+        console.log(lastFields)
+        const payload = { expFields, eduFields, lastFields, email: userdata.email, profileImage };
         axios.post(url, payload)
         .then((res) => {
-            console.log(res.data.message);
             NotificationManager.success('Success message', 'Profile Successfully Submitted!');
         }).catch((err) => {
-            console.log(err);
+            NotificationManager.error('Error message', 'Something went wrong');
         });
     };
 

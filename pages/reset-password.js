@@ -39,7 +39,7 @@ const ResetPassword = () => {
             const { password, confirmPassword } = resetInfo;
             setResetInfo(resetInfo);
         } catch (error) {
-            console.log(error)
+            NotificationManager.error('Error message', 'Something went wrong');
         }
     };
 

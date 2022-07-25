@@ -24,19 +24,14 @@ const Appointment = () => {
     const { register, handleSubmit, errors } = useForm();
 
     const handleChange = e => {
-
-        console.log(errors);
-
         const { name, value } = e.target;
         setApt(prevState => ({ ...prevState, [name]: value }));
     }
-
-
+    
     const onSubmit = async e => {
         // e.preventDefault();
         try {
             const url = `${baseUrl}/api/appointment`;
-            console.log(apt);
             const { name, email, phone, services, sdrname, age } = apt;
             const payload = { name, email, phone, services, sdrname, age };
             axios.post(url, payload)
@@ -47,10 +42,8 @@ const Appointment = () => {
             .catch((err) => {
                 NotificationManager.error('Error message', 'Something Went Wrong!');
             });
-            
-            
         } catch (error) {
-            console.log(error)
+            NotificationManager.error('Error message', 'Something went wrong');
         }
     };
     return (

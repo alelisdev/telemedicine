@@ -30,10 +30,10 @@ const ForgotPassword = () => {
                 router.push('/confirm-email');
             })
             .catch((err) => {
-
+                NotificationManager.error('Error message', 'Something went wrong');
             });
         } catch (error) {
-            console.log(error);
+            NotificationManager.error('Error message', 'Something went wrong');
         }
     };
 

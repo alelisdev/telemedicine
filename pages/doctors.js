@@ -14,7 +14,6 @@ const Doctors = () => {
 
     const handleSearch = async (e) => {
         const { name, value } = e.target;
-        console.log(name)
         setSearch(value);
     }
 
