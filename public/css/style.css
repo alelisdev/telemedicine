@@ -5230,4 +5230,8 @@ input[type="file"] {
 .ml-4 {
     margin-left: 20px;
 }
+
+.expertise-item .expertise-right img {
+    border-radius: 10px;
+}
 /*** Admin ***/

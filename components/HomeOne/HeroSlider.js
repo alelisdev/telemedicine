@@ -31,6 +31,32 @@ const HeroSlider = () => {
                 className="home-slider owl-carousel owl-theme"
                 {...options}
             >
+                
+                <div className="slider-item slider-item-img">
+                    <div className="d-table">
+                        <div className="d-table-cell">
+                            <div className="container">
+                                <div className="slider-text">
+                                    <div className="slider-shape-three">
+                                        <img src="/images/home-one/home-slider3.png" alt="Shape" />
+                                    </div>
+                                    <h1>Find the best price for great doctors and specialists</h1>
+                                    <p>Book a doctor appointment, test, lab or procedure in minutes. Pay direct at discount prices.</p>
+                                    
+                                    <div className="common-btn">
+                                        <Link href="/appointment">
+                                            <a>Get Appointment</a>
+                                        </Link>
+                                        <Link href="/about">
+                                            <a className="cmn-btn-right">Learn More</a>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div className="slider-item slider-item-img">
                     <div className="d-table">
                         <div className="d-table-cell">
@@ -86,30 +112,6 @@ const HeroSlider = () => {
                     </div>
                 </div>
 
-                <div className="slider-item slider-item-img">
-                    <div className="d-table">
-                        <div className="d-table-cell">
-                            <div className="container">
-                                <div className="slider-text">
-                                    <div className="slider-shape-three">
-                                        <img src="/images/home-one/home-slider3.png" alt="Shape" />
-                                    </div>
-                                    <h1>We Offer Highly Treatments</h1>
-                                    <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
-                                    
-                                    <div className="common-btn">
-                                        <Link href="/appointment">
-                                            <a>Get Appointment</a>
-                                        </Link>
-                                        <Link href="/about">
-                                            <a className="cmn-btn-right">Learn More</a>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </OwlCarousel> : ''}
         </>
     )

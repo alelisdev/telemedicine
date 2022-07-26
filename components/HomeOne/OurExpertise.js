@@ -18,10 +18,10 @@ const OurExpertise = () => {
                                         <i className="icofont-doctor-alt"></i>
                                         <h3> 
                                             <Link href="/doctor-details">
-                                                <a>Certified Doctors</a>
+                                                <a>Online Doctors</a>
                                             </Link>
                                         </h3>
-                                        <p>To help physician practices provide convenient health care access.</p>
+                                        <p>Easiest way to see an online doctor 24/7 from the comfort of your home.</p>
                                     </div>
                                 </div>
                                 <div className="col-sm-6 col-lg-6">
@@ -32,7 +32,7 @@ const OurExpertise = () => {
                                                 <a>Emergency</a>
                                             </Link>
                                         </h3>
-                                        <p>To help physician practices provide convenient health care access.</p>
+                                        <p>Connects at a central hub emergency department to patients at spoke hospitals</p>
                                     </div>
                                 </div>
                                 <div className="col-sm-6 col-lg-6">
@@ -40,10 +40,10 @@ const OurExpertise = () => {
                                         <i className="icofont-network"></i>
                                         <h3> 
                                             <Link href="/doctor-details">
-                                                <a>Teachnology</a>
+                                                <a>Technology</a>
                                             </Link>
                                         </h3>
-                                        <p>To help physician practices provide convenient health care access.</p>
+                                        <p>Transform healthcare delivery through connected devices, Remote patient monitoring.</p>
                                     </div>
                                 </div>
                                 <div className="col-sm-6 col-lg-6">
@@ -54,7 +54,7 @@ const OurExpertise = () => {
                                                 <a>Ambulance</a>
                                             </Link>
                                         </h3>
-                                        <p>To help physician practices provide convenient health care access.</p>
+                                        <p>Video consultation with audio capabilities, either before and/or during transport.</p>
                                     </div>
                                 </div>
                             </div>

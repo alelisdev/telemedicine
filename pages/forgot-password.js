@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router'
@@ -8,6 +8,7 @@ import PageBanner from '../components/Common/PageBanner';
 import Footer from '../components/_App/Footer';
 import Link from 'next/link';
 import baseUrl from '../utils/baseUrl';
+import { userService } from '../services';
 
 const ForgotPassword = () => {
     const router = useRouter();
@@ -36,6 +37,12 @@ const ForgotPassword = () => {
             NotificationManager.error('Error message', 'Something went wrong');
         }
     };
+
+    useEffect(() => {
+        if (userService.userValue) {
+            router.push('/');
+        }
+    }, [])
 
     return (
         <>

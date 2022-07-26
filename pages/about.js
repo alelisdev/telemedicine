@@ -38,7 +38,7 @@ const About = () => {
                             <div className="about-item about-right">
                                 <img src="/images/about-shape1.png" alt="About" />
                                 <h2>About Our Telemedicine</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+                                <p>In practice, what this means is that we will schedule a video visit. You’ll open an application that has been designed specifically for this purpose, on your smartphone, tablet or computer that has high-speed internet access and a camera. It’s basically a ‘remote’ medical consultation, one that takes place via email, telephone, Whatsapp, Skype or Zoom – whatever technology works in the place you are. I’ll open the application on my end, and we’ll be able to talk to and see each other. You can be anywhere with a good internet connection and enough privacy.</p>
                                 <ul>
                                     <li>
                                         <i className="icofont-check-circled"></i>
@@ -64,30 +64,30 @@ const About = () => {
                     <div className="row">
                         <div className="col-sm-6 col-lg-3">
                             <div className="counter-item">
-                                <i className="icofont-patient-bed"></i>
-                                <h3 className="counter">850</h3>
-                                <p>Patients Beds</p>
-                            </div>
-                        </div>
-                        <div className="col-sm-6 col-lg-3">
-                            <div className="counter-item">
-                                <i className="icofont-people"></i>
-                                <h3><span className="counter">25000</span>+</h3>
-                                <p>Happy Patients</p>
-                            </div>
-                        </div>
-                        <div className="col-sm-6 col-lg-3">
-                            <div className="counter-item">
                                 <i className="icofont-doctor-alt"></i>
                                 <h3 className="counter">750</h3>
-                                <p>Doctors  & Nurse</p>
+                                <p>Doctors & Specialists</p>
                             </div>
                         </div>
                         <div className="col-sm-6 col-lg-3">
                             <div className="counter-item">
-                                <i className="icofont-badge"></i>
-                                <h3 className="counter">18</h3>
-                                <p>Year Experience</p>
+                                <i className="icofont-thumbs-up"></i>
+                                <h3 className="counter">95%</h3>
+                                <p>Patient Satisfaction</p>
+                            </div>
+                        </div>
+                        <div className="col-sm-6 col-lg-3">
+                            <div className="counter-item">
+                                <i className="icofont-dollar-true"></i>
+                                <h3 className="counter">$9,900,000+</h3>
+                                <p>Saved By Patients</p>
+                            </div>
+                        </div>
+                        <div className="col-sm-6 col-lg-3">
+                            <div className="counter-item">
+                                <i className="icofont-star"></i>
+                                <h3><span className="counter">4.8</span></h3>
+                                <p>On Reviews</p>
                             </div>
                         </div>
                     </div>

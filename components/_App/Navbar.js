@@ -57,42 +57,6 @@ const Navbar = () => {
                                             Home
                                         </a>
                                     </Link>
-                                    {/* <Link href="#" activeClassName="active">
-                                        <a onClick={e => e.preventDefault()} className="nav-link dropdown-toggle">
-                                            Home
-                                        </a>
-                                    </Link>
-                                    <ul className="dropdown-menu">
-                                        <li className="nav-item">
-                                            <Link href="/" activeClassName="active">
-                                                <a onClick={toggleNavbar} className="nav-link">Home Demo - 1</a>
-                                            </Link>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <Link href="/index-2" activeClassName="active">
-                                                <a onClick={toggleNavbar} className="nav-link">Home Demo - 2</a>
-                                            </Link>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <Link href="/index-3" activeClassName="active">
-                                                <a onClick={toggleNavbar} className="nav-link">Home Demo - 3</a>
-                                            </Link>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <Link href="/index-4" activeClassName="active">
-                                                <a onClick={toggleNavbar} className="nav-link">Home Demo - 4</a>
-                                            </Link>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <Link href="/index-5" activeClassName="active">
-                                                <a onClick={toggleNavbar} className="nav-link">Home Demo - 5</a>
-                                            </Link>
-                                        </li>
-                                    </ul> */}
                                 </li>
 
                                 <li className="nav-item">
@@ -110,32 +74,6 @@ const Navbar = () => {
 
                                     <ul className="dropdown-menu">
                                         <li className="nav-item">
-                                            <Link href="/forgot-password" activeClassName="active">
-                                                <a onClick={toggleNavbar} className="nav-link">Forgot Password</a>
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link href="/reset-password" activeClassName="active">
-                                                <a onClick={toggleNavbar} className="nav-link">Reset Password</a>
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link href="/confirm-email" activeClassName="active">
-                                                <a onClick={toggleNavbar} className="nav-link">Confirm Email</a>
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link href="/staff-profile" activeClassName="active">
-                                                <a onClick={toggleNavbar} className="nav-link">Staff Profile</a>
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link href="/appointment" activeClassName="active">
-                                                <a onClick={toggleNavbar} className="nav-link">Appointment</a>
-                                            </Link>
-                                        </li>
-
-                                        <li className="nav-item">
                                             <Link href="/departments" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">Departments</a>
                                             </Link>
@@ -150,12 +88,6 @@ const Navbar = () => {
                                         <li className="nav-item">
                                             <Link href="/faq" activeClassName="active">
                                                 <a onClick={toggleNavbar} className="nav-link">FAQ's</a>
-                                            </Link>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <Link href="/404" activeClassName="active">
-                                                <a onClick={toggleNavbar} className="nav-link">404 Error Page</a>
                                             </Link>
                                         </li>
 

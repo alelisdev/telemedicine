@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TopHeader from '../components/_App/TopHeader';
 import Navbar from '../components/_App/Navbar';
 import PageBanner from '../components/Common/PageBanner';
@@ -6,10 +6,10 @@ import Footer from '../components/_App/Footer';
 import Link from 'next/link';
 import baseUrl from '../utils/baseUrl';
 import axios from 'axios';
-
+import { NotificationManager } from 'react-notifications';
 
 const Doctors = () => {
-
+    const [doctors, setDoctors] = useState([]);
     const [search, setSearch] = useState('');
 
     const handleSearch = async (e) => {
@@ -22,6 +22,18 @@ const Doctors = () => {
         const payload = { search };
         await axios.post(url, payload);
     }
+
+    useEffect(async () => {
+        const url = `${baseUrl}/api/doctors`;
+        const payload = { search };
+        axios.get(url, payload)
+        .then( (res) => {
+            setDoctors(res.data);
+        })
+        .catch ( (err) => {
+            NotificationManager.error('Error message', 'Something went wrong');
+        });
+    }, [])
  
     return (
         <>
@@ -76,177 +88,33 @@ const Doctors = () => {
             <div className="doctors-area doctors-area-two pt-100 pb-70">
                 <div className="container">
                     <div className="row justify-content-center">
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="doctor-item">
-                                <div className="doctor-top">
-                                    <img src="/images/doctors/doctor1.jpg" alt="Doctor" />
+                        {
+                            doctors.map((doctor, idx) => {
+                                let link = '/appointment/' + doctor._id;
+                                return(
+                                    <div className="col-sm-6 col-lg-4" key={idx}>
+                                        <div className="doctor-item">
+                                            <div className="doctor-top">
+                                                <img src="/images/doctors/doctor1.jpg" alt="Doctor" />
 
-                                    <Link href="/appointment">
-                                        <a>Get Appointment</a>
-                                    </Link>
-                                </div>
-                                <div className="doctor-bottom">
-                                    <h3>
-                                        <Link href="/doctor-details">
-                                            <a>Dr. Babatunde</a>
-                                        </Link>
-                                    </h3>
-                                    <span>Neurosurgeon</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="doctor-item">
-                                <div className="doctor-top">
-                                    <img src="/images/doctors/doctor2.jpg" alt="Doctor" />
-                                    <Link href="/appointment">
-                                        <a>Get Appointment</a>
-                                    </Link>
-                                </div>
-                                <div className="doctor-bottom">
-                                    <h3>
-                                        <Link href="/doctor-details">
-                                            <a>Dr. Addition Smith</a>
-                                        </Link>
-                                    </h3>
-                                    <span>Neurosurgeon</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="doctor-item">
-                                <div className="doctor-top">
-                                    <img src="/images/doctors/doctor3.jpg" alt="Doctor" />
-                                    <Link href="/appointment">
-                                        <a>Get Appointment</a>
-                                    </Link>
-                                </div>
-                                <div className="doctor-bottom">
-                                    <h3>
-                                        <Link href="/doctor-details">
-                                            <a>Dr. Sarah Taylor</a>
-                                        </Link>
-                                    </h3>
-                                    <span>Dental Surgeon</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="doctor-item">
-                                <div className="doctor-top">
-                                    <img src="/images/doctors/doctor4.jpg" alt="Doctor" />
-                                    <Link href="/appointment">
-                                        <a>Get Appointment</a>
-                                    </Link>
-                                </div>
-                                <div className="doctor-bottom">
-                                    <h3>
-                                        <Link href="/doctor-details">
-                                            <a>Dr. Mac Smith</a>
-                                        </Link>
-                                    </h3>
-                                    <span>Neurosurgeon</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="doctor-item">
-                                <div className="doctor-top">
-                                    <img src="/images/doctors/doctor5.jpg" alt="Doctor" />
-                                    <Link href="/appointment">
-                                        <a>Get Appointment</a>
-                                    </Link>
-                                </div>
-                                <div className="doctor-bottom">
-                                    <h3>
-                                        <Link href="/doctor-details">
-                                            <a>Dr. Alinson Backer</a>
-                                        </Link>
-                                    </h3>
-                                    <span>Neurosurgeon</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="doctor-item">
-                                <div className="doctor-top">
-                                    <img src="/images/doctors/doctor6.jpg" alt="Doctor" />
-                                    <Link href="/appointment">
-                                        <a>Get Appointment</a>
-                                    </Link>
-                                </div>
-                                <div className="doctor-bottom">
-                                    <h3>
-                                        <Link href="/doctor-details">
-                                            <a>Dr. Jas Macham</a>
-                                        </Link>
-                                    </h3>
-                                    <span>Dental Surgeon</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="doctor-item">
-                                <div className="doctor-top">
-                                    <img src="/images/doctors/doctor7.jpg" alt="Doctor" />
-                                    <Link href="/appointment">
-                                        <a>Get Appointment</a>
-                                    </Link>
-                                </div>
-                                <div className="doctor-bottom">
-                                    <h3>
-                                        <Link href="/doctor-details">
-                                            <a>Dr. John Micheal</a>
-                                        </Link>
-                                    </h3>
-                                    <span>Neurosurgeon</span>
-                                </div>
-                            </div>
-                        </div>
+                                                <Link href={link}>
+                                                    <a>Get Appointment</a>
+                                                </Link>
+                                            </div>
+                                            <div className="doctor-bottom">
+                                                <h3>
+                                                    <Link href="/doctor-details">
+                                                        <a>{doctor.firstname + ' ' + doctor.lastname}</a>
+                                                    </Link>
+                                                </h3>
+                                                <span>{doctor.major ? doctor.major : 'Unknown'}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
                         
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="doctor-item">
-                                <div className="doctor-top">
-                                    <img src="/images/doctors/doctor8.jpg" alt="Doctor" />
-                                    <Link href="/appointment">
-                                        <a>Get Appointment</a>
-                                    </Link>
-                                </div>
-                                <div className="doctor-bottom">
-                                    <h3>
-                                        <Link href="/doctor-details">
-                                            <a>Dr. Shane Warne</a>
-                                        </Link>
-                                    </h3>
-                                    <span>Neurosurgeon</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-sm-6 col-lg-4">
-                            <div className="doctor-item">
-                                <div className="doctor-top">
-                                    <img src="/images/doctors/doctor9.jpg" alt="Doctor" />
-                                    <Link href="/appointment">
-                                        <a>Get Appointment</a>
-                                    </Link>
-                                </div>
-                                <div className="doctor-bottom">
-                                    <h3>
-                                        <Link href="/doctor-details">
-                                            <a>Dr. Luis Moris</a>
-                                        </Link>
-                                    </h3>
-                                    <span>Dental Surgeon</span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

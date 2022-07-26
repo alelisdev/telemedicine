@@ -43,6 +43,12 @@ const ResetPassword = () => {
         }
     };
 
+    useEffect(() => {
+        if (userService.userValue) {
+            router.push('/');
+        }
+    }, [])
+
     return (
         <>
             <TopHeader />

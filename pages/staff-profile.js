@@ -11,9 +11,10 @@ import baseUrl from '../utils/baseUrl';
 import { NotificationManager } from 'react-notifications';
 import decodeToken from '../utils/decodeToken';
 import { userService } from '../services';
+import { useRouter } from 'next/router';
 
 const StaffProfile = () => {
-
+    const router = useRouter();
     const [userdata, setUserdata] = useState({});
 
     const [acceptFirstTerms, setAcceptFirstTerms] = useState({
@@ -142,9 +143,9 @@ const StaffProfile = () => {
     /**** Third Step ****/
     const [lastFields, setLastFields] = useState(
         {
-            number: '',
+            phone: '',
             bio: '',
-            photo: ''
+            major: ''
         }
     );
     const [file, setFile] = useState('');
@@ -155,7 +156,6 @@ const StaffProfile = () => {
     const photoUpload = e => {
         e.preventDefault();
 
-        const formData = new FormData(); 
         const reader = new FileReader();
 
         const tempFile = e.target.files[0];
@@ -166,8 +166,6 @@ const StaffProfile = () => {
         }
 
         reader.readAsDataURL(tempFile);
-        formData.append('profileImage', tempFile, e.target.files[0].name);
-        setProfileImage(formData);
     }
     
     const handleSubmit= e =>{
@@ -182,26 +180,29 @@ const StaffProfile = () => {
     }
 
     useEffect(() => {
-        setYear((new Date()).getFullYear());
-        setYears(Array.from(new Array(50),(val, index) => year - index ));
-        
         if (userService.userValue) {
+            setYear((new Date()).getFullYear());
+            setYears(Array.from(new Array(50),(val, index) => year - index ));
             const { user } = decodeToken(userService.userValue);
             setUserdata(user);
+            
             const url = `${baseUrl}/api/doctors/profile/${user.email}`;
             axios.get(url)
             .then((res) => {
-                const { experiences, educations, biography, imagePath } = res.data[0];
-                console.log(experiences)
-                console.log(educations)
-                setExpFields(experiences);
-                setEduFields(educations);
-                setLastFields({
-                    number: '',
-                    bio: biography,
-                    photo: imagePath
-                });
+                if(res.data.length) {
+                    const { experiences, educations, biography, phone, major, imagePath } = res.data[0];
+                    setExpFields(experiences);
+                    setEduFields(educations);
+                    setLastFields({
+                        phone: phone,
+                        bio: biography,
+                        major: major
+                    });
+                    setImagePreviewUrl((baseUrl + '/' + imagePath));
+                }
             })
+        } else {
+            router.push('/sign-in');
         }
     }, [])
 
@@ -476,7 +477,14 @@ const StaffProfile = () => {
                                             <div className="form-group">
                                                 <i className="icofont-phone"></i>
                                                 <label>Phone Number</label>
-                                                <input type="text" name="number" value={lastFields.number} onChange={handleLastChange} className="form-control" placeholder="Ex: +1 234 567 8901" />
+                                                <input type="text" name="phone" value={lastFields.phone} onChange={handleLastChange} className="form-control" placeholder="Ex: +1 234 567 8901" />
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-12">
+                                            <div className="form-group">
+                                                <i className="icofont-hospital"></i>
+                                                <label>Major</label>
+                                                <input type="text" name="major" value={lastFields.major} onChange={handleLastChange} className="form-control" placeholder="Ex: Neurosurgeon" />
                                             </div>
                                         </div>
                                     </div>
@@ -510,9 +518,13 @@ const StaffProfile = () => {
 
     const submitStepper = async () => {
         const url = `${baseUrl}/api/doctors/profile`;
-        console.log(lastFields)
-        const payload = { expFields, eduFields, lastFields, email: userdata.email, profileImage };
-        axios.post(url, payload)
+        const formData = new FormData(); 
+        formData.append('profileImage', file);
+        formData.append('expFields', JSON.stringify(expFields));
+        formData.append('eduFields', JSON.stringify(eduFields));
+        formData.append('lastFields', JSON.stringify(lastFields));
+        formData.append('email', userdata.email);
+        axios.post(url, formData)
         .then((res) => {
             NotificationManager.success('Success message', 'Profile Successfully Submitted!');
         }).catch((err) => {
