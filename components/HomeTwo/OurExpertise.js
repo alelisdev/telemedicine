@@ -17,29 +17,30 @@ const OurExpertise = () => {
                                     <div className="col-sm-6 col-lg-6">
                                         <div className="speciality-inner">
                                             <i className="icofont-check-circled"></i>
-                                            <h3>Child Care</h3>
-                                            <p>Our products are designed to be simple and intuitive.</p>
+                                            <h3>Available 24/7</h3>
+                                            <p>Doctors can diagnose and treat an impressive number of health conditions, and that includes prescribing medication and sending it to your preferred pharmacy.</p>
                                         </div>
                                     </div>
                                     <div className="col-sm-6 col-lg-6">
                                         <div className="speciality-inner">
                                             <i className="icofont-check-circled"></i>
-                                            <h3>More Stuff</h3>
-                                            <p>Our products are designed to be simple and intuitive.</p>
+                                            <h3>Hybrid models</h3>
+                                            <p>These models can replace traditional primary care with an option that gives you easier access to your doctor, longer visits and deeper insights about your health.</p>
                                         </div>
-                                    </div>
+                                    </div>  
                                     <div className="col-sm-6 col-lg-6">
                                         <div className="speciality-inner">
                                             <i className="icofont-check-circled"></i>
-                                            <h3>Enough Lab</h3>
-                                            <p>Our products are designed to be simple and intuitive.</p>
+                                            <h3>Best Price</h3>
+                                            <p>Our Telecarelif also offers urgent care online. Without insurance, the baseline cost for a visit very cheap and best for all online patients. .</p>
                                         </div>
                                     </div>
+                                    
                                     <div className="col-sm-6 col-lg-6">
                                         <div className="speciality-inner">
                                             <i className="icofont-check-circled"></i>
-                                            <h3>24 Hour Doctor</h3>
-                                            <p>Our products are designed to be simple and intuitive.</p>
+                                            <h3>Helplines</h3>
+                                            <p> Usually, all you need to do is input your geographic location and plan type, and then you can call.</p>
                                         </div>
                                     </div>
                                 </div>

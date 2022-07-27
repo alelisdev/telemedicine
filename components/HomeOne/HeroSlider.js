@@ -44,7 +44,7 @@ const HeroSlider = () => {
                                     <p>Book a doctor appointment, test, lab or procedure in minutes. Pay direct at discount prices.</p>
                                     
                                     <div className="common-btn">
-                                        <Link href="/appointment">
+                                        <Link href="/doctors">
                                             <a>Get Appointment</a>
                                         </Link>
                                         <Link href="/about">
@@ -74,7 +74,7 @@ const HeroSlider = () => {
                                     </p>
 
                                     <div className="common-btn">
-                                        <Link href="/appointment">
+                                        <Link href="/doctors">
                                             <a>Get Appointment</a>
                                         </Link>
                                         <Link href="/about">
@@ -99,7 +99,7 @@ const HeroSlider = () => {
                                     <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
                                     
                                     <div className="common-btn">
-                                        <Link href="/appointment">
+                                        <Link href="/doctors">
                                             <a>Get Appointment</a>
                                         </Link>
                                         <Link href="/about">

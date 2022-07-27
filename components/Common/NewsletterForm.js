@@ -16,13 +16,13 @@ const NewsletterForm = () => {
 
     const onSubmit = async () => {
         try {
-            const url = `${baseUrl}/api/newsletter`;
+            const url = `${baseUrl}/api/newsletter/add`;
             axios.post(url, { email })
             .then((res) => {
                 NotificationManager.success('Success message', 'Successfully Submitted.');
             })
             .catch((err) => {
-                NotificationManager.error('Error message', 'Something went wrong');
+                NotificationManager.error('Error message', 'Email already registered.');
             });
         } catch (error) {
             NotificationManager.error('Error message', 'Something went wrong');

@@ -91,7 +91,7 @@ const DoctorDetails = () => {
                                 <div className="doctor-details-right">
                                     <div className="doctor-details-biography">
                                         <h3>{doctor.firstname + ' ' + doctor.lastname} ({doctor.major})</h3>
-                                        <p>MBBS in Neurology, PHD in Neurosurgeon</p>
+                                        {/* <p>MBBS in Neurology, PHD in Neurosurgeon</p> */}
                                     </div>
 
                                     <div className="doctor-details-biography">

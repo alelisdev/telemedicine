@@ -40,7 +40,7 @@ const HeroSlider = () => {
                                     <h1>Be Informed About Covid-19</h1>
 
                                     <div className="common-btn">
-                                        <Link href="/appointment">
+                                        <Link href="/doctors">
                                             <a>Get Appointment</a>
                                         </Link>
                                         <Link href="/about">
@@ -62,7 +62,7 @@ const HeroSlider = () => {
                                     <h1>Be Aware About Covid-19</h1>
                                     
                                     <div className="common-btn">
-                                        <Link href="/appointment">
+                                        <Link href="/doctors">
                                             <a>Get Appointment</a>
                                         </Link>
                                         <Link href="/about">

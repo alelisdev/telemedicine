@@ -945,7 +945,7 @@ button {
 
 /*-- Video --*/
 .video-area {
-    background-image: url('/images/intro-video-bg.jpg');
+    background-image: url('/images/0d1b5c81-f176-40be-b219-24163473981e.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -985,16 +985,16 @@ button {
             left: 0;
             width: 5px;
             height: 130px;
-            background-color: $white-color;
+            background-color: #0046c0;
         }
         h3 {
-            color: $white-color;
+            color: #0046c0;
             font-weight: 600;
             font-size: 36px;
             margin-bottom: 25px;
         }
         p {
-            color: $white-color;
+            color: #0046c0;
             margin-bottom: 0;
         }
     }
@@ -2692,6 +2692,7 @@ footer {
     margin-bottom: 30px;
 
     img {
+        height: 600px;
         width: 100%;
         border-radius: 10px;
         margin-bottom: 50px;

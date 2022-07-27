@@ -34,7 +34,7 @@ const TestimonialSlider = () => {
                             <img src="/images/clients/client1.png" alt="Feedback" />
                             <h3>Adision Smith</h3>
                         </div>
-                        <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                        <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement in the event of significant labor and pain.</p>
                     </div>
 
                     <div className="feedback-item">

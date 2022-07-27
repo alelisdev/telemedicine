@@ -146,12 +146,6 @@ const Navbar = () => {
                                                 <a onClick={toggleNavbar} className="nav-link">Doctors</a>
                                             </Link>
                                         </li>
-
-                                        <li className="nav-item">
-                                            <Link href="/doctor-details" activeClassName="active">
-                                                <a onClick={toggleNavbar} className="nav-link">Doctor Details</a>
-                                            </Link>
-                                        </li>
                                     </ul>
                                 </li>
  

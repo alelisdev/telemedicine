@@ -10,18 +10,24 @@ import { NotificationManager } from 'react-notifications';
 
 const Doctors = () => {
     const [doctors, setDoctors] = useState([]);
-    const [search, setSearch] = useState('');
+    const [keyword, setKeyword] = useState('');
 
     const handleSearch = async (e) => {
-        const { name, value } = e.target;
-        setSearch(value);
+        setKeyword(e.target.value);
     }
 
-    const handleSearchClick = async () => {
+    useEffect( async () => {
         const url = `${baseUrl}/api/doctors/search`;
-        const payload = { search };
-        await axios.post(url, payload);
-    }
+        const payload = { keyword };
+        await axios.post(url, payload)
+        .then((res) => {
+            setDoctors(res.data)
+        })
+        .catch((err) => {
+            console.log(err)
+        });
+    }, [keyword])
+
 
     useEffect(async () => {
         const url = `${baseUrl}/api/doctors`;
@@ -57,9 +63,9 @@ const Doctors = () => {
                                     <div className="form-group">
                                         <i className="icofont-doctor-alt"></i>
                                         <label>Search</label>
-                                        <input type="text" name="search" value={search} onChange={handleSearch} className="form-control" placeholder="Doctor Name" />
+                                        <input type="text" name="search" value={keyword} onChange={handleSearch} className="form-control" placeholder="Doctor Name" />
                                     </div>
-                                    <button className="btn doctor-search-btn" onClick={handleSearchClick}>
+                                    <button className="btn doctor-search-btn">
                                         <i className="icofont-search-1"></i>
                                     </button>
                                 </div>
@@ -89,20 +95,19 @@ const Doctors = () => {
                     <div className="row justify-content-center">
                         {
                             doctors.map((doctor, idx) => {
-                                let link = '/appointment/' + doctor._id;
                                 return(
                                     <div className="col-sm-6 col-lg-4" key={idx}>
                                         <div className="doctor-item">
                                             <div className="doctor-top">
-                                                <img src="/images/doctors/doctor1.jpg" alt="Doctor" />
+                                                <img src={baseUrl + '/' + doctor.imagePath} alt="Doctor" />
 
-                                                <Link href={link}>
+                                                <Link href={`/appointment/${doctor._id}`}>
                                                     <a>Get Appointment</a>
                                                 </Link>
                                             </div>
                                             <div className="doctor-bottom">
                                                 <h3>
-                                                    <Link href="/doctor-details">
+                                                    <Link href={`/doctor-details/${doctor._id}`}>
                                                         <a>{doctor.firstname + ' ' + doctor.lastname}</a>
                                                     </Link>
                                                 </h3>

@@ -30,20 +30,18 @@ const OurDoctors = () => {
                     {
                         doctors.map((doctor, idx) => {
                             if(idx < 3) {
-                                let aptLink = `/appointment/${doctor._id}`;
-                                let detailLink = `/doctor-details/${doctor._id}`;
                                 return(
                                     <div className="col-sm-6 col-lg-4" key={idx}>
                                         <div className="doctor-item">
                                             <div className="doctor-top">
                                                 <img src={baseUrl + '/' + doctor.imagePath} alt="Doctor" />
-                                                <Link href={aptLink}>
+                                                <Link href={`/appointment/${doctor._id}`}>
                                                     <a>Get Appointment</a>
                                                 </Link>
                                             </div>
                                             <div className="doctor-bottom">
                                                 <h3>
-                                                    <Link href={detailLink}>
+                                                    <Link href={`/doctor-details/${doctor._id}`}>
                                                         <a>{doctor.firstname + ' ' + doctor.lastname}</a>
                                                     </Link>
                                                 </h3>
