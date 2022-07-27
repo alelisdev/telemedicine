@@ -1,10 +1,11 @@
 import React from 'react';
-import { resetIdCounter, Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { resetIdCounter, Tab, TabList, TabPanel } from 'react-tabs';
 resetIdCounter();
 import dynamic from 'next/dynamic';
 const ModalVideo = dynamic(() => import('react-modal-video'), {
     ssr: false
 });
+const Tabs = dynamic(import('react-tabs').then(mod => mod.Tabs), { ssr: false }) // disable ssr
 
 const VideoIntro = () => {
     // Popup Video

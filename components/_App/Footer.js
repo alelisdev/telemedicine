@@ -1,7 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { useForm } from 'react-hook-form';
+import { NotificationManager } from 'react-notifications';
+import axios from 'axios';
+import baseUrl from '../../utils/baseUrl';
+
+const INITIAL_STATE = {
+    name: '',
+    phone: '',
+    message: ''
+};
 
 const Footer = () => {
+    const { register, handleSubmit, errors } = useForm();
+    const [feedback, setFeedback] = useState(INITIAL_STATE);
+
+    const onSubmit = async e => {
+        // e.preventDefault();
+        console.log(errors);
+        const url = `${baseUrl}/api/feedback/add`
+        axios.post(url, feedback)
+        .then( (res) => {
+            NotificationManager.success('Success message', 'Feedback successfully submitted.');
+            setFeedback(INITIAL_STATE);
+        })
+        .catch( (err) =>
+            NotificationManager.error('Error message', 'Something went wrong')
+        );
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFeedback(prevState => ({ ...prevState, [name]: value }));
+    }
+
     const currentYear = new Date().getFullYear();
     return (
         <>
@@ -156,15 +188,24 @@ const Footer = () => {
                             <div className="footer-item">
                                 <div className="footer-feedback">
                                     <h3>Feedback</h3>
-                                    <form>
+                                    <form onSubmit={handleSubmit(onSubmit)}>
                                         <div className="form-group">
-                                            <input type="text" className="form-control" placeholder="Name" />
+                                            <input type="text" value={feedback.name} ref={register({ required: true })} onChange={handleChange} name='name' className="form-control" placeholder="Name" />
+                                            <div className='invalid-feedback' style={{display: 'block'}}>
+                                                {errors.name && 'Name is required.'}
+                                            </div>
                                         </div>
                                         <div className="form-group">
-                                            <input type="text" className="form-control" placeholder="Phone" />
+                                            <input type="text" value={feedback.phone} ref={register({ required: true })} onChange={handleChange} name='phone' className="form-control" placeholder="Phone" />
+                                            <div className='invalid-feedback' style={{display: 'block'}}>
+                                                {errors.phone && 'Phone Number is required.'}
+                                            </div>
                                         </div>
                                         <div className="form-group">
-                                            <textarea className="form-control" id="your_message" rows="3" placeholder="Message"></textarea>
+                                            <textarea className="form-control" value={feedback.message} onChange={handleChange} ref={register({ required: true })} name='message' id="your_message" rows="3" placeholder="Message"></textarea>
+                                            <div className='invalid-feedback' style={{display: 'block'}}>
+                                                {errors.message && 'Message is required.'}
+                                            </div>  
                                         </div>
                                         <div className="text-left">
                                             <button type="submit" className="btn feedback-btn">SUBMIT</button>

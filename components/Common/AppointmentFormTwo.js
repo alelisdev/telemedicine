@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import baseUrl from '../../utils/baseUrl';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
-
 import { NotificationManager } from 'react-notifications';
+import { useRouter } from 'next/router';
 const INITIAL_STATE = {
     name: "",
     email: "",
@@ -14,7 +14,11 @@ const INITIAL_STATE = {
 
 const AppointmentFormTwo = () => {
 
+    const router = useRouter();
+
     const [apt, setApt] = useState(INITIAL_STATE);
+
+    const { did } = router.query
 
     const { register, handleSubmit, errors } = useForm();
 
@@ -29,7 +33,7 @@ const AppointmentFormTwo = () => {
             const url = `${baseUrl}/api/appointment`;
             const { name, email, phone, services, age } = apt;
 
-            const payload = { name, email, phone, services, sdrname, age };
+            const payload = { name, email, phone, services, did, age };
             axios.post(url, payload)
             .then((res) => {
                 NotificationManager.success('Success message', 'Appointment Successfully Submitted!');
