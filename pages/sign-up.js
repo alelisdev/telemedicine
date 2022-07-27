@@ -7,6 +7,7 @@ import PageBanner from '../components/Common/PageBanner';
 import Footer from '../components/_App/Footer';
 import Link from 'next/link';
 import { userService } from '../services';
+import NotificationManager from 'react-notifications/lib/NotificationManager';
 
 // Form initial state
 const INITIAL_STATE = {
@@ -39,7 +40,7 @@ const SignUp = () => {
     }
 
     useEffect(() => {
-        if (userService.userValue) {
+        if (userService.userValue && userService.userValue.type == 'success') {
             router.push('/');
         }
     }, [])
@@ -52,11 +53,15 @@ const SignUp = () => {
             setReginfo(reginfo);
             const payload = { firstname, lastname, email, number, password, role };
             const user = await userService.register(payload);
-            if(user) {
+            console.log(user)
+            if(user.type == 'success') {
                 router.push('/staff-profile');
+                NotificationManager.success('Success message', 'Sign Up Successed!');
+                setReginfo(INITIAL_STATE);
+            } else {
+                NotificationManager.error('Error message', user.msg);
             }
-            NotificationManager.success('Success message', 'Sign Up Successed!');
-            setReginfo(INITIAL_STATE);
+            
         } catch (error) {
             NotificationManager.error('Error message', 'Something went wrong');
         }

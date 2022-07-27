@@ -7,7 +7,7 @@ function ConfirmEmail () {
     const router = useRouter();
 
     useEffect(() => {
-        if (userService.userValue) {
+        if (userService.userValue && userService.userValue.type == 'success') {
             router.push('/');
         }
     })

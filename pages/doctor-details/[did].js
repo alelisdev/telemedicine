@@ -1,11 +1,36 @@
-import React from 'react';
-import TopHeader from '../components/_App/TopHeader';
-import Navbar from '../components/_App/Navbar';
-import PageBanner from '../components/Common/PageBanner';
-import AppointmentFormTwo from '../components/Common/AppointmentFormTwo';
-import Footer from '../components/_App/Footer';
+import React, { useState, useEffect } from 'react';
+import TopHeader from '../../components/_App/TopHeader';
+import Navbar from '../../components/_App/Navbar';
+import PageBanner from '../../components/Common/PageBanner';
+import AppointmentFormTwo from '../../components/Common/AppointmentFormTwo';
+import Footer from '../../components/_App/Footer';
+import { useRouter } from 'next/router';
+import baseUrl from '../../utils/baseUrl';
+import axios from 'axios';
+import NotificationManager from 'react-notifications/lib/NotificationManager';
 
 const DoctorDetails = () => {
+    const router = useRouter();
+    const { did } = router.query
+
+    const [doctor, setDoctor] = useState({});
+
+
+    useEffect(() => {
+        if(did) {
+            const url = `${baseUrl}/api/doctors/${did}`;
+            axios.get(url)
+            .then( (res) => {
+                setDoctor(res.data);
+                console.log(doctor)
+            })
+            .catch ( (err) => {
+                NotificationManager.error('Error message', 'Something went wrong');
+            });
+        }
+        
+    }, [did])
+
     return (
         <>
             <TopHeader />
@@ -13,7 +38,7 @@ const DoctorDetails = () => {
             <Navbar />
 
             <PageBanner 
-                pageTitle="Dr. Sarah Taylor (Neurosurgeon)" 
+                pageTitle={doctor.firstname + ' ' + doctor.lastname + "(" + doctor.major + ")"}
                 homePageUrl="/" 
                 homePageText="Home" 
                 activePageText="Doctor Details" 
@@ -25,22 +50,22 @@ const DoctorDetails = () => {
                     <div className="row">
                         <div className="col-lg-5">
                             <div className="doctor-details-item doctor-details-left">
-                                <img src="/images/doctors/doctor3.jpg" alt="Doctor" />
+                                <img src={baseUrl + '/' + doctor.imagePath} alt="Doctor" />
 
                                 <div className="doctor-details-contact">
                                     <h3>Contact info</h3>
                                     <ul>
                                         <li>
                                             <i className="icofont-ui-call"></i>
-                                            Call: +1 234 567 8901
+                                            Call: +{doctor.phone}
                                         </li>
                                         <li>
                                             <i className="icofont-ui-message"></i>
-                                            ben@bkginvestments
+                                            {doctor.email}
                                         </li>
                                         <li>
                                             <i className="icofont-location-pin"></i>
-                                            4th Floor, 408 No Chamber
+                                            {doctor.address}
                                         </li>
                                     </ul>
                                 </div>
@@ -65,33 +90,49 @@ const DoctorDetails = () => {
                             <div className="doctor-details-item">
                                 <div className="doctor-details-right">
                                     <div className="doctor-details-biography">
-                                        <h3>Dr. Sarah Taylor (Neurosurgeon)</h3>
+                                        <h3>{doctor.firstname + ' ' + doctor.lastname} ({doctor.major})</h3>
                                         <p>MBBS in Neurology, PHD in Neurosurgeon</p>
                                     </div>
 
                                     <div className="doctor-details-biography">
                                         <h3>Biography</h3>
 
-                                        <p>To help physician practices provide convenient health care access to their patients through secure video visits – To help physician practices provide convenient health care access to their patients through secure video visits</p>
-                                        
-                                        <p>To help physician practices provide convenient health care access to their patients through secure video visits – To help physician practices provide convenient health care access to their patients through secure video visits</p>
-                                        
-                                        <p>To help physician practices provide convenient health care access to their patients through secure video visits – To help physician practices provide convenient health care access to their patients through secure video visits</p>
+                                        <p>{doctor.biography}</p>
                                         
                                         <p></p>
                                     </div>
 
                                     <div className="doctor-details-biography">
-                                        <h3>Education</h3>
+                                        <h3>Educations</h3>
                                         <ul>
-                                            <li>PHD Degree in Neurology at University of UCLan School of Medicine Preston (2006)</li>
-                                            <li>Master of Neurosurgery at University of University of Exeter Medical School Exeter (2002)</li>
+                                            {
+                                                doctor.educations?.map((education, idx) => {
+                                                    return(
+                                                        <li key={idx}>
+                                                            <p>{education.school + ' (' + education.startDate + '-' + education.endDate + ')'}</p>
+                                                            <p>{education.degree + ' of ' + education.fieldOfStudy}</p>
+                                                            <p>{education.description}</p>
+                                                        </li>
+                                                    )
+                                                })
+                                            }
                                         </ul>
                                     </div>
 
                                     <div className="doctor-details-biography">
-                                        <h3>Experience</h3>
-                                        <p>In practice, what this means is that we will schedule a video visit. You’ll open an application that has been designed specifically for this purpose, on your smartphone, tablet or computer that has high-speed internet access and a camera. I’ll open the application on my end.</p>
+                                        <h3>Experiences</h3>
+                                        <ul>
+                                            {
+                                                doctor.experiences?.map((experience, idx) => {
+                                                    return(
+                                                        <li key={idx}>
+                                                            <p>{experience.company + ', ' + experience.title + ' (' + experience.startDate + '-' + experience.endDate + ')'}</p>
+                                                            <p>{experience.description}</p>
+                                                        </li>
+                                                    )
+                                                })
+                                            }
+                                        </ul>
                                     </div>
                                 </div>
                             </div>

@@ -1,10 +1,9 @@
-import Router from 'next/router'
 import { BehaviorSubject } from 'rxjs';
+import Router from 'next/router'
 import baseUrl from '../utils/baseUrl';
-import axios from 'axios';
-import setAuthToken from '../utils/setAuthToken';
+import { fetchWrapper } from '../helpers/fetch-wrapper';
 
-const userSubject = new BehaviorSubject(process.browser && JSON.parse(localStorage.getItem('jwtToken')));
+const userSubject = new BehaviorSubject(process.browser && JSON.parse(localStorage.getItem('user')));
 
 export const userService = {
     user: userSubject.asObservable(),
@@ -15,33 +14,28 @@ export const userService = {
 };
 
 function login(payload) {
-    return axios.post(`${baseUrl}/api/auth/login`, payload)
-        .then(res => {
+    return fetchWrapper.post(`${baseUrl}/api/auth/login`, payload)
+        .then(user => {
             // publish user to subscribers and store in local storage to stay logged in between page refreshes
-            const { token } = res.data;
-            userSubject.next(token);
-            localStorage.setItem('jwtToken', JSON.stringify(token));
-            setAuthToken(token);
-            return token;
-        })
+            userSubject.next(user);
+            localStorage.setItem('user', JSON.stringify(user));
+            return user;
+        });
 }
 
 function register(payload) {
-    return axios.post(`${baseUrl}/api/auth/register`, payload)
-        .then(res => {
+    return fetchWrapper.post(`${baseUrl}/api/auth/register`, payload)
+        .then(user => {
             // publish user to subscribers and store in local storage to stay logged in between page refreshes
-            const { token } = res.data;
-            userSubject.next(token);
-            localStorage.setItem('jwtToken', JSON.stringify(token));
-            setAuthToken(token);
-            return token;
+            userSubject.next(user);
+            localStorage.setItem('user', JSON.stringify(user));
+            return user;
         });
 }
 
 function logout() {
     // remove user from local storage, publish null to user subscribers and redirect to login page
-    localStorage.removeItem('jwtToken');
-    setAuthToken(null);
+    localStorage.removeItem('user');
     userSubject.next(null);
     Router.push('/sign-in');
 }

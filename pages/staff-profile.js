@@ -51,7 +51,7 @@ const StaffProfile = () => {
     const secondStepAsyncFunc = async () => {
         //it can be an API call
         setIsSecondStepLoading(true);
-        // await timeout(3000);
+        await timeout(2000);
         setIsSecondStepLoading(false);
     };
 
@@ -145,7 +145,8 @@ const StaffProfile = () => {
         {
             phone: '',
             bio: '',
-            major: ''
+            major: '',
+            address: ''
         }
     );
     const [file, setFile] = useState('');
@@ -180,10 +181,10 @@ const StaffProfile = () => {
     }
 
     useEffect(() => {
-        if (userService.userValue) {
+        if (userService.userValue && userService.userValue.type == 'success') {
             setYear((new Date()).getFullYear());
             setYears(Array.from(new Array(50),(val, index) => year - index ));
-            const { user } = decodeToken(userService.userValue);
+            const { user } = decodeToken(userService.userValue.token);
             setUserdata(user);
             
             const url = `${baseUrl}/api/doctors/profile/${user.email}`;
@@ -490,6 +491,13 @@ const StaffProfile = () => {
                                     </div>
                                     <div className="col-lg-12">
                                         <div className="form-group">
+                                            <i className="icofont-location-pin"></i>
+                                            <label>Address</label>
+                                            <input type="text" name="address" value={lastFields.address} onChange={handleLastChange} className="form-control" placeholder="Ex: 4th Floor, 408 No Los Angeles" />
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-12">
+                                        <div className="form-group">
                                             <i className="icofont-clip-board"></i>
                                             <label>Biography (required *)</label>
                                             <textarea type="text" value={lastFields.bio} name="bio" onChange={handleLastChange} className="form-control" placeholder="Enter Some notes" />
@@ -527,6 +535,7 @@ const StaffProfile = () => {
         axios.post(url, formData)
         .then((res) => {
             NotificationManager.success('Success message', 'Profile Successfully Submitted!');
+            router.push('/');
         }).catch((err) => {
             NotificationManager.error('Error message', 'Something went wrong');
         });

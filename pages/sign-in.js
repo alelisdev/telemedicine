@@ -28,7 +28,7 @@ const SignIn = () => {
     }
 
     useEffect(() => {
-        if (userService.userValue) {
+        if (userService.userValue && userService.userValue.type == 'success') {
             router.push('/');
         }
     }, [])
@@ -41,11 +41,13 @@ const SignIn = () => {
             setLogininfo(logininfo);
             const payload = { email, password };
             const user = await userService.login(payload);
-            if(user) {
+            if(user.type == 'success') {
                 router.push('/');
+                NotificationManager.success('Success message', 'Sign In Successed!');
+                setLogininfo(INITIAL_STATE);
+            } else {
+                NotificationManager.error('Error message', user.msg);
             }
-            NotificationManager.success('Success message', 'Sign In Successed!');
-            setLogininfo(INITIAL_STATE);
         } catch (error) {
             NotificationManager.error('Error message', 'Something went wrong');
         }

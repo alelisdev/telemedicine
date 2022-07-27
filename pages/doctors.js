@@ -25,8 +25,7 @@ const Doctors = () => {
 
     useEffect(async () => {
         const url = `${baseUrl}/api/doctors`;
-        const payload = { search };
-        axios.get(url, payload)
+        axios.get(url)
         .then( (res) => {
             setDoctors(res.data);
         })

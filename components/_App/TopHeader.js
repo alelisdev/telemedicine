@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { userService } from '../../services';
 import { useRouter } from 'next/router'
-import jwtDecode from 'jwt-decode';
+import decodeToken from '../../utils/decodeToken';
 
 const TopHeader = () => {
     const router = useRouter();
@@ -30,7 +30,7 @@ const TopHeader = () => {
 
     useEffect(() => {
         if (userService.userValue) {
-            setAccount(jwtDecode(userService.userValue));
+            setAccount(decodeToken(userService.userValue.token));
         }
     }, [])
 
