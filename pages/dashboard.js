@@ -5,7 +5,7 @@ import PageBanner from '../components/Common/PageBanner';
 import Footer from '../components/_App/Footer';
 import EnhancedTable from '../components/Common/EnhancedTable';
 
-const Dashst = () => {
+const Dashboard = () => {
 
     return (
         <>
@@ -32,4 +32,4 @@ const Dashst = () => {
     )
 }
 
-export default Dashst;
+export default Dashboard;

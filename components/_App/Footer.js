@@ -15,8 +15,10 @@ const Footer = () => {
     const { register, handleSubmit, errors } = useForm();
     const [feedback, setFeedback] = useState(INITIAL_STATE);
 
-    const onSubmit = async e => {
-        // e.preventDefault();
+    const onSubmit = async (e) => {
+        if (e && e.preventDefault) { // add?
+            e.preventDefault();
+        }
         console.log(errors);
         const url = `${baseUrl}/api/feedback/add`
         axios.post(url, feedback)

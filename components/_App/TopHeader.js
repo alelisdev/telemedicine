@@ -21,15 +21,11 @@ const TopHeader = () => {
     }
 
     const openDashboard = () => {
-        if(account.user.role == 'staff') {
-            router.push('/dashst');
-        } else {
-            router.push('/dashct');
-        }
+        router.push('/dashboard');
     }
 
     useEffect(() => {
-        if (userService.userValue) {
+        if (userService.userValue && userService.userValue.type == 'success') {
             setAccount(decodeToken(userService.userValue.token));
         }
     }, [])

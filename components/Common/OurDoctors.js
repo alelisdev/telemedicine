@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import baseUrl from '../../utils/baseUrl';
 import axios from 'axios';
-import { ListItem } from '@mui/material';
 
 const OurDoctors = () => {
 

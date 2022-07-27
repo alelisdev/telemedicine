@@ -191,13 +191,14 @@ const StaffProfile = () => {
             axios.get(url)
             .then((res) => {
                 if(res.data.length) {
-                    const { experiences, educations, biography, phone, major, imagePath } = res.data[0];
+                    const { experiences, educations, biography, phone, address, major, imagePath } = res.data[0];
                     setExpFields(experiences);
                     setEduFields(educations);
                     setLastFields({
                         phone: phone,
                         bio: biography,
-                        major: major
+                        major: major,
+                        address: address
                     });
                     setImagePreviewUrl((baseUrl + '/' + imagePath));
                 }
@@ -535,7 +536,6 @@ const StaffProfile = () => {
         axios.post(url, formData)
         .then((res) => {
             NotificationManager.success('Success message', 'Profile Successfully Submitted!');
-            router.push('/');
         }).catch((err) => {
             NotificationManager.error('Error message', 'Something went wrong');
         });
