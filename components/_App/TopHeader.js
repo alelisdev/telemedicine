@@ -28,7 +28,7 @@ const TopHeader = () => {
         if (userService.userValue && userService.userValue.type == 'success') {
             setAccount(decodeToken(userService.userValue.token));
         }
-    }, [])
+    }, [])   
 
     return (
         <div className="header-top">
@@ -62,10 +62,10 @@ const TopHeader = () => {
                     <div className="col-sm-6 col-lg-3">
                         <div className="header-top-item">
                             <div className="header-top-right">
-                                <ul className="lang-list">
+                                {/* <ul className="lang-list">
                                     <li><a href="/">EN</a></li>
                                     <li><a href="/ar">AR</a></li>
-                                </ul>
+                                </ul> */}
 
                                 <ul>
                                     <li>
@@ -99,12 +99,11 @@ const TopHeader = () => {
                                     {
                                         account ? (
                                         <li className='nav-item dropdown'>
-                                            <a  className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className="icofont-user-alt-5"></i></a>
+                                            <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i className="icofont-user-alt-5"></i>{`${account.user.firstname} ${account.user.lastname}`}</a>
                                             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style={{zIndex: '1000000'}}>
-                                                <a className="dropdown-item" href="#">{`${account.user.firstname} ${account.user.lastname}`}</a>
-                                                <a className="dropdown-item" onClick={openDashboard}>Dashboard</a>
-                                                <a className="dropdown-item" onClick={editProfile}>Edit Profile</a>
-                                                <a className="dropdown-item" onClick={logout} >Log Out</a>
+                                                <a className="dropdown-item" onClick={openDashboard}><i className="icofont-nursing-home"></i> Dashboard</a>
+                                                <a className="dropdown-item" onClick={editProfile}><i className="icofont-edit"></i> Edit Profile</a>
+                                                <a className="dropdown-item" onClick={logout} ><i className="icofont-logout"></i> Log Out</a>
                                             </div>
                                         </li>
                                         ) : (

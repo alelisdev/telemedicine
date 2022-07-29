@@ -9,6 +9,7 @@ import Footer from '../components/_App/Footer';
 import Link from 'next/link';
 import baseUrl from '../utils/baseUrl';
 import { userService } from '../services';
+import NotificationManager from 'react-notifications/lib/NotificationManager';
 
 const ForgotPassword = () => {
     const router = useRouter();

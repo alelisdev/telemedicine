@@ -536,6 +536,7 @@ const StaffProfile = () => {
         axios.post(url, formData)
         .then((res) => {
             NotificationManager.success('Success message', 'Profile Successfully Submitted!');
+            router.push('/');
         }).catch((err) => {
             NotificationManager.error('Error message', 'Something went wrong');
         });

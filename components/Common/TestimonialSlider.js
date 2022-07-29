@@ -32,9 +32,9 @@ const TestimonialSlider = () => {
                     <div className="feedback-item">
                         <div className="client-img">
                             <img src="/images/clients/client1.png" alt="Feedback" />
-                            <h3>Adision Smith</h3>
+                            <h3>Steve Kim</h3>
                         </div>
-                        <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement in the event of significant labor and pain.</p>
+                        <p>Experience of Telemedicine in Gastroenterology Out-Patient Practice During the COVID-19 Pandemic: Experiences from a Tertiary-Care Hospital in a Developing Country.</p>
                     </div>
 
                     <div className="feedback-item">

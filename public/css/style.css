@@ -4192,15 +4192,16 @@ footer {
 /*----- DEPARTMENTS PAGE -----*/
 /*-- Department --*/
 .department-item {
-  text-align: center;
-  border: 1px solid #0046c0;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  -webkit-transition: 0.5s all ease;
-  transition: 0.5s all ease;
-  margin-bottom: 30px;
-  position: relative;
-  z-index: 1;
+    height: 320px;
+    text-align: center;
+    border: 1px solid #0046c0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    -webkit-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
 }
 
 .department-item:before {
@@ -5234,4 +5235,15 @@ input[type="file"] {
 .expertise-item .expertise-right img {
     border-radius: 10px;
 }
+
+.service-item-include {
+    padding: 0px 15px;
+    border-radius: 20px;
+    background: #0046c0;
+    color: white;
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
 /*** Admin ***/

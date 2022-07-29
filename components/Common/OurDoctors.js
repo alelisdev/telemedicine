@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import baseUrl from '../../utils/baseUrl';
 import axios from 'axios';
+import { NotificationManager } from 'react-notifications';
 
 const OurDoctors = () => {
 
@@ -14,7 +15,7 @@ const OurDoctors = () => {
             setDoctors(res.data);
         })
         .catch ( (err) => {
-            NotificationManager.error('Error message', 'Something went wrong');
+            NotificationManager.error('Error message', 'Connection Error');
         });
     }, [])
 
