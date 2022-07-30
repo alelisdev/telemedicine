@@ -92,8 +92,8 @@ export default function Sidebar(props) {
                 <Divider />
                 <List>
                     {[['Users', '/admin/users'], ['Blogs', '/admin/blogs'], ['Appointments', '/admin/appointments']].map((item, index) => (
-                        <Link href={item[1]}>
-                            <ListItem key={index} disablePadding>
+                        <Link href={item[1]} key={index}>
+                            <ListItem disablePadding>
                                 <ListItemButton>
                                     <ListItemIcon>
                                         {index % 2 === 0 ? <Man /> : <MailIcon />}

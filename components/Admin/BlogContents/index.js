@@ -18,9 +18,11 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
+import { Add } from '@mui/icons-material';
 import { visuallyHidden } from '@mui/utils';
 import EditButton from '../../Common/EditButton';
 import EditModal from './EditModal';
+import AlertDialog from './DeleteConfirmModal';
 import headCells from './headCells';
 
 function createData(name, calories, fat, carbs, protein) {
@@ -137,153 +139,161 @@ EnhancedTableHead.propTypes = {
   rowCount: PropTypes.number.isRequired,
 };
 
-const EnhancedTableToolbar = (props) => {
-  const { numSelected } = props;
+export default function BlogContents() {
+    const [order, setOrder] = React.useState('asc');
+    const [orderBy, setOrderBy] = React.useState('calories');
+    const [selected, setSelected] = React.useState([]);
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [open, setOpen] = React.useState(false);
+    const [openAlert, setOpenAlert] = React.useState(false);
+    const [isnew, setNew] = React.useState(true);
 
-  return (
-    <Toolbar
-      sx={{
-        pl: { sm: 2 },
-        pr: { xs: 1, sm: 1 },
-        ...(numSelected > 0 && {
-          bgcolor: (theme) =>
-            alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
-        }),
-      }}
-    >
-      {numSelected > 0 ? (
-        <Typography
-          sx={{ flex: '1 1 100%' }}
-          color="inherit"
-          variant="subtitle1"
-          component="div"
-        >
-          {numSelected} selected
-        </Typography>
-      ) : (
-        <Typography
-          sx={{ flex: '1 1 100%' }}
-          variant="h6"
-          id="tableTitle"
-          component="div"
-        >
-          Blogs
-        </Typography>
-      )}
+    const handleClickDelete = () => {
+        setOpenAlert(true);
+    };
 
-      {numSelected > 0 ? (
-        <Tooltip title="Delete">
-          <IconButton>
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>
-      ) : (
-        <Tooltip title="Filter list">
-          <IconButton>
-            <FilterListIcon />
-          </IconButton>
-        </Tooltip>
-      )}
-    </Toolbar>
-  );
-};
+    const handleCloseDelete = () => {
+        setOpenAlert(false);
+    };
 
-EnhancedTableToolbar.propTypes = {
-  numSelected: PropTypes.number.isRequired,
-};
 
-export default function EnhancedTable() {
-  const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('calories');
-  const [selected, setSelected] = React.useState([]);
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  const handleRequestSort = (event, property) => {
-    const isAsc = orderBy === property && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
-    setOrderBy(property);
-  };
-
-  const handleSelectAllClick = (event) => {
-    if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.name);
-      setSelected(newSelecteds);
-      return;
-    }
-    setSelected([]);
-  };
-
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
-    let newSelected = [];
-
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1));
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1));
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1),
-      );
+    const handleOpenEdit = () => {
+        setOpen(true); 
+        setNew(false);
     }
 
-    setSelected(newSelected);
-  };
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
-
-  const isSelected = (name) => selected.indexOf(name) !== -1;
-
-  // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
-
-    const handleClickEdit = () => {
-        console.log('--------');
+    const handleOpenNew = () => {
+        setOpen(true);
+        setNew(true);
     }
+    const handleClose = () => {
+        setOpen(false);
+    } 
 
-  return (
-    <Box sx={{ width: '100%' }}>
-      <Paper sx={{ width: '100%', mb: 2 }}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+    const handleRequestSort = (event, property) => {
+        const isAsc = orderBy === property && order === 'asc';
+        setOrder(isAsc ? 'desc' : 'asc');
+        setOrderBy(property);
+    };
+
+    const handleSelectAllClick = (event) => {
+        if (event.target.checked) {
+        const newSelecteds = rows.map((n) => n.name);
+        setSelected(newSelecteds);
+        return;
+        }
+        setSelected([]);
+    };
+
+    const handleClick = (event, name) => {
+        const selectedIndex = selected.indexOf(name);
+        let newSelected = [];
+
+        if (selectedIndex === -1) {
+        newSelected = newSelected.concat(selected, name);
+        } else if (selectedIndex === 0) {
+        newSelected = newSelected.concat(selected.slice(1));
+        } else if (selectedIndex === selected.length - 1) {
+        newSelected = newSelected.concat(selected.slice(0, -1));
+        } else if (selectedIndex > 0) {
+        newSelected = newSelected.concat(
+            selected.slice(0, selectedIndex),
+            selected.slice(selectedIndex + 1),
+        );
+        }
+
+        setSelected(newSelected);
+    };
+
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+    };
+
+    const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
+    };
+
+    const isSelected = (name) => selected.indexOf(name) !== -1;
+
+    // Avoid a layout jump when reaching the last page with empty rows.
+    const emptyRows =
+        page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+
+
+
+    return (
+        <Box sx={{ width: '100%' }}>
+        <Paper sx={{ width: '100%', mb: 2 }}>
+        <Toolbar
+            sx={{
+                pl: { sm: 2 },
+                pr: { xs: 1, sm: 1 },
+                ...(selected.length > 0 && {
+                bgcolor: (theme) =>
+                    alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
+                }),
+            }}
+            >
+            {selected.length > 0 ? (
+                <Typography
+                sx={{ flex: '1 1 100%' }}
+                color="inherit"
+                variant="subtitle1"
+                component="div"
+                >
+                {selected.length} selected
+                </Typography>
+            ) : (
+                <Typography
+                sx={{ flex: '1 1 100%' }}
+                variant="h6"
+                id="tableTitle"
+                component="div"
+                >
+                Blogs
+                </Typography>
+            )}
+
+            {selected.length > 0 ? (
+                <Tooltip title="Delete">
+                <IconButton onClick={handleClickDelete}>
+                    <DeleteIcon />
+                </IconButton>
+                </Tooltip>
+            ) : (
+                <Tooltip title="Filter list">
+                <IconButton onClick={handleOpenNew}>
+                    <Add />
+                </IconButton>
+                </Tooltip>
+            )}
+        </Toolbar>
         <TableContainer>
-          <Table
+        <Table
             sx={{ minWidth: 750 }}
             aria-labelledby="tableTitle"
             size='medium'
-          >
+        >
             <EnhancedTableHead
-              numSelected={selected.length}
-              order={order}
-              orderBy={orderBy}
-              onSelectAllClick={handleSelectAllClick}
-              onRequestSort={handleRequestSort}
-              rowCount={rows.length}
+            numSelected={selected.length}
+            order={order}
+            orderBy={orderBy}
+            onSelectAllClick={handleSelectAllClick}
+            onRequestSort={handleRequestSort}
+            rowCount={rows.length}
             />
             <TableBody>
-              {/* if you don't need to support IE11, you can replace the `stableSort` call with:
-                 rows.slice().sort(getComparator(order, orderBy)) */}
-              {stableSort(rows, getComparator(order, orderBy))
+            {/* if you don't need to support IE11, you can replace the `stableSort` call with:
+                rows.slice().sort(getComparator(order, orderBy)) */}
+            {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.name);
-                  const labelId = `enhanced-table-checkbox-${index}`;
+                const isItemSelected = isSelected(row.name);
+                const labelId = `enhanced-table-checkbox-${index}`;
 
-                  return (
+                return (
                     <TableRow
                         hover
                         role="checkbox"
@@ -292,7 +302,7 @@ export default function EnhancedTable() {
                         key={row.name}
                         selected={isItemSelected}
                     >
-                      <TableCell padding="checkbox">
+                    <TableCell padding="checkbox">
                         <Checkbox
                             onChange={(e) => handleClick(e, row.name)}
                             color="primary"
@@ -301,45 +311,46 @@ export default function EnhancedTable() {
                                 'aria-labelledby': labelId,
                             }}
                         />
-                      </TableCell>
-                      <TableCell
+                    </TableCell>
+                    <TableCell
                         component="th"
                         id={labelId}
                         scope="row"
                         padding="none"
-                      >
+                    >
                         {row.name}
-                      </TableCell>
-                      <TableCell align="right">{row.calories}</TableCell>
-                      <TableCell align="right">{row.fat}</TableCell>
-                      <TableCell align="right">{row.carbs}</TableCell>
-                      <TableCell align="right">{<EditButton handleClickEdit={handleOpen} />}</TableCell>
+                    </TableCell>
+                    <TableCell align="right">{row.calories}</TableCell>
+                    <TableCell align="right">{row.fat}</TableCell>
+                    <TableCell align="right">{row.carbs}</TableCell>
+                    <TableCell align="right">{<EditButton handleClickEdit={handleOpenEdit} />}</TableCell>
                     </TableRow>
-                  );
+                );
                 })}
-              {emptyRows > 0 && (
+            {emptyRows > 0 && (
                 <TableRow
-                  style={{
+                style={{
                     height: 53 * emptyRows,
-                  }}
+                }}
                 >
-                  <TableCell colSpan={6} />
+                <TableCell colSpan={6} />
                 </TableRow>
-              )}
+            )}
             </TableBody>
-          </Table>
+        </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
-          component="div"
-          count={rows.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
+        rowsPerPageOptions={[5, 10, 25]}
+        component="div"
+        count={rows.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
         />
-      </Paper>
-      <EditModal open={open} handleOpen={handleOpen} handleClose={handleClose} />
-    </Box>
-  );
+        </Paper>
+        <EditModal open={open} handleClose={handleClose} isnew={isnew} />
+        <AlertDialog open={openAlert} handleClose={handleCloseDelete} />
+        </Box>
+    );
 }

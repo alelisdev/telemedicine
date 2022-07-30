@@ -1,42 +1,95 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import ImgUpload from "../../ImageUpload/ImgUpload";
+import Profile from "../../ImageUpload/Profile";
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
+const INITIAL_STATE = {
+    title: '',
+    content: '',
+    imagePath: '',
+}
 
 export default function EditModal(props) {
 
-  return (
-    <div>
-      <Button onClick={props.handleOpen}>Open modal</Button>
-      <Modal
-        keepMounted
-        open={props.open}
-        onClose={props.handleClose}
-        aria-labelledby="keep-mounted-modal-title"
-        aria-describedby="keep-mounted-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="keep-mounted-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-        </Box>
-      </Modal>
-    </div>
-  );
+    const { open, handleClose, isnew } = props; 
+    const [active, setActive] = useState('edit');
+    const [imagePreviewUrl , setImagePreviewUrl] = useState('');
+    const [file, setFile] = useState(null);
+    const [data, setData] = useState(INITIAL_STATE);
+
+
+    const handleSubmit= e =>{
+        e.preventDefault();
+        let activeP = active === 'edit' ? 'profile' : 'edit';
+        setActive(activeP);
+    }
+
+    const photoUpload = e => {
+        e.preventDefault();
+
+        const reader = new FileReader();
+
+        const tempFile = e.target.files[0];
+
+        reader.onloadend = () => {
+            setFile(tempFile);
+            setImagePreviewUrl(reader.result);
+        }
+
+        reader.readAsDataURL(tempFile);
+    }
+
+    return (
+        <Dialog open={open} onClose={handleClose}>
+            <DialogTitle>
+                { isnew ? 'New' : 'Edit'}
+            </DialogTitle>
+            <DialogContent>
+                <DialogContentText>
+                    To add the new blog, please enter new Title, Contents and Image here.
+                </DialogContentText>
+                <div className='row'>
+                    <div className="col-lg-5 mt-2 text-center">
+                        {(active === 'edit')?(
+                            <ImgUpload onChange={photoUpload} src={imagePreviewUrl}/>
+                        ):(
+                            <Profile 
+                            onSubmit={handleSubmit} 
+                            src={imagePreviewUrl} />)}
+                    </div>
+                    <div className='col-lg-7 mt-2'>
+                        <TextField
+                            required
+                            id="outlined-required"
+                            label="Title"
+                            fullWidth
+                            defaultValue={data.title}
+                        />
+                        <TextField
+                            required
+                            className='mt-4'
+                            id="outlined-multiline-static"
+                            label="Contents"
+                            multiline
+                            fullWidth
+                            rows={4}
+                            defaultValue={data.content}
+                        />
+                    </div>
+                </div>
+                
+                
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button onClick={handleClose}>Ok</Button>
+                </DialogActions>
+        </Dialog>
+    );
 }
