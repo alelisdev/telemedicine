@@ -40,12 +40,12 @@ const Blog = () => {
                         {
                             blogs.map((blog, idx) => {
                                 return(
-                                    <div className="col-md-6 col-lg-4">
+                                    <div className="col-md-6 col-lg-4" key={idx}>
                                         <div className="blog-item">
                                             <div className="blog-top">
                                                 <Link href="/blog-details">
                                                     <a>
-                                                        <img src={`${baseUrl}/${blog.imagePath}`} alt="Blog" />
+                                                        <img src={blog.imagePath ? `${baseUrl}/${blog.imagePath}` : '/images/default-image.png'} alt="Blog" />
                                                     </a>
                                                 </Link>
                                             </div>
@@ -58,7 +58,7 @@ const Blog = () => {
                                                 <p style={{textAlign: 'justify'}}>{ blog.content.length > 500 ? blog.content.slice(0, 130) + '...' : blog.content }</p>
                                                 <ul>
                                                     <li>
-                                                        <Link href="/blog-details">
+                                                        <Link href={`/blog/details/${blog._id}`}>
                                                             <a>
                                                                 Read More <i className="icofont-long-arrow-right"></i>
                                                             </a>

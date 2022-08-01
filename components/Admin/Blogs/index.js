@@ -278,9 +278,7 @@ export default function BlogContents() {
                                             }}
                                         />
                                     </TableCell>
-                                    {/* <CustomTableCell {...{ blog, name: "title", onChange }} />
-                                    <CustomTableCell {...{ blog, name: "content", onChange }} /> */}
-                                    <TableCell align="left">{blog.title}</TableCell>
+                                    <TableCell align="left"><a href={`/blog/details/${blog._id}`} target='_blank'>{blog.title}</a></TableCell>
                                     <TableCell align="left">{ blog.content.length > 60 ? blog.content.slice(0, 60) + '...' : blog.content }</TableCell>
                                     <TableCell align="left">{parseISOString(blog.date)}</TableCell>
                                     <TableCell align="left">

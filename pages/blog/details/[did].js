@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 import baseUrl from '../../../utils/baseUrl';
 import axios from 'axios';
 import NotificationManager from 'react-notifications/lib/NotificationManager';
+import Link from 'next/link';
 import parseISOString from '../../../utils/parseISOString';
 
 const INITIAL_STATE = {
@@ -22,14 +23,18 @@ const BlogDetails = () => {
     const router = useRouter();
     const { did } = router.query;
 
-    const [blog, setBlog] = useState(INITIAL_STATE);
+    const [blog, setBlog] = useState({});
+    const [prev, setPrev] = useState('');
+    const [next, setNext] = useState('');
 
     useEffect(() => {
         if(did) {
-            const url = `${baseUrl}/api/blogs/${did}`;
+            const url = `${baseUrl}/api/blogs/show/${did}`;
             axios.get(url)
             .then( (res) => {
-                setBlog(res.data);
+                setBlog(res.data.data);
+                setPrev(res.data.prev[0]);
+                setNext(res.data.next[0]);
             })
             .catch ( (err) => {
                 NotificationManager.error('Error message', 'Something went wrong');
@@ -53,12 +58,12 @@ const BlogDetails = () => {
             /> 
 
             <div className="blog-details-area pt-100">
-                <div className="container">
+            {blog && (<div className="container">
                     <div className="row">
                         <div className="col-lg-8">
                             <div className="blog-details-item">
                                 <div className="blog-details-img">
-                                    <img src={`${baseUrl}/${blog.imagePath}`} alt="Blog" />
+                                    <img src={blog.imagePath ? `${baseUrl}/${blog.imagePath}` : '/images/default-image.png'} alt="Blog" />
                                     <h2>{blog.title}</h2>
 
                                     <ul>
@@ -69,7 +74,7 @@ const BlogDetails = () => {
                                         </li>
                                         <li>
                                             <i className="icofont-calendar"></i>
-                                            {/* {parseISOString(blog.date)} */}
+                                            { blog.date ? parseISOString(blog.date) : blog.date }
                                         </li>
                                     </ul>
 
@@ -90,10 +95,18 @@ const BlogDetails = () => {
                                     <div className="prev-next">
                                         <ul>
                                             <li>
-                                                <a href="#">Previous</a>
+                                                { prev &&  
+                                                <Link href={`/blog/details/${prev._id}`}>
+                                                    <a>Previous</a>
+                                                </Link>
+                                                }   
                                             </li>
                                             <li>
-                                                <a href="#">Next</a>
+                                            { next &&  
+                                                <Link href={`/blog/details/${next._id}`}>
+                                                    <a>Next</a>
+                                                </Link>
+                                            }
                                             </li>
                                         </ul>
                                     </div>
@@ -108,6 +121,7 @@ const BlogDetails = () => {
                         </div>
                     </div>
                 </div>
+            )}
             </div>
 
             <LatestBlogPost />
