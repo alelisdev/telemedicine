@@ -1,30 +1,30 @@
 const headCells = [
     {
-      id: 'name',
+      id: 'title',
       numeric: false,
       disablePadding: true,
       label: 'Title',
     },
     {
-      id: 'calories',
+      id: 'content',
       numeric: true,
       disablePadding: false,
       label: 'Contnets',
     },
     {
-      id: 'fat',
+      id: 'date',
       numeric: true,
       disablePadding: false,
       label: 'Date',
     },
     {
-      id: 'carbs',
+      id: 'image',
       numeric: true,
       disablePadding: false,
       label: 'Image',
     },
     {
-      id: 'protein',
+      id: 'operation',
       numeric: true,
       disablePadding: false,
       label: 'Operation',

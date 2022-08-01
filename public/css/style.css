@@ -5246,4 +5246,12 @@ input[type="file"] {
     margin-right: 5px;
 }
 
+#mui-3 {
+    align-self: end;
+}
+
+.MuiTablePagination-displayedRows {
+    align-self: end;
+}
+
 /*** Admin ***/

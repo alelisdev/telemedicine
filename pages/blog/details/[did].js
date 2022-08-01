@@ -1,13 +1,43 @@
-import React from 'react';
-import TopHeader from '../components/_App/TopHeader';
-import Navbar from '../components/_App/Navbar';
-import PageBanner from '../components/Common/PageBanner';
-import Footer from '../components/_App/Footer';
-import CommentForm from '../components/Blog/CommentForm';
-import BlogSidebar from '../components/Blog/BlogSidebar';
-import LatestBlogPost from '../components/Blog/LatestBlogPost';
+import React, { useEffect, useState } from 'react';
+import TopHeader from '../../../components/_App/TopHeader';
+import Navbar from '../../../components/_App/Navbar';
+import PageBanner from '../../../components/Common/PageBanner';
+import Footer from '../../../components/_App/Footer';
+import CommentForm from '../../../components/Blog/CommentForm';
+import BlogSidebar from '../../../components/Blog/BlogSidebar';
+import LatestBlogPost from '../../../components/Blog/LatestBlogPost';
+import { useRouter } from 'next/router';
+import baseUrl from '../../../utils/baseUrl';
+import axios from 'axios';
+import NotificationManager from 'react-notifications/lib/NotificationManager';
+import parseISOString from '../../../utils/parseISOString';
+
+const INITIAL_STATE = {
+    title: '',
+    content: '',
+    imagePath: ''
+}
 
 const BlogDetails = () => {
+    const router = useRouter();
+    const { did } = router.query;
+
+    const [blog, setBlog] = useState(INITIAL_STATE);
+
+    useEffect(() => {
+        if(did) {
+            const url = `${baseUrl}/api/blogs/${did}`;
+            axios.get(url)
+            .then( (res) => {
+                setBlog(res.data);
+            })
+            .catch ( (err) => {
+                NotificationManager.error('Error message', 'Something went wrong');
+            });
+        }
+        
+    }, [did])
+
     return (
         <>
             <TopHeader />
@@ -28,8 +58,8 @@ const BlogDetails = () => {
                         <div className="col-lg-8">
                             <div className="blog-details-item">
                                 <div className="blog-details-img">
-                                    <img src="/images/blog/blog-details.jpg" alt="Blog" />
-                                    <h2>About ANXIETY</h2>
+                                    <img src={`${baseUrl}/${blog.imagePath}`} alt="Blog" />
+                                    <h2>{blog.title}</h2>
 
                                     <ul>
                                         <li>
@@ -39,16 +69,11 @@ const BlogDetails = () => {
                                         </li>
                                         <li>
                                             <i className="icofont-calendar"></i>
-                                            Jul 23, 2022
+                                            {/* {parseISOString(blog.date)} */}
                                         </li>
                                     </ul>
 
-                                    <p>Anxiety is the feeling of unease, worry, or impending doom, and this may be accompanied by physical symptoms such as racing heart, sweating, difficulty sleeping, among others. On the extreme end, severe anxiety can evolve into a full blown “Panic Attack.” </p>
-                                    <p>Nearly all adults experience anxiety at one time or another, and this is no cause for great alarm. However if you are experiencing panic attacks, or if your anxiety is interfering with school, work, social relationships, or family life, then it may be time to seek professional advice and treatment, which may include counseling, medications, or both. </p>
-                                    <p>Here is a simple Anxiety Self-screen Questionnaire, called the GAD-7, which can be completed in less than 5 minutes:</p>
-                                    <a href='https://www.bruntsfieldmedicalpractice.co.uk/'>Microsoft Word - GAD-7 Word.doc (bruntsfieldmedicalpractice.co.uk) </a>
-                                    <p>If your SCORE is 7 to 8 or higher, it is advisable that you speak to a physician or mental health professional for a more detailed assessment.</p>
-                                    <p>The GOOD news is that there are many forms of treatment that are available to get your anxiety under better control, so that your work, school, and personal life doesn’t have to suffer. </p>
+                                    <p>{blog.content}</p>
                                 </div>
 
                                 <div className="blog-details-previous">
