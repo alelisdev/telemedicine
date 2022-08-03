@@ -11,15 +11,9 @@ import baseUrl from '../../../utils/baseUrl';
 import axios from 'axios';
 import NotificationManager from 'react-notifications/lib/NotificationManager';
 import Link from 'next/link';
-import parseISOString from '../../../utils/parseISOString';
+import { parseISOString } from '../../../utils/funcUtils';
 import CommentItem from '../../../components/Blog/Comment';
 import CommentConfirmModal from '../../../components/Blog/CommentConfirmModal';
-
-const INITIAL_STATE = {
-    title: '',
-    content: '',
-    imagePath: ''
-}
 
 const BlogDetails = () => {
     const router = useRouter();
@@ -53,8 +47,8 @@ const BlogDetails = () => {
             axios.get(url)
             .then( (res) => {
                 setBlog(res.data.data);
-                setPrev(res.data.prev[0]);
-                setNext(res.data.next[0]);
+                setPrev(res.data.prev);
+                setNext(res.data.next);
             })
             .catch ( (err) => {
                 NotificationManager.error('Error message', 'Something went wrong');

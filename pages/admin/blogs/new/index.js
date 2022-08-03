@@ -10,11 +10,18 @@ import Profile from "../../../../components/ImageUpload/Profile";
 import ImgUpload from "../../../../components/ImageUpload/ImgUpload";
 import axios from 'axios';
 import NotificationManager from 'react-notifications/lib/NotificationManager';
+import Multiselect from 'multiselect-react-dropdown';
 
 const INITIAL_STATE = {
     title: '',
-    content: ''
+    content: '',
+    category: '',
+    tags: []
 }
+
+const options = [
+    {name: 'Option 1️', id: 1},{name: 'Option 2️', id: 2}
+]
 
 const NewBlog = () => {
     const router = useRouter();
@@ -22,7 +29,6 @@ const NewBlog = () => {
 
     const [blog, setBlog] = useState(INITIAL_STATE);
     const [file, setFile] = useState('');
-    // const [profileImage, setProfileImage] = useState(null);
     const [imagePreviewUrl, setImagePreviewUrl] = useState('/images/default-image.png');
     const [active, setActive] = useState('edit');
 
@@ -50,6 +56,14 @@ const NewBlog = () => {
         }
 
         reader.readAsDataURL(tempFile);
+    }
+
+    const onSelect = (selectedList, selectedItem) => {
+        setBlog(prevState => ({ ...prevState, tags: selectedList }));
+    }
+    
+    const onRemove = (selectedList, removedItem) => {
+        setBlog(prevState => ({ ...prevState, tags: selectedList }));
     }
 
     const onSubmit = () => {
@@ -121,9 +135,31 @@ const NewBlog = () => {
                                         </div>  
                                     </div>
                                 </div>
+                                <div className="col-lg-12 mt-5">
+                                    <div className="form-group">
+                                        <label htmlFor='category'>Category</label>
+                                        <select className="form-control" value={blog.category} onChange={handleChange} ref={register({ required: true })} name="category">
+                                            <option value="">--- Select a category ---</option>
+                                            <option value="Health Care">Health Care</option>
+                                            <option value="Medical Science">Medical Science</option>
+                                            <option value="Covid-19">Covid-19</option>
+                                        </select>
+                                        <div className='invalid-feedback' style={{display: 'block'}}>
+                                            {errors.category && 'Category is required.'}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-lg-12 mt-5">
+                                    <label>Tags</label>
+                                    <Multiselect
+                                        options={options} // Options to display in the dropdown
+                                        selectedValues={blog.tags} // Preselected value to persist in dropdown
+                                        onSelect={onSelect} // Function will trigger on select event
+                                        onRemove={onRemove} // Function will trigger on remove event
+                                        displayValue="name" // Property name to display in the dropdown options
+                                    />
+                                </div>
                             </div>
-                            
-
                             <div className="col-lg-12 mt-5">
                                 <div className="text-center">
                                     <button type="submit" className="btn btn-primary signup-btn">Submit</button>

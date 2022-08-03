@@ -1348,9 +1348,10 @@ button:focus {
 }
 
 .blog-item .blog-bottom p {
-  color: #232323;
-  margin-bottom: 0;
-  padding-bottom: 20px;
+    min-height: 97px !important;
+    color: #232323;
+    margin-bottom: 0;
+    padding-bottom: 20px;
 }
 
 .blog-item .blog-bottom ul {

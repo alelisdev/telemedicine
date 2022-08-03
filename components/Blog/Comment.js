@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import parseISOString from '../../utils/parseISOString';
+import React from 'react';
+import { parseISOString } from '../../utils/funcUtils';
 
 function CommentItem (props) {    
 

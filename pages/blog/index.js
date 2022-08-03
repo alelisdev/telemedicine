@@ -6,8 +6,7 @@ import Footer from '../../components/_App/Footer';
 import Link from 'next/link';
 import axios from 'axios';
 import baseUrl from '../../utils/baseUrl';
-import parseISOString from '../../utils/parseISOString';
-import { useRouter } from 'next/router';
+import { parseISOString } from '../../utils/funcUtils';
 
 const Blog = () => {
     const [blogs, setBlogs] = useState([]);

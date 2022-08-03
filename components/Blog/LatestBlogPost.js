@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import baseUrl from '../../utils/baseUrl';
 import axios from 'axios';
 import Link from 'next/link';
-import parseISOString from '../../utils/parseISOString';
+import { parseISOString } from '../../utils/funcUtils';
 
 const LatestBlogPost = () => {
 
@@ -10,7 +10,6 @@ const LatestBlogPost = () => {
 
     useEffect(() => {
         axios.get(`${baseUrl}/api/blogs/latest`).then((res) => {
-            console.log(res.data);
             setBlogs(res.data);
         }).catch((err) => {
             console.log(err)
