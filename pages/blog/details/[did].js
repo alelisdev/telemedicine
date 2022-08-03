@@ -12,6 +12,8 @@ import axios from 'axios';
 import NotificationManager from 'react-notifications/lib/NotificationManager';
 import Link from 'next/link';
 import parseISOString from '../../../utils/parseISOString';
+import CommentItem from '../../../components/Blog/Comment';
+import CommentConfirmModal from '../../../components/Blog/CommentConfirmModal';
 
 const INITIAL_STATE = {
     title: '',
@@ -26,6 +28,24 @@ const BlogDetails = () => {
     const [blog, setBlog] = useState({});
     const [prev, setPrev] = useState('');
     const [next, setNext] = useState('');
+    const [comments, setComments] = useState([]);
+    const [active, setActive] = useState('');
+    const [isUp, setIsUp] = useState(true);
+    const [visible, setVisible] = useState(5);
+
+    const [open, setOpen] = useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const loadMore = () => {
+        setVisible(visible + 4);
+    }
 
     useEffect(() => {
         if(did) {
@@ -43,6 +63,19 @@ const BlogDetails = () => {
         
     }, [did])
 
+    useEffect(() => {
+        if(did) {
+            const url = `${baseUrl}/api/comments/${did}`;
+            axios.get(url)
+            .then( (res) => {
+                setComments(res.data);
+            })
+            .catch ( (err) => {
+                NotificationManager.error('Error message', 'Something went wrong');
+            });
+        }
+    }, [did])
+
     return (
         <>
             <TopHeader />
@@ -51,8 +84,8 @@ const BlogDetails = () => {
             
             <PageBanner 
                 pageTitle="Blog Details" 
-                homePageUrl="/" 
-                homePageText="Home" 
+                homePageUrl="/blog" 
+                homePageText="Blog" 
                 activePageText="Blog Details" 
                 bgImage="page-title-four" 
             /> 
@@ -82,16 +115,6 @@ const BlogDetails = () => {
                                 </div>
 
                                 <div className="blog-details-previous">
-                                    {/* <h3>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</h3>
-                                    <ul>
-                                        <li>1. Donec a purus at tellus rhoncus semper non sed tortor.</li>
-                                        <li>2. Etiam ut est laoreet, accumsan erat sed, ullamcorper magna.</li>
-                                        <li>3. Nullam sit amet magna cursus, consectetur magna in, faucibus erat.</li>
-                                        <li>4. Aenean vitae tortor pretium, sollicitudin urna at, sollicitudin dui.</li>
-                                        <li>5. Phasellus tempor velit sed leo viverra lacinia.</li>
-                                        <li>6. Suspendisse quis sapien dapibus, sagittis ligula a, rhoncus justo.</li>
-                                    </ul> */}
-
                                     <div className="prev-next">
                                         <ul>
                                             <li>
@@ -112,10 +135,20 @@ const BlogDetails = () => {
                                     </div>
                                 </div>
                             </div>
-
-                            <CommentForm />
+                            <div className='comments'>
+                                {comments.slice(0, visible).map((comment, idx) => {
+                                    return(
+                                        <CommentItem key={idx} comment={comment} handleOpen={handleOpen} setIsUp={setIsUp} setActive={setActive} />
+                                    )
+                                })}
+                                {visible < comments.length &&
+                                <div className='text-center'>
+                                    <button onClick={loadMore} type="button" className="btn btn-primary load-more">Load more</button>
+                                </div>
+                                }
+                            </div>
+                            <CommentForm blog_id={did} />
                         </div>
-
                         <div className="col-lg-4">
                             <BlogSidebar />
                         </div>
@@ -127,6 +160,7 @@ const BlogDetails = () => {
             <LatestBlogPost />
         
             <Footer />
+            <CommentConfirmModal open={open} handleClose={handleClose} active={active}  isUp={isUp} />
         </>
     )
 }

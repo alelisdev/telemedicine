@@ -25,6 +25,7 @@ import parseISOString from '../../../utils/parseISOString';
 import axios from 'axios';
 import EditIcon from "@material-ui/icons/EditOutlined";
 import { useRouter } from 'next/router';
+import Spinner from '../../../utils/Spinner';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -116,6 +117,7 @@ export default function BlogContents() {
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
     const [open, setOpen] = React.useState(false);
     const [blogs, setBlogs] = useState([]);
+    const [isLoading, setLoading] = useState(false);
 
     const handleOpen = () => {
         setOpen(true);
@@ -133,9 +135,9 @@ export default function BlogContents() {
 
     const handleSelectAllClick = (event) => {
         if (event.target.checked) {
-        const newSelecteds = blogs.map((blog) => blog._id);
-        setSelected(newSelecteds);
-        return;
+            const newSelecteds = blogs.map((blog) => blog._id);
+            setSelected(newSelecteds);
+            return;
         }
         setSelected([]);
     };
@@ -176,8 +178,10 @@ export default function BlogContents() {
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - blogs.length) : 0;
 
     useEffect(async () => {
+        setLoading(true);
         axios.get(`${baseUrl}/api/blogs`).then((res) => {
             setBlogs(res.data);
+            setLoading(false);
         }).catch((err) => {
             console.log(err)
         })
@@ -187,7 +191,7 @@ export default function BlogContents() {
         router.push(`/admin/blogs/edit/${_id}`)
     }
 
-    return (
+    return isLoading ?  <Spinner /> : (
         <Box sx={{ width: '100%' }}>
             <Paper sx={{ width: '100%', mb: 2 }}>
                 <Toolbar
