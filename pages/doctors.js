@@ -6,7 +6,6 @@ import Footer from '../components/_App/Footer';
 import Link from 'next/link';
 import baseUrl from '../utils/baseUrl';
 import axios from 'axios';
-import { NotificationManager } from 'react-notifications';
 
 const Doctors = () => {
     const [doctors, setDoctors] = useState([]);
@@ -27,16 +26,14 @@ const Doctors = () => {
         fetchData();
     }, [keyword])
 
-
-    useEffect(async () => {
+    const fetchDoctors = async () => {
         const url = `${baseUrl}/api/doctors`;
-        axios.get(url)
-        .then( (res) => {
-            setDoctors(res.data);
-        })
-        .catch ( (err) => {
-            NotificationManager.error('Error message', 'Something went wrong');
-        });
+        const res = await axios.get(url);
+        setDoctors(res.data);
+    }
+
+    useEffect(() => {
+        fetchDoctors();
     }, [])
  
     return (

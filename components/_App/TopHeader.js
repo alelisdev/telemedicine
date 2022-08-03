@@ -62,10 +62,10 @@ const TopHeader = () => {
                     <div className="col-sm-6 col-lg-3">
                         <div className="header-top-item">
                             <div className="header-top-right">
-                                {/* <ul className="lang-list">
+                                <ul className="lang-list">
                                     <li><a href="/">EN</a></li>
                                     <li><a href="/ar">AR</a></li>
-                                </ul> */}
+                                </ul>
 
                                 <ul>
                                     <li>
@@ -74,17 +74,17 @@ const TopHeader = () => {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://twitter.com/" target="_blank">
+                                        <a href="https://twitter.com/" rel="noreferrer" target="_blank">
                                             <i className="icofont-twitter"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.linkedin.com/" target="_blank">
+                                        <a href="https://www.linkedin.com/" rel="noreferrer" target="_blank">
                                             <i className="icofont-linkedin"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
+                                        <a href="https://www.instagram.com/" rel="noreferrer" target="_blank">
                                             <i className="icofont-instagram"></i>
                                         </a>
                                     </li>

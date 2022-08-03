@@ -14,7 +14,7 @@ const OurDoctors = () => {
         .then( (res) => {
             setDoctors(res.data);
         })
-        .catch ( (err) => {
+        .catch ( () => {
             NotificationManager.error('Error message', 'Connection Error');
         });
     }, [])

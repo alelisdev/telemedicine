@@ -28,7 +28,9 @@ const AppointmentFormTwo = () => {
     }
     
     const onSubmit = async e => {
-        // e.preventDefault();
+        if (e && e.preventDefault) {
+            e.preventDefault();
+        }
         try {
             const url = `${baseUrl}/api/appointment`;
             const { name, email, phone, services, age } = apt;

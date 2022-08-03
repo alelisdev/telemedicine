@@ -8,7 +8,7 @@ const NewsletterForm = () => {
 
     const [email, setEmail] = useState('');
 
-    const { register, handleSubmit, errors } = useForm();
+    const { handleSubmit } = useForm();
 
     const handleChange = e => {
         setEmail(e.target.value);
@@ -19,12 +19,12 @@ const NewsletterForm = () => {
             const url = `${baseUrl}/api/newsletter/add`;
             axios.post(url, { email })
             .then((res) => {
-                NotificationManager.success('Success message', 'Successfully Submitted.');
+                NotificationManager.success('Success message', res.data.msg);
             })
-            .catch((err) => {
+            .catch(() => {
                 NotificationManager.error('Error message', 'Email already registered.');
             });
-        } catch (error) {
+        } catch {
             NotificationManager.error('Error message', 'Something went wrong');
         }
     }
@@ -36,15 +36,14 @@ const NewsletterForm = () => {
                     <div className="col-lg-6">
                         <div className="newsletter-item">
                             <h2>Join Our Newsletter</h2>
-                            <p>Whether you're interested in news, policy, or technology, these top telemedicine newsletters will keep you connected to what's new.</p>
+                            <p>{"Whether you're interested in news, policy, or technology, these top telemedicine newsletters will keep you connected to what's new."}</p>
                         </div>
                     </div>
                     <div className="col-lg-6">
                         <div className="newsletter-item">
                             <div className="newsletter-form">
                                 <form className="newsletter-form" onSubmit={handleSubmit(onSubmit)}>
-                                    <input ref={register({ required: true, pattern: /^\S+@\S+$/i })} type="email" value={email} onChange={handleChange} className="form-control" placeholder="Enter Your Email" name="email" required />
-    
+                                    <input type="email" value={email} onChange={handleChange} className="form-control" placeholder="Enter Your Email" name="email" required />
                                     <button className="btn newsletter-btn" type='submit'>
                                         Subscribe
                                     </button>

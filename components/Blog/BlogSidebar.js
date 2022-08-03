@@ -24,16 +24,14 @@ const BlogSidebar = (props) => {
                     {
                         recent?.map((item, idx) => {
                             return (
-                                <li>
+                                <li key={idx}>
                                     <img src={item.imagePath ? `${baseUrl}/${item.imagePath}` : '/images/default-image.png'} alt="Recent" />
                                     <Link href={`/blog/details/${item._id}`}>
                                         <a>{item.title}</a>
                                     </Link>
                                     <ul>
                                         <li>
-                                            <a href="/blog">
-                                                <i className="icofont-businessman"></i> {item.name}
-                                            </a>
+                                            <i className="icofont-businessman"></i> {item.name}
                                         </li>
                                         <li>
                                             <i className="icofont-calendar"></i> {parseISOString(item.date)}
@@ -50,31 +48,48 @@ const BlogSidebar = (props) => {
                 <h3>Category</h3>
                 <ul>
                     <li>
-                        <a href="/blog">Health Care</a>
+                        <Link href="/blog">
+                            <a>Health Care</a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/blog">Medical science</a>
+                        <Link href="/blog">
+                            <a>Medical science</a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/blog">Daily lifestyle</a>
+                        <Link href="/blog">
+                        <a>Daily lifestyle</a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/blog">Medicine</a>
+                        <Link href="/blog">
+                        <a>Medicine</a>
+                        </Link>
+                    </li>
+                    <li><Link href="/blog">
+                        <a>Modern Technology</a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/blog">Mordern Technology</a>
+                        <Link href="/blog">
+                            <a>Cancer Research</a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/blog">Cancer Research</a>
+                        <Link href="/blog">
+                            <a>BioInformatics</a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/blog">BioInformatics</a>
+                        <Link href="/blog">
+                            <a>Hospital Events</a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/blog">Hospital Events</a>
-                    </li>
-                    <li>
-                        <a href="/blog">Student Succses</a>
+                        <Link href="/blog">
+                            <a>Student Succses</a>
+                        </Link>
                     </li>
                 </ul>
             </div>

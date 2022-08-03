@@ -23,7 +23,7 @@ const DoctorDetails = () => {
             .then( (res) => {
                 setDoctor(res.data);
             })
-            .catch ( (err) => {
+            .catch ( () => {
                 NotificationManager.error('Error message', 'Something went wrong');
             });
         }

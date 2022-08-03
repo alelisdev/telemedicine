@@ -37,8 +37,10 @@ const NewBlog = () => {
         setBlog(prevState => ({ ...prevState, [name]: value }));
     }
 
-    const handleImageSubmit = e =>{
-        // e.preventDefault();
+    const handleImageSubmit = e => {
+        if (e && e.preventDefault) {
+            e.preventDefault();
+        }
         const activeP = active === 'edit' ? 'profile' : 'edit';
         setActive(activeP);
     }

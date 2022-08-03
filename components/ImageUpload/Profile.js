@@ -10,7 +10,7 @@ const Profile =({
         <h1>Profile Card</h1>
         <label className="custom-file-upload fas">
           <div className="img-wrap" >
-            <img for="photo-upload" src={src}/>
+            <img src={src}/>
           </div>
         </label>
       </form>

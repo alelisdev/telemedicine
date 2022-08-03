@@ -154,7 +154,9 @@ const StaffProfile = () => {
     const [active, setActive] = useState('edit');
   
     const photoUpload = e => {
-        e.preventDefault();
+        if (e && e.preventDefault) {
+            e.preventDefault();
+        }
 
         const reader = new FileReader();
 
@@ -169,9 +171,11 @@ const StaffProfile = () => {
     }
     
     const handleSubmit= e =>{
-    //   e.preventDefault();
-      let activeP = active === 'edit' ? 'profile' : 'edit';
-      setActive(activeP);
+        if (e && e.preventDefault) {
+            e.preventDefault();
+        }
+        let activeP = active === 'edit' ? 'profile' : 'edit';
+        setActive(activeP);
     }
 
     const handleLastChange = (event) => {

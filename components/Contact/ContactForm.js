@@ -37,7 +37,9 @@ const ContactForm = () => {
     }
 
     const onSubmit = async e => {
-        // e.preventDefault();
+        if (e && e.preventDefault) {
+            e.preventDefault();
+        }
         try {
             const url = `${baseUrl}/api/contact`;
             const { name, email, number, subject, text } = contact;

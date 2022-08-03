@@ -47,14 +47,18 @@ const EditBlog = () => {
         setBlog(prevState => ({ ...prevState, tags: selectedList }));
     }
 
-    const handleImageSubmit = e =>{
-        // e.preventDefault();
+    const handleImageSubmit = e => {
+        if (e && e.preventDefault) {
+            e.preventDefault();
+        }
         const activeP = active === 'edit' ? 'profile' : 'edit';
         setActive(activeP);
     }
 
     const photoUpload = e => {
-        // e.preventDefault();
+        if (e && e.preventDefault) {
+            e.preventDefault();
+        }
 
         const reader = new FileReader();
         const tempFile = e.target.files[0];

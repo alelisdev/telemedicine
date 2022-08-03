@@ -26,7 +26,9 @@ const CommentForm = (props) => {
     }
 
     const onSubmit = async e => {
-        // e.preventDefault();
+        if (e && e.preventDefault) {
+            e.preventDefault();
+        }
         try {
             comment.blog_id = blog_id;
             const url = `${baseUrl}/api/comments/add`;

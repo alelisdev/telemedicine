@@ -75,22 +75,22 @@ const Contact = () => {
 
                                     <ul>
                                         <li>
-                                            <a href="https://www.facebook.com/" rel="noopener" target="_blank">
+                                            <a href="https://www.facebook.com/" rel="noreferrer" target="_blank">
                                                 <i className="icofont-facebook"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://twitter.com/" rel="noopener" target="_blank">
+                                            <a href="https://twitter.com/" rel="noreferrer" target="_blank">
                                                 <i className="icofont-twitter"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://www.linkedin.com/" rel="noopener" target="_blank">
+                                            <a href="https://www.linkedin.com/" rel="noreferrer" target="_blank">
                                                 <i className="icofont-linkedin"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://www.pinterest.com/" rel="noopener" target="_blank">
+                                            <a href="https://www.pinterest.com/" rel="noreferrer" target="_blank">
                                                 <i className="icofont-pinterest"></i>
                                             </a>
                                         </li>

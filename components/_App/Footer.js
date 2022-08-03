@@ -16,16 +16,16 @@ const Footer = () => {
     const [feedback, setFeedback] = useState(INITIAL_STATE);
 
     const onSubmit = (e) => {
-        // if (e && e.preventDefault) { // add?
-        //     e.preventDefault();
-        // }
+        if (e && e.preventDefault) { // add?
+            e.preventDefault();
+        }
         const url = `${baseUrl}/api/feedback/add`
         axios.post(url, feedback)
         .then( (res) => {
-            NotificationManager.success('Success message', 'Feedback successfully submitted.');
+            NotificationManager.success('Success message', res.data.msg);
             setFeedback(INITIAL_STATE);
         })
-        .catch( (err) =>
+        .catch( () =>
             NotificationManager.error('Error message', 'Something went wrong')
         );
     };

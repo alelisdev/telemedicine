@@ -35,7 +35,9 @@ const SignIn = () => {
 
 
     const onSubmit = async e => {
-        // e.preventDefault();
+        if (e && e.preventDefault) {
+            e.preventDefault();
+        }
         try {
             const { email, password } = logininfo;
             setLogininfo(logininfo);
@@ -80,7 +82,7 @@ const SignIn = () => {
                             <div className="signup-item">
                                 <div className="signup-head">
                                     <h2>Sign In Here</h2>
-                                    <p>Didn't you account yet? <Link href="/sign-up"><a>Sign Up Here</a></Link></p>
+                                    <p>{"Didn't you account yet?"} <Link href="/sign-up"><a>Sign Up Here</a></Link></p>
                                 </div>
                                 <div className="signup-form" onSubmit={handleSubmit(onSubmit)}>
                                     <form>

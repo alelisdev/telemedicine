@@ -24,7 +24,9 @@ const ForgotPassword = () => {
 
 
     const onSubmit = async () => {
-        // e.preventDefault();
+        if (e && e.preventDefault) {
+            e.preventDefault();
+        }
         try {
             const url = `${baseUrl}/api/auth/forgot-password`;
             axios.post(url, { email })
@@ -32,10 +34,10 @@ const ForgotPassword = () => {
                 console.log(res.data);
                 router.push('/confirm-email');
             })
-            .catch((err) => {
+            .catch(() => {
                 NotificationManager.error('Error message', 'Something went wrong');
             });
-        } catch (error) {
+        } catch {
             NotificationManager.error('Error message', 'Something went wrong');
         }
     };

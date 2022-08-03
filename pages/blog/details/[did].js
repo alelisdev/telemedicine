@@ -103,9 +103,8 @@ const BlogDetails = () => {
 
                                     <ul>
                                         <li>
-                                            <a href="/blog">
-                                                <i className="icofont-businessman"></i> Admin
-                                            </a>
+                                            <i className="icofont-businessman"></i> 
+                                            Admin
                                         </li>
                                         <li>
                                             <i className="icofont-calendar"></i>

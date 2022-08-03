@@ -34,7 +34,7 @@ const ResetPassword = () => {
     const onSubmit = async e => {
         e.preventDefault();
         try {
-            const { password, confirmPassword } = resetInfo;
+            // const { password, confirmPassword } = resetInfo;
             setResetInfo(resetInfo);
         } catch (error) {
             NotificationManager.error('Error message', 'Something went wrong');

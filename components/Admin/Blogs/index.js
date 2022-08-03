@@ -20,7 +20,6 @@ import baseUrl from '../../../utils/baseUrl';
 import axios from 'axios';
 import EditIcon from "@material-ui/icons/EditOutlined";
 import { useRouter } from 'next/router';
-import Spinner from '../../../utils/Spinner';
 import CustomTableHead from '../../Common/CustomTableHead';
 import { parseISOString, stableSort, getComparator } from '../../../utils/funcUtils';
 import headCells from './headCells';
@@ -93,12 +92,12 @@ export default function BlogContents() {
     const emptyRows =
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - blogs.length) : 0;
 
-    const fetchData = useCallback(async () => {
+    const fetchData = useCallback( async () => {
         const res = await axios.get(`${baseUrl}/api/blogs`);
         setBlogs(res.data);
     }, [])
 
-    useEffect(async () => {
+    useEffect(() => {
         fetchData();
     }, [])
 
@@ -196,7 +195,7 @@ export default function BlogContents() {
                                             }}
                                         />
                                     </TableCell>
-                                    <TableCell align="left"><a href={`/blog/details/${blog._id}`} target='_blank'>{blog.title}</a></TableCell>
+                                    <TableCell align="left"><a href={`/blog/details/${blog._id}`} rel="noreferrer" target='_blank'>{blog.title}</a></TableCell>
                                     <TableCell align="left">{ blog.content.length > 60 ? blog.content.slice(0, 60) + '...' : blog.content }</TableCell>
                                     <TableCell align="left">{blog.category}</TableCell>
                                     <TableCell align="left">{parseISOString(blog.date)}</TableCell>

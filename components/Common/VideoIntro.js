@@ -31,8 +31,8 @@ const VideoIntro = () => {
                                             </div>
                                           
                                             <div className="video-content">
-                                                <h3>Who’s it for?</h3>
-                                                <p>If you have a medical issue or query and you’re in a place where it’s difficult or impossible to reach good medical support, then it’s for you.</p>
+                                                <h3>{"Who’s it for?"}</h3>
+                                                <p>{"If you have a medical issue or query and you’re in a place where it’s difficult or impossible to reach good medical support, then it’s for you."}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -55,8 +55,8 @@ const VideoIntro = () => {
                                             </div>
 
                                             <div className="video-content">
-                                                <h3>Is it similar to a GP consultation?</h3>
-                                                <p>Similar, yes. You can book either a 15 or 30 minute consultation with us, and we can make sure it’s with the right professional: most of the time this will be a doctor, but it could be a travel health nurse, an occupational health specialist or psychosocial specialist.</p>
+                                                <h3>{"Is it similar to a GP consultation?"}</h3>
+                                                <p>{"Similar, yes. You can book either a 15 or 30 minute consultation with us, and we can make sure it’s with the right professional: most of the time this will be a doctor, but it could be a travel health nurse, an occupational health specialist or psychosocial specialist."}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -78,8 +78,8 @@ const VideoIntro = () => {
                                                 <i className="icofont-ui-play"></i>
                                             </div>
                                             <div className="video-content">
-                                                <h3>Is telemedicine for any kind of medical problem?</h3>
-                                                <p> It’s not for emergency treatment, but we’re on hand to discuss any other kind of issue. It might be a medical problem, general advice, education or a second opinion.</p>
+                                                <h3>{"Is telemedicine for any kind of medical problem?"}</h3>
+                                                <p> {"It’s not for emergency treatment, but we’re on hand to discuss any other kind of issue. It might be a medical problem, general advice, education or a second opinion."}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -101,8 +101,8 @@ const VideoIntro = () => {
                                                 <i className="icofont-ui-play"></i>
                                             </div>
                                             <div className="video-content">
-                                                <h3>Limitation</h3>
-                                                <p>It’s obviously not as good as an in-person consultation, but as medical professionals we can make a really good effort for people who are isolated with no option for good medical support. We can often make a diagnosis, suggest treatment, prescribe medication, give an opinion or make a referral.</p>
+                                                <h3>{"Limitation"}</h3>
+                                                <p>{"It’s obviously not as good as an in-person consultation, but as medical professionals we can make a really good effort for people who are isolated with no option for good medical support. We can often make a diagnosis, suggest treatment, prescribe medication, give an opinion or make a referral."}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -124,8 +124,8 @@ const VideoIntro = () => {
                                                 <i className="icofont-ui-play"></i>
                                             </div>
                                             <div className="video-content">
-                                                <h3>How do I book an appointment?</h3>
-                                                <p>Most people will first go to the organisation they work for, who will contact us to make an appointment. We can normally get you an appointment within 24-48 hours.</p>
+                                                <h3>{"How do I book an appointment?"}</h3>
+                                                <p>{"Most people will first go to the organization they work for, who will contact us to make an appointment. We can normally get you an appointment within 24-48 hours."}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -135,7 +135,7 @@ const VideoIntro = () => {
                     </TabPanel>
 
                     <TabList>
-                        <Tab>Who's it for?</Tab>
+                        <Tab>{"Who's it for?"}</Tab>
                         <Tab>Consultation</Tab>
                         <Tab>Medical problem</Tab>
                         <Tab>Limitation</Tab>
