@@ -200,7 +200,9 @@ export default function BlogContents() {
                                     <TableCell align="left">{blog.category}</TableCell>
                                     <TableCell align="left">{parseISOString(blog.date)}</TableCell>
                                     <TableCell align="left">
-                                        <img src={blog.imagePath ? `${baseUrl}/${blog.imagePath}` : '../images/default-image.png'} height={50} />
+                                        <picture>
+                                            <img src={blog.imagePath ? `${baseUrl}/${blog.imagePath}` : '../images/default-image.png'} height={50} alt='blogImage' />
+                                        </picture>
                                     </TableCell>
                                     <TableCell>
                                         <IconButton

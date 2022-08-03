@@ -49,7 +49,7 @@ const DoctorDetails = () => {
                     <div className="row">
                         <div className="col-lg-5">
                             <div className="doctor-details-item doctor-details-left">
-                                <img src={baseUrl + '/' + doctor.imagePath} alt="Doctor" />
+                                <picture><img src={baseUrl + '/' + doctor.imagePath} alt="Doctor" /></picture>
 
                                 <div className="doctor-details-contact">
                                     <h3>Contact info</h3>

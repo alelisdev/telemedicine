@@ -9,14 +9,14 @@ const AboutSection = () => {
                     <div className="col-lg-6">
                         <div className="about-item">
                             <div className="about-left">
-                                <img src="/images/about1.jpg" alt="About" />
+                                <picture><img src="/images/about1.jpg" alt="About" /></picture>
                             </div>
                         </div>
                     </div>
 
                     <div className="col-lg-6">
                         <div className="about-item about-right">
-                            <img src="/images/about-shape1.png" alt="About" />
+                            <picture><img src="/images/about-shape1.png" alt="About" /></picture>
                             <h2>About Our Telemedicine</h2>
                             <p className="text-justify">
                               In practice, what this means is that we will schedule a video visit. You’ll open an application that has been designed specifically for this purpose, on your smartphone, tablet or computer that has high-speed internet access and a camera. 

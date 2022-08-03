@@ -134,7 +134,7 @@ const AppointmentFormTwo = () => {
 
                     <div className="col-lg-5 pr-0">
                         <div className="speciality-item speciality-right speciality-right-two speciality-right-three">
-                            <img src="/images/doctors/doctor4.jpg" alt="Doctor" />
+                            <picture><img src="/images/doctors/doctor4.jpg" alt="Doctor" /></picture>
 
                             <div className="speciality-emergency">
                                 <div className="speciality-icon">

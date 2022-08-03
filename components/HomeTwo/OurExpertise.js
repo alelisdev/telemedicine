@@ -50,7 +50,7 @@ const OurExpertise = () => {
 
                     <div className="col-lg-5 pr-0">
                         <div className="speciality-item speciality-right">
-                            <img src="/images/about4.webp" alt="Speciality" />
+                            <picture><img src="/images/about4.webp" alt="Speciality" /></picture>
 
                             <div className="speciality-emergency">
                                 <div className="speciality-icon">

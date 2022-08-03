@@ -15,23 +15,27 @@ function ConfirmEmail () {
     return(
         <>
             <div className='mt-5'>
-                <img
-                    className="d-block mx-auto mb-4"
-                    src='images/newlogo.png'
-                    alt="sent"
-                    width={300}
-                />
+                <picture>
+                    <img
+                        className="d-block mx-auto mb-4"
+                        src='images/newlogo.png'
+                        alt="sent"
+                        width={300}
+                    />
+                </picture>
             </div>
             <div className="profile-area ptb-100 plr-15">
                 <div className="container-fluid p-0">
                     <div className="appointment-item">
                         <h2 className='text-center'>Please check your email!</h2>
-                        <img
-                            className="d-block mx-auto mb-4"
-                            src='images/16.png'
-                            alt="sent"
-                            width={100}
-                        />
+                        <picture>
+                            <img
+                                className="d-block mx-auto mb-4"
+                                src='images/16.png'
+                                alt="sent"
+                                width={100}
+                            />
+                        </picture>
                         <p>
                         An email has been sent to <strong>topcoder728@gmail.com</strong>. Please click on the
                         included link to reset your password.

@@ -31,7 +31,7 @@ const TestimonialSlider = () => {
                 >
                     <div className="feedback-item">
                         <div className="client-img">
-                            <img src="/images/clients/client1.png" alt="Feedback" />
+                            <picture><img src="/images/clients/client1.png" alt="Feedback" /></picture>
                             <h3>Steve Kim</h3>
                         </div>
                         <p>Experience of Telemedicine in Gastroenterology Out-Patient Practice During the COVID-19 Pandemic: Experiences from a Tertiary-Care Hospital in a Developing Country.</p>
@@ -39,7 +39,7 @@ const TestimonialSlider = () => {
 
                     <div className="feedback-item">
                         <div className="client-img">
-                            <img src="/images/clients/client2.png" alt="Feedback" />
+                            <picture><img src="/images/clients/client2.png" alt="Feedback" /></picture>
                             <h3>John Cena</h3>
                         </div>
                         <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
@@ -47,7 +47,7 @@ const TestimonialSlider = () => {
 
                     <div className="feedback-item">
                         <div className="client-img">
-                            <img src="/images/clients/client3.png" alt="Feedback" />
+                            <picture><img src="/images/clients/client3.png" alt="Feedback" /></picture>
                             <h3>Mac Smith</h3>
                         </div>
                         <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
@@ -55,7 +55,7 @@ const TestimonialSlider = () => {
 
                     <div className="feedback-item">
                         <div className="client-img">
-                            <img src="/images/clients/client4.png" alt="Feedback" />
+                            <picture><img src="/images/clients/client4.png" alt="Feedback" /></picture>
                             <h3>Shane Watson</h3>
                         </div>
                         <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>

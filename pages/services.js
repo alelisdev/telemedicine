@@ -240,7 +240,7 @@ const Services = () => {
                         <div className="col-lg-6">
                             <div className="expertise-item">
                                 <div className="expertise-right">
-                                    <img src="/images/about4.jpg" alt="Expertise" />
+                                    <picture><img src="/images/about4.jpg" alt="Expertise" /></picture>
                                 </div>
                             </div>
                         </div>

@@ -49,7 +49,9 @@ const Blog = () => {
                                             <div className="blog-top">
                                                 <Link href={`/blog/details/${blog._id}`}>
                                                     <a>
-                                                        <img src={blog.imagePath ? `${baseUrl}/${blog.imagePath}` : '/images/default-image.png'} alt="Blog" />
+                                                        <picture>
+                                                            <img src={blog.imagePath ? `${baseUrl}/${blog.imagePath}` : '/images/default-image.png'} alt="Blog" />
+                                                        </picture>
                                                     </a>
                                                 </Link>
                                             </div>

@@ -18,7 +18,7 @@ function CommentItem (props) {
     return(
         <div className='comment-item row m-2 fade-in'>
             <div className='col-lg-2 pt-3 text-center'>
-                <img className='comment-avatar' src='/images/default-image.png' alt='avatar' />
+                <picture><img className='comment-avatar' src='/images/default-image.png' alt='avatar' /></picture>
             </div>
             <div className='col-lg-10 d-flex flex-column pt-3'>
                 <div className='comment-title'>

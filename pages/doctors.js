@@ -26,11 +26,11 @@ const Doctors = () => {
         fetchData();
     }, [keyword])
 
-    const fetchDoctors = async () => {
+    const fetchDoctors = useCallback( async () => {
         const url = `${baseUrl}/api/doctors`;
         const res = await axios.get(url);
         setDoctors(res.data);
-    }
+    }, [])
 
     useEffect(() => {
         fetchDoctors();
@@ -95,7 +95,7 @@ const Doctors = () => {
                                     <div className="col-sm-6 col-lg-4" key={idx}>
                                         <div className="doctor-item">
                                             <div className="doctor-top">
-                                                <img src={baseUrl + '/' + doctor.imagePath} alt="Doctor" />
+                                                <picture><img src={baseUrl + '/' + doctor.imagePath} alt="Doctor" /></picture>
 
                                                 <Link href={`/appointment/${doctor._id}`}>
                                                     <a>Get Appointment</a>

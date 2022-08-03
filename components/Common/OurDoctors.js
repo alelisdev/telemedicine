@@ -34,7 +34,7 @@ const OurDoctors = () => {
                                     <div className="col-sm-6 col-lg-4" key={idx}>
                                         <div className="doctor-item">
                                             <div className="doctor-top">
-                                                <img src={baseUrl + '/' + doctor.imagePath} alt="Doctor" />
+                                                <picture><img src={baseUrl + '/' + doctor.imagePath} alt="Doctor" /></picture>
                                                 <Link href={`/appointment/${doctor._id}`}>
                                                     <a>Get Appointment</a>
                                                 </Link>

@@ -68,7 +68,9 @@ const Appointment = () => {
                         <div className="col-lg-7">
                             <div className="appointment-item appointment-item-two">
                                 <div className="appointment-shape">
-                                    <img src="/images/hart-img1.png" alt="Shape" />
+                                    <picture>
+                                        <img src="/images/hart-img1.png" alt="Shape" />
+                                    </picture>
                                 </div>
 
                                 <h2>Book your appointment</h2>

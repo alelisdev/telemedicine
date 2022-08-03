@@ -25,7 +25,7 @@ const BlogSidebar = (props) => {
                         recent?.map((item, idx) => {
                             return (
                                 <li key={idx}>
-                                    <img src={item.imagePath ? `${baseUrl}/${item.imagePath}` : '/images/default-image.png'} alt="Recent" />
+                                    <picture><img src={item.imagePath ? `${baseUrl}/${item.imagePath}` : '/images/default-image.png'} alt="Recent" /></picture>
                                     <Link href={`/blog/details/${item._id}`}>
                                         <a>{item.title}</a>
                                     </Link>

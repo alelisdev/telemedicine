@@ -31,7 +31,7 @@ const SignIn = () => {
         if (userService.userValue && userService.userValue.type == 'success') {
             router.push('/');
         }
-    }, [])
+    }, [router]);
 
 
     const onSubmit = async e => {
@@ -74,7 +74,7 @@ const SignIn = () => {
                     <div className="row">
                         <div className="col-lg-6 pl-0">
                             <div className="login-left">
-                                <img src="/images/login-bg.jpg" alt="Login" />
+                                <picture><img src="/images/login-bg.jpg" alt="Login" /></picture>
                             </div>
                         </div>
 

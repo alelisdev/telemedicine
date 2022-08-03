@@ -38,7 +38,7 @@ const HeroSlider = () => {
                             <div className="container">
                                 <div className="slider-text">
                                     <div className="slider-shape-three">
-                                        <img src="/images/home-one/home-slider3.png" alt="Shape" />
+                                        <picture><img src="/images/home-one/home-slider3.png" alt="Shape" /></picture>
                                     </div>
                                     <h1>Find the best price for great doctors and specialists</h1>
                                     <p>Book a doctor appointment, test, lab or procedure in minutes. Pay direct at discount prices.</p>
@@ -63,7 +63,7 @@ const HeroSlider = () => {
                             <div className="container">
                                 <div className="slider-text">
                                     <div className="slider-shape">
-                                        <img src="/images/home-one/home-slider1.png" alt="Shape" />
+                                        <picture><img src="/images/home-one/home-slider1.png" alt="Shape" /></picture>
                                     </div>
 
                                     <h1>
@@ -93,7 +93,7 @@ const HeroSlider = () => {
                             <div className="container">
                                 <div className="slider-text">
                                     <div className="slider-shape-two">
-                                        <img src="/images/home-one/home-slider2.png" alt="Shape" />
+                                        <picture><img src="/images/home-one/home-slider2.png" alt="Shape" /></picture>
                                     </div>
                                     <h1>Caring Health is Important Than All</h1>
                                     <p>To help physician practices provide convenient health care access to their patients through secure video visits – and receive full reimbursement tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>

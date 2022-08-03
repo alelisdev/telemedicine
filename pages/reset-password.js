@@ -45,7 +45,7 @@ const ResetPassword = () => {
         if (userService.userValue) {
             router.push('/');
         }
-    }, [])
+    }, [router]);
 
     return (
         <>
@@ -66,7 +66,7 @@ const ResetPassword = () => {
                     <div className="row">
                         <div className="col-lg-6 pl-0">
                             <div className="signup-left">
-                                <img src="/images/signup-bg.jpg" alt="SignUp" />
+                                <picture><img src="/images/signup-bg.jpg" alt="SignUp" /></picture>
                             </div>
                         </div>
 

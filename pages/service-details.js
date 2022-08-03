@@ -22,8 +22,7 @@ const ServiceDetails = () => {
             <div className="service-details-area ptb-100">
                 <div className="container">
                     <div className="services-details-img">
-                        <img src="/images/service-details-bg.jpg" alt="Service Details" />
-
+                        <picture><img src="/images/service-details-bg.jpg" alt="Service Details" /></picture>
                         <h2>Our Hospital Always Provide Good Services</h2>
                         <p>test</p>
 
@@ -37,7 +36,7 @@ const ServiceDetails = () => {
                     <div className="row">
                         <div className="col-lg-5">
                             <div className="service-details-inner-left">
-                                <img src="/images/signup-bg.jpg" alt="Service" />
+                                <picture><img src="/images/signup-bg.jpg" alt="Service" /></picture>
                             </div>
                         </div>
                         <div className="col-lg-7">

@@ -21,8 +21,8 @@ const FaqSection = () => {
         <>
             <div className="faq-area-two ptb-100">
                 <div className="faq-shape">
-                    <img src="/images/faq-shape1.png" alt="Faq" />
-                    <img src="/images/faq-shape2.png" alt="Faq" />
+                    <picture><img src="/images/faq-shape1.png" alt="Faq" /></picture>
+                    <picture><img src="/images/faq-shape2.png" alt="Faq" /></picture>
                 </div>
 
                 <div className="container">
@@ -33,7 +33,7 @@ const FaqSection = () => {
                     <div className="row">
                         <div className="col-lg-6">
                             <div className="faq-img">
-                                <img src="/images/faq-main.jpg" alt="Faq" />
+                                <picture><img src="/images/faq-main.jpg" alt="Faq" /></picture>
 
                                 <div
                                     onClick={e => {e.preventDefault(); openModal()}}

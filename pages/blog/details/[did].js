@@ -98,9 +98,10 @@ const BlogDetails = () => {
                         <div className="col-lg-8">
                             <div className="blog-details-item">
                                 <div className="blog-details-img">
-                                    <img src={blog.imagePath ? `${baseUrl}/${blog.imagePath}` : '/images/default-image.png'} alt="Blog" />
+                                    <picture>
+                                        <img src={blog.imagePath ? `${baseUrl}/${blog.imagePath}` : '/images/default-image.png'} alt="Blog" />
+                                    </picture>
                                     <h2>{blog.title}</h2>
-
                                     <ul>
                                         <li>
                                             <i className="icofont-businessman"></i> 

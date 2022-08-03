@@ -160,7 +160,7 @@ const ContactForm = () => {
 
                     <div className="col-lg-5 p-0">
                         <div className="speciality-item speciality-right speciality-right-two speciality-right-three">
-                            <img src="/images/about4.jpg" alt="Contact" />
+                            <picture><img src="/images/about4.jpg" alt="Contact" /></picture>
 
                             <div className="speciality-emergency">
                                 <div className="speciality-icon">
