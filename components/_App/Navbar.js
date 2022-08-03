@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from '../../utils/ActiveLink';
 
 const Navbar = () => {
-    const [menu, setMenu] = React.useState(true)
+    const [menu, setMenu] = useState(true);
 
     const toggleNavbar = () => {
         setMenu(!menu)

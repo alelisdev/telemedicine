@@ -2,8 +2,6 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import baseUrl from '../../utils/baseUrl';
 import axios from 'axios';
@@ -16,8 +14,8 @@ export default function CommentConfirmModal(props) {
     const handleUp = () => {
         const url = `${baseUrl}/api/comments/up`
         axios.post(url, {id: active}).then((res) => {
-            NotificationManager.success('Success Message', 'Your recommendation was successfully submitted.');
-        }).catch((err) => {
+            NotificationManager.success('Success Message', res.msg);
+        }).catch(() => {
             NotificationManager.error('Error Message', 'Something went wrong.');
         })
 
@@ -27,11 +25,10 @@ export default function CommentConfirmModal(props) {
     const handleDown = () => {
         const url = `${baseUrl}/api/comments/down`
         axios.post(url, {id: active}).then((res) => {
-            NotificationManager.success('Success Message', 'Your against was successfully submitted.');
-        }).catch((err) => {
+            NotificationManager.success('Success Message', res.msg);
+        }).catch(() => {
             NotificationManager.error('Error Message', 'Something went wrong.');
         })
-
         handleClose();
     }
 

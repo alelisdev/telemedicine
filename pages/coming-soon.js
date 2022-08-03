@@ -14,12 +14,12 @@ const Contact = () => {
     }, [])
 
     const commingSoonTime = () => {
-        let endTime = new Date("August 23, 2022 17:00:00 PDT");
-        let endTimeParse = (Date.parse(endTime)) / 1000;
-        let now = new Date();
-        let nowParse = (Date.parse(now) / 1000);
-        let timeLeft = endTimeParse - nowParse;
-        let days = Math.floor(timeLeft / 86400); 
+        const endTime = new Date("August 23, 2022 17:00:00 PDT");
+        const endTimeParse = (Date.parse(endTime)) / 1000;
+        const now = new Date();
+        const nowParse = (Date.parse(now) / 1000);
+        const timeLeft = endTimeParse - nowParse;
+        const days = Math.floor(timeLeft / 86400); 
         let hours = Math.floor((timeLeft - (days * 86400)) / 3600);
         let minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
         let seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
@@ -75,22 +75,22 @@ const Contact = () => {
 
                                     <ul>
                                         <li>
-                                            <a href="https://www.facebook.com/" target="_blank">
+                                            <a href="https://www.facebook.com/" rel="noopener" target="_blank">
                                                 <i className="icofont-facebook"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://twitter.com/" target="_blank">
+                                            <a href="https://twitter.com/" rel="noopener" target="_blank">
                                                 <i className="icofont-twitter"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://www.linkedin.com/" target="_blank">
+                                            <a href="https://www.linkedin.com/" rel="noopener" target="_blank">
                                                 <i className="icofont-linkedin"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://www.pinterest.com/" target="_blank">
+                                            <a href="https://www.pinterest.com/" rel="noopener" target="_blank">
                                                 <i className="icofont-pinterest"></i>
                                             </a>
                                         </li>

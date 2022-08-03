@@ -43,11 +43,11 @@ const SignUp = () => {
         if (userService.userValue && userService.userValue.type == 'success') {
             router.push('/');
         }
-    }, [])
+    }, [router])
 
 
     const onSubmit = async e => {
-        // e.preventDefault();
+        e.preventDefault();
         try {
             const { firstname, lastname, email, number, password, role } = reginfo;
             setReginfo(reginfo);

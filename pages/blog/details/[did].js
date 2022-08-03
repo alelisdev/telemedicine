@@ -50,7 +50,7 @@ const BlogDetails = () => {
                 setPrev(res.data.prev);
                 setNext(res.data.next);
             })
-            .catch ( (err) => {
+            .catch ( () => {
                 NotificationManager.error('Error message', 'Something went wrong');
             });
         }
@@ -64,7 +64,7 @@ const BlogDetails = () => {
             .then( (res) => {
                 setComments(res.data);
             })
-            .catch ( (err) => {
+            .catch ( () => {
                 NotificationManager.error('Error message', 'Something went wrong');
             });
         }
@@ -144,9 +144,9 @@ const BlogDetails = () => {
                                     )
                                 })}
                                 {visible < comments.length &&
-                                <div className='text-center'>
-                                    <button onClick={loadMore} type="button" className="btn btn-primary load-more">Load more</button>
-                                </div>
+                                    <div className='text-center'>
+                                        <button onClick={loadMore} type="button" className="btn btn-primary load-more">Load more</button>
+                                    </div>
                                 }
                             </div>
                             <CommentForm blog_id={did} />

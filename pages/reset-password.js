@@ -5,8 +5,6 @@ import TopHeader from '../components/_App/TopHeader';
 import Navbar from '../components/_App/Navbar';
 import PageBanner from '../components/Common/PageBanner';
 import Footer from '../components/_App/Footer';
-import Link from 'next/link';
-import { userService } from '../services';
 
 // Form initial state
 const INITIAL_STATE = {
@@ -34,7 +32,7 @@ const ResetPassword = () => {
 
 
     const onSubmit = async e => {
-        // e.preventDefault();
+        e.preventDefault();
         try {
             const { password, confirmPassword } = resetInfo;
             setResetInfo(resetInfo);

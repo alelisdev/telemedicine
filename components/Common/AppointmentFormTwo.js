@@ -36,10 +36,10 @@ const AppointmentFormTwo = () => {
             const payload = { name, email, phone, services, did, age };
             axios.post(url, payload)
             .then((res) => {
-                NotificationManager.success('Success message', 'Appointment Successfully Submitted!');
                 setApt(INITIAL_STATE);
+                NotificationManager.success('Success message', res.data.msg);
             })
-            .catch((err) => {
+            .catch(() => {
                 NotificationManager.error('Error message', 'Something Went Wrong!');
             });
         } catch (error) {
@@ -63,7 +63,7 @@ const AppointmentFormTwo = () => {
                                             <div className="form-group">
                                                 <i className="icofont-business-man-alt-1"></i>
                                                 <label>Name</label>
-                                                <input type="text" name='name' onChange={handleChange} ref={register({ required: true })} className="form-control" placeholder="Enter Your Name" />
+                                                <input type="text" name='name' value={apt.name} onChange={handleChange} ref={register({ required: true })} className="form-control" placeholder="Enter Your Name" />
                                                 <div className='invalid-feedback' style={{display: 'block'}}>
                                                     {errors.name && 'Name is required.'}
                                                 </div>
@@ -74,7 +74,7 @@ const AppointmentFormTwo = () => {
                                             <div className="form-group">
                                                 <i className="icofont-ui-message"></i>
                                                 <label>Email</label>
-                                                <input type="email" name='email' onChange={handleChange} ref={register({ required: true, pattern: /^\S+@\S+$/i })} className="form-control" placeholder="Enter Your Email" />
+                                                <input type="email" name='email' value={apt.email} onChange={handleChange} ref={register({ required: true, pattern: /^\S+@\S+$/i })} className="form-control" placeholder="Enter Your Email" />
                                                 <div className='invalid-feedback' style={{display: 'block'}}>
                                                     {errors.email && 'Email is required.'}
                                                 </div>
@@ -85,7 +85,7 @@ const AppointmentFormTwo = () => {
                                             <div className="form-group">
                                                 <i className="icofont-ui-call"></i>
                                                 <label>Phone</label>
-                                                <input type="text" name='phone' onChange={handleChange}  ref={register({ required: true })} className="form-control" placeholder="Enter Your Number" />
+                                                <input type="text" name='phone' value={apt.phone} onChange={handleChange}  ref={register({ required: true })} className="form-control" placeholder="Enter Your Number" />
                                                 <div className='invalid-feedback' style={{display: 'block'}}>
                                                     {errors.phone && 'Phone Number is required.'}
                                                 </div>
@@ -96,7 +96,7 @@ const AppointmentFormTwo = () => {
                                             <div className="form-group">
                                                 <i className="icofont-hospital"></i>
                                                 <label>Services</label>
-                                                <select className="form-control" name='services' onChange={handleChange} ref={register({ required: true })} id="exampleFormControlSelect1">
+                                                <select className="form-control" value={apt.services} name='services' onChange={handleChange} ref={register({ required: true })} id="exampleFormControlSelect1">
                                                     <option value="" hidden>Choose a Service</option>
                                                     <option value='2'>Dental Care</option>
                                                     <option value='1'>Pathology</option>
@@ -114,7 +114,7 @@ const AppointmentFormTwo = () => {
                                             <div className="form-group">
                                                 <i className="icofont-business-man"></i>
                                                 <label>Age</label>
-                                                <input type="text" name='age' onChange={handleChange} ref={register({ required: true })} className="form-control" placeholder="Your Age" />
+                                                <input type="text" name='age' value={apt.age} onChange={handleChange} ref={register({ required: true })} className="form-control" placeholder="Your Age" />
                                                 <div className='invalid-feedback' style={{display: 'block'}}>
                                                     {errors.age && 'Age is required.'}
                                                 </div>

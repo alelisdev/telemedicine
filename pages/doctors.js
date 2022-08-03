@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import TopHeader from '../components/_App/TopHeader';
 import Navbar from '../components/_App/Navbar';
 import PageBanner from '../components/Common/PageBanner';
@@ -16,16 +16,15 @@ const Doctors = () => {
         setKeyword(e.target.value);
     }
 
-    useEffect( async () => {
+    const fetchData = useCallback( async () => {
         const url = `${baseUrl}/api/doctors/search`;
         const payload = { keyword };
-        await axios.post(url, payload)
-        .then((res) => {
-            setDoctors(res.data)
-        })
-        .catch((err) => {
-            console.log(err)
-        });
+        const res = await axios.post(url, payload);
+        setDoctors(res.data);
+    }, [])
+
+    useEffect( () => {
+        fetchData();
     }, [keyword])
 
 

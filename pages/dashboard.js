@@ -3,7 +3,7 @@ import TopHeader from '../components/_App/TopHeader';
 import Navbar from '../components/_App/Navbar';
 import PageBanner from '../components/Common/PageBanner';
 import Footer from '../components/_App/Footer';
-import EnhancedTable from '../components/Common/EnhancedTable';
+import DashboardTable from '../components/Common/DashboardTable';
 
 const Dashboard = () => {
 
@@ -23,7 +23,7 @@ const Dashboard = () => {
 
             <div className="about-area pt-100 pb-70">
                 <div className="container">
-                    <EnhancedTable />
+                    <DashboardTable />
                 </div>
             </div>
   

@@ -38,13 +38,13 @@ const NewBlog = () => {
     }
 
     const handleImageSubmit = e =>{
-        e.preventDefault();
-        let activeP = active === 'edit' ? 'profile' : 'edit';
+        // e.preventDefault();
+        const activeP = active === 'edit' ? 'profile' : 'edit';
         setActive(activeP);
     }
 
     const photoUpload = e => {
-        e.preventDefault();
+        // e.preventDefault();
 
         const reader = new FileReader();
 
@@ -58,11 +58,11 @@ const NewBlog = () => {
         reader.readAsDataURL(tempFile);
     }
 
-    const onSelect = (selectedList, selectedItem) => {
+    const onSelect = (selectedList) => {
         setBlog(prevState => ({ ...prevState, tags: selectedList }));
     }
     
-    const onRemove = (selectedList, removedItem) => {
+    const onRemove = (selectedList) => {
         setBlog(prevState => ({ ...prevState, tags: selectedList }));
     }
 

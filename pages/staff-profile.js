@@ -150,7 +150,6 @@ const StaffProfile = () => {
         }
     );
     const [file, setFile] = useState('');
-    const [profileImage, setProfileImage] = useState(null);
     const [imagePreviewUrl, setImagePreviewUrl] = useState('/images/user-img.png');
     const [active, setActive] = useState('edit');
   
@@ -170,7 +169,7 @@ const StaffProfile = () => {
     }
     
     const handleSubmit= e =>{
-      e.preventDefault();
+    //   e.preventDefault();
       let activeP = active === 'edit' ? 'profile' : 'edit';
       setActive(activeP);
     }
@@ -206,7 +205,7 @@ const StaffProfile = () => {
         } else {
             router.push('/sign-in');
         }
-    }, [])
+    }, [router, year])
 
     const stepperContent = [
         {
@@ -535,9 +534,9 @@ const StaffProfile = () => {
         formData.append('email', userdata.email);
         axios.post(url, formData)
         .then((res) => {
-            NotificationManager.success('Success message', 'Profile Successfully Submitted!');
+            NotificationManager.success('Success message', res.msg);
             router.push('/');
-        }).catch((err) => {
+        }).catch(() => {
             NotificationManager.error('Error message', 'Something went wrong');
         });
     };

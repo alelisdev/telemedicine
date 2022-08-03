@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import baseUrl from '../../utils/baseUrl';
-import axios from 'axios';
 import Link from 'next/link';
 import { parseISOString } from '../../utils/funcUtils';
 

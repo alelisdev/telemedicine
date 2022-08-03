@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import { useRouter } from 'next/router'
+import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
 import { NotificationManager } from 'react-notifications';
 import baseUrl from '../../utils/baseUrl';

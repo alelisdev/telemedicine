@@ -22,7 +22,6 @@ const DoctorDetails = () => {
             axios.get(url)
             .then( (res) => {
                 setDoctor(res.data);
-                console.log(doctor)
             })
             .catch ( (err) => {
                 NotificationManager.error('Error message', 'Something went wrong');
@@ -91,7 +90,6 @@ const DoctorDetails = () => {
                                 <div className="doctor-details-right">
                                     <div className="doctor-details-biography">
                                         <h3>{doctor.firstname + ' ' + doctor.lastname} ({doctor.major})</h3>
-                                        {/* <p>MBBS in Neurology, PHD in Neurosurgeon</p> */}
                                     </div>
 
                                     <div className="doctor-details-biography">

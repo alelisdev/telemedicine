@@ -21,7 +21,7 @@ const Appointment = () => {
     const router = useRouter();
     const [apt, setApt] = useState(INITIAL_STATE);
     const { did } = router.query
-    const { register, handleSubmit, errors, control } = useForm();
+    const { register, handleSubmit, errors } = useForm();
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -36,10 +36,10 @@ const Appointment = () => {
             const payload = { name, email, phone, services, age, did };
             axios.post(url, payload)
             .then((res) => {
-                NotificationManager.success('Success message', 'Appointment Successfully Submitted!');
+                NotificationManager.success('Success message', res.data.msg);
                 setApt(INITIAL_STATE);
             })
-            .catch((err) => {
+            .catch(() => {
                 NotificationManager.error('Error message', 'Something Went Wrong!');
             });
         } catch (error) {

@@ -7,7 +7,6 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import TableSortLabel from '@mui/material/TableSortLabel';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
@@ -27,54 +26,46 @@ import baseUrl from '../../utils/baseUrl';
 const headCells = [
   {
     id: 'name',
-    numeric: false,
     disablePadding: true,
     label: 'Name',
   },
   {
     id: 'email',
-    numeric: false,
     disablePadding: false,
     label: 'Email',
   },
   {
     id: 'age',
-    numeric: true,
     disablePadding: false,
     label: 'Age',
   },
   {
     id: 'phone',
-    numeric: false,
     disablePadding: false,
     label: 'Phone',
   },
   {
     id: 'services',
-    numeric: false,
     disablePadding: false,
     label: 'Services',
   },
   {
     id: 'bkdate',
-    numeric: true,
     disablePadding: false,
     label: 'Book Time',
   },
   {
     id: 'status',
-    numeric: true,
     disablePadding: false,
     label: 'Status',
   }
 ];
 
-export default function EnhancedTable() {
+export default function DashboardTable() {
     const [order, setOrder] = useState('asc');
     const [orderBy, setOrderBy] = useState('calories');
     const [selected, setSelected] = useState([]);
     const [page, setPage] = useState(0);
-    const [dense, setDense] = useState(false);
     const [rowsPerPage, setRowsPerPage] = useState(5);
     const [rows, setRows] = useState([]);
 
@@ -133,17 +124,13 @@ export default function EnhancedTable() {
         setPage(0);
     };
 
-    const handleChangeDense = (event) => {
-        setDense(event.target.checked);
-    };
-
     const handleClickDelete = () => {
         const url = `${baseUrl}/api/appointment/delete`;
         axios.post(url, { selected })
         .then((res) => {
             if(res.status === 200){
                 setRows(res.data);
-                NotificationManager.info('Info message', `${selected.length} item was deleted!`);
+                NotificationManager.success('Success message', `${selected.length} item was deleted.`);
                 setSelected([]);
             } else {
                 NotificationManager.error('Error Message', 'Something went wrong');
@@ -189,7 +176,7 @@ export default function EnhancedTable() {
                 id="tableTitle"
                 component="div"
                 >
-                Appointmented List
+                Appointment List
                 </Typography>
             )}
 
@@ -211,7 +198,7 @@ export default function EnhancedTable() {
             <Table
                 sx={{ minWidth: 750 }}
                 aria-labelledby="tableTitle"
-                size={dense ? 'small' : 'medium'}
+                size='medium'
             >
                 <CustomTableHead
                     numSelected={selected.length}
@@ -253,26 +240,25 @@ export default function EnhancedTable() {
                             id={labelId}
                             scope="row"
                             padding="none"
-                            align="right"
                         >
                             {row.name}
                         </TableCell>
-                        <TableCell align="right">{row.email}</TableCell>
-                        <TableCell align="right">{row.age}</TableCell>
-                        <TableCell align="right">{row.phone}</TableCell>
-                        <TableCell align="right">{row.services}</TableCell>
-                        <TableCell align="right">{ parseISOString(row.date) }</TableCell>
-                        <TableCell align="right">{ row.isopen ? 'Opened' : 'New'}</TableCell>
+                        <TableCell>{row.email}</TableCell>
+                        <TableCell>{row.age}</TableCell>
+                        <TableCell>{row.phone}</TableCell>
+                        <TableCell>{row.services}</TableCell>
+                        <TableCell>{ parseISOString(row.date) }</TableCell>
+                        <TableCell>{ row.isopen ? 'Opened' : 'New'}</TableCell>
                         </TableRow>
                     );
                     })}
                 {emptyRows > 0 && (
                     <TableRow
                     style={{
-                        height: (dense ? 33 : 53) * emptyRows,
+                        height: 53 * emptyRows,
                     }}
                     >
-                    <TableCell colSpan={6} />
+                    <TableCell colSpan={8} />
                     </TableRow>
                 )}
                 </TableBody>
@@ -288,10 +274,6 @@ export default function EnhancedTable() {
             onRowsPerPageChange={handleChangeRowsPerPage}
             />
         </Paper>
-        <FormControlLabel
-            control={<Switch checked={dense} onChange={handleChangeDense} />}
-            label="Dense padding"
-        />
         </Box>
     );
 }

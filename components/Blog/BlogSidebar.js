@@ -1,6 +1,7 @@
 import React from 'react';
 import baseUrl from '../../utils/baseUrl';
 import { parseISOString } from '../../utils/funcUtils';
+import Link from 'next/link';
 
 const BlogSidebar = (props) => {
     
@@ -25,7 +26,9 @@ const BlogSidebar = (props) => {
                             return (
                                 <li>
                                     <img src={item.imagePath ? `${baseUrl}/${item.imagePath}` : '/images/default-image.png'} alt="Recent" />
-                                    <a href={`/blog/details/${item._id}`}>{item.title}</a>
+                                    <Link href={`/blog/details/${item._id}`}>
+                                        <a>{item.title}</a>
+                                    </Link>
                                     <ul>
                                         <li>
                                             <a href="/blog">

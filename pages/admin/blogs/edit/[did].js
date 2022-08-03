@@ -39,22 +39,22 @@ const EditBlog = () => {
         setBlog(prevState => ({ ...prevState, [name]: value }));
     }
 
-    const onSelect = (selectedList, selectedItem) => {
+    const onSelect = (selectedList) => {
         setBlog(prevState => ({ ...prevState, tags: selectedList }));
     }
     
-    const onRemove = (selectedList, removedItem) => {
+    const onRemove = (selectedList) => {
         setBlog(prevState => ({ ...prevState, tags: selectedList }));
     }
 
     const handleImageSubmit = e =>{
-        e.preventDefault();
-        let activeP = active === 'edit' ? 'profile' : 'edit';
+        // e.preventDefault();
+        const activeP = active === 'edit' ? 'profile' : 'edit';
         setActive(activeP);
     }
 
     const photoUpload = e => {
-        e.preventDefault();
+        // e.preventDefault();
 
         const reader = new FileReader();
         const tempFile = e.target.files[0];
@@ -90,8 +90,8 @@ const EditBlog = () => {
                 setBlog(res.data);
                 res.data.imagePath ? setImagePreviewUrl(`${baseUrl}/${res.data.imagePath}`) : setImagePreviewUrl('/images/default-image.png')
             })
-            .catch ( (err) => {
-                NotificationManager.error('Error message', 'Something went wrong');
+            .catch ( () => {
+                NotificationManager.error('Error message', 'Something went wrong.');
             });
         }   
     }, [did])

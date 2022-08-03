@@ -29,6 +29,7 @@ const ForgotPassword = () => {
             const url = `${baseUrl}/api/auth/forgot-password`;
             axios.post(url, { email })
             .then((res) => {
+                console.log(res.data);
                 router.push('/confirm-email');
             })
             .catch((err) => {
@@ -43,7 +44,7 @@ const ForgotPassword = () => {
         if (userService.userValue && userService.userValue.type == 'success') {
             router.push('/');
         }
-    }, [])
+    }, [router])
 
     return (
         <>

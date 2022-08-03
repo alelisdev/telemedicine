@@ -10,6 +10,7 @@ import { parseISOString } from '../../utils/funcUtils';
 
 const Blog = () => {
     const [blogs, setBlogs] = useState([]);
+    const [visible, setVisible] = useState(6);
 
     useEffect(() => {
         axios.get(`${baseUrl}/api/blogs`).then((res) => {
@@ -18,6 +19,10 @@ const Blog = () => {
             console.log(err)
         })
     }, [])
+
+    const loadMore = () => {
+        setVisible(visible + 3);
+    }
 
     return (
         <>
@@ -37,7 +42,7 @@ const Blog = () => {
                 <div className="container">
                     <div className="row justify-content-center">
                         {
-                            blogs.map((blog, idx) => {
+                            blogs.slice(0, visible).map((blog, idx) => {
                                 return(
                                     <div className="col-md-6 col-lg-4" key={idx}>
                                         <div className="blog-item">
@@ -74,7 +79,11 @@ const Blog = () => {
                                 )
                             })
                         }
-                        
+                        { visible < blogs.length &&
+                                <div className='text-center'>
+                                    <button onClick={loadMore} type="button" className="btn btn-primary load-more">Load more</button>
+                                </div>
+                        }
                     </div>
                 </div>
             </div>

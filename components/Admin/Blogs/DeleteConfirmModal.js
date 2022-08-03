@@ -17,11 +17,11 @@ export default function AlertDialog(props) {
         const url = `${baseUrl}/api/blogs/delete`;
         axios.post(url, {selected})
         .then((res) => {
-            NotificationManager.success('Success message', 'Profile Successfully Submitted!');
+            NotificationManager.success('Success message', res.msg);
             setBlogs(res.data);
             setSelected([]);
             handleClose();
-        }).catch((err) => {
+        }).catch(() => {
             NotificationManager.error('Error message', 'Something went wrong');
         });
     }
@@ -37,9 +37,6 @@ export default function AlertDialog(props) {
             {"Are you sure to delete?"}
             </DialogTitle>
             <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-                We can't rollback this operation.
-            </DialogContentText>
             </DialogContent>
             <DialogActions>
             <Button onClick={handleClose}>Cancel</Button>

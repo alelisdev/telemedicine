@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
@@ -35,7 +35,6 @@ export default function BlogContents() {
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
     const [open, setOpen] = React.useState(false);
     const [blogs, setBlogs] = useState([]);
-    const [isLoading, setLoading] = useState(false);
 
     const handleOpen = () => {
         setOpen(true);
@@ -94,21 +93,20 @@ export default function BlogContents() {
     const emptyRows =
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - blogs.length) : 0;
 
+    const fetchData = useCallback(async () => {
+        const res = await axios.get(`${baseUrl}/api/blogs`);
+        setBlogs(res.data);
+    }, [])
+
     useEffect(async () => {
-        setLoading(true);
-        axios.get(`${baseUrl}/api/blogs`).then((res) => {
-            setBlogs(res.data);
-            setLoading(false);
-        }).catch((err) => {
-            console.log(err)
-        })
+        fetchData();
     }, [])
 
     const editBlog = (_id) => {
         router.push(`/admin/blogs/edit/${_id}`)
     }
 
-    return isLoading ?  <Spinner /> : (
+    return (
         <Box sx={{ width: '100%' }}>
             <Paper sx={{ width: '100%', mb: 2 }}>
                 <Toolbar
@@ -170,12 +168,12 @@ export default function BlogContents() {
                         orderBy={orderBy}
                         onSelectAllClick={handleSelectAllClick}
                         onRequestSort={handleRequestSort}
-                        rowCount={blogs.length}
+                        rowCount={blogs?.length}
                     />
                     <TableBody>
                     {stableSort(blogs, getComparator(order, orderBy))
-                        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                        .map((blog, index) => {
+                        ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                        ?.map((blog, index) => {
                         const isItemSelected = isSelected(blog._id);
                         const labelId = `enhanced-table-checkbox-${index}`;
 
@@ -200,6 +198,7 @@ export default function BlogContents() {
                                     </TableCell>
                                     <TableCell align="left"><a href={`/blog/details/${blog._id}`} target='_blank'>{blog.title}</a></TableCell>
                                     <TableCell align="left">{ blog.content.length > 60 ? blog.content.slice(0, 60) + '...' : blog.content }</TableCell>
+                                    <TableCell align="left">{blog.category}</TableCell>
                                     <TableCell align="left">{parseISOString(blog.date)}</TableCell>
                                     <TableCell align="left">
                                         <img src={blog.imagePath ? `${baseUrl}/${blog.imagePath}` : '../images/default-image.png'} height={50} />
@@ -221,7 +220,7 @@ export default function BlogContents() {
                             height: 53 * emptyRows,
                         }}
                         >
-                        <TableCell colSpan={6} />
+                        <TableCell colSpan={7} />
                         </TableRow>
                     )}
                     </TableBody>
@@ -230,7 +229,7 @@ export default function BlogContents() {
                 <TablePagination
                 rowsPerPageOptions={[5, 10, 25]}
                 component="div"
-                count={blogs.length}
+                count={blogs?.length || 0}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}
