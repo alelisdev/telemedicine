@@ -4,18 +4,9 @@ import axios from 'axios';
 import Link from 'next/link';
 import { parseISOString } from '../../utils/funcUtils';
 
-const LatestBlogPost = () => {
+const LatestBlogPost = (props) => {
 
-    const [blogs, setBlogs] = useState([]);
-
-    useEffect(() => {
-        axios.get(`${baseUrl}/api/blogs/latest`).then((res) => {
-            setBlogs(res.data);
-        }).catch((err) => {
-            console.log(err)
-        })
-    }, [])
-
+    const { recent } = props
 
     return (
         <div className="blog-area-two pb-70">
@@ -26,7 +17,7 @@ const LatestBlogPost = () => {
 
                 <div className="row">
                     {
-                        blogs.map((blog, idx) => {
+                        recent.map((blog, idx) => {
                             return (
                                 <div className="col-md-6 col-lg-4" key={idx}>
                                     <div className="blog-item">

@@ -5291,84 +5291,11 @@ input[type="file"] {
   animation: fadeIn .5s ease-in
 }
 
-.loading {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	width: 90px;
-	height: 90px;
+.blog-details-tags p {
+    padding: 9px;
+    background-color: #0046c0;
+    color: #fff;
+    border-radius: 10px
 }
-.loading .l {
-	position: absolute;
-	width: 33.3%;
-	height: 33.3%;
-	background-color: #3a5ed3;
-	animation: loading-l 1.5s infinite ease-in-out;
-}
-.loading .l.l1 {
-	animation-delay: .1s;
-}
-.loading .l.l2 {
-	animation-delay: .2s;
-}
-.loading .l.l4 {
-	animation-delay: .2s;
-}
-.loading .l.l3 {
-	animation-delay: .3s;
-}
-.loading .l.l5 {
-	animation-delay: .3s;
-}
-.loading .l.l7 {
-	animation-delay: .3s;
-}
-.loading .l.l6 {
-	animation-delay: .4s;
-}
-.loading .l.l8 {
-	animation-delay: .4s;
-}
-.loading .l.l9 {
-	animation-delay: .5s;
-}
-.loading .l1,
-.loading .l2,
-.loading .l3 {
-	top: 0;
-}
-.loading .l4,
-.loading .l5,
-.loading .l6 {
-	top: 33.3%;
-}
-.loading .l7,
-.loading .l8,
-.loading .l9 {
-	top: 66.6%;
-}
-.loading .l1,
-.loading .l4,
-.loading .l7 {
-	left: 0;
-}
-.loading .l2,
-.loading .l5,
-.loading .l8 {
-	left: 33.3%;
-}
-.loading .l3,
-.loading .l6,
-.loading .l9 {
-	left: 66.6%;
-}
-
-@keyframes loading-l {
-	0% { transform: scale(.95, .95) }
-	50% { transform: scale(.05, .05) }
-	100% { transform: scale(.95, .95) }
-}
-
 
 /*** Admin ***/

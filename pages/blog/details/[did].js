@@ -26,8 +26,8 @@ const BlogDetails = () => {
     const [active, setActive] = useState('');
     const [isUp, setIsUp] = useState(true);
     const [visible, setVisible] = useState(5);
-
     const [open, setOpen] = useState(false);
+    const [recent, setRecent] = useState([]);
 
     const handleOpen = () => {
         setOpen(true);
@@ -69,6 +69,14 @@ const BlogDetails = () => {
             });
         }
     }, [did])
+
+    useEffect(() => {
+        axios.get(`${baseUrl}/api/blogs/latest`).then((res) => {
+            setRecent(res.data);
+        }).catch((err) => {
+            console.log(err)
+        })
+    }, [])
 
     return (
         <>
@@ -144,14 +152,14 @@ const BlogDetails = () => {
                             <CommentForm blog_id={did} />
                         </div>
                         <div className="col-lg-4">
-                            <BlogSidebar />
+                            <BlogSidebar blog={blog} recent={recent} />
                         </div>
                     </div>
                 </div>
             )}
             </div>
 
-            <LatestBlogPost />
+            <LatestBlogPost recent={recent} />
         
             <Footer />
             <CommentConfirmModal open={open} handleClose={handleClose} active={active}  isUp={isUp} />
