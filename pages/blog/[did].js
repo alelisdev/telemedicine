@@ -6,19 +6,34 @@ import Footer from '../../components/_App/Footer';
 import Link from 'next/link';
 import axios from 'axios';
 import baseUrl from '../../utils/baseUrl';
+import { useRouter } from 'next/router';
 import { parseISOString } from '../../utils/funcUtils';
+import categories from '../../utils/Categories';
 
 const Blog = () => {
     const [blogs, setBlogs] = useState([]);
     const [visible, setVisible] = useState(6);
+    const router = useRouter();
+    const { did } = router.query;
 
     useEffect(() => {
-        axios.get(`${baseUrl}/api/blogs`).then((res) => {
-            setBlogs(res.data);
-        }).catch((err) => {
-            console.log(err)
+        
+        
+
+        const category = did == 'all' ? [{name: 'all'}] : categories.filter((item, idx) => {
+            if(did == item.value) {
+                return item.name;
+            }
         })
-    }, [])
+
+        if(category.length == 1) {
+            axios.get(`${baseUrl}/api/blogs/${category[0].name}`).then((res) => {
+                setBlogs(res.data);
+            }).catch((err) => {
+                console.log(err)
+            })
+        }
+    }, [did])
 
     const loadMore = () => {
         setVisible(visible + 3);

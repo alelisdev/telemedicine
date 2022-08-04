@@ -11,6 +11,8 @@ import ImgUpload from "../../../../components/ImageUpload/ImgUpload";
 import axios from 'axios';
 import NotificationManager from 'react-notifications/lib/NotificationManager';
 import Multiselect from 'multiselect-react-dropdown';
+import tags from '../../../../utils/tags';
+import categories from '../../../../utils/categories';
 
 const INITIAL_STATE = {
     title: '',
@@ -19,9 +21,6 @@ const INITIAL_STATE = {
     tags: []
 }
 
-const options = [
-    {name: 'Option 1️', id: 1},{name: 'Option 2️', id: 2}
-]
 
 const NewBlog = () => {
     const router = useRouter();
@@ -142,9 +141,13 @@ const NewBlog = () => {
                                         <label htmlFor='category'>Category</label>
                                         <select className="form-control" value={blog.category} onChange={handleChange} ref={register({ required: true })} name="category">
                                             <option value="">--- Select a category ---</option>
-                                            <option value="Health Care">Health Care</option>
-                                            <option value="Medical Science">Medical Science</option>
-                                            <option value="Covid-19">Covid-19</option>
+                                            {
+                                                categories.map((item, idx) => {
+                                                    return (
+                                                        <option key={idx} value={item.name}>{item.name}</option>
+                                                    )
+                                                })
+                                            }
                                         </select>
                                         <div className='invalid-feedback' style={{display: 'block'}}>
                                             {errors.category && 'Category is required.'}
@@ -154,7 +157,7 @@ const NewBlog = () => {
                                 <div className="col-lg-12 mt-5">
                                     <label>Tags</label>
                                     <Multiselect
-                                        options={options} // Options to display in the dropdown
+                                        options={tags} // Options to display in the dropdown
                                         selectedValues={blog.tags} // Preselected value to persist in dropdown
                                         onSelect={onSelect} // Function will trigger on select event
                                         onRemove={onRemove} // Function will trigger on remove event

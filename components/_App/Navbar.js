@@ -150,7 +150,7 @@ const Navbar = () => {
                                 </li>
  
                                 <li className="nav-item">
-                                    <Link href="/blog" activeClassName="active">
+                                    <Link href="/blog/all" activeClassName="active">
                                         <a onClick={toggleNavbar} className="nav-link">Blog</a>
                                     </Link>
                                 </li>

@@ -2,6 +2,7 @@ import React from 'react';
 import baseUrl from '../../utils/baseUrl';
 import { parseISOString } from '../../utils/funcUtils';
 import Link from 'next/link';
+import categories from '../../utils/Categories';
 
 const BlogSidebar = (props) => {
     
@@ -47,50 +48,17 @@ const BlogSidebar = (props) => {
             <div className="blog-details-category">
                 <h3>Category</h3>
                 <ul>
-                    <li>
-                        <Link href="/blog">
-                            <a>Health Care</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/blog">
-                            <a>Medical science</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/blog">
-                        <a>Daily lifestyle</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/blog">
-                        <a>Medicine</a>
-                        </Link>
-                    </li>
-                    <li><Link href="/blog">
-                        <a>Modern Technology</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/blog">
-                            <a>Cancer Research</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/blog">
-                            <a>BioInformatics</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/blog">
-                            <a>Hospital Events</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/blog">
-                            <a>Student Succses</a>
-                        </Link>
-                    </li>
+                    {
+                        categories.map((category, idx) => {
+                            return (
+                                <li key={idx}>
+                                    <Link href={`/blog/${category.value}`}>
+                                        <a>{ category.name }</a>
+                                    </Link>
+                                </li>
+                            )
+                        })
+                    }
                 </ul>
             </div>
 

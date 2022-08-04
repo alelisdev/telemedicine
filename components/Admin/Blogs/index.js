@@ -93,7 +93,7 @@ export default function BlogContents() {
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - blogs.length) : 0;
 
     const fetchData = useCallback( async () => {
-        const res = await axios.get(`${baseUrl}/api/blogs`);
+        const res = await axios.get(`${baseUrl}/api/blogs/all`);
         setBlogs(res.data);
     }, [])
 
@@ -145,7 +145,7 @@ export default function BlogContents() {
                         </IconButton>
                         </Tooltip>
                     ) : (
-                        <Tooltip title="Filter list">
+                        <Tooltip title="Add New">
                         <IconButton onClick={() => {
                             router.push('/admin/blogs/new')
                         }}>
