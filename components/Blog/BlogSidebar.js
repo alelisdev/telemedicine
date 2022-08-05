@@ -1,10 +1,10 @@
 import React from 'react';
 import baseUrl from '../../utils/baseUrl';
-import { parseISOString } from '../../utils/funcUtils';
+import parseISOString from '../../utils/parseISOString';
 import Link from 'next/link';
-import categories from '../../utils/Categories';
+import categories from '../../utils/categories';
 
-const BlogSidebar = (props) => {
+export default function BlogSidebar (props) {
     
     const { blog, recent } = props;
     
@@ -42,10 +42,11 @@ const BlogSidebar = (props) => {
                     {
                         categories.map((category, idx) => {
                             return (
-                                <li key={idx}>
-                                    <Link href={`/blog/${category.value}`}>
+                                <li className={blog.category == category.name ? 'active' : ''} key={idx}>
+                                    { category.name }
+                                    {/* <Link href={`/blog/${category.value}`}>
                                         <a>{ category.name }</a>
-                                    </Link>
+                                    </Link> */}
                                 </li>
                             )
                         })
@@ -70,5 +71,3 @@ const BlogSidebar = (props) => {
         </div>
     )
 }
-
-export default BlogSidebar;

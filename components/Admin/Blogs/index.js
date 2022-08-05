@@ -21,7 +21,9 @@ import axios from 'axios';
 import EditIcon from "@material-ui/icons/EditOutlined";
 import { useRouter } from 'next/router';
 import CustomTableHead from '../../Common/CustomTableHead';
-import { parseISOString, stableSort, getComparator } from '../../../utils/funcUtils';
+import stableSort from '../../../utils/stableSort';
+import getComparator from '../../../utils/getComparator';
+import parseISOString from '../../../utils/parseISOString';
 import headCells from './headCells';
 
 export default function BlogContents() {

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import TopHeader from '../components/_App/TopHeader';
 import Navbar from '../components/_App/Navbar';
 import PageBanner from '../components/Common/PageBanner';

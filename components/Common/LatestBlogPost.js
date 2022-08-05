@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import baseUrl from '../../utils/baseUrl';
 import axios from 'axios';
 import Link from 'next/link';
-import { parseISOString } from '../../utils/funcUtils';
+import parseISOString from '../../utils/parseISOString';
 
-const LatestBlogPost = () => {
+export default function LatestBlogPost () {
 
     const [blogs, setBlogs] = useState([]);
 
@@ -69,5 +69,3 @@ const LatestBlogPost = () => {
         </div>
     )
 }
-
-export default LatestBlogPost;

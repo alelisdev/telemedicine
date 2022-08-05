@@ -1,9 +1,9 @@
 import React from 'react';
 import baseUrl from '../../utils/baseUrl';
 import Link from 'next/link';
-import { parseISOString } from '../../utils/funcUtils';
+import parseISOString from '../../utils/parseISOString';
 
-const LatestBlogPost = (props) => {
+export default function LatestBlogPost (props) {
 
     const { recent } = props
 
@@ -60,5 +60,3 @@ const LatestBlogPost = (props) => {
         </div>
     )
 }
-
-export default LatestBlogPost;

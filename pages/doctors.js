@@ -20,7 +20,7 @@ const Doctors = () => {
         const payload = { keyword };
         const res = await axios.post(url, payload);
         setDoctors(res.data);
-    }, [])
+    }, [keyword])
 
     useEffect( () => {
         fetchData();

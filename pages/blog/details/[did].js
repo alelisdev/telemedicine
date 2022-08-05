@@ -11,11 +11,11 @@ import baseUrl from '../../../utils/baseUrl';
 import axios from 'axios';
 import NotificationManager from 'react-notifications/lib/NotificationManager';
 import Link from 'next/link';
-import { parseISOString } from '../../../utils/funcUtils';
+import parseISOString from '../../../utils/parseISOString';
 import CommentItem from '../../../components/Blog/Comment';
 import CommentConfirmModal from '../../../components/Blog/CommentConfirmModal';
 
-const BlogDetails = () => {
+export default function BlogDetails () {
     const router = useRouter();
     const { did } = router.query;
 
@@ -137,7 +137,7 @@ const BlogDetails = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='comments'>
+                            <div className='comments mb-5'>
                                 {comments.slice(0, visible).map((comment, idx) => {
                                     return(
                                         <CommentItem key={idx} comment={comment} handleOpen={handleOpen} setIsUp={setIsUp} setActive={setActive} />
@@ -157,14 +157,9 @@ const BlogDetails = () => {
                     </div>
                 </div>
             )}
-            </div>
-
-            <LatestBlogPost recent={recent} />
-        
+            </div>        
             <Footer />
             <CommentConfirmModal open={open} handleClose={handleClose} active={active}  isUp={isUp} />
         </>
     )
 }
-
-export default BlogDetails;

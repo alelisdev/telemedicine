@@ -1,7 +1,7 @@
 import React from 'react';
-import { parseISOString } from '../../utils/funcUtils';
+import parseISOString from '../../utils/parseISOString';
 
-function CommentItem (props) {    
+export default function CommentItem (props) {    
 
     const handleClickThumpsUp = () => {
         props.handleOpen(true);
@@ -50,5 +50,3 @@ function CommentItem (props) {
         </div>
     )
 }
-
-export default CommentItem;
