@@ -8,4 +8,14 @@ module.exports = {
         locales: ['en', 'ar'],
         defaultLocale: 'en',
     },
+    // experimental: {
+    //     modularizeImports: {
+    //       '@mui/material/?(((\\w*)?/?)*)': {
+    //         transform: '@mui/material/{{ matches.[1] }}/{{member}}'
+    //       },
+    //       '@mui/icons-material/?(((\\w*)?/?)*)': {
+    //         transform: '@mui/icons-material/{{ matches.[1] }}/{{member}}'
+    //       }
+    //     }
+    // },
 }

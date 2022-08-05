@@ -104,7 +104,7 @@ const EditBlog = () => {
             <Navbar />
             
             <PageBanner 
-                pageTitle="Blogs" 
+                pageTitle="Edit" 
                 homePageUrl="/" 
                 homePageText="Admin" 
                 activePageText="Blogs" 
@@ -113,6 +113,11 @@ const EditBlog = () => {
 
             <div className="about-area pt-100 pb-70">
                 <div className="container">
+                    <div className='d-flex justify-content-end'>
+                        <button className='btn btn-default' onClick={() => {
+                            router.push('/admin/blogs')
+                        }}>Go to List</button>
+                    </div>
                     <form className="blog-form" onSubmit={handleSubmit(onSubmit)}>
                         <div className="row">
                             <div className="col-lg-3 text-center mt-3">
@@ -179,7 +184,7 @@ const EditBlog = () => {
                                     />
                                 </div>
                             </div>
-                            <div className="col-lg-12 mt-5">
+                            <div className="d-flex justify-content-end mt-5">
                                 <div className="text-center">
                                     <button type="submit" className="btn btn-primary signup-btn">Update</button>
                                 </div>

@@ -71,7 +71,7 @@ const BlogDetails = () => {
     }, [did])
 
     useEffect(() => {
-        axios.get(`${baseUrl}/api/blogs/latest`).then((res) => {
+        axios.get(`${baseUrl}/api/blogs/home/latest`).then((res) => {
             setRecent(res.data);
         }).catch((err) => {
             console.log(err)
@@ -145,7 +145,7 @@ const BlogDetails = () => {
                                 })}
                                 {visible < comments.length &&
                                     <div className='text-center'>
-                                        <button onClick={loadMore} type="button" className="btn btn-primary load-more">Load more</button>
+                                        <button onClick={loadMore} type="button" className="btn m-auto btn-primary load-more">Load more</button>
                                     </div>
                                 }
                             </div>

@@ -9,7 +9,7 @@ const LatestBlogPost = () => {
     const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-        axios.get(`${baseUrl}/api/blogs/latest`).then((res) => {
+        axios.get(`${baseUrl}/api/blogs/home/latest`).then((res) => {
             setBlogs(res.data);
         }).catch((err) => {
             console.log(err)

@@ -58,7 +58,7 @@ This files table contents are outlined below>>>>>
 
 /*-- Default CSS --*/
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   color: #344c5d;
   background-color: #ffffff;
   font-size: 15px;
@@ -5297,5 +5297,36 @@ input[type="file"] {
     color: #fff;
     border-radius: 10px
 }
+
+.btn-primary {
+    display: block;
+    font-size: 15px;
+    color: #0045be;
+    border: 1px solid #0045be;
+    background-color: #fff;
+    padding: 10px 25px;
+    border-radius: 6px;
+}
+
+.btn-default {
+    display: block;
+    font-size: 15px;
+    color: #474e5c !important;
+    border: 1px solid #474e5c;
+    background-color: #fff;
+    padding: 10px 25px;
+    border-radius: 6px;
+}
+
+.btn-default:hover {
+    display: block;
+    font-size: 15px;
+    color: #FFF !important;
+    border: 1px solid #474e5c;
+    background-color: #474e5c;
+    padding: 10px 25px;
+    border-radius: 6px;
+}
+
 
 /*** Admin ***/

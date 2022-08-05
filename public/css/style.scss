@@ -1146,7 +1146,7 @@ button {
         overflow: hidden;
 
         img {
-            height: 200px;
+            height: 300px;
             width: 100%;
             border-radius: 10px;
             transition: $transition;
@@ -2997,8 +2997,8 @@ footer {
                     position: absolute;
                     top: 0;
                     left: 0;
-                    width: 100px;
-                    height: 95px;
+                    width: 90px;
+                    height: 80px;
                 }
                 a {
                     display: block;
@@ -4636,7 +4636,7 @@ footer {
         transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
           box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
           border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+          font-family: "Poppins", sans-serif;
         font-weight: 500;
         line-height: 1.75;
         border-radius: 4px;
