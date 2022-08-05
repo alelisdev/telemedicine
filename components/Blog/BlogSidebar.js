@@ -7,18 +7,9 @@ import categories from '../../utils/Categories';
 const BlogSidebar = (props) => {
     
     const { blog, recent } = props;
-
+    
     return (
         <div className="blog-details-item">
-            <div className="blog-details-search">
-                <form>
-                    <input type="text" className="form-control" placeholder="Search" />
-                    <button type="submit" className="btn blog-details-btn">
-                        <i className="icofont-search-1"></i>
-                    </button>
-                </form>
-            </div>
-
             <div className="blog-details-recent">
                 <h3>Recent Blogs</h3>
                 <ul>

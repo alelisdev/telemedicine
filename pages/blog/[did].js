@@ -17,9 +17,6 @@ const Blog = () => {
     const { did } = router.query;
 
     useEffect(() => {
-        
-        
-
         const category = did == 'all' ? [{name: 'all'}] : categories.filter((item, idx) => {
             if(did == item.value) {
                 return item.name;
@@ -98,7 +95,7 @@ const Blog = () => {
                         }
                         { visible < blogs.length &&
                                 <div className='text-center'>
-                                    <button onClick={loadMore} type="button" className="btn btn-primary load-more">Load more</button>
+                                    <button onClick={loadMore} type="button" className="btn m-auto btn-primary load-more">Load more</button>
                                 </div>
                         }
                     </div>

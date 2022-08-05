@@ -14,7 +14,7 @@ import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Add } from '@mui/icons-material';
+import AddIcon from '@material-ui/icons/Add'
 import AlertDialog from './DeleteConfirmModal';
 import baseUrl from '../../../utils/baseUrl';
 import axios from 'axios';
@@ -149,7 +149,7 @@ export default function BlogContents() {
                         <IconButton onClick={() => {
                             router.push('/admin/blogs/new')
                         }}>
-                            <Add />
+                            <AddIcon />
                         </IconButton>
                         </Tooltip>
                     )}

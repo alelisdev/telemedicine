@@ -7,7 +7,7 @@ const headCells = [
     {
       id: 'content',
       disablePadding: false,
-      label: 'Contnets',
+      label: 'Content',
     },
     {
         id: 'category',
