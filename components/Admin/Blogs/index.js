@@ -26,8 +26,7 @@ import getComparator from '../../../utils/getComparator';
 import parseISOString from '../../../utils/parseISOString';
 import headCells from './headCells';
 
-export default function BlogContents() {
-
+export default function BlogContents(props) {
     const router = useRouter();
     const [order, setOrder] = React.useState('desc');
     const [orderBy, setOrderBy] = React.useState('date');
@@ -35,7 +34,7 @@ export default function BlogContents() {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
     const [open, setOpen] = React.useState(false);
-    const [blogs, setBlogs] = useState([]);
+    const [blogs, setBlogs] = useState(props.data);
 
     const handleOpen = () => {
         setOpen(true);
@@ -94,18 +93,22 @@ export default function BlogContents() {
     const emptyRows =
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - blogs.length) : 0;
 
-    const fetchData = useCallback( async () => {
-        const res = await axios.get(`${baseUrl}/api/blogs/all`);
-        setBlogs(res.data);
-    }, [])
-
-    useEffect(() => {
-        fetchData();
-    }, [])
+   
 
     const editBlog = (_id) => {
         router.push(`/admin/blogs/edit/${_id}`)
     }
+
+
+    
+    // const fetchData = useCallback( async () => {
+    //     const res = await axios.get(`${baseUrl}/api/blogs/all`);
+    //     setBlogs(res.data);
+    // }, [])
+
+    // useEffect(() => {
+    //     console.log('data', props);
+    // }, [])
 
     return (
         <Box sx={{ width: '100%' }}>
@@ -243,3 +246,5 @@ export default function BlogContents() {
         </Box>
     );
 }
+
+

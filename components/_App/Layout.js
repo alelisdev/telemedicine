@@ -1,6 +1,5 @@
 import React from 'react'
 import Head from "next/head"
-import Script from 'next/script'
 import GoTop from './GoTop'
 
 const Layout = ({ children }) => {
@@ -13,7 +12,7 @@ const Layout = ({ children }) => {
                 <meta name="og:title" property="og:title" content="Telecarelife - Medical Health & Doctors"></meta>
                 <meta name="twitter:card" content="Telecarelife - Telemedicine & Doctors"></meta>
                 <link rel="canonical" href="http://localhost:3000/"></link>
-                <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" />
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" async />
             </Head>
 
             {children}
