@@ -31,7 +31,7 @@ export default function LatestBlogPost () {
                                     <div className="col-md-6 col-lg-4" key={idx}>
                                         <div className="blog-item">
                                             <div className="blog-top">
-                                                <Link href={`/blog/details/${blog._id}`}>
+                                                <Link href={`/blog-details/${blog._id}`}>
                                                     <a>
                                                         <picture><img src={blog.imagePath ? `${baseUrl}/${blog.imagePath}` : '/images/default-image.png'} alt="Blog" /></picture>
                                                     </a>
@@ -39,14 +39,14 @@ export default function LatestBlogPost () {
                                             </div>
                                             <div className="blog-bottom">
                                                 <h3>
-                                                    <Link href={`/blog/details/${blog._id}`}>
+                                                    <Link href={`/blog-details/${blog._id}`}>
                                                         <a>{blog.title}</a>
                                                     </Link>
                                                 </h3>
                                                 <p style={{textAlign: 'justify'}}>{ blog.content.length > 500 ? blog.content.slice(0, 130) + '...' : blog.content }</p>
                                                 <ul>
                                                     <li>
-                                                        <Link href={`/blog/details/${blog._id}`}>
+                                                        <Link href={`/blog-details/${blog._id}`}>
                                                             <a>
                                                                 Read More <i className="icofont-long-arrow-right"></i>
                                                             </a>

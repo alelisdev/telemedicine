@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import TopHeader from '../../components/_App/TopHeader';
-import Navbar from '../../components/_App/Navbar';
-import PageBanner from '../../components/Common/PageBanner';
-import Footer from '../../components/_App/Footer';
+import TopHeader from '../components/_App/TopHeader';
+import Navbar from '../components/_App/Navbar';
+import PageBanner from '../components/Common/PageBanner';
+import Footer from '../components/_App/Footer';
 import Link from 'next/link';
 import axios from 'axios';
-import baseUrl from '../../utils/baseUrl';
+import baseUrl from '../utils/baseUrl';
 import { useRouter } from 'next/router';
-import parseISOString from '../../utils/parseISOString';
-import categories from '../../utils/categories';
+import parseISOString from '../utils/parseISOString';
+import categories from '../utils/categories';
 
 export default function Blog () {
     const [blogs, setBlogs] = useState([]);
@@ -103,7 +103,7 @@ export default function Blog () {
                                     <div className="col-md-6 col-lg-4" key={idx}>
                                         <div className="blog-item">
                                             <div className="blog-top">
-                                                <Link href={`/blog/details/${blog._id}`}>
+                                                <Link href={`/blog-details/${blog._id}`}>
                                                     <a>
                                                         <picture>
                                                             <img src={blog.imagePath ? `${baseUrl}/${blog.imagePath}` : '/images/default-image.png'} alt="Blog" />
@@ -113,14 +113,14 @@ export default function Blog () {
                                             </div>
                                             <div className="blog-bottom">
                                                 <h3>
-                                                    <Link href={`/blog/details/${blog._id}`}>
+                                                    <Link href={`/blog-details/${blog._id}`}>
                                                         <a>{blog.title}</a>
                                                     </Link>
                                                 </h3>
                                                 <p style={{textAlign: 'justify'}}>{ blog.content.length > 500 ? blog.content.slice(0, 130) + '...' : blog.content }</p>
                                                 <ul>
                                                     <li>
-                                                        <Link href={`/blog/details/${blog._id}`}>
+                                                        <Link href={`/blog-details/${blog._id}`}>
                                                             <a>
                                                                 Read More <i className="icofont-long-arrow-right"></i>
                                                             </a>

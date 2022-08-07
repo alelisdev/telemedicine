@@ -15,7 +15,7 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@material-ui/icons/Add'
-import AlertDialog from './DeleteConfirmModal';
+// import AlertDialog from './DeleteConfirmModal';
 import baseUrl from '../../../utils/baseUrl';
 import EditIcon from "@material-ui/icons/EditOutlined";
 import { useRouter } from 'next/router';
@@ -25,23 +25,23 @@ import getComparator from '../../../utils/getComparator';
 import parseISOString from '../../../utils/parseISOString';
 import headCells from './headCells';
 
-export default function BlogContents(props) {
+export default function UsersTable(props) {
     const router = useRouter();
     const [order, setOrder] = React.useState('desc');
     const [orderBy, setOrderBy] = React.useState('date');
     const [selected, setSelected] = React.useState([]);
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
-    const [open, setOpen] = React.useState(false);
-    const [blogs, setBlogs] = useState(props.data || []);
+    // const [open, setOpen] = React.useState(false);
+    const [users, setUsers] = useState(props.data || []);
 
-    const handleOpen = () => {
-        setOpen(true);
-    };
+    // const handleOpen = () => {
+    //     setOpen(true);
+    // };
 
-    const handleClose = () => {
-        setOpen(false);
-    };
+    // const handleClose = () => {
+    //     setOpen(false);
+    // };
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'desc';
@@ -51,7 +51,7 @@ export default function BlogContents(props) {
 
     const handleSelectAllClick = (event) => {
         if (event.target.checked) {
-            const newSelecteds = blogs.map((blog) => blog._id);
+            const newSelecteds = users.map((blog) => blog._id);
             setSelected(newSelecteds);
             return;
         }
@@ -90,24 +90,13 @@ export default function BlogContents(props) {
     const isSelected = (_id) => selected.indexOf(_id) !== -1;
 
     const emptyRows =
-        page > 0 ? Math.max(0, (1 + page) * rowsPerPage - blogs.length) : 0;
+        page > 0 ? Math.max(0, (1 + page) * rowsPerPage - users.length) : 0;
 
    
 
-    const editBlog = (_id) => {
-        router.push(`/admin/blogs/edit/${_id}`)
+    const viewUser = (_id) => {
+        router.push(`/admin/users/view/${_id}`)
     }
-
-
-    
-    // const fetchData = useCallback( async () => {
-    //     const res = await axios.get(`${baseUrl}/api/blogs/all`);
-    //     setBlogs(res.data);
-    // }, [])
-
-    // useEffect(() => {
-    //     console.log('data', props);
-    // }, [])
 
     return (
         <Box sx={{ width: '100%' }}>
@@ -138,7 +127,7 @@ export default function BlogContents(props) {
                         id="tableTitle"
                         component="div"
                         >
-                        Blogs
+                        users
                         </Typography>
                     )}
 
@@ -151,7 +140,7 @@ export default function BlogContents(props) {
                     ) : (
                         <Tooltip title="Add New">
                         <IconButton onClick={() => {
-                            router.push('/admin/blogs/new')
+                            router.push('/admin/users/new')
                         }}>
                             <AddIcon />
                         </IconButton>
@@ -171,13 +160,13 @@ export default function BlogContents(props) {
                         orderBy={orderBy}
                         onSelectAllClick={handleSelectAllClick}
                         onRequestSort={handleRequestSort}
-                        rowCount={blogs?.length}
+                        rowCount={users?.length}
                     />
                     <TableBody>
-                    {stableSort(blogs, getComparator(order, orderBy))
+                    {stableSort(users, getComparator(order, orderBy))
                         ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                        ?.map((blog, index) => {
-                        const isItemSelected = isSelected(blog._id);
+                        ?.map((user, index) => {
+                        const isItemSelected = isSelected(user._id);
                         const labelId = `enhanced-table-checkbox-${index}`;
 
                             return (
@@ -186,12 +175,12 @@ export default function BlogContents(props) {
                                     role="checkbox"
                                     aria-checked={isItemSelected}
                                     tabIndex={-1}
-                                    key={blog._id}
+                                    key={user._id}
                                     selected={isItemSelected}
                                 >
                                     <TableCell padding="checkbox">
                                         <Checkbox
-                                            onChange={(e) => handleClick(e, blog._id)}
+                                            onChange={(e) => handleClick(e, user._id)}
                                             color="primary"
                                             checked={isItemSelected}
                                             inputProps={{
@@ -199,9 +188,9 @@ export default function BlogContents(props) {
                                             }}
                                         />
                                     </TableCell>
-                                    <TableCell align="left"><a href={`/blog-details/${blog._id}`} rel="noreferrer" target='_blank'>{blog.title}</a></TableCell>
-                                    <TableCell align="left">{ blog.content.length > 60 ? blog.content.slice(0, 60) + '...' : blog.content }</TableCell>
-                                    <TableCell align="left">{blog.category}</TableCell>
+                                    <TableCell align="left"><a href={`/blog-details/${user._id}`} rel="noreferrer" target='_blank'>{user.fname + ' ' + user.lname}</a></TableCell>
+                                    <TableCell align="left">{ user.role }</TableCell>
+                                    {/* <TableCell align="left">{blog.category}</TableCell>
                                     <TableCell align="left">{parseISOString(blog.date)}</TableCell>
                                     <TableCell align="left">
                                         <picture>
@@ -215,7 +204,7 @@ export default function BlogContents(props) {
                                         >
                                             <EditIcon />
                                         </IconButton>
-                                    </TableCell>
+                                    </TableCell> */}
                                 </TableRow>
                             );
                         })}
@@ -234,14 +223,14 @@ export default function BlogContents(props) {
                 <TablePagination
                 rowsPerPageOptions={[5, 10, 25]}
                 component="div"
-                count={blogs?.length || 0}
+                count={users?.length || 0}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
                 />
             </Paper>
-            <AlertDialog open={open} handleClose={handleClose} selected={selected} setBlogs={setBlogs} setSelected={setSelected} />
+            {/* <AlertDialog open={open} handleClose={handleClose} selected={selected} setBlogs={setBlogs} setSelected={setSelected} /> */}
         </Box>
     );
 }

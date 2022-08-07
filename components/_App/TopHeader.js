@@ -15,7 +15,7 @@ const TopHeader = () => {
 
     const editProfile = () => {
         if(account.user.role == 'staff') {
-            router.push('/staff-profile');
+            router.push('/doctors/profile');
         } 
     }
 
@@ -61,11 +61,6 @@ const TopHeader = () => {
                     <div className="col-sm-6 col-lg-3">
                         <div className="header-top-item">
                             <div className="header-top-right">
-                                {/* <ul className="lang-list">
-                                    <li><a href="/">EN</a></li>
-                                    <li><a href="/ar">AR</a></li>
-                                </ul> */}
-
                                 <ul>
                                     <li>
                                         <a href="https://www.facebook.com/" rel="noreferrer" target="_blank">
@@ -102,10 +97,23 @@ const TopHeader = () => {
                                             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style={{zIndex: '1000000'}}>
                                                 <a className="dropdown-item" onClick={openDashboard}><i className="icofont-nursing-home"></i> Dashboard</a>
                                                 {
-                                                    account.user.role == 'staff' ? <a className="dropdown-item" onClick={() => router.push('/staff-profile')}><i className="icofont-edit"></i> Doctor Profile </a>
-                                                    : <a className="dropdown-item" onClick={() => router.push('/profile')}><i className="icofont-edit"></i> Patient Profile</a>
+                                                    account.user.role == 'staff' ? 
+                                                    (   <>
+                                                            <a className="dropdown-item" onClick={() => router.push('/doctors/profile')}><i className="icofont-edit"></i> Doctor Profile </a> 
+                                                            <a className="dropdown-item" onClick={() => router.push('/doctors/today-appointments')}><i className="icofont-rocket-alt-2"></i> Today Appointments </a> 
+                                                            <a className="dropdown-item" onClick={() => router.push('/doctors/last-appointments')}><i className="icofont-rocket"></i> Last Appointments </a> 
+                                                        </>
+                                                    )
+                                                    : 
+                                                    (
+                                                        <>
+                                                            <a className="dropdown-item" onClick={() => router.push('/patients/profile')}><i className="icofont-edit"></i> Patient Profile</a>
+                                                            <a className="dropdown-item" onClick={() => router.push('/patients/ongoing-appointments')}><i className="icofont-rocket-alt-2"></i> Ongoing Appointments</a>
+                                                            <a className="dropdown-item" onClick={() => router.push('/patients/last-appointments')}><i className="icofont-rocket"></i> Last Appointments</a>
+                                                        </>
+                                                    )
                                                 }
-                                                
+                                                <div className='w-100' style={{ borderBottom: 'solid 2px #344c5d'}}></div>
                                                 <a className="dropdown-item" onClick={logout} ><i className="icofont-logout"></i> Log Out</a>
                                             </div>
                                         </li>

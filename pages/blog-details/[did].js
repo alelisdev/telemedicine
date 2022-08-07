@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import TopHeader from '../../../components/_App/TopHeader';
-import Navbar from '../../../components/_App/Navbar';
-import PageBanner from '../../../components/Common/PageBanner';
-import Footer from '../../../components/_App/Footer';
-import CommentForm from '../../../components/Blog/CommentForm';
-import BlogSidebar from '../../../components/Blog/BlogSidebar';
-import LatestBlogPost from '../../../components/Blog/LatestBlogPost';
+import TopHeader from '../../components/_App/TopHeader';
+import Navbar from '../../components/_App/Navbar';
+import PageBanner from '../../components/Common/PageBanner';
+import Footer from '../../components/_App/Footer';
+import CommentForm from '../../components/Blog/CommentForm';
+import BlogSidebar from '../../components/Blog/BlogSidebar';
 import { useRouter } from 'next/router';
-import baseUrl from '../../../utils/baseUrl';
+import baseUrl from '../../utils/baseUrl';
 import axios from 'axios';
 import NotificationManager from 'react-notifications/lib/NotificationManager';
 import Link from 'next/link';
-import parseISOString from '../../../utils/parseISOString';
-import CommentItem from '../../../components/Blog/Comment';
-import CommentConfirmModal from '../../../components/Blog/CommentConfirmModal';
+import parseISOString from '../../utils/parseISOString';
+import CommentItem from '../../components/Blog/Comment';
+import CommentConfirmModal from '../../components/Blog/CommentConfirmModal';
 
 export default function BlogDetails () {
     const router = useRouter();
@@ -121,14 +120,14 @@ export default function BlogDetails () {
                                         <ul>
                                             <li>
                                                 { prev &&  
-                                                <Link href={`/blog/details/${prev._id}`}>
+                                                <Link href={`/blog-details/${prev._id}`}>
                                                     <a>Previous</a>
                                                 </Link>
                                                 }   
                                             </li>
                                             <li>
                                             { next &&  
-                                                <Link href={`/blog/details/${next._id}`}>
+                                                <Link href={`/blog-details/${next._id}`}>
                                                     <a>Next</a>
                                                 </Link>
                                             }

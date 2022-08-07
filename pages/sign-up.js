@@ -57,7 +57,7 @@ const SignUp = () => {
             const user = await userService.register(payload);
             console.log(user)
             if(user.type == 'success' && user.role == 'staff') {
-                router.push('/staff-profile');
+                router.push('/doctors/profile');
                 NotificationManager.success('Success message', user.msg);
                 setData(INITIAL_STATE);
             } else if (user.type == 'success' && user.role == 'client') {
