@@ -34,7 +34,7 @@ const OurDoctors = () => {
                                     <div className="col-sm-6 col-lg-4" key={idx}>
                                         <div className="doctor-item">
                                             <div className="doctor-top">
-                                                <picture><img src={baseUrl + '/' + doctor.imagePath} alt="Doctor" /></picture>
+                                                <picture><img src={baseUrl + '/' + doctor.avatarPath} alt="Doctor" /></picture>
                                                 <Link href={`/appointment/${doctor._id}`}>
                                                     <a>Get Appointment</a>
                                                 </Link>
@@ -42,7 +42,7 @@ const OurDoctors = () => {
                                             <div className="doctor-bottom">
                                                 <h3>
                                                     <Link href={`/doctor-details/${doctor._id}`}>
-                                                        <a>{doctor.firstname + ' ' + doctor.lastname}</a>
+                                                        <a>{doctor.fname + ' ' + doctor.lname}</a>
                                                     </Link>
                                                 </h3>
                                                 <span>{doctor.major}</span>

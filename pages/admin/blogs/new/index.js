@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TopHeader from '../../../../components/_App/TopHeader';
 import Navbar from '../../../../components/_App/Navbar';
 import PageBanner from '../../../../components/Common/PageBanner';
@@ -13,6 +13,8 @@ import NotificationManager from 'react-notifications/lib/NotificationManager';
 import Multiselect from 'multiselect-react-dropdown';
 import tags from '../../../../utils/tags';
 import categories from '../../../../utils/categories';
+import { userService } from '../../../../services';
+import decodeToken from '../../../../utils/decodeToken';
 
 const INITIAL_STATE = {
     title: '',
@@ -82,6 +84,17 @@ const NewBlog = () => {
             NotificationManager.error('Error message', 'Something went wrong');
         });
     }
+
+    useEffect(() => {
+        if (userService.userValue && userService.userValue.type == 'success') {
+            const account = decodeToken(userService.userValue.token);
+            if(account?.user?.email !== process.env.admin) {
+                router.push('/');
+            }
+        } else {
+            router.push('/');
+        }
+    }, []);
 
     return (
         <>

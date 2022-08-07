@@ -52,37 +52,35 @@ const Doctors = () => {
 
             <div className="doctor-search-area">
                 <div className="container">
-                    {/* <form> */}
-                        <div className="row doctor-search-wrap">
-                            <div className="col-sm-6 col-lg-6">
-                                <div className="doctor-search-item">
-                                    <div className="form-group">
-                                        <i className="icofont-doctor-alt"></i>
-                                        <label>Search</label>
-                                        <input type="text" name="search" value={keyword} onChange={handleSearch} className="form-control" placeholder="Doctor Name" />
-                                    </div>
-                                    <button className="btn doctor-search-btn">
-                                        <i className="icofont-search-1"></i>
-                                    </button>
+                    <div className="row doctor-search-wrap">
+                        <div className="col-sm-12 col-lg-12">
+                            <div className="doctor-search-item">
+                                <div className="form-group">
+                                    <i className="icofont-doctor-alt"></i>
+                                    <label>Search</label>
+                                    <input type="text" name="search" value={keyword} onChange={handleSearch} className="form-control" placeholder="Doctor Name" />
                                 </div>
-                            </div>
-
-                            <div className="col-sm-6 col-lg-6">
-                                <div className="doctor-search-item">
-                                    <div className="form-group">
-                                        <i className="icofont-hospital"></i>
-                                        <label>Category</label>
-                                        <select className="form-control">
-                                            <option>Neurosurgeon</option>
-                                            <option>Cardiology</option>
-                                            <option>Pathology</option>
-                                            <option>Dental Care</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                <button className="btn doctor-search-btn">
+                                    <i className="icofont-search-1"></i>
+                                </button>
                             </div>
                         </div>
-                    {/* </form> */}
+
+                        {/* <div className="col-sm-6 col-lg-6">
+                            <div className="doctor-search-item">
+                                <div className="form-group">
+                                    <i className="icofont-hospital"></i>
+                                    <label>Category</label>
+                                    <select className="form-control">
+                                        <option>Neurosurgeon</option>
+                                        <option>Cardiology</option>
+                                        <option>Pathology</option>
+                                        <option>Dental Care</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div> */}
+                    </div>
                 </div>
             </div>
 
@@ -95,7 +93,7 @@ const Doctors = () => {
                                     <div className="col-sm-6 col-lg-4" key={idx}>
                                         <div className="doctor-item">
                                             <div className="doctor-top">
-                                                <picture><img src={baseUrl + '/' + doctor.imagePath} alt="Doctor" /></picture>
+                                                <picture><img src={baseUrl + '/' + doctor.avatarPath} alt="Doctor" /></picture>
 
                                                 <Link href={`/appointment/${doctor._id}`}>
                                                     <a>Get Appointment</a>
@@ -104,7 +102,7 @@ const Doctors = () => {
                                             <div className="doctor-bottom">
                                                 <h3>
                                                     <Link href={`/doctor-details/${doctor._id}`}>
-                                                        <a>{doctor.firstname + ' ' + doctor.lastname}</a>
+                                                        <a>{doctor.fname + ' ' + doctor.lname}</a>
                                                     </Link>
                                                 </h3>
                                                 <span>{doctor.major ? doctor.major : 'Unknown'}</span>

@@ -12,13 +12,16 @@ import '../public/css/rtl.css'
 import '../node_modules/react-notifications/lib/notifications.css';
 import { NotificationContainer } from 'react-notifications';
 import Layout from '../components/_App/Layout';
+import React from 'react';
+
 
 const MyApp =  ({ Component, pageProps }) => {
+
     return (
-        <Layout>
-            <Component {...pageProps} />
-            <NotificationContainer />
-        </Layout>
+            <Layout>
+                <Component {...pageProps} />
+                <NotificationContainer />
+            </Layout>
     )
 }
 

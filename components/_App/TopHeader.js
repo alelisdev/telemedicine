@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import { userService } from '../../services';
 import { useRouter } from 'next/router'
@@ -7,11 +7,10 @@ import decodeToken from '../../utils/decodeToken';
 const TopHeader = () => {
     const router = useRouter();
 
-    const [account, setAccount] = useState(null);
-
+    const [account, setAccount] = useState({});
     const logout = () => {
         userService.logout();
-        setAccount(null);
+        setAccount({});
     }
 
     const editProfile = () => {
@@ -28,7 +27,7 @@ const TopHeader = () => {
         if (userService.userValue && userService.userValue.type == 'success') {
             setAccount(decodeToken(userService.userValue.token));
         }
-    }, [])   
+    }, []);
 
     return (
         <div className="header-top">
@@ -97,12 +96,16 @@ const TopHeader = () => {
                             <div className="header-top-left top-login">
                                 <ul>
                                     {
-                                        account ? (
+                                        Object.keys(account).length !== 0 ? (
                                         <li className='nav-item dropdown'>
-                                            <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i className="icofont-user-alt-5"></i>{`${account.user.firstname} ${account.user.lastname}`}</a>
+                                            <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i className="icofont-user-alt-5"></i>{`${account.user.fname} ${account.user.lname}`}</a>
                                             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style={{zIndex: '1000000'}}>
                                                 <a className="dropdown-item" onClick={openDashboard}><i className="icofont-nursing-home"></i> Dashboard</a>
-                                                <a className="dropdown-item" onClick={editProfile}><i className="icofont-edit"></i> Edit Profile</a>
+                                                {
+                                                    account.user.role == 'staff' ? <a className="dropdown-item" onClick={() => router.push('/staff-profile')}><i className="icofont-edit"></i> Doctor Profile </a>
+                                                    : <a className="dropdown-item" onClick={() => router.push('/profile')}><i className="icofont-edit"></i> Patient Profile</a>
+                                                }
+                                                
                                                 <a className="dropdown-item" onClick={logout} ><i className="icofont-logout"></i> Log Out</a>
                                             </div>
                                         </li>

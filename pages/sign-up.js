@@ -11,8 +11,8 @@ import NotificationManager from 'react-notifications/lib/NotificationManager';
 
 // Form initial state
 const INITIAL_STATE = {
-    firstname: "",
-    lastname: "",
+    fname: "",
+    lname: "",
     email: "",
     number: "",
     password: "",
@@ -25,7 +25,7 @@ const SignUp = () => {
 
     const router = useRouter();
 
-    const [reginfo, setReginfo] = useState(INITIAL_STATE);
+    const [data, setData] = useState(INITIAL_STATE);
 
     const { register, handleSubmit, errors, watch } = useForm();
 
@@ -36,7 +36,7 @@ const SignUp = () => {
 
     const handleChange = e => {
         const { name, value } = e.target;
-        setReginfo(prevState => ({ ...prevState, [name]: value }));
+        setData(prevState => ({ ...prevState, [name]: value }));
     }
 
     useEffect(() => {
@@ -47,17 +47,23 @@ const SignUp = () => {
 
 
     const onSubmit = async e => {
-        e.preventDefault();
+        // if (e && e.preventDefault) {
+        //     e.preventDefault();
+        // }
         try {
-            const { firstname, lastname, email, number, password, role } = reginfo;
-            setReginfo(reginfo);
-            const payload = { firstname, lastname, email, number, password, role };
+            const { fname, lname, email, number, password, role } = data;
+            setData(data);
+            const payload = { fname, lname, email, number, password, role };
             const user = await userService.register(payload);
             console.log(user)
-            if(user.type == 'success') {
+            if(user.type == 'success' && user.role == 'staff') {
                 router.push('/staff-profile');
-                NotificationManager.success('Success message', 'Sign Up Successed!');
-                setReginfo(INITIAL_STATE);
+                NotificationManager.success('Success message', user.msg);
+                setData(INITIAL_STATE);
+            } else if (user.type == 'success' && user.role == 'client') {
+                router.push('/');
+                NotificationManager.success('Success message', user.msg);
+                setData(INITIAL_STATE);
             } else {
                 NotificationManager.error('Error message', user.msg);
             }
@@ -104,15 +110,15 @@ const SignUp = () => {
                                                 <div className="form-group">
                                                     <input 
                                                         type="text" 
-                                                        name="firstname"
+                                                        name="fname"
                                                         className="form-control" 
                                                         placeholder="First Name"
-                                                        value={reginfo.firstname}
+                                                        value={data.fname}
                                                         onChange={handleChange}
                                                         ref={register({ required: true })} 
                                                     />
                                                     <div className='invalid-feedback' style={{display: 'block'}}>
-                                                        {errors.firstname && 'First Name is required.'}
+                                                        {errors.fname && 'First Name is required.'}
                                                     </div>
                                                 </div>
                                             </div>
@@ -120,15 +126,15 @@ const SignUp = () => {
                                                 <div className="form-group">
                                                     <input 
                                                         type="text" 
-                                                        name="lastname"
+                                                        name="lname"
                                                         className="form-control" 
                                                         placeholder="Last Name" 
-                                                        value={reginfo.lastname}
+                                                        value={data.lname}
                                                         onChange={handleChange}
                                                         ref={register({ required: true })} 
                                                     />
                                                     <div className='invalid-feedback' style={{display: 'block'}}>
-                                                        {errors.lastname && 'Last Name is required.'}
+                                                        {errors.lname && 'Last Name is required.'}
                                                     </div>
                                                 </div>
                                             </div>
@@ -139,7 +145,7 @@ const SignUp = () => {
                                                         name="number"
                                                         className="form-control" 
                                                         placeholder="Phone Number" 
-                                                        value={reginfo.number}
+                                                        value={data.number}
                                                         onChange={handleChange}
                                                         ref={register({ required: true })} 
                                                     />
@@ -155,7 +161,7 @@ const SignUp = () => {
                                                         name="email"
                                                         className="form-control" 
                                                         placeholder="Your Email" 
-                                                        value={reginfo.email}
+                                                        value={data.email}
                                                         onChange={handleChange}
                                                         ref={register({ required: true, pattern: /^\S+@\S+$/i })} 
                                                     />
@@ -171,7 +177,7 @@ const SignUp = () => {
                                                         name="password"
                                                         className="form-control" 
                                                         placeholder="Password" 
-                                                        // value={reginfo.password}
+                                                        // value={data.password}
                                                         onChange={handleChange}
                                                         ref={register({
                                                             required: "You must specify a password",
@@ -193,7 +199,7 @@ const SignUp = () => {
                                                         name="confirmPassword"
                                                         className="form-control" 
                                                         placeholder="Confirm Password" 
-                                                        value={reginfo.confirmPassword}
+                                                        value={data.confirmPassword}
                                                         onChange={handleChange}
                                                         ref={register({
                                                             validate: value =>
@@ -207,7 +213,7 @@ const SignUp = () => {
                                             </div>
                                             <div className="col-lg-12">
                                                 <div className="form-group">
-                                                    <select className="form-control" value={reginfo.role} onChange={handleChange} name="role">
+                                                    <select className="form-control" value={data.role} onChange={handleChange} name="role">
                                                         <option value="client">Client</option>
                                                         <option value="staff">Staff</option>
                                                     </select>

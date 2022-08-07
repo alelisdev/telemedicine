@@ -15,7 +15,7 @@ import { useRouter } from 'next/router';
 
 const StaffProfile = () => {
     const router = useRouter();
-    const [userdata, setUserdata] = useState({});
+    const [data, setData] = useState({});
 
     const [acceptFirstTerms, setAcceptFirstTerms] = useState({
         checked: false,
@@ -139,21 +139,15 @@ const StaffProfile = () => {
         data.splice(index, 1)
         setEduFields(data);
     }
+    /**
+     * Third Step
+     */
     
-    /**** Third Step ****/
-    const [lastFields, setLastFields] = useState(
-        {
-            phone: '',
-            bio: '',
-            major: '',
-            address: ''
-        }
-    );
-    const [file, setFile] = useState('');
-    const [imagePreviewUrl, setImagePreviewUrl] = useState('/images/user-img.png');
-    const [active, setActive] = useState('edit');
-  
-    const photoUpload = e => {
+    const [license, setLicense] = useState('');
+    const [licenseImage, setLicenseImage] = useState('/images/doctor-license.jpg');
+    const [licenseActive, setLicenseActive] = useState('edit');
+
+    const LicenseUpload = e => {
         if (e && e.preventDefault) {
             e.preventDefault();
         }
@@ -163,14 +157,53 @@ const StaffProfile = () => {
         const tempFile = e.target.files[0];
 
         reader.onloadend = () => {
-            setFile(tempFile);
-            setImagePreviewUrl(reader.result);
+            setLicense(tempFile);
+            setLicenseImage(reader.result);
         }
 
         reader.readAsDataURL(tempFile);
     }
     
-    const handleSubmit= e =>{
+    const handleLicenseSubmit= e => {
+        if (e && e.preventDefault) {
+            e.preventDefault();
+        }
+        let activeP = active === 'edit' ? 'profile' : 'edit';
+        setLicenseActive(activeP);
+    }
+    
+    
+    /**** last Step ****/
+    const [lastFields, setLastFields] = useState(
+        {
+            phone: '',
+            bio: '',
+            major: '',
+            address: ''
+        }
+    );
+    const [avatar, setAvatar] = useState('');
+    const [avatarImage, setAvatarImage] = useState('/images/user-img.png');
+    const [active, setActive] = useState('edit');
+  
+    const avatarUpload = e => {
+        if (e && e.preventDefault) {
+            e.preventDefault();
+        }
+
+        const reader = new FileReader();
+
+        const tempFile = e.target.files[0];
+
+        reader.onloadend = () => {
+            setAvatar(tempFile);
+            setAvatarImage(reader.result);
+        }
+
+        reader.readAsDataURL(tempFile);
+    }
+    
+    const handleAvatarSubmit= e => {
         if (e && e.preventDefault) {
             e.preventDefault();
         }
@@ -188,23 +221,23 @@ const StaffProfile = () => {
             setYear((new Date()).getFullYear());
             setYears(Array.from(new Array(50),(val, index) => year - index ));
             const { user } = decodeToken(userService.userValue.token);
-            setUserdata(user);
+            setData(user);
             
             const url = `${baseUrl}/api/doctors/profile/${user.email}`;
             axios.get(url)
             .then((res) => {
-                if(res.data.length) {
-                    const { experiences, educations, biography, phone, address, major, imagePath } = res.data[0];
-                    setExpFields(experiences);
-                    setEduFields(educations);
-                    setLastFields({
-                        phone: phone,
-                        bio: biography,
-                        major: major,
-                        address: address
-                    });
-                    setImagePreviewUrl((baseUrl + '/' + imagePath));
-                }
+                const { experiences, educations, biography, phone, address, major, avatarPath, licensePath } = res.data;
+                setExpFields(experiences);
+                setEduFields(educations);
+                setLastFields({
+                    phone: phone,
+                    bio: biography,
+                    major: major,
+                    address: address
+                });
+                setAvatarImage((baseUrl + '/' + avatarPath));
+                setLicenseImage((baseUrl + '/' + licensePath));
+                
             })
         } else {
             router.push('/sign-in');
@@ -459,7 +492,35 @@ const StaffProfile = () => {
             isComplete: acceptSecondTerms.checked || ( eduFields[0].school !== '' && eduFields[0].description !== ''),
         },
         {
-            label: 'Step 3',
+            label: "Doctor's License",
+            content: (
+                <div className="profile-area ptb-100 plr-15">
+                    <div className="container-fluid p-0">
+                        <div className="profile-item">
+                            <h2>Doctor's License - You have to upload Doctor's License Image for the verification.</h2>
+                            <span>A Doctor's License photo helps us we can verify you are a Doctor.</span>
+
+                            <div className="profile-form">
+                                <div className="row">
+                                    <div className="col-lg-12 text-center">
+                                        {(licenseActive === 'edit') ? (
+                                            <ImgUpload onChange={LicenseUpload} src={licenseImage} isAvatar={false} />
+                                        ):(
+                                            <Profile 
+                                            onSubmit={handleLicenseSubmit} 
+                                            src={licenseImage} />)}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ),
+            // isError: licenseImage == '/images/doctor-license.jpg',
+            isComplete: licenseImage !== '/images/doctor-license.jpg',
+        },
+        {
+            label: 'A few Details',
             content: (
                 <div className="profile-area ptb-100 plr-15">
                     <div className="container-fluid p-0">
@@ -471,11 +532,11 @@ const StaffProfile = () => {
                                 <div className="row">
                                     <div className="col-lg-6 text-center">
                                         {(active === 'edit')?(
-                                            <ImgUpload onChange={photoUpload} src={imagePreviewUrl}/>
+                                            <ImgUpload onChange={avatarUpload} src={avatarImage} isAvatar={true} />
                                         ):(
                                             <Profile 
-                                            onSubmit={handleSubmit} 
-                                            src={imagePreviewUrl} />)}
+                                            onSubmit={handleAvatarSubmit} 
+                                            src={avatarImage} />)}
                                     </div>
                                     <div className='col-lg-6'>
                                         <div className="col-lg-12">
@@ -523,22 +584,23 @@ const StaffProfile = () => {
                     </div>
                 </div>
             ),
-            isError: !acceptThirdTerms.checked && imagePreviewUrl == '/images/user-img.png' && acceptThirdTerms.touched,
-            isComplete: acceptThirdTerms.checked || ( lastFields.bio !== '' && imagePreviewUrl !== '/images/user-img.png'),
+            isError: !acceptThirdTerms.checked && avatarImage == '/images/user-img.png' && acceptThirdTerms.touched,
+            isComplete: acceptThirdTerms.checked || ( lastFields.bio !== '' && avatarImage !== '/images/user-img.png'),
         },
     ];
 
     const submitStepper = async () => {
         const url = `${baseUrl}/api/doctors/profile`;
         const formData = new FormData(); 
-        formData.append('profileImage', file);
+        formData.append('license', license);
+        formData.append('avatar', avatar);
         formData.append('expFields', JSON.stringify(expFields));
         formData.append('eduFields', JSON.stringify(eduFields));
         formData.append('lastFields', JSON.stringify(lastFields));
-        formData.append('email', userdata.email);
+        formData.append('email', data.email);
         axios.post(url, formData)
         .then((res) => {
-            NotificationManager.success('Success message', res.msg);
+            NotificationManager.success('Success message', res.data.msg);
             router.push('/');
         }).catch(() => {
             NotificationManager.error('Error message', 'Something went wrong');

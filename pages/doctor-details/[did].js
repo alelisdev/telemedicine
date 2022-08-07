@@ -24,7 +24,7 @@ const DoctorDetails = () => {
                 setDoctor(res.data);
             })
             .catch ( () => {
-                NotificationManager.error('Error message', 'Something went wrong');
+                NotificationManager.error('Error message', 'Something went wrong.');
             });
         }
         
@@ -37,7 +37,7 @@ const DoctorDetails = () => {
             <Navbar />
 
             <PageBanner 
-                pageTitle={doctor.firstname + ' ' + doctor.lastname + "(" + doctor.major + ")"}
+                pageTitle={doctor.fname + ' ' + doctor.lname + "(" + doctor.major + ")"}
                 homePageUrl="/" 
                 homePageText="Home" 
                 activePageText="Doctor Details" 
@@ -49,7 +49,7 @@ const DoctorDetails = () => {
                     <div className="row">
                         <div className="col-lg-5">
                             <div className="doctor-details-item doctor-details-left">
-                                <picture><img src={baseUrl + '/' + doctor.imagePath} alt="Doctor" /></picture>
+                                <picture><img src={baseUrl + '/' + doctor.avatarPath} alt="Doctor" /></picture>
 
                                 <div className="doctor-details-contact">
                                     <h3>Contact info</h3>
@@ -89,7 +89,7 @@ const DoctorDetails = () => {
                             <div className="doctor-details-item">
                                 <div className="doctor-details-right">
                                     <div className="doctor-details-biography">
-                                        <h3>{doctor.firstname + ' ' + doctor.lastname} ({doctor.major})</h3>
+                                        <h3>{doctor.fname + ' ' + doctor.lname} ({doctor.major})</h3>
                                     </div>
 
                                     <div className="doctor-details-biography">

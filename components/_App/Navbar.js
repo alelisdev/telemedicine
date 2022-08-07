@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Link from '../../utils/ActiveLink';
+import { userService } from '../../services';
+import decodeToken from '../../utils/decodeToken';
 
 const Navbar = () => {
     const [menu, setMenu] = useState(true);
+    const [account, setAccount] = useState({});
 
     const toggleNavbar = () => {
         setMenu(!menu)
@@ -17,8 +20,13 @@ const Navbar = () => {
                 elementId.classList.remove("is-sticky");
             }
         });
-
     })
+
+    useEffect(() => {
+        if (userService.userValue && userService.userValue.type == 'success') {
+            setAccount(decodeToken(userService.userValue.token));
+        }
+    }, [])
 
  
     const classOne = menu ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
@@ -160,32 +168,35 @@ const Navbar = () => {
                                         <a onClick={toggleNavbar} className="nav-link">Contact</a>
                                     </Link>
                                 </li>
-
-                                <li className="nav-item">
-                                    <Link href="#">
-                                        <a onClick={e => e.preventDefault()} className="nav-link dropdown-toggle">
-                                            Admin
-                                        </a>
-                                    </Link>
-
-                                    <ul className="dropdown-menu">
-                                        <li className="nav-item">
-                                            <Link href="/admin/blogs" activeClassName="active">
-                                                <a onClick={toggleNavbar} className="nav-link">Blogs</a>
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link href="/admin/users" activeClassName="active">
-                                                <a onClick={toggleNavbar} className="nav-link">Users</a>
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link href="/admin/newsletters" activeClassName="active">
-                                                <a onClick={toggleNavbar} className="nav-link">Newsletters</a>
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </li>
+                                {
+                                    account?.user?.email === 'stevekim@gmail.com' ? 
+                                    <li className="nav-item">
+                                        <Link href="#">
+                                            <a onClick={e => e.preventDefault()} className="nav-link dropdown-toggle">
+                                                Admin
+                                            </a>
+                                        </Link>
+                                        
+                                        <ul className="dropdown-menu">
+                                            <li className="nav-item">
+                                                <Link href="/admin/blogs" activeClassName="active">
+                                                    <a onClick={toggleNavbar} className="nav-link">Blogs</a>
+                                                </Link>
+                                            </li>
+                                            <li className="nav-item">
+                                                <Link href="/admin/users" activeClassName="active">
+                                                    <a onClick={toggleNavbar} className="nav-link">Users</a>
+                                                </Link>
+                                            </li>
+                                            <li className="nav-item">
+                                                <Link href="/admin/newsletters" activeClassName="active">
+                                                    <a onClick={toggleNavbar} className="nav-link">Newsletters</a>
+                                                </Link>
+                                            </li>
+                                        </ul>
+                                    </li> :
+                                    ''
+                                }
                             </ul>
                         </div>
 

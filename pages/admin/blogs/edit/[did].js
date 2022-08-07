@@ -13,6 +13,8 @@ import NotificationManager from 'react-notifications/lib/NotificationManager';
 import Multiselect from 'multiselect-react-dropdown';
 import categories from '../../../../utils/categories';
 import tags from '../../../../utils/tags';
+import { userService } from '../../../../services';
+import decodeToken from '../../../../utils/decodeToken';
 
 const INITIAL_STATE = {
     _id: '',
@@ -96,6 +98,18 @@ const EditBlog = () => {
             });
         }   
     }, [did])
+
+
+    useEffect(() => {
+        if (userService.userValue && userService.userValue.type == 'success') {
+            const account = decodeToken(userService.userValue.token);
+            if(account?.user?.email !== process.env.admin) {
+                router.push('/');
+            }
+        } else {
+            router.push('/');
+        }
+    }, []);
 
     return (
         <>

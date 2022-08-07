@@ -20,11 +20,11 @@ const SignIn = () => {
     
     const { register, handleSubmit, errors } = useForm();
 
-    const [logininfo, setLogininfo] = useState(INITIAL_STATE);
+    const [data, setData] = useState(INITIAL_STATE);
 
     const handleChange = e => {
         const { name, value } = e.target;
-        setLogininfo(prevState => ({ ...prevState, [name]: value }));
+        setData(prevState => ({ ...prevState, [name]: value }));
     }
 
     useEffect(() => {
@@ -39,14 +39,14 @@ const SignIn = () => {
             e.preventDefault();
         }
         try {
-            const { email, password } = logininfo;
-            setLogininfo(logininfo);
+            const { email, password } = data;
+            setData(data);
             const payload = { email, password };
             const user = await userService.login(payload);
             if(user.type == 'success') {
                 router.push('/');
                 NotificationManager.success('Success message', 'Sign In Successed!');
-                setLogininfo(INITIAL_STATE);
+                setData(INITIAL_STATE);
             } else {
                 NotificationManager.error('Error message', user.msg);
             }
@@ -91,7 +91,7 @@ const SignIn = () => {
                                                 <div className="form-group">
                                                     <input 
                                                         name="email"
-                                                        value={logininfo.email}
+                                                        value={data.email}
                                                         onChange={handleChange}
                                                         ref={register({ required: true, pattern: /^\S+@\S+$/i })}
                                                         type="email" 
@@ -107,7 +107,7 @@ const SignIn = () => {
                                                 <div className="form-group">
                                                     <input 
                                                         name="password"
-                                                        value={logininfo.password}
+                                                        value={data.password}
                                                         onChange={handleChange}
                                                         ref={register({ required: true })} 
                                                         type="password" 

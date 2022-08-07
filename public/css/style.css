@@ -5175,23 +5175,43 @@ h3 {
     background: linear-gradient(270deg, #0046c0, #024dcf);
     margin-bottom: 25px;
 }
+
+.img-wrap-license {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    /* border-radius: 50%; */
+}
+
+.custom-file-upload-license {
+    /* border-radius: 50%; */
+    display: inline-block;
+    position: relative;
+    padding: 6px;
+    cursor: pointer;
+    background: linear-gradient(270deg, #0046c0, #024dcf);
+    margin-bottom: 25px;
+}
+
 .field {
     margin: 5px;
     display: flex;
     flex-direction: column;
 }
 .img-upload:before{
-    content: url('/images/icon-uploader.jpg');
+    content: url('/images/Screenshot_6.jpg');
     font-size: 90px;
     position: absolute;
-    padding-top: 80px;
-    top: 50%;
-    left: 50%;
+    padding-top: 0px;
+    /* padding-left: -150px; */
+    /* top: 50%; */
+    left: 0%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: #0046c0;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     opacity: 0;
     transition: .5s ease;

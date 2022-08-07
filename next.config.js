@@ -8,6 +8,9 @@ module.exports = {
         locales: ['en', 'ar'],
         defaultLocale: 'en',
     },
+    env: {
+        admin: 'stevekim@gmail.com',
+    },
     // experimental: {
     //     modularizeImports: {
     //       '@mui/material/?(((\\w*)?/?)*)': {
