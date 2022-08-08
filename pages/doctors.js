@@ -6,6 +6,7 @@ import Footer from '../components/_App/Footer';
 import Link from 'next/link';
 import baseUrl from '../utils/baseUrl';
 import axios from 'axios';
+import categories from '../utils/categories';
 
 const Doctors = () => {
     const [doctors, setDoctors] = useState([]);
@@ -53,7 +54,7 @@ const Doctors = () => {
             <div className="doctor-search-area">
                 <div className="container">
                     <div className="row doctor-search-wrap">
-                        <div className="col-sm-12 col-lg-12">
+                        <div className="col-sm-6 col-lg-6">
                             <div className="doctor-search-item">
                                 <div className="form-group">
                                     <i className="icofont-doctor-alt"></i>
@@ -66,20 +67,24 @@ const Doctors = () => {
                             </div>
                         </div>
 
-                        {/* <div className="col-sm-6 col-lg-6">
+                        <div className="col-sm-6 col-lg-6">
                             <div className="doctor-search-item">
                                 <div className="form-group">
                                     <i className="icofont-hospital"></i>
                                     <label>Category</label>
                                     <select className="form-control">
-                                        <option>Neurosurgeon</option>
-                                        <option>Cardiology</option>
-                                        <option>Pathology</option>
-                                        <option>Dental Care</option>
+                                        <option value=''>-- Select a Category --</option>
+                                        {
+                                            categories.map((category, idx) => {
+                                                return (
+                                                    <option value={category.name} key={idx}>{category.name}</option>
+                                                )
+                                            })
+                                        }
                                     </select>
                                 </div>
                             </div>
-                        </div> */}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -101,6 +106,7 @@ const Doctors = () => {
                                             </div>
                                             <div className="doctor-bottom">
                                                 <h3>
+                                                    {doctor._id}
                                                     <Link href={`/doctor-details/${doctor._id}`}>
                                                         <a>{doctor.fname + ' ' + doctor.lname}</a>
                                                     </Link>

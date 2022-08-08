@@ -6,15 +6,14 @@ import Footer from '../../components/_App/Footer';
 import { useRouter } from "next/router";
 import { userService } from "../../services";
 import decodeToken from "../../utils/decodeToken";
-import TodayAppointmentTable from '../../components/Doctor/TodayAppointmentsTable';
 
-export default function TodayAppointments () {
+export default function OngoingAppointments () {
     const router = useRouter();
 
     useEffect(() => {
         if (userService.userValue && userService.userValue.type == 'success') {
             const account = decodeToken(userService.userValue.token);
-            if(account?.user?.role !== 'staff') {
+            if(account?.user?.role !== 'client') {
                 router.push('/');
             }
         } else {
@@ -30,18 +29,13 @@ export default function TodayAppointments () {
             <Navbar />
 
             <PageBanner 
-                pageTitle="Last Appointments" 
-                homePageUrl="/doctors/profile" 
-                homePageText="Doctors" 
-                activePageText="Last Appointments"
+                pageTitle="Ongoing Appointments" 
+                homePageUrl="/patients/profile" 
+                homePageText="Patients" 
+                activePageText="Ongoing Appointments" 
                 bgImage="page-title-four" 
             /> 
-            <div className="about-area pt-100 pb-70">
-                <div className="container">
-                    <TodayAppointmentTable />
-                </div>
-            </div>
-            
+
             <Footer />
         </>
     )

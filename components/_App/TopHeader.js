@@ -100,6 +100,7 @@ const TopHeader = () => {
                                                     account.user.role == 'staff' ? 
                                                     (   <>
                                                             <a className="dropdown-item" onClick={() => router.push('/doctors/profile')}><i className="icofont-edit"></i> Doctor Profile </a> 
+                                                            <a className="dropdown-item" onClick={() => router.push('/doctors/coming-appointments')}><i className="icofont-rocket-alt-2"></i> Coming Appointments </a> 
                                                             <a className="dropdown-item" onClick={() => router.push('/doctors/today-appointments')}><i className="icofont-rocket-alt-2"></i> Today Appointments </a> 
                                                             <a className="dropdown-item" onClick={() => router.push('/doctors/last-appointments')}><i className="icofont-rocket"></i> Last Appointments </a> 
                                                         </>
@@ -108,12 +109,12 @@ const TopHeader = () => {
                                                     (
                                                         <>
                                                             <a className="dropdown-item" onClick={() => router.push('/patients/profile')}><i className="icofont-edit"></i> Patient Profile</a>
-                                                            <a className="dropdown-item" onClick={() => router.push('/patients/ongoing-appointments')}><i className="icofont-rocket-alt-2"></i> Ongoing Appointments</a>
+                                                            <a className="dropdown-item" onClick={() => router.push('/patients/coming-appointments')}><i className="icofont-rocket-alt-2"></i> Coming Appointments</a>
                                                             <a className="dropdown-item" onClick={() => router.push('/patients/last-appointments')}><i className="icofont-rocket"></i> Last Appointments</a>
                                                         </>
                                                     )
                                                 }
-                                                <div className='w-100' style={{ borderBottom: 'solid 2px #344c5d'}}></div>
+                                                <div className='w-100' style={{ borderBottom: 'solid 2px #344c5d' }}></div>
                                                 <a className="dropdown-item" onClick={logout} ><i className="icofont-logout"></i> Log Out</a>
                                             </div>
                                         </li>

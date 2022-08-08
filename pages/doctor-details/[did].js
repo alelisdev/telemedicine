@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Calendar from 'react-calendar'; 
 import TopHeader from '../../components/_App/TopHeader';
 import Navbar from '../../components/_App/Navbar';
 import PageBanner from '../../components/Common/PageBanner';
@@ -12,9 +13,7 @@ import NotificationManager from 'react-notifications/lib/NotificationManager';
 const DoctorDetails = () => {
     const router = useRouter();
     const { did } = router.query
-
     const [doctor, setDoctor] = useState({});
-
 
     useEffect(() => {
         if(did) {

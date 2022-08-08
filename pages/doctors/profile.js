@@ -619,10 +619,10 @@ const DoctorProfile = () => {
             <Navbar />
             
             <PageBanner 
-                pageTitle="Staff Profile" 
-                homePageUrl="/" 
-                homePageText="Home" 
-                activePageText="Staff Profile" 
+                pageTitle="Profile" 
+                homePageUrl="/doctors/profile" 
+                homePageText="Doctors" 
+                activePageText="Profile" 
                 bgImage="page-title-one" 
             /> 
 

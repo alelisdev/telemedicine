@@ -30,10 +30,10 @@ export default function PatientProfile () {
             <Navbar />
 
             <PageBanner 
-                pageTitle="Blog" 
-                homePageUrl="/" 
-                homePageText="Home" 
-                activePageText="Blog" 
+                pageTitle="Profile" 
+                homePageUrl="/patients/profile" 
+                homePageText="Patients" 
+                activePageText="Profile" 
                 bgImage="page-title-four" 
             /> 
 

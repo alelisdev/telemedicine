@@ -29,10 +29,10 @@ export default function LastAppointments () {
             <Navbar />
 
             <PageBanner 
-                pageTitle="Blog" 
-                homePageUrl="/" 
-                homePageText="Home" 
-                activePageText="Blog" 
+                pageTitle="Last Appointments" 
+                homePageUrl="/patients/profile" 
+                homePageText="Patients" 
+                activePageText="Last Appointments" 
                 bgImage="page-title-four" 
             /> 
 

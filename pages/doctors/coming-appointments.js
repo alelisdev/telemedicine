@@ -6,14 +6,14 @@ import Footer from '../../components/_App/Footer';
 import { useRouter } from "next/router";
 import { userService } from "../../services";
 import decodeToken from "../../utils/decodeToken";
+import ComingAppointmentTable from '../../components/Doctor/ComingAppointmentTable';
 
-export default function OngoingAppointments () {
+export default function ComingAppointments () {
     const router = useRouter();
-
     useEffect(() => {
         if (userService.userValue && userService.userValue.type == 'success') {
             const account = decodeToken(userService.userValue.token);
-            if(account?.user?.role !== 'client') {
+            if(account?.user?.role !== 'staff') {
                 router.push('/');
             }
         } else {
@@ -29,13 +29,18 @@ export default function OngoingAppointments () {
             <Navbar />
 
             <PageBanner 
-                pageTitle="Blog" 
-                homePageUrl="/" 
-                homePageText="Home" 
-                activePageText="Blog" 
+                pageTitle="Last Appointments" 
+                homePageUrl="/doctors/profile" 
+                homePageText="Doctors" 
+                activePageText="Last Appointments"
                 bgImage="page-title-four" 
             /> 
-
+            <div className="about-area pt-100 pb-70">
+                <div className="container">
+                    <ComingAppointmentTable />
+                </div>
+            </div>
+            
             <Footer />
         </>
     )

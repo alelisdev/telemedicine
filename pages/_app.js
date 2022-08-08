@@ -10,6 +10,7 @@ import '../public/css/style.scss'
 import '../public/css/responsive.css'
 import '../public/css/rtl.css'
 import '../node_modules/react-notifications/lib/notifications.css';
+import 'react-calendar/dist/Calendar.css'
 import { NotificationContainer } from 'react-notifications';
 import Layout from '../components/_App/Layout';
 import React from 'react';

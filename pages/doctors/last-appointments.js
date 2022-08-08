@@ -6,6 +6,7 @@ import Footer from '../../components/_App/Footer';
 import { useRouter } from "next/router";
 import { userService } from "../../services";
 import decodeToken from "../../utils/decodeToken";
+import LastAppointmentTable from '../../components/Doctor/LastAppointmentTable';
 
 export default function LastAppointments () {
     const router = useRouter();
@@ -29,13 +30,18 @@ export default function LastAppointments () {
             <Navbar />
 
             <PageBanner 
-                pageTitle="Blog" 
-                homePageUrl="/" 
-                homePageText="Home" 
-                activePageText="Blog" 
+                pageTitle="Last Appointments" 
+                homePageUrl="/doctors/profile" 
+                homePageText="Doctors" 
+                activePageText="Last Appointments"
                 bgImage="page-title-four" 
             /> 
-
+            <div className="about-area pt-100 pb-70">
+                <div className="container">
+                    <LastAppointmentTable />
+                </div>
+            </div>
+            
             <Footer />
         </>
     )

@@ -3171,7 +3171,7 @@ footer {
 /*-- End Doctor Details --*/
 /*-- Appointment --*/
 .appointment-area-three .appointment-item {
-  max-width: 565px;
+  /* max-width: 565px; */
   margin-left: auto;
   margin-right: 80px;
   margin-top: 50px;
@@ -5362,5 +5362,22 @@ input[type="file"] {
     border-radius: 6px;
 }
 
+.react-calendar {
+    border-radius: 10px;
+}
+
+.btn-time {
+    background: #0e9eb5;
+    color: #fff;
+    margin: 2px;
+}
+
+.selected-date {
+    margin-bottom: 2px !important;
+}
+
+.react-calendar span{
+    margin-bottom: 0px !important;
+}
 
 /*** Admin ***/

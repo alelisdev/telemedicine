@@ -4,23 +4,35 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { NotificationManager } from 'react-notifications';
 import { useRouter } from 'next/router';
+import Calendar from 'react-calendar';
+
+const time = ['08:00','09:00','10:00','14:00','15:00'];
+
 const INITIAL_STATE = {
     name: "",
     email: "",
     phone: "",
     services: "",
     age: "",
+    meetingUrl: '',
 };
 
 const AppointmentFormTwo = () => {
 
     const router = useRouter();
-
     const [apt, setApt] = useState(INITIAL_STATE);
-
+    const [date, setDate] = useState(new Date());
+    const [showTime, setShowTime] = useState(false);
     const { did } = router.query
-
     const { register, handleSubmit, errors } = useForm();
+    
+    const [event, setEvent] = useState(null)
+    const [info, setInfo] = useState(false)
+
+    function displayInfo(e) {
+        setInfo(true);
+        setEvent(e.target.innerText);
+    }
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -31,14 +43,24 @@ const AppointmentFormTwo = () => {
         if (e && e.preventDefault) {
             e.preventDefault();
         }
-        try {
-            const url = `${baseUrl}/api/appointment`;
-            const { name, email, phone, services, age } = apt;
+        if(event == null) {
+            NotificationManager.warning('Warning message', 'You have to select Correct appointment date and time.');
+            return;
+        }
 
-            const payload = { name, email, phone, services, did, age };
+        try {
+            const doctor = await axios.get(`${baseUrl}/api/doctors/${did}`);
+            const doctorEmail = doctor.data.email;
+            const url = `${baseUrl}/api/appointment`;
+            const { name, email, phone, services, age, meetingUrl } = apt;
+            const payload = { name, email, phone, services, doctorEmail, age, date, event, meetingUrl };
             axios.post(url, payload)
             .then((res) => {
                 setApt(INITIAL_STATE);
+                setDate(new Date());
+                setEvent(null);
+                setInfo(false);
+                setShowTime(false);
                 NotificationManager.success('Success message', res.data.msg);
             })
             .catch(() => {
@@ -112,7 +134,7 @@ const AppointmentFormTwo = () => {
                                             </div>
                                         </div>
 
-                                        <div className="col-lg-12">
+                                        <div className="col-lg-6">
                                             <div className="form-group">
                                                 <i className="icofont-business-man"></i>
                                                 <label>Age</label>
@@ -122,8 +144,52 @@ const AppointmentFormTwo = () => {
                                                 </div>
                                             </div>
                                         </div>
+                                        <div className="col-lg-6">
+                                            <div className="form-group">
+                                                <i className="icofont-ui-video-chat"></i>
+                                                <label>Meeting Link</label>
+                                                <input type="text" name='meetingUrl' value={apt.meetingUrl} onChange={handleChange} ref={register({ required: true })} className="form-control" placeholder="Meeting Link, Skype, WhatsApp." />
+                                                <div className='invalid-feedback' style={{display: 'block'}}>
+                                                    {errors.meetingUrl && 'Meeting Link is required.'}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='col-lg-12'>
+                                            <div className='d-flex justify-content-center'>
+                                                <Calendar onChange={setDate} value={date} onClickDay={() => setShowTime(true)}/>
+                                            </div>
+
+                                            {date.length > 0 ? (
+                                            <p className='d-flex justify-content-center'>
+                                                <span>Start:</span>
+                                                {date[0].toDateString()}
+                                                &nbsp;
+                                                &nbsp;
+                                                <span>End:</span>{date[1].toDateString()}
+                                            </p>
+                                                    ) : (
+                                            <p className='d-flex justify-content-center'>
+                                                <span className='selected-date'>Default selected date{" "}: </span>{" "} {date.toDateString()}
+                                            </p> 
+                                                    )
+                                            }
+                                            {showTime ? 
+                                            <>
+                                                <div className="times d-flex flex-wrap justify-content-center">
+                                                {time.map((times, idx) => {
+                                                    return (
+                                                    <div key={idx}>
+                                                        <div className='btn btn-time' onClick={(e)=> displayInfo(e)}> {times} </div>
+                                                    </div>
+                                                        )
+                                                })}
+                                                </div>
+                                                <div className='text-center p-2'>
+                                                    {info ? `Your appointment is set to ${event} ${date.toDateString()}` : null}
+                                                </div>
+                                            </> : null}
+                                        </div>
                                     </div>
-                                    
                                     <div className="text-center">
                                         <button type="submit" className="btn appointment-btn">Submit</button>
                                     </div>
@@ -131,7 +197,7 @@ const AppointmentFormTwo = () => {
                             </div>
                         </div>
                     </div>
-
+                    
                     <div className="col-lg-5 pr-0">
                         <div className="speciality-item speciality-right speciality-right-two speciality-right-three">
                             <picture><img src="/images/doctors/doctor4.jpg" alt="Doctor" /></picture>
