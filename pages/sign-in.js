@@ -45,13 +45,12 @@ const SignIn = () => {
             const user = await userService.login(payload);
             if(user.type == 'success') {
                 router.push('/');
-                NotificationManager.success('Success message', 'Sign In Successed!');
-                setData(INITIAL_STATE);
+                NotificationManager.success('Success message', 'SignIn Success.');
             } else {
                 NotificationManager.error('Error message', user.msg);
             }
         } catch (error) {
-            NotificationManager.error('Error message', 'Something went wrong');
+            NotificationManager.error('Error message', 'Something went wrong.');
         }
     };
 

@@ -12,6 +12,7 @@ import { NotificationManager } from 'react-notifications';
 import decodeToken from '../../utils/decodeToken';
 import { userService } from '../../services';
 import { useRouter } from 'next/router';
+import categories from '../../utils/doctorCategories';
 
 const DoctorProfile = () => {
     const router = useRouter();
@@ -230,17 +231,23 @@ const DoctorProfile = () => {
                 const url = `${baseUrl}/api/doctors/profile/${user.email}`;
                 axios.get(url)
                 .then((res) => {
-                    const { experiences, educations, biography, phone, address, major, avatarPath, licensePath } = res.data;
-                    setExpFields(experiences);
-                    setEduFields(educations);
-                    setLastFields({
-                        phone: phone,
-                        bio: biography,
-                        major: major,
-                        address: address
-                    });
-                    setAvatarImage((baseUrl + '/' + avatarPath));
-                    setLicenseImage((baseUrl + '/' + licensePath));
+                    if(res.data) {
+                        const { experiences, educations, biography, phone, address, major, avatarPath, licensePath } = res.data;
+                    
+                        setExpFields(experiences);
+                        setEduFields(educations);
+                        setLastFields({
+                            phone: phone,
+                            bio: biography,
+                            major: major,
+                            address: address
+                        });
+                        setAvatarImage((baseUrl + '/' + avatarPath));
+                        setLicenseImage((baseUrl + '/' + licensePath));
+                    }
+                })
+                .catch((err) => {
+                    NotificationManager.error('Error message', 'Something went wrong.')
                 })
             }
             
@@ -553,9 +560,17 @@ const DoctorProfile = () => {
                                         </div>
                                         <div className="col-lg-12">
                                             <div className="form-group">
-                                                <i className="icofont-hospital"></i>
-                                                <label>Major</label>
-                                                <input type="text" name="major" value={lastFields.major} onChange={handleLastChange} className="form-control" placeholder="Ex: Neurosurgeon" />
+                                                <label htmlFor='category'>Category</label>
+                                                <select className="form-control" value={lastFields.major} onChange={handleLastChange} name="major">
+                                                    <option value="">-- Select a category --</option>
+                                                    {
+                                                        categories.map((item, idx) => {
+                                                            return (
+                                                                <option key={idx} value={item.name}>{item.name}</option>
+                                                            )
+                                                        })
+                                                    }
+                                                </select>
                                             </div>
                                         </div>
                                     </div>

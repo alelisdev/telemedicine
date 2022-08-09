@@ -12,15 +12,18 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import EditIcon from "@material-ui/icons/EditOutlined";
+import Tooltip from '@mui/material/Tooltip';
 import parseISOStringToDate from '../../utils/parseISOStringToDate';
 import getComparator from '../../utils/getComparator';
 import stableSort from '../../utils/stableSort';
-import AppointmentTableHead from './AppointmentTableHead';
+import AppointmentTableHead from '../Doctor/AppointmentTableHead';
 import axios from 'axios';
 import baseUrl from '../../utils/baseUrl';
 import headCells from './headCells';
-import Rating from '../Common/Rating';
 import AppointmentDetailModal from './AppointmentDetailModal';
+import FeedbackDialog from './FeedbackModal';
 
 
 export default function AppointmentTable(props) {
@@ -32,9 +35,21 @@ export default function AppointmentTable(props) {
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [open, setOpen] = React.useState(false);
     const [details, setDetails] = useState({});
+    const [openFeedback, setOpenFeedback] = React.useState(false);
+
+    const handleClickOpenFeedback = async (_id) => {
+        const url = `${baseUrl}/api/appointment/${_id}`;
+        const res = await axios.get(url);
+        setDetails(res.data);
+        setOpenFeedback(true);
+    };
+
+    const handleCloseFeedback = () => {
+        setOpenFeedback(false);
+    };
+
 
     const handleClickOpen = async (_id) => {
-        
         const url = `${baseUrl}/api/appointment/${_id}`;
         const res = await axios.get(url);
         setDetails(res.data);
@@ -96,6 +111,7 @@ export default function AppointmentTable(props) {
     const emptyRows =
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
+
     return (
         <Box sx={{ width: '100%' }}>
             <Paper sx={{ width: '100%', mb: 2 }}>
@@ -125,7 +141,7 @@ export default function AppointmentTable(props) {
                     id="tableTitle"
                     component="div"
                     >
-                    {kind} Appointments
+                    {kind === 'Previous' ? 'Previous Appointments' : 'Appointment Status'}
                     </Typography>
                 )}
                 </Toolbar>
@@ -172,8 +188,14 @@ export default function AppointmentTable(props) {
                                 </TableCell>
                                 <TableCell>{ parseISOStringToDate(row.book_date) }</TableCell>
                                 <TableCell>{ row.book_time }</TableCell>
-                                <TableCell>{row.name}</TableCell>
-                                <TableCell>{row.feedback === 100 ? '- - - - - - - - - - -  - -' : <Rating edit={false} rating={5} />}</TableCell>
+                                <TableCell>{row.doctorName}</TableCell>
+                                <TableCell>
+                                    <Tooltip title="Delete">
+                                        <IconButton onClick={() => handleClickOpenFeedback(row._id)}>
+                                            <EditIcon /> 
+                                        </IconButton>
+                                    </Tooltip>
+                                </TableCell>
                                 <TableCell>
                                     <Button onClick={() => handleClickOpen(row._id)} variant="outlined" size="large">
                                         Details
@@ -205,6 +227,7 @@ export default function AppointmentTable(props) {
                 />
             </Paper>
             <AppointmentDetailModal open={open} handleClose={handleClose} details={details} />
+            <FeedbackDialog open={openFeedback} handleClose={handleCloseFeedback} details={details} />
         </Box>
     );
 }

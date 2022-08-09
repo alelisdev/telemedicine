@@ -78,7 +78,7 @@ export default function Blog () {
                                     <i className="icofont-hospital"></i>
                                     <label>Category</label>
                                     <select className="form-control" onChange={handleChange}>
-                                        <option value='all'>All</option>
+                                        <option value='all'>-- All --</option>
                                         {
                                             categories.map((category, idx) => {
                                                 return (

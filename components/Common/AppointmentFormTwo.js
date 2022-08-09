@@ -51,9 +51,12 @@ const AppointmentFormTwo = () => {
         try {
             const doctor = await axios.get(`${baseUrl}/api/doctors/${did}`);
             const doctorEmail = doctor.data.email;
+            const doctorName = doctor.data.fname + ' ' + doctor.data.lname;
+            const doctorPhone = doctor.data.phone;
+            
             const url = `${baseUrl}/api/appointment`;
             const { name, email, phone, services, age, meetingUrl } = apt;
-            const payload = { name, email, phone, services, doctorEmail, age, date, event, meetingUrl };
+            const payload = { name, email, phone, services, doctorEmail, doctorName, doctorPhone, age, date, event, meetingUrl };
             axios.post(url, payload)
             .then((res) => {
                 setApt(INITIAL_STATE);
@@ -140,7 +143,7 @@ const AppointmentFormTwo = () => {
                                                 <label>Age</label>
                                                 <input type="text" name='age' value={apt.age} onChange={handleChange} ref={register({ required: true })} className="form-control" placeholder="Your Age" />
                                                 <div className='invalid-feedback' style={{display: 'block'}}>
-                                                    {errors.age && 'Age is required.'}
+                                                    {errors.age && 'Age should be a Number.'}
                                                 </div>
                                             </div>
                                         </div>

@@ -47,15 +47,14 @@ const SignUp = () => {
 
 
     const onSubmit = async e => {
-        // if (e && e.preventDefault) {
-        //     e.preventDefault();
-        // }
+        if (e && e.preventDefault) {
+            e.preventDefault();
+        }
         try {
             const { fname, lname, email, number, password, role } = data;
             setData(data);
             const payload = { fname, lname, email, number, password, role };
             const user = await userService.register(payload);
-            console.log(user)
             if(user.type == 'success' && user.role == 'staff') {
                 router.push('/doctors/profile');
                 NotificationManager.success('Success message', user.msg);

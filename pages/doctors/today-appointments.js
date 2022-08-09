@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import TopHeader from '../../components/_App/TopHeader';
 import Navbar from '../../components/_App/Navbar';
 import PageBanner from '../../components/Common/PageBanner';
@@ -10,15 +10,17 @@ import TodayAppointmentTable from '../../components/Doctor/TodayAppointmentsTabl
 
 export default function TodayAppointments () {
     const router = useRouter();
+    const [email, setEmail] = useState('');
 
     useEffect(() => {
         if (userService.userValue && userService.userValue.type == 'success') {
             const account = decodeToken(userService.userValue.token);
+            setEmail(account.user.email);
             if(account?.user?.role !== 'staff') {
                 router.push('/');
             }
         } else {
-            router.push('/');
+            router.push('/sign-in');
         }
     }, [])
 
@@ -38,7 +40,7 @@ export default function TodayAppointments () {
             /> 
             <div className="about-area pt-100 pb-70">
                 <div className="container">
-                    <TodayAppointmentTable />
+                    <TodayAppointmentTable email={email} />
                 </div>
             </div>
             

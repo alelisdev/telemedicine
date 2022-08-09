@@ -76,7 +76,6 @@ const NewBlog = () => {
         formData.append('blog', JSON.stringify(blog));
         axios.post(url, formData)
         .then((res) => {
-            console.log(res)
             NotificationManager.success('Success message', 'Profile Successfully Submitted!');
             router.push('/admin/blogs');
         }).catch((err) => {
@@ -158,7 +157,7 @@ const NewBlog = () => {
                                     <div className="form-group">
                                         <label htmlFor='category'>Category</label>
                                         <select className="form-control" value={blog.category} onChange={handleChange} ref={register({ required: true })} name="category">
-                                            <option value="">--- Select a category ---</option>
+                                            <option value="">-- Select a category --</option>
                                             {
                                                 categories.map((item, idx) => {
                                                     return (

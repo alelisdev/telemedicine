@@ -1,34 +1,56 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from "react";
 
-export default function Rating(props) {
+const range = (min, max) =>
+  Array(max - min + 1).fill().map((_, i) => min + i)
 
-    const [stars, setStars] = useState([]);
 
-    const rating = props.rating;
+const RatingItem  = ({ checked, colored, onChange, value }) => (
+  <label className={`rating__item ${colored ? 'rating__item--selected' : ''}`}>
+    <input
+      checked={checked}
+      className='rating__input'
+      onChange={(e) => onChange(value)}
+      type="radio"
+      value={value}
+    />
+  </label>
+)
 
-    const [real, setReal] = useState(rating);
+const RatingComponent = ({ min, max, onChange, value }) => {
+  return (
+    <span className='rating'>
+      {
+        range(min, max).map((item, idx) => (
+          <RatingItem
+            key={idx}
+            colored={value >= item}
+            checked={value === item}
+            value={item}
+            onChange={onChange}
+          />
+        ))
+      }
+    </span>
+  )
+}
 
-    useEffect(() => {
-        const tempStars = [];
-        for(let i = 0; i < 5; i++) {
-            let classname = 'star-rating__star';
-            
-            if (real >= i && real != null) {
-                classname += ' is-selected';
-            }
-      
-            tempStars.push(
-              <label key={i} className={classname}>★</label>
-            );
-        }
-        setStars(tempStars)
-    }, [])
+export default function Rating(props){
 
-   
+    const { edit, setRating, rating } = props;
 
     return (
-        <div className="star-rating">
-            {stars}
-        </div>
+        edit? 
+        <RatingComponent
+            min={1}
+            max={5}
+            onChange={(val) => setRating(val)}
+            value={rating}
+        /> : 
+        <RatingComponent
+            min={1}
+            max={5}
+            onChange={() => {}}
+            value={rating}
+        /> 
     )
 }

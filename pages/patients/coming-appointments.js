@@ -6,6 +6,7 @@ import Footer from '../../components/_App/Footer';
 import { useRouter } from "next/router";
 import { userService } from "../../services";
 import decodeToken from "../../utils/decodeToken";
+import ComingAppointmentTable from "../../components/Patient/ComingAppointmetTable";
 
 export default function OngoingAppointments () {
     const router = useRouter();
@@ -35,7 +36,11 @@ export default function OngoingAppointments () {
                 activePageText="Ongoing Appointments" 
                 bgImage="page-title-four" 
             /> 
-
+            <div className="about-area pt-100 pb-70">
+                <div className="container">
+                    <ComingAppointmentTable />
+                </div>
+            </div>
             <Footer />
         </>
     )

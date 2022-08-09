@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -18,23 +17,18 @@ export default function AppointmentDetailModal(props) {
                 <DialogContent>
                     <div className="row">
                         <div className="col-lg-6 col-sm-12 appointment-detail">
-                            <h6>Name</h6>
-                            <p>{details.name}</p>
+                            <h6>Doctor Name</h6>
+                            <p>{details.doctorName}</p>
                             <p></p>
                         </div>
                         <div className="col-lg-6 col-sm-12 appointment-detail">
-                            <h6>Email</h6>
-                            <p>{details.email}</p>
+                            <h6>Doctor Email</h6>
+                            <p>{details.doctorEmail}</p>
                             <p></p>
                         </div>
                         <div className="col-lg-6 col-sm-12 appointment-detail">
                             <h6>Phone Number</h6>
-                            <p>{details.phone}</p>
-                            <p></p>
-                        </div>
-                        <div className="col-lg-6 col-sm-12 appointment-detail">
-                            <h6>Age</h6>
-                            <p>{details.age}</p>
+                            <p>{details.doctorPhone}</p>
                             <p></p>
                         </div>
                         <div className="col-lg-6 col-sm-12 appointment-detail">
@@ -47,6 +41,10 @@ export default function AppointmentDetailModal(props) {
                             <p>{details.book_time}</p>
                             <p></p>
                         </div>
+                        <div className="col-lg-12 col-sm-12 appointment-detail">
+                            <h6>Meeting Link</h6>
+                            <p>{details.meetingUrl}</p>
+                        </div>
                         {
                             details.feedback !== 100 ? (
                                 <div className="col-lg-12 col-sm-12 appointment-detail">
@@ -56,10 +54,6 @@ export default function AppointmentDetailModal(props) {
                                 </div>
                             ) : ''
                         }
-                        <div className="col-lg-12 col-sm-12 appointment-detail">
-                            <h6>Meeting Link</h6>
-                            <p>{details.meetingUrl}</p>
-                        </div>
                         {
                             details.reviews !== '' ? (
                                 <div className="col-lg-12 col-sm-12 appointment-detail">

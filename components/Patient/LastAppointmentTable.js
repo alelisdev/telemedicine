@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import baseUrl from "../../utils/baseUrl";
-import AppointmentTable from "./AppointmentTable";
+import AppointmentTableContent from "./AppointmentTableContent";
 import decodeToken from "../../utils/decodeToken";
 import { userService } from "../../services";
 
-export default function ComingAppointmentTable() {
+export default function LastAppointmentTable() {
 
     const [rows, setRows] = useState([]);
     const fetchData = useCallback(async () => {
         const account = decodeToken(userService.userValue.token);
-        const url = `${baseUrl}/api/appointment/coming/${account.user.email}`;
+        const url = `${baseUrl}/api/appointment/patient/last/${account.user.email}`;
         const res = await axios.get(url);
         setRows(res.data);
     }, [])
@@ -20,6 +20,6 @@ export default function ComingAppointmentTable() {
     }, []);
 
     return (
-        <AppointmentTable rows={rows} kind='Coming' />
+        <AppointmentTableContent rows={rows} kind='Previous' />
     )
 }

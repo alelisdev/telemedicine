@@ -5281,13 +5281,10 @@ input[type="file"] {
     margin-right: 5px;
 }
 
-#mui-3 {
+.MuiTablePagination-toolbar p {
     align-self: end;
 }
 
-.MuiTablePagination-displayedRows {
-    align-self: end;
-}
 
 .comment-avatar {
     max-width: 80px;

@@ -6,36 +6,33 @@ import Footer from '../components/_App/Footer';
 import Link from 'next/link';
 import baseUrl from '../utils/baseUrl';
 import axios from 'axios';
-import categories from '../utils/categories';
+import categories from '../utils/doctorCategories';
 
 const Doctors = () => {
     const [doctors, setDoctors] = useState([]);
     const [keyword, setKeyword] = useState('');
+    const [category, setCategory] = useState('all');
 
     const handleSearch = async (e) => {
         setKeyword(e.target.value);
     }
 
+    const handleChange = (e) => {
+        setCategory(e.target.value);
+    }
+
     const fetchData = useCallback( async () => {
         const url = `${baseUrl}/api/doctors/search`;
-        const payload = { keyword };
+        const payload = { keyword, category };
         const res = await axios.post(url, payload);
         setDoctors(res.data);
-    }, [keyword])
+    }, [keyword, category])
+
+    
 
     useEffect( () => {
         fetchData();
-    }, [keyword])
-
-    const fetchDoctors = useCallback( async () => {
-        const url = `${baseUrl}/api/doctors`;
-        const res = await axios.get(url);
-        setDoctors(res.data);
-    }, [])
-
-    useEffect(() => {
-        fetchDoctors();
-    }, [])
+    }, [keyword, category])
  
     return (
         <>
@@ -72,8 +69,8 @@ const Doctors = () => {
                                 <div className="form-group">
                                     <i className="icofont-hospital"></i>
                                     <label>Category</label>
-                                    <select className="form-control">
-                                        <option value=''>-- Select a Category --</option>
+                                    <select className="form-control" onChange={handleChange}>
+                                        <option value='all'>-- All --</option>
                                         {
                                             categories.map((category, idx) => {
                                                 return (
@@ -106,7 +103,6 @@ const Doctors = () => {
                                             </div>
                                             <div className="doctor-bottom">
                                                 <h3>
-                                                    {doctor._id}
                                                     <Link href={`/doctor-details/${doctor._id}`}>
                                                         <a>{doctor.fname + ' ' + doctor.lname}</a>
                                                     </Link>

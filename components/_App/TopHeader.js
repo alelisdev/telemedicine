@@ -13,12 +13,6 @@ const TopHeader = () => {
         setAccount({});
     }
 
-    const editProfile = () => {
-        if(account.user.role == 'staff') {
-            router.push('/doctors/profile');
-        } 
-    }
-
     const openDashboard = () => {
         router.push('/dashboard');
     }
@@ -101,16 +95,16 @@ const TopHeader = () => {
                                                     (   <>
                                                             <a className="dropdown-item" onClick={() => router.push('/doctors/profile')}><i className="icofont-edit"></i> Doctor Profile </a> 
                                                             <a className="dropdown-item" onClick={() => router.push('/doctors/coming-appointments')}><i className="icofont-rocket-alt-2"></i> Coming Appointments </a> 
-                                                            <a className="dropdown-item" onClick={() => router.push('/doctors/today-appointments')}><i className="icofont-rocket-alt-2"></i> Today Appointments </a> 
-                                                            <a className="dropdown-item" onClick={() => router.push('/doctors/last-appointments')}><i className="icofont-rocket"></i> Last Appointments </a> 
+                                                            <a className="dropdown-item" onClick={() => router.push('/doctors/today-appointments')}><i className="icofont-page"></i> Today's schedule </a> 
+                                                            <a className="dropdown-item" onClick={() => router.push('/doctors/last-appointments')}><i className="icofont-rocket"></i> Previous Appointments </a> 
                                                         </>
                                                     )
                                                     : 
                                                     (
                                                         <>
                                                             <a className="dropdown-item" onClick={() => router.push('/patients/profile')}><i className="icofont-edit"></i> Patient Profile</a>
-                                                            <a className="dropdown-item" onClick={() => router.push('/patients/coming-appointments')}><i className="icofont-rocket-alt-2"></i> Coming Appointments</a>
-                                                            <a className="dropdown-item" onClick={() => router.push('/patients/last-appointments')}><i className="icofont-rocket"></i> Last Appointments</a>
+                                                            <a className="dropdown-item" onClick={() => router.push('/patients/coming-appointments')}><i className="icofont-rocket-alt-2"></i> Appointment Status</a>
+                                                            <a className="dropdown-item" onClick={() => router.push('/patients/last-appointments')}><i className="icofont-rocket"></i> Previous Appointments</a>
                                                         </>
                                                     )
                                                 }
