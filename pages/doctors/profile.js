@@ -16,8 +16,6 @@ import categories from '../../utils/doctorCategories';
 
 const DoctorProfile = () => {
     const router = useRouter();
-    const [data, setData] = useState({});
-
     const [acceptFirstTerms, setAcceptFirstTerms] = useState({
         checked: false,
         touched: false,
@@ -225,10 +223,8 @@ const DoctorProfile = () => {
             } else {
                 setYear((new Date()).getFullYear());
                 setYears(Array.from(new Array(50),(val, index) => year - index ));
-                const { user } = decodeToken(userService.userValue.token);
-                setData(user);
-                
-                const url = `${baseUrl}/api/doctors/profile/${user.email}`;
+                const user = decodeToken(userService.userValue.token);
+                const url = `${baseUrl}/api/doctors/profile/${user.user.email}`;
                 axios.get(url)
                 .then((res) => {
                     if(res.data) {
@@ -612,13 +608,15 @@ const DoctorProfile = () => {
 
     const submitStepper = async () => {
         const url = `${baseUrl}/api/doctors/profile`;
+        const user = decodeToken(userService.userValue.token);
+        console.log(user.user.email)
         const formData = new FormData(); 
         formData.append('license', license);
         formData.append('avatar', avatar);
         formData.append('expFields', JSON.stringify(expFields));
         formData.append('eduFields', JSON.stringify(eduFields));
         formData.append('lastFields', JSON.stringify(lastFields));
-        formData.append('email', data.email);
+        formData.append('email', user.user.email);
         axios.post(url, formData)
         .then((res) => {
             NotificationManager.success('Success message', res.data.msg);
