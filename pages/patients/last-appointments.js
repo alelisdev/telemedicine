@@ -13,7 +13,6 @@ export default function LastAppointments () {
 
     useEffect(() => {
         if (userService.userValue && userService.userValue.type == 'success') {
-            console.log(userService.userValue.token)
             const account = decodeToken(userService.userValue.token);
             if(account?.user?.role !== 'client') {
                 router.push('/');

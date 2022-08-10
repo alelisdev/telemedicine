@@ -62,8 +62,6 @@ const AppointmentFormTwo = () => {
                 const { services, age, meetingUrl, phone } = apt;
                 
                 const payload = { name: `${account.user.fname} ${account.user.lname}`, email: account.user.email, phone, services, doctorEmail, doctorName, doctorPhone, age, date, event, meetingUrl };
-                console.log(account)
-                console.log(payload)
                 axios.post(url, payload)
                 .then((res) => {
                     setApt(INITIAL_STATE);

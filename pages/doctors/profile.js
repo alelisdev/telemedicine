@@ -609,7 +609,6 @@ const DoctorProfile = () => {
     const submitStepper = async () => {
         const url = `${baseUrl}/api/doctors/profile`;
         const user = decodeToken(userService.userValue.token);
-        console.log(user.user.email)
         const formData = new FormData(); 
         formData.append('license', license);
         formData.append('avatar', avatar);
@@ -617,6 +616,7 @@ const DoctorProfile = () => {
         formData.append('eduFields', JSON.stringify(eduFields));
         formData.append('lastFields', JSON.stringify(lastFields));
         formData.append('email', user.user.email);
+        
         axios.post(url, formData)
         .then((res) => {
             NotificationManager.success('Success message', res.data.msg);

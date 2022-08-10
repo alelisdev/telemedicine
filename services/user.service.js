@@ -26,7 +26,6 @@ function login(payload) {
 function register(payload) {
     return fetchWrapper.post(`${baseUrl}/api/auth/register`, payload)
         .then(user => {
-            console.log(user)
             // publish user to subscribers and store in local storage to stay logged in between page refreshes
             userSubject.next(user);
             localStorage.setItem('user', JSON.stringify(user));
