@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
@@ -92,22 +92,9 @@ export default function BlogContents(props) {
     const emptyRows =
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - blogs.length) : 0;
 
-   
-
     const editBlog = (_id) => {
         router.push(`/admin/blogs/edit/${_id}`)
     }
-
-
-    
-    // const fetchData = useCallback( async () => {
-    //     const res = await axios.get(`${baseUrl}/api/blogs/all`);
-    //     setBlogs(res.data);
-    // }, [])
-
-    // useEffect(() => {
-    //     console.log('data', props);
-    // }, [])
 
     return (
         <Box sx={{ width: '100%' }}>

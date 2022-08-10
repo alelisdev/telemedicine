@@ -64,3 +64,6 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# static folder for DigitalOcean App Platform
+_static

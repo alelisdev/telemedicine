@@ -6,7 +6,6 @@ import Footer from '../components/_App/Footer';
 import Link from 'next/link';
 import axios from 'axios';
 import baseUrl from '../utils/baseUrl';
-import { useRouter } from 'next/router';
 import parseISOString from '../utils/parseISOString';
 import categories from '../utils/categories';
 
@@ -14,9 +13,7 @@ export default function Blog () {
     const [blogs, setBlogs] = useState([]);
     const [visible, setVisible] = useState(6);
     const [keyword, setKeyword] = useState('');
-    const router = useRouter();
     const [category, setCategory] = useState('all');
-    // const { did } = router.query;
 
     const handleSearch = async (e) => {
         setKeyword(e.target.value);

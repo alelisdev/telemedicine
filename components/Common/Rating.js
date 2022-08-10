@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 
 const range = (min, max) =>
   Array(max - min + 1).fill().map((_, i) => min + i)
@@ -9,7 +9,7 @@ const RatingItem  = ({ checked, colored, onChange, value }) => (
     <input
       checked={checked}
       className='rating__input'
-      onChange={(e) => onChange(value)}
+      onChange={() => onChange(value)}
       type="radio"
       value={value}
     />

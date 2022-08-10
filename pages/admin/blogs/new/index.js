@@ -76,7 +76,7 @@ const NewBlog = () => {
         formData.append('blog', JSON.stringify(blog));
         axios.post(url, formData)
         .then((res) => {
-            NotificationManager.success('Success message', 'Profile Successfully Submitted!');
+            NotificationManager.success('Success message', res.data.msg);
             router.push('/admin/blogs');
         }).catch((err) => {
             console.log(err)

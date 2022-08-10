@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { userService } from '../../services';
 import { useRouter } from 'next/router'
@@ -95,7 +95,7 @@ const TopHeader = () => {
                                                     (   <>
                                                             <a className="dropdown-item" onClick={() => router.push('/doctors/profile')}><i className="icofont-edit"></i> Doctor Profile </a> 
                                                             <a className="dropdown-item" onClick={() => router.push('/doctors/coming-appointments')}><i className="icofont-rocket-alt-2"></i> Coming Appointments </a> 
-                                                            <a className="dropdown-item" onClick={() => router.push('/doctors/today-appointments')}><i className="icofont-page"></i> Today's schedule </a> 
+                                                            <a className="dropdown-item" onClick={() => router.push('/doctors/today-appointments')}><i className="icofont-page"></i> {"Today's schedule"} </a> 
                                                             <a className="dropdown-item" onClick={() => router.push('/doctors/last-appointments')}><i className="icofont-rocket"></i> Previous Appointments </a> 
                                                         </>
                                                     )

@@ -1,38 +1,40 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
-import { NotificationManager } from 'react-notifications';
 import axios from 'axios';
 import baseUrl from '../../utils/baseUrl';
-
-const INITIAL_STATE = {
-    name: '',
-    phone: '',
-    message: ''
-};
+import { userService } from '../../services';
+import NotificationManager from 'react-notifications/lib/NotificationManager';
+import decodeToken from '../../utils/decodeToken';
 
 const Footer = () => {
     const { register, handleSubmit, errors } = useForm();
-    const [feedback, setFeedback] = useState(INITIAL_STATE);
+    const [message, setMessage] = useState('');
 
     const onSubmit = (e) => {
         if (e && e.preventDefault) { // add?
             e.preventDefault();
         }
-        const url = `${baseUrl}/api/feedback/add`
-        axios.post(url, feedback)
-        .then( (res) => {
-            NotificationManager.success('Success message', res.data.msg);
-            setFeedback(INITIAL_STATE);
-        })
-        .catch( () =>
-            NotificationManager.error('Error message', 'Something went wrong')
-        );
+        if (!userService.userValue || userService.userValue.type !== 'success') {
+            NotificationManager.warning('Warning message', 'You must login.');
+            return;
+        } else {
+            const account = decodeToken(userService.userValue.token);
+            const url = `${baseUrl}/api/feedback/add`
+            const feedback = { message, name: `${account.user.fname} ${account.user.lname}`, email: account.user.email }
+            axios.post(url, feedback)
+            .then( (res) => {
+                NotificationManager.success('Success message', res.data.msg);
+                setMessage('');
+            })
+            .catch( () =>
+                NotificationManager.error('Error message', 'Something went wrong')
+            );
+        }
     };
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFeedback(prevState => ({ ...prevState, [name]: value }));
+        setMessage(e.target.value);
     }
 
     const currentYear = new Date().getFullYear();
@@ -112,7 +114,7 @@ const Footer = () => {
                                     <ul>
                                         <li>
                                             <Link href="/service-details">
-                                                <a>Besides anxiety & Depression</a>
+                                                <a>Family </a>
                                             </Link>
                                         </li>
                                         <li>
@@ -191,19 +193,7 @@ const Footer = () => {
                                     <h3>Feedback</h3>
                                     <form onSubmit={handleSubmit(onSubmit)}>
                                         <div className="form-group">
-                                            <input type="text" value={feedback.name} ref={register({ required: true })} onChange={handleChange} name='name' className="form-control" placeholder="Name" />
-                                            <div className='invalid-feedback' style={{display: 'block'}}>
-                                                {errors.name && 'Name is required.'}
-                                            </div>
-                                        </div>
-                                        <div className="form-group">
-                                            <input type="text" value={feedback.phone} ref={register({ required: true })} onChange={handleChange} name='phone' className="form-control" placeholder="Phone" />
-                                            <div className='invalid-feedback' style={{display: 'block'}}>
-                                                {errors.phone && 'Phone Number is required.'}
-                                            </div>
-                                        </div>
-                                        <div className="form-group">
-                                            <textarea className="form-control" value={feedback.message} onChange={handleChange} ref={register({ required: true })} name='message' id="your_message" rows="3" placeholder="Message"></textarea>
+                                            <textarea className="form-control" value={message} onChange={handleChange} ref={register({ required: true })} name='message' id="your_message" rows="3" placeholder="Message"></textarea>
                                             <div className='invalid-feedback' style={{display: 'block'}}>
                                                 {errors.message && 'Message is required.'}
                                             </div>  

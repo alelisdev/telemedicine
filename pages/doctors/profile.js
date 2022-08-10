@@ -247,6 +247,7 @@ const DoctorProfile = () => {
                     }
                 })
                 .catch((err) => {
+                    console.log(err);
                     NotificationManager.error('Error message', 'Something went wrong.')
                 })
             }
@@ -509,8 +510,8 @@ const DoctorProfile = () => {
                 <div className="profile-area ptb-100 plr-15">
                     <div className="container-fluid p-0">
                         <div className="profile-item">
-                            <h2>Doctor's License - You have to upload Doctor's License Image for the verification.</h2>
-                            <span>A Doctor's License photo helps us we can verify you are a Doctor.</span>
+                            <h2>{"Doctor's License - You have to upload Doctor's License Image for the verification."}</h2>
+                            <span>{"A Doctor's License photo helps us we can verify you are a Doctor."}</span>
 
                             <div className="profile-form">
                                 <div className="row">

@@ -1607,6 +1607,7 @@ footer {
 
 .footer-item .footer-feedback .form-group .form-control {
   font-size: 15px;
+  height: 200px;
   background-color: transparent;
   border-radius: 0;
   border: 0;

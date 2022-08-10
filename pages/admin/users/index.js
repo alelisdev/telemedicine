@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react';
-import axios from 'axios';
-import baseUrl from '../../../utils/baseUrl';
 import TopHeader from '../../../components/_App/TopHeader';
 import Navbar from '../../../components/_App/Navbar';
 import PageBanner from '../../../components/Common/PageBanner';
 import Footer from '../../../components/_App/Footer';
 import { userService } from '../../../services';
 import decodeToken from '../../../utils/decodeToken';
-import UsersTable from '../../../components/Admin/Users';
+import { useRouter } from 'next/router';
 
-export default function Users(props) {
+export default function Users() {
+    const router = useRouter();
 
     useEffect(() => {
         if (userService.userValue && userService.userValue.type == 'success') {
@@ -18,36 +17,28 @@ export default function Users(props) {
                 router.push('/');
             }
         } else {
-            router.push('/');
+            router.push('/sign-in');
         }
     }, []);
-
-
-    return(
+    return (
         <>
             <TopHeader />
+
             <Navbar />
+
             <PageBanner 
-                pageTitle="Blogs" 
-                homePageUrl="/" 
+                pageTitle="Users" 
+                homePageUrl="/admin/blogs" 
                 homePageText="Admin" 
-                activePageText="Blogs" 
+                activePageText="Users" 
                 bgImage="page-title-one" 
             /> 
+
             <div className="about-area pt-100 pb-70">
                 <div className="container">
-                    <UsersTable data={props.data} />
                 </div>
-            </div>
+            </div>  
             <Footer />
         </>
     )
-}
-
-export async function getServerSideProps() {
-    // Fetch data from external API
-    const res = await axios.get(`${baseUrl}/api/users`);
-    const data = res.data;
-    // Pass data to the page via props
-    return { props: { data } }
 }
