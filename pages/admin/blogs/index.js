@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import baseUrl from '../../../utils/baseUrl';
+import React, { useEffect } from 'react';
 import TopHeader from '../../../components/_App/TopHeader';
 import Navbar from '../../../components/_App/Navbar';
 import PageBanner from '../../../components/Common/PageBanner';
@@ -11,10 +9,7 @@ import decodeToken from '../../../utils/decodeToken';
 import { useRouter } from 'next/router';
 
 const BlogList = () => {
-    const router = useRouter();
-    const [data, setData] = useState([]);
-
-    
+    const router = useRouter();   
 
     useEffect(() => {
         if (userService.userValue && userService.userValue.type == 'success') {

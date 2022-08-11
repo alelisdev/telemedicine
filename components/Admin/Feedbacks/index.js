@@ -13,7 +13,6 @@ import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
 import axios from 'axios';
 import baseUrl from '../../../utils/baseUrl';
-import { useRouter } from 'next/router';
 import CustomTableHead from '../../Common/CustomTableHead';
 import stableSort from '../../../utils/stableSort';
 import getComparator from '../../../utils/getComparator';
@@ -21,12 +20,11 @@ import headCells from './headCells';
 import parseISOString from '../../../utils/parseISOString';
 
 export default function FeedbackContents() {
-    const router = useRouter();
-    const [order, setOrder] = React.useState('desc');
-    const [orderBy, setOrderBy] = React.useState('date');
-    const [selected, setSelected] = React.useState([]);
-    const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [order, setOrder] = useState('desc');
+    const [orderBy, setOrderBy] = useState('date');
+    const [selected, setSelected] = useState([]);
+    const [page, setPage] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = useState(10);
     const [feedbacks, setFeedbacks] = useState([]);
 
     const handleRequestSort = (event, property) => {
