@@ -6,6 +6,7 @@ import Footer from '../../../components/_App/Footer';
 import { userService } from '../../../services';
 import decodeToken from '../../../utils/decodeToken';
 import { useRouter } from 'next/router';
+import UsersContents from '../../../components/Admin/Users';
 
 export default function Users() {
     const router = useRouter();
@@ -20,6 +21,7 @@ export default function Users() {
             router.push('/sign-in');
         }
     }, []);
+    
     return (
         <>
             <TopHeader />
@@ -36,6 +38,7 @@ export default function Users() {
 
             <div className="about-area pt-100 pb-70">
                 <div className="container">
+                    <UsersContents />
                 </div>
             </div>  
             <Footer />

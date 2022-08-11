@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import baseUrl from '../../../utils/baseUrl';
+import React, { useEffect } from 'react';
 import TopHeader from '../../../components/_App/TopHeader';
 import Navbar from '../../../components/_App/Navbar';
 import PageBanner from '../../../components/Common/PageBanner';
 import Footer from '../../../components/_App/Footer';
-import BlogContents from '../../../components/Admin/Blogs';
 import { userService } from '../../../services';
 import decodeToken from '../../../utils/decodeToken';
 import { useRouter } from 'next/router';
+import FeedbackContents from '../../../components/Admin/Feedbacks';
 
-const BlogList = () => {
+export default function Feedbacks() {
     const router = useRouter();
-    const [data, setData] = useState([]);
-
-    
 
     useEffect(() => {
         if (userService.userValue && userService.userValue.type == 'success') {
@@ -26,28 +21,27 @@ const BlogList = () => {
             router.push('/sign-in');
         }
     }, []);
-
+    
     return (
         <>
             <TopHeader />
 
             <Navbar />
-            
+
             <PageBanner 
-                pageTitle="Blogs" 
-                homePageUrl="/admin/blogs" 
+                pageTitle="Feedbacks"
+                homePageUrl="/admin/feedbacks" 
                 homePageText="Admin" 
-                activePageText="Blogs" 
+                activePageText="Feedbacks" 
                 bgImage="page-title-one" 
             /> 
 
             <div className="about-area pt-100 pb-70">
                 <div className="container">
-                    <BlogContents />
+                    <FeedbackContents />
                 </div>
             </div>  
             <Footer />
         </>
     )
 }
-export default BlogList;

@@ -11,38 +11,23 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@material-ui/icons/Add'
 import axios from 'axios';
-import AlertDialog from './DeleteConfirmModal';
 import baseUrl from '../../../utils/baseUrl';
-import EditIcon from "@material-ui/icons/EditOutlined";
 import { useRouter } from 'next/router';
 import CustomTableHead from '../../Common/CustomTableHead';
 import stableSort from '../../../utils/stableSort';
 import getComparator from '../../../utils/getComparator';
-import parseISOString from '../../../utils/parseISOString';
 import headCells from './headCells';
+import parseISOString from '../../../utils/parseISOString';
 
-export default function BlogContents() {
+export default function FeedbackContents() {
     const router = useRouter();
     const [order, setOrder] = React.useState('desc');
     const [orderBy, setOrderBy] = React.useState('date');
     const [selected, setSelected] = React.useState([]);
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
-    const [open, setOpen] = React.useState(false);
-    const [blogs, setBlogs] = useState([]);
-
-    const handleOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
+    const [feedbacks, setFeedbacks] = useState([]);
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'desc';
@@ -52,7 +37,7 @@ export default function BlogContents() {
 
     const handleSelectAllClick = (event) => {
         if (event.target.checked) {
-            const newSelecteds = blogs.map((blog) => blog._id);
+            const newSelecteds = feedbacks.map((blog) => blog._id);
             setSelected(newSelecteds);
             return;
         }
@@ -91,15 +76,11 @@ export default function BlogContents() {
     const isSelected = (_id) => selected.indexOf(_id) !== -1;
 
     const emptyRows =
-        page > 0 ? Math.max(0, (1 + page) * rowsPerPage - blogs.length) : 0;
-
-    const editBlog = (_id) => {
-        router.push(`/admin/blogs/edit/${_id}`)
-    }
+        page > 0 ? Math.max(0, (1 + page) * rowsPerPage - feedbacks.length) : 0;
 
     const fetchData = useCallback(async () => {
-        const res = await axios.get(`${baseUrl}/api/blogs/all`);
-        setBlogs(res.data);
+        const res = await axios.get(`${baseUrl}/api/feedback`);
+        setFeedbacks(res.data);
     }, []);
 
     useEffect(() => {
@@ -135,24 +116,8 @@ export default function BlogContents() {
                         id="tableTitle"
                         component="div"
                         >
-                        Blogs
+                        Feedback List
                         </Typography>
-                    )}
-
-                    {selected.length > 0 ? (
-                        <Tooltip title="Delete">
-                        <IconButton onClick={handleOpen}>
-                            <DeleteIcon />
-                        </IconButton>
-                        </Tooltip>
-                    ) : (
-                        <Tooltip title="Add New">
-                        <IconButton onClick={() => {
-                            router.push('/admin/blogs/new')
-                        }}>
-                            <AddIcon />
-                        </IconButton>
-                        </Tooltip>
                     )}
                 </Toolbar>
                 <TableContainer>
@@ -168,13 +133,13 @@ export default function BlogContents() {
                         orderBy={orderBy}
                         onSelectAllClick={handleSelectAllClick}
                         onRequestSort={handleRequestSort}
-                        rowCount={blogs?.length}
+                        rowCount={feedbacks?.length}
                     />
                     <TableBody>
-                    {stableSort(blogs, getComparator(order, orderBy))
+                    {stableSort(feedbacks, getComparator(order, orderBy))
                         ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                        ?.map((blog, index) => {
-                        const isItemSelected = isSelected(blog._id);
+                        ?.map((feedback, index) => {
+                        const isItemSelected = isSelected(feedback._id);
                         const labelId = `enhanced-table-checkbox-${index}`;
 
                             return (
@@ -183,12 +148,12 @@ export default function BlogContents() {
                                     role="checkbox"
                                     aria-checked={isItemSelected}
                                     tabIndex={-1}
-                                    key={blog._id}
+                                    key={feedback._id}
                                     selected={isItemSelected}
                                 >
                                     <TableCell padding="checkbox">
                                         <Checkbox
-                                            onChange={(e) => handleClick(e, blog._id)}
+                                            onChange={(e) => handleClick(e, feedback._id)}
                                             color="primary"
                                             checked={isItemSelected}
                                             inputProps={{
@@ -196,23 +161,10 @@ export default function BlogContents() {
                                             }}
                                         />
                                     </TableCell>
-                                    <TableCell align="left"><a href={`/blog-details/${blog._id}`} rel="noreferrer" target='_blank'>{blog.title}</a></TableCell>
-                                    <TableCell align="left">{ blog.content.length > 60 ? blog.content.slice(0, 60) + '...' : blog.content }</TableCell>
-                                    <TableCell align="left">{blog.category}</TableCell>
-                                    <TableCell align="left">{parseISOString(blog.date)}</TableCell>
-                                    <TableCell align="left">
-                                        <picture>
-                                            <img src={blog.imagePath ? `${baseUrl}/${blog.imagePath}` : '../images/default-image.png'} height={50} alt='blogImage' />
-                                        </picture>
-                                    </TableCell>
-                                    <TableCell>
-                                        <IconButton
-                                            aria-label="delete"
-                                            onClick={() => editBlog(blog._id)}
-                                        >
-                                            <EditIcon />
-                                        </IconButton>
-                                    </TableCell>
+                                    <TableCell align="left">{feedback.name}</TableCell>
+                                    <TableCell align="left">{feedback.email}</TableCell>
+                                    <TableCell align="left">{ feedback.message }</TableCell>
+                                    <TableCell align="left">{parseISOString(feedback.date)}</TableCell>
                                 </TableRow>
                             );
                         })}
@@ -231,14 +183,13 @@ export default function BlogContents() {
                 <TablePagination
                 rowsPerPageOptions={[5, 10, 25]}
                 component="div"
-                count={blogs?.length || 0}
+                count={feedbacks?.length || 0}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
                 />
             </Paper>
-            <AlertDialog open={open} handleClose={handleClose} selected={selected} setBlogs={setBlogs} setSelected={setSelected} />
         </Box>
     );
 }
