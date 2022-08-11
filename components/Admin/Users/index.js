@@ -11,26 +11,32 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@material-ui/icons/Add'
+import Stack from '@mui/material/Stack';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import axios from 'axios';
 import baseUrl from '../../../utils/baseUrl';
-import { useRouter } from 'next/router';
 import CustomTableHead from '../../Common/CustomTableHead';
 import stableSort from '../../../utils/stableSort';
 import getComparator from '../../../utils/getComparator';
 import headCells from './headCells';
 
 export default function UsersContents() {
-    const router = useRouter();
-    const [order, setOrder] = React.useState('desc');
-    const [orderBy, setOrderBy] = React.useState('date');
-    const [selected, setSelected] = React.useState([]);
-    const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [order, setOrder] = useState('desc');
+    const [orderBy, setOrderBy] = useState('date');
+    const [selected, setSelected] = useState([]);
+    const [page, setPage] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = useState(10);
     const [users, setUsers] = useState([]);
+    const [alignment, setAlignment] = useState('all');
+
+    const handleAlignment =  async (event, newAlignment) => {
+        if (newAlignment !== null) {
+            const res = await axios.get(`${baseUrl}/api/users/${newAlignment}`);
+            setUsers(res.data);
+            setAlignment(newAlignment);
+        }
+    };
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'desc';
@@ -82,7 +88,7 @@ export default function UsersContents() {
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - users.length) : 0;
 
     const fetchData = useCallback(async () => {
-        const res = await axios.get(`${baseUrl}/api/users`);
+        const res = await axios.get(`${baseUrl}/api/users/all`);
         setUsers(res.data);
     }, []);
 
@@ -122,11 +128,24 @@ export default function UsersContents() {
                         User List
                         </Typography>
                     )}
-                    <Tooltip title="Filter">
-                        <IconButton>
-                            <DeleteIcon />
-                        </IconButton>
-                    </Tooltip>
+                    <Stack direction="row" spacing={4}>
+                        <ToggleButtonGroup
+                            value={alignment}
+                            exclusive
+                            onChange={handleAlignment}
+                            aria-label="text alignment"
+                        >
+                            <ToggleButton value="all" aria-label="left aligned">
+                                All
+                            </ToggleButton>
+                            <ToggleButton value="staffs" aria-label="centered">
+                                Staffs
+                            </ToggleButton>
+                            <ToggleButton value="clients" aria-label="right aligned">
+                                Clients
+                            </ToggleButton>
+                        </ToggleButtonGroup>
+                    </Stack>
                     
                 </Toolbar>
                 <TableContainer>
