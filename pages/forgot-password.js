@@ -23,7 +23,7 @@ const ForgotPassword = () => {
     }
 
 
-    const onSubmit = async () => {
+    const onSubmit = async (e) => {
         if (e && e.preventDefault) {
             e.preventDefault();
         }
