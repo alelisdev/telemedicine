@@ -22,7 +22,6 @@ const ForgotPassword = () => {
         setEmail(e.target.value);
     }
 
-
     const onSubmit = async (e) => {
         if (e && e.preventDefault) {
             e.preventDefault();
