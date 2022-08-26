@@ -41,6 +41,7 @@ export default function Users() {
                     <UsersContents />
                 </div>
             </div>  
+            
             <Footer />
         </>
     )
