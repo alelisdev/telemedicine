@@ -15,7 +15,7 @@ export default async function (req, res) {
 
     const data = {
         // Update the email here
-        to: 'exampleyour@gmail.com',
+        to: 'topcoder728@gmail.com',
         from: email,
         subject: 'Hi there',
         text: text,
