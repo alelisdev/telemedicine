@@ -135,9 +135,9 @@ export default function Blog () {
                             })
                         }
                         { visible < blogs.length &&
-                                <div className='text-center'>
-                                    <button onClick={loadMore} type="button" className="btn m-auto btn-primary load-more">Load more</button>
-                                </div>
+                            <div className='text-center'>
+                                <button onClick={loadMore} type="button" className="btn m-auto btn-primary load-more">Load more</button>
+                            </div>
                         }
                     </div>
                 </div>

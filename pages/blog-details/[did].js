@@ -156,8 +156,10 @@ export default function BlogDetails () {
                     </div>
                 </div>
             )}
-            </div>        
+            </div>       
+             
             <Footer />
+
             <CommentConfirmModal open={open} handleClose={handleClose} active={active}  isUp={isUp} />
         </>
     )
