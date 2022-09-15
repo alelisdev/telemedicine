@@ -9,7 +9,6 @@ import Link from 'next/link';
 import { userService } from '../services';
 import NotificationManager from 'react-notifications/lib/NotificationManager';
 
-// Form initial state
 const INITIAL_STATE = {
     fname: "",
     lname: "",

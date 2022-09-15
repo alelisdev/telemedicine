@@ -9,7 +9,6 @@ import Link from 'next/link';
 import { userService } from '../services';
 import { NotificationManager } from 'react-notifications';
 
-// Form initial state
 const INITIAL_STATE = {
     email: "",
     password: "",
