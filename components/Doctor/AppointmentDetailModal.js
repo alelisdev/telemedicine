@@ -71,9 +71,13 @@ export default function AppointmentDetailModal(props) {
                         }
                     </div>
                 </DialogContent>
+
                 <DialogActions>
+
                 <Button onClick={handleClose}>Ok</Button>
+
                 </DialogActions>
+
             </Dialog>
         </div>
     );
