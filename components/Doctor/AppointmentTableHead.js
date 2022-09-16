@@ -52,6 +52,6 @@ function AppointmentTableHead(props) {
         </TableRow>
       </TableHead>
     );
-  }
+}
 
-  export default AppointmentTableHead;
+export default AppointmentTableHead;

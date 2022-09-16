@@ -44,7 +44,6 @@ export default function AppointmentTable(props) {
     const handleClose = () => {
         setOpen(false);
     };
-    
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
@@ -92,7 +91,6 @@ export default function AppointmentTable(props) {
 
     const isSelected = (name) => selected.indexOf(name) !== -1;
 
-    // Avoid a layout jump when reaching the last page with empty rows.
     const emptyRows =
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
