@@ -5,6 +5,6 @@ module.exports = {
         includePaths: [path.join(__dirname, 'styles')],
     },
     env: {
-        admin: 'topcoder728@gmail.com',
+        admin: '',
     }
 }
