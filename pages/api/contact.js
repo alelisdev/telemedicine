@@ -13,7 +13,7 @@ export default async function (req, res) {
     const {name, email, number, subject, text} = req.body;
 
     const data = {
-        to: 'topcoder728@gmail.com',
+        to: '',
         from: email,
         subject: 'Hi there',
         text: text,
