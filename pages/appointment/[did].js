@@ -200,6 +200,7 @@ const Appointment = () => {
                     </div>
                 </div>
             </div>
+            
             <Footer />
         </>
     )
