@@ -37,7 +37,7 @@ function ConfirmEmail () {
                             />
                         </picture>
                         <p>
-                        An email has been sent to <strong>topcoder728@gmail.com</strong>. Please click on the
+                        An email has been sent to <strong>test@gmail.com</strong>. Please click on the
                         included link to reset your password.
                         </p> 
                         <div className='text-center mt-5'>
