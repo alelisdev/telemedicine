@@ -11,9 +11,7 @@ const Testimonials = () => {
     return (
         <>
             <TopHeader />
-
             <Navbar />
-
             <PageBanner 
                 pageTitle="Testimonials" 
                 homePageUrl="/" 
@@ -21,15 +19,11 @@ const Testimonials = () => {
                 activePageText="Testimonials" 
                 bgImage="page-title-one" 
             /> 
-
             <div className="pt-100">
                 <OurExpertise />
             </div>
-
             <TestimonialSlider />
-
             <OurDoctors />
-
             <Footer />
         </>
     )
